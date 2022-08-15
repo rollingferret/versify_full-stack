@@ -10,7 +10,12 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack --watch --mode=development"
+    "watch": "webpack --watch --mode=development",
+    "postinstall": "webpack"
+  },
+  "engines": {
+    "node": "16.15.0",
+    "npm": "8.5.5"
   },
   "repository": {
     "type": "git",
