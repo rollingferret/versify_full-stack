@@ -10,7 +10,7 @@ class Signup extends React.Component {
             emailCheck: '',
             passwordCheck: '',
             username: 'Enter a profile name',
-            // birthday: null,
+            monthValue: '01',
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -48,54 +48,57 @@ class Signup extends React.Component {
             <div className='signup-page'>
                 <h1>Sign up for free to start listening.</h1>
                 <h2>LOG IN AS DEMO USER - GOOGLE STYLING PLACEHOLDER
-                    <p>or</p>
-                    <p>Sign up with your email address.</p>
+                    <p />or
+                    <p />Sign up with your email address.
                 </h2>
 
                 <form className='session-form'>
-                    <p><label>What's your email?
-                        <p><input 
+                    <p /><label>What's your email?
+                        <p /><input 
                                 type="text" 
                                 value={this.state.email} 
                                 onChange={this.handleInput('email')}
-                            /></p>
-                    </label></p>
+                            />
+                    </label>
                     
-                    <p><label>Confirm your email? PLACEHOLDER
-                        <p><input 
+                    <p /><label>Confirm your email? PLACEHOLDER
+                        <p /><input 
                                 type="text" 
                                 value={this.state.emailCheck} 
                                 onChange={this.handleInput('emailCheck')}
-                            /></p>
-                    </label></p>
+                            />
+                    </label>
 
-                    <p><label>Create a password
-                        <p><input 
+                    <p /><label>Create a password
+                        <p /><input 
                                 type="password" 
                                 value={this.state.password} 
                                 onChange={this.handleInput('password')}
-                            /></p>
-                    </label></p>
+                            />
+                    </label>
 
-                    <p><label>Confirm your password PLACEHOLDER
-                        <p><input 
+                    <p /><label>Confirm your password PLACEHOLDER
+                        <p /><input 
                                 type="password" 
                                 value={this.state.passwordCheck} 
                                 onChange={this.handleInput('passwordCheck')}
-                            /></p>
-                    </label></p>
+                            />
+                    </label>
 
-                    <p><label>What should we call you?
-                        <p><input 
+                    <p /><label>What should we call you?
+                        <p /><input 
                                 type="text" 
                                 value={this.state.username} 
                                 onChange={this.handleInput('username')}
-                            /></p>
-                    </label></p>
+                            />
+                    </label>
 
-                  <BirthdayItem />
+                  <BirthdayItem handleSubmit={this.handleSubmit}
+                    handleInput={this.handleInput.bind(this)}
+                    monthValue={this.state.monthValue}
+                    />
 
-                    <p><button onClick={this.handleSubmit}>Sign Up</button></p>
+                    <p /><button onClick={this.handleSubmit}>Sign Up</button>
                 </form>
 
             </div>
