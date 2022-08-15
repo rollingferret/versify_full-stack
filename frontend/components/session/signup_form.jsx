@@ -1,7 +1,7 @@
 import React from 'react';
 import BirthdayItem from './signup_items/birthday_item';
 
-class Signup extends React.Component {
+class SignupForm extends React.Component {
     constructor (props) {
         super(props);
         this.state = {
@@ -24,8 +24,6 @@ class Signup extends React.Component {
 
     handleSubmit (e) {
         e.preventDefault();
-        // this.props.createUser(this.state)
-        //     .then ( () => this.props.history.push('/playlists'));
         const { email, emailCheck, password, passwordCheck, username} = this.state
         console.log(this.state)
         if (!email || !emailCheck || !password || !passwordCheck || !username) {
@@ -40,10 +38,13 @@ class Signup extends React.Component {
         if (username === "Enter a profile name") {
             console.log("Enter a name for your profile.")
         }
+        this.props.createUser(this.state)
+            .then ( () => this.props.history.push('/playlists'));
     }
     // using playlists as the home webpage after login
 
     render() {
+        const { email, emailCheck, password, passwordCheck, username} = this.state
         return (
             <div className='signup-page'>
                 <h1>Sign up for free to start listening.</h1>
@@ -106,4 +107,4 @@ class Signup extends React.Component {
     }
 }
 
-export default Signup;
+export default SignupForm;
