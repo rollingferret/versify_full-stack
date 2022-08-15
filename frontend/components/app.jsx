@@ -13,7 +13,6 @@ import Signup from './session/signup';
 
 const App = () => (
     <div>
-        THIS IS APP
         <Signup />
     </div>
 )
