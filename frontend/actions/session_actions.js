@@ -14,7 +14,6 @@ const receiveCurrentUser = user => ({
 
 const logoutCurrentUser = () => ({
     type: LOGOUT_CURRENT_USER,
-    user: user,
 })
 
 export const createUser = formUser => dispatch => (
@@ -29,6 +28,6 @@ export const createSession = formUser => dispatch => (
  
 export const endSession = () => dispatch => (
     deleteSession()
-    .then( () => dispatch(logoutCurrentUser))
+    .then( () => dispatch(logoutCurrentUser()))
 );
  
