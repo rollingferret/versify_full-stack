@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default ({ currentUser, endSession }) => {
+
+const NavBar = ({ currentUser, logout }) => {
     const display = currentUser ? (
         <div>
-        <h3>Welcome {currentUser.username}!</h3>
-        <button onClick={endSession}>Logout</button>
+        <h3>{currentUser.username}</h3>
+        <button onClick={logout}>Logout</button>
+        {/* button needs to be nested in drop down under username */}
         </div>
     ) : (
         <div>
@@ -15,10 +17,12 @@ export default ({ currentUser, endSession }) => {
     );
     return (
         <header className="nav-bar">
-        <h1 className="logo">BLUEBIRD</h1>
+        <h1 className="logo">VERSIFY</h1>
         <div>
             {display}
         </div>
         </header>
     )
 }
+
+export default NavBar;

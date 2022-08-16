@@ -11,9 +11,9 @@ Rails.application.routes.draw do
 end
 
 
-#                    Prefix Verb   URI Pattern                                  Controller#Action
-#                  api_user POST   /api/user(.:format)                          api/users#create {:format=>:json}
-#               api_session DELETE /api/session(.:format)                       api/sessions#destroy {:format=>:json}
-#                           POST   /api/session(.:format)                       api/sessions#create {:format=>:json}
+#                    Prefix Verb   URI Pattern               Controller#Action
+#                  api_user POST   /api/user(.:format)       api/users#create {:format=>:json}
+#               api_session DELETE /api/session(.:format)    api/sessions#destroy {:format=>:json}
+#                           POST   /api/session(.:format)    api/sessions#create {:format=>:json}
 #                      root GET    /      
 

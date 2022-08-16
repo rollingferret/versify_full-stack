@@ -10,9 +10,9 @@ class SignupForm extends React.Component {
             emailCheck: '',
             passwordCheck: '',
             username: 'Enter a profile name',
+            yearValue: '2004',
             monthValue: '01',
             dayValue: '01',
-            yearValue: '2004',
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,12 +27,29 @@ class SignupForm extends React.Component {
     handleSubmit (e) {
         e.preventDefault();
         const { email, emailCheck, password, passwordCheck, 
-            username, yearValue, monthValue, dayValue} = this.state;
+            username, yearValue, monthValue, dayValue,
+            } = this.state;
         
-        const birthday = ( yearValue+'/'+monthValue+'/'+dayValue )
-        console.log(this.state)
+        //reformat birthday to Date object
+        const bdayStr = ( yearValue+'/'+monthValue+'/'+dayValue )
+        console.log('bdayStr', bdayStr)
+        const dateBday = new Date(bdayStr + "Z");
+
+        //setup User object to create
+        const formUser = {
+            email: email,
+            birthday: dateBday,
+            username: username,
+            password: password,
+        }
+
+        console.log(formUser);
+        this.props.createUser(formUser)
+            .then ( () => this.props.history.push('/playlists'));
+
         if (!email || !emailCheck || !password || !passwordCheck || !username) {
-                console.log("Fill out all fields.")
+            this.props.receiveSessionErrors(["Fill out all fields."])
+                // console.log("Fill out all fields.")
             }
         if (email !== emailCheck) {
             console.log("The email addresses don't match.")
@@ -43,16 +60,7 @@ class SignupForm extends React.Component {
         if (username === "Enter a profile name") {
             console.log("Enter a name for your profile.")
         }
-
-        const formUser = {
-            email: email,
-            birthday: birthday,
-            username: username,
-            password: password,
-        }
-
-        this.props.createUser(formUser)
-            .then ( () => this.props.history.push('/playlists'));
+        
     // using playlists as the home webpage after login
     }
 

@@ -12,6 +12,14 @@ import {
 document.addEventListener("DOMContentLoaded", () => {
   const store = configureStore();
 
+    // TESTING START
+    window.postUser = postUser,
+    window.postSession = postSession,
+    window.deleteSession = deleteSession,
+    window.getState = store.getState;
+    window.dispatch = store.dispatch;
+    // TESTING END  
+
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={store} />, root);
 });

@@ -5,6 +5,7 @@ import SignupForm from "./signup_form";
 
 const mapDispatchToProps = (dispatch) => ({
     createUser: formUser => dispatch( createUser(formUser) ),
+    receiveSessionErrors: err => dispatch( receiveSessionErrors(err) ),
 })
 
 export default connect(null, mapDispatchToProps)(SignupForm)

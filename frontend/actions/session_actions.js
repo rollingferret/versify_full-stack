@@ -10,7 +10,7 @@ export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS'
 
 const receiveCurrentUser = user => ({
     type: RECEIVE_CURRENT_USER,
-    currentUser: user,
+    user: user,
 })
 
 const logoutCurrentUser = () => ({
@@ -24,16 +24,19 @@ const receiveSessionErrors = (errorsArray) => ({
 
 export const createUser = formUser => dispatch => (
     postUser(formUser)
-    .then( user => dispatch( receiveCurrentUser(user) ))
+    .then( user => dispatch( receiveCurrentUser(user) ),
+    err => (dispatch( receiveSessionErrors(err.responseJSON) )))
 );
  
 export const createSession = formUser => dispatch => (
     postSession(formUser)
-    .then( user => dispatch( receiveCurrentUser(user) ))
+    .then( user => dispatch( receiveCurrentUser(user)),
+    err => (dispatch( receiveSessionErrors(err.responseJSON) )))
 );
  
 export const endSession = () => dispatch => (
     deleteSession()
     .then( () => dispatch(logoutCurrentUser()))
 );
+
  
