@@ -11,6 +11,8 @@ class SignupForm extends React.Component {
             passwordCheck: '',
             username: 'Enter a profile name',
             monthValue: '01',
+            dayValue: '01',
+            yearValue: '2004',
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,7 +26,10 @@ class SignupForm extends React.Component {
 
     handleSubmit (e) {
         e.preventDefault();
-        const { email, emailCheck, password, passwordCheck, username} = this.state
+        const { email, emailCheck, password, passwordCheck, 
+            username, yearValue, monthValue, dayValue} = this.state;
+        
+        const birthday = ( yearValue+'/'+monthValue+'/'+dayValue )
         console.log(this.state)
         if (!email || !emailCheck || !password || !passwordCheck || !username) {
                 console.log("Fill out all fields.")
@@ -38,10 +43,19 @@ class SignupForm extends React.Component {
         if (username === "Enter a profile name") {
             console.log("Enter a name for your profile.")
         }
-        this.props.createUser(this.state)
+
+        const formUser = {
+            email: email,
+            birthday: birthday,
+            username: username,
+            password: password,
+        }
+
+        this.props.createUser(formUser)
             .then ( () => this.props.history.push('/playlists'));
-    }
     // using playlists as the home webpage after login
+    }
+
 
     render() {
         const { email, emailCheck, password, passwordCheck, username} = this.state

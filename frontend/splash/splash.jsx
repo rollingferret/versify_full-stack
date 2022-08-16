@@ -5,7 +5,7 @@ import {
 
 const Splash = () => (
     <div>
-        <h1><Link to='/api/user'>Sign Up</Link></h1>
+        <h1><Link to='/signup'>Sign Up</Link></h1>
     </div>
 )
 
