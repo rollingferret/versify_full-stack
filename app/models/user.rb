@@ -15,12 +15,18 @@ class User < ApplicationRecord
     attr_reader :password
     after_initialize :ensure_session_token
     
-    validates :username, presence: true, uniqueness: true
-    validates :email, presence: true, uniqueness: true
+    validates :username, presence: true, uniqueness: true,
+        format: { without: /\s/, message: "- Spaces not allowed" }
+    validates :email, presence: true, uniqueness: true, 
+        confirmation: {message: '- Emails do not match'}
     validates :birthday, presence: true
-    validates :password, length: {minimum: 8, allow_nil:true}
+    validates :password, length: {minimum: 8, allow_nil:true},  
+        confirmation: {message: '- Passwords do not match'}
+    # validates :email_confirmation, presence: true
+    # validates :password_confirmation, presence: true
+    
 
-    def User.find_by_credentials(username,password)
+    def User.find_by_credentials(username,password)        
         @user = User.find_by(username: username)
         if @user && @user.is_password?(password)
             @user

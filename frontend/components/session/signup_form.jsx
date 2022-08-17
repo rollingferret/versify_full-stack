@@ -7,12 +7,12 @@ class SignupForm extends React.Component {
         this.state = {
             email: '',
             password: '',
-            emailCheck: '',
-            passwordCheck: '',
+            emailConfirmation: '',
+            password_confirmation: '',
             username: 'Enter a profile name',
-            yearValue: '2004',
-            monthValue: '01',
-            dayValue: '01',
+            yearValue: '',
+            monthValue: '',
+            dayValue: '',
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -26,47 +26,34 @@ class SignupForm extends React.Component {
 
     handleSubmit (e) {
         e.preventDefault();
-        const { email, emailCheck, password, passwordCheck, 
+        const { email, emailConfirmation, password, password_confirmation, 
             username, yearValue, monthValue, dayValue,
             } = this.state;
         
-        //reformat birthday to Date object
+        //Reformat birthday to Date object
         const bdayStr = ( yearValue+'/'+monthValue+'/'+dayValue )
         console.log('bdayStr', bdayStr)
         const dateBday = new Date(bdayStr + "Z");
 
-        //setup User object to create
+        //Setup User object for User#create
         const formUser = {
             email: email,
+            emailConfirmation,
             birthday: dateBday,
             username: username,
             password: password,
+            password_confirmation,
         }
 
-        console.log(formUser);
         this.props.createUser(formUser)
             .then ( () => this.props.history.push('/playlists'));
-
-        if (!email || !emailCheck || !password || !passwordCheck || !username) {
-            this.props.receiveSessionErrors(["Fill out all fields."])
-                // console.log("Fill out all fields.")
-            }
-        if (email !== emailCheck) {
-            console.log("The email addresses don't match.")
-        }
-        if (password !== passwordCheck) {
-            console.log("The passwords don't match.")
-        }
-        if (username === "Enter a profile name") {
-            console.log("Enter a name for your profile.")
-        }
+        // using playlists as the home webpage after login
         
-    // using playlists as the home webpage after login
     }
 
 
     render() {
-        const { email, emailCheck, password, passwordCheck, username} = this.state
+        const { email, emailConfirmation, password, password_confirmation, username} = this.state
         return (
             <div className='signup-page'>
                 <h1>Sign up for free to start listening.</h1>
@@ -84,11 +71,11 @@ class SignupForm extends React.Component {
                             />
                     </label>
                     
-                    <p /><label>Confirm your email? PLACEHOLDER
+                    <p /><label>Confirm your email
                         <p /><input 
                                 type="text" 
-                                value={this.state.emailCheck} 
-                                onChange={this.handleInput('emailCheck')}
+                                value={this.state.emailConfirmation} 
+                                onChange={this.handleInput('emailConfirmation')}
                             />
                     </label>
 
@@ -100,11 +87,11 @@ class SignupForm extends React.Component {
                             />
                     </label>
 
-                    <p /><label>Confirm your password PLACEHOLDER
+                    <p /><label>Confirm your password
                         <p /><input 
                                 type="password" 
-                                value={this.state.passwordCheck} 
-                                onChange={this.handleInput('passwordCheck')}
+                                value={this.state.password_confirmation} 
+                                onChange={this.handleInput('password_confirmation')}
                             />
                     </label>
 

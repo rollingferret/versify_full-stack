@@ -17,9 +17,9 @@ const logoutCurrentUser = () => ({
     type: LOGOUT_CURRENT_USER,
 })
 
-const receiveSessionErrors = (errorsArray) => ({
+const receiveSessionErrors = (errors) => ({
     type: RECEIVE_SESSION_ERRORS,
-    errors: errorsArray,
+    errors: errors,
 })
 
 export const createUser = formUser => dispatch => (
@@ -38,5 +38,9 @@ export const endSession = () => dispatch => (
     deleteSession()
     .then( () => dispatch(logoutCurrentUser()))
 );
+
+export const logSessionErrors = (err) => dispatch => (
+    dispatch(receiveSessionErrors(err))
+)
 
  

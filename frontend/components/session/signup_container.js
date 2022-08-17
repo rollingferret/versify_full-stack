@@ -1,11 +1,19 @@
 import { connect } from "react-redux";
-import { createUser } from '../../actions/session_actions.js';
+import { createUser,
+    logSessionErrors, 
+    createSession,
+} from '../../actions/session_actions';
 import SignupForm from "./signup_form";
 
+const mapStateToProps = (state, ownProps) => ({
+    errors: state.errors.session,
+    formType: 'signup',
+})
 
 const mapDispatchToProps = (dispatch) => ({
     createUser: formUser => dispatch( createUser(formUser) ),
-    receiveSessionErrors: err => dispatch( receiveSessionErrors(err) ),
+    logSessionErrors: err => dispatch( logSessionErrors(err) ),
+    createSession: formUser => dispatch( createSession(formUser) ),
 })
 
-export default connect(null, mapDispatchToProps)(SignupForm)
+export default connect(mapStateToProps, mapDispatchToProps)(SignupForm)
