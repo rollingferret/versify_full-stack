@@ -4,12 +4,12 @@ import {connect} from 'react-redux';
 import PlaylistIndex from './playlist_index';
 
 
-const mapStateToProps = state => ({
-  // pokemon: selectAllPokemon(state)
+const mapStateToProps = (state) => ({
+  
 })
 
-const mapDispatchToProps = dispatch => ({
-  // requestAllPokemon: () => dispatch(requestAllPokemon())
+const mapDispatchToProps = (dispatch) => ({
+
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlaylistIndex)

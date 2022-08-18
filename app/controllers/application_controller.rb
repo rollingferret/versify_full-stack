@@ -17,11 +17,10 @@ class ApplicationController < ActionController::Base
     end
 
     def require_login
-        redirect_to new_session_url unless logged_in?
+        redirect_to '/login' unless logged_in?
     end
 
     def logout
-        debugger
         current_user.reset_session_token!
         session[:session_token] = nil
         @current_user = nil

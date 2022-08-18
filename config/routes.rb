@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   namespace :api, defaults: {format: :json} do
-    resource :user, only: [:create]
+    resources :users, only: [:create] do
+      resources :playlists, only: [:create, :edit, :show, :index]
+    end
     resource :session, only: [:create, :destroy]
     
   end
@@ -11,9 +13,12 @@ Rails.application.routes.draw do
 end
 
 
-#                    Prefix Verb   URI Pattern               Controller#Action
-#                  api_user POST   /api/user(.:format)       api/users#create {:format=>:json}
-#               api_session DELETE /api/session(.:format)    api/sessions#destroy {:format=>:json}
-#                           POST   /api/session(.:format)    api/sessions#create {:format=>:json}
-#                      root GET    /      
-
+# /Users/EtaCarinaePrima/Dropbox/aabootcamp/versify_fullstack rr
+#                    Prefix Verb   URI Pattern                                                                              Controller#Action
+#        api_user_playlists GET    /api/users/:user_id/playlists(.:format)           api/playlists#index {:format=>:json}
+#                           POST   /api/users/:user_id/playlists(.:format)           api/playlists#create {:format=>:json}
+#    edit_api_user_playlist GET    /api/users/:user_id/playlists/:id/edit(.:format)  api/playlists#edit {:format=>:json}
+#         api_user_playlist GET    /api/users/:user_id/playlists/:id(.:format)       api/playlists#show {:format=>:json}
+#                 api_users POST   /api/users(.:format)                              api/users#create {:format=>:json}
+#               api_session DELETE /api/session(.:format)                            api/sessions#destroy {:format=>:json}
+#                           POST   /api/session(.:format)                            api/sessions#create {:format=>:json}

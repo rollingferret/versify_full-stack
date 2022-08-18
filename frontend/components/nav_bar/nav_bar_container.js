@@ -1,9 +1,10 @@
 import {connect} from 'react-redux';
-import NavBar from './nav_bar';
-import { endSession } from '../../actions/session_actions';
 
-const mapStateToProps = (state) => ({
-  currentUser: state.entities.users[state.session.id],
+import { endSession } from '../../actions/session_actions';
+import NavBar from './nav_bar';
+
+const mapStateToProps = ( {session, entities: { users } }) => ({
+  currentUser: users[session.id]
 });
 
 const mapDispatchToProps = (dispatch) => ({
