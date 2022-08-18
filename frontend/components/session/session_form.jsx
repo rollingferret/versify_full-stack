@@ -1,7 +1,7 @@
 import React from 'react';
 import BirthdayItem from './signup_items/birthday_item';
 
-class SignupForm extends React.Component {
+class SessionForm extends React.Component {
     constructor (props) {
         super(props);
         this.state = {
@@ -10,9 +10,9 @@ class SignupForm extends React.Component {
             emailConfirmation: '',
             password_confirmation: '',
             username: 'Enter a profile name',
-            yearValue: '',
-            monthValue: '',
-            dayValue: '',
+            yearValue: '1990',
+            monthValue: '01',
+            dayValue: '01',
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -26,7 +26,7 @@ class SignupForm extends React.Component {
 
     handleSubmit (e) {
         e.preventDefault();
-        const { email, emailConfirmation, password, password_confirmation, 
+        const { email, email_confirmation, password, password_confirmation, 
             username, yearValue, monthValue, dayValue,
             } = this.state;
         
@@ -35,10 +35,10 @@ class SignupForm extends React.Component {
         console.log('bdayStr', bdayStr)
         const dateBday = new Date(bdayStr + "Z");
 
-        //Setup User object for User#create
+        //Set up User object for User#create
         const formUser = {
             email: email,
-            emailConfirmation,
+            email_confirmation,
             birthday: dateBday,
             username: username,
             password: password,
@@ -46,11 +46,11 @@ class SignupForm extends React.Component {
         }
 
         this.props.createUser(formUser)
+            // .then ( formUser => this.props.createSession(formUser['user']))
             .then ( () => this.props.history.push('/playlists'));
         // using playlists as the home webpage after login
         
     }
-
 
     render() {
         const { email, emailConfirmation, password, password_confirmation, username} = this.state
@@ -66,7 +66,7 @@ class SignupForm extends React.Component {
                     <p /><label>What's your email?
                         <p /><input 
                                 type="text" 
-                                value={this.state.email} 
+                                value={email} 
                                 onChange={this.handleInput('email')}
                             />
                     </label>
@@ -74,7 +74,7 @@ class SignupForm extends React.Component {
                     <p /><label>Confirm your email
                         <p /><input 
                                 type="text" 
-                                value={this.state.emailConfirmation} 
+                                value={emailConfirmation} 
                                 onChange={this.handleInput('emailConfirmation')}
                             />
                     </label>
@@ -82,7 +82,7 @@ class SignupForm extends React.Component {
                     <p /><label>Create a password
                         <p /><input 
                                 type="password" 
-                                value={this.state.password} 
+                                value={password} 
                                 onChange={this.handleInput('password')}
                             />
                     </label>
@@ -90,7 +90,7 @@ class SignupForm extends React.Component {
                     <p /><label>Confirm your password
                         <p /><input 
                                 type="password" 
-                                value={this.state.password_confirmation} 
+                                value={password_confirmation} 
                                 onChange={this.handleInput('password_confirmation')}
                             />
                     </label>
@@ -98,7 +98,7 @@ class SignupForm extends React.Component {
                     <p /><label>What should we call you?
                         <p /><input 
                                 type="text" 
-                                value={this.state.username} 
+                                value={username} 
                                 onChange={this.handleInput('username')}
                             />
                     </label>
@@ -116,4 +116,4 @@ class SignupForm extends React.Component {
     }
 }
 
-export default SignupForm;
+export default SessionForm;

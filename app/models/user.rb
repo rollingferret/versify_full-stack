@@ -13,7 +13,7 @@
 #
 class User < ApplicationRecord
     attr_reader :password
-    after_initialize :ensure_session_token
+    before_create :ensure_session_token
     
     validates :username, presence: true, uniqueness: true,
         format: { without: /\s/, message: "- Spaces not allowed" }

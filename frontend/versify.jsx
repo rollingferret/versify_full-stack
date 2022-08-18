@@ -2,11 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Root from './components/root';
 import configureStore from './store/store';
+
+// TESTING START
 import {
   postUser,
   postSession,
   deleteSession,
 } from './util/session_util'
+// TESTING END
 
 
 document.addEventListener("DOMContentLoaded", () => {

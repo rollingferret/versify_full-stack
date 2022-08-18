@@ -3,7 +3,7 @@ import { createUser,
     logSessionErrors, 
     createSession,
 } from '../../actions/session_actions';
-import SignupForm from "./signup_form";
+import SessionForm from "./session_form";
 
 const mapStateToProps = (state, ownProps) => ({
     errors: state.errors.session,
@@ -12,8 +12,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     createUser: formUser => dispatch( createUser(formUser) ),
-    logSessionErrors: err => dispatch( logSessionErrors(err) ),
     createSession: formUser => dispatch( createSession(formUser) ),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignupForm)
+export default connect(mapStateToProps, mapDispatchToProps)(SessionForm)
