@@ -15,6 +15,7 @@ const mapStateToProps = ({errors}) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     createUser: formUser => dispatch( createUser(formUser) ),
+    createSession: formUser => dispatch( createSession(formUser) ),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SessionForm)

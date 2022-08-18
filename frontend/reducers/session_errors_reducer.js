@@ -8,7 +8,7 @@ const sessionErrorsReducer = (state = [], action) => {
     Object.freeze(state);
     switch(action.type) {
         case RECEIVE_SESSION_ERRORS:
-            return state.concat(action.errors); // this is an array
+            return (action.errors); // this is an array
         case RECEIVE_CURRENT_USER:
             return [];
         default:

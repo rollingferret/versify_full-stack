@@ -1,11 +1,15 @@
 import React from "react";
+import NavBarContainer from "../nav_bar/nav_bar_container";
 
 
 
 class PlaylistIndex extends React.Component{
     render () {
         return (
-            <h1>Playlist Index</h1>
+            <div>
+                <h1>Playlist Index</h1>
+                <NavBarContainer />
+                </div>
         )
     }
 

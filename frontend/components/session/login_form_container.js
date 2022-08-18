@@ -4,6 +4,7 @@ import { Link,
     } from 'react-router-dom';
     
 import {createSession,
+    createUser,
     } from '../../actions/session_actions';
 import SessionForm from "./session_form";
 
@@ -14,6 +15,7 @@ const mapStateToProps = ( {errors}) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
+    createUser: formUser => dispatch( createUser(formUser) ),
     createSession: formUser => dispatch( createSession(formUser) ),
 })
 

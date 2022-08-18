@@ -8,7 +8,7 @@ import {
 } from 'react-router-dom';
 
 
-import Splash from '../splash/splash';
+import SplashContainer from '../splash/splash_container';
 import SignupFormContainer from './session/signup_form_container'
 import LoginFormContainer from './session/login_form_container'
 import PlaylistIndexContainer from './playlists/playlist_index_container';
@@ -17,10 +17,10 @@ import PlaylistIndexContainer from './playlists/playlist_index_container';
 const App = () => (
     <div>
       <Switch>
-        <Route exact path="/" component={Splash} />
+        <Route exact path="/" component={SplashContainer} />
         <Route exact path="/signup" component={SignupFormContainer} />
         <Route exact path="/login" component={LoginFormContainer} />
-        <Route exact path="/api/users/:user_id/playlists" component={PlaylistIndexContainer} />
+        <Route exact path="/user/playlists" component={PlaylistIndexContainer} />
       </Switch>
           
     </div>

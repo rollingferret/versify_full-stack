@@ -15,9 +15,11 @@ class User < ApplicationRecord
     attr_reader :password
     before_create :ensure_session_token
     
-    validates :username, presence: true, uniqueness: true,
+    validates :username, presence: true, 
+        uniqueness: { case_sensitive: false },
         format: { without: /\s/, message: "- Spaces not allowed" }
-    validates :email, presence: true, uniqueness: true, 
+    validates :email, presence: true, 
+        uniqueness: { case_sensitive: false },
         confirmation: {message: '- Emails do not match'}
     validates :birthday, presence: true
     validates :password, length: {minimum: 8, allow_nil:true},  

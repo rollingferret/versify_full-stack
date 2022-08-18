@@ -5,18 +5,22 @@ class SessionForm extends React.Component {
     constructor (props) {
         super(props);
         this.formType = props.formType;
+        const usernameText = this.formType === 'signup' ?
+            ('Enter a profile name') :
+            ('');
         this.state = {
             email: '',
             password: '',
             emailConfirmation: '',
             password_confirmation: '',
-            username: '',
-            yearValue: '1990',
+            username: usernameText,
+            yearValue: '2004',
             monthValue: '01',
             dayValue: '01',
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSubmitDemo = this.handleSubmitDemo.bind(this);
     }
 
     handleInput (field) {
@@ -25,9 +29,18 @@ class SessionForm extends React.Component {
         };
     }
 
+    handleSubmitDemo (e) {
+        e.preventDefault();
+        const formUser = {
+            username: 'userdemo',
+            password: 'userdemo',
+        }
+        console.log(formUser);
+        this.props.createSession(formUser);
+    }
+
     handleSubmit (e) {
         console.log(this.state);
-        console.log(this.formType);
         e.preventDefault();
         const { email, 
             email_confirmation, password_confirmation, 
@@ -38,7 +51,6 @@ class SessionForm extends React.Component {
         if (this.formType === 'signup') {
             //Reformat birthday input to Date object
             const bdayStr = ( yearValue+'/'+monthValue+'/'+dayValue )
-            console.log('bdayStr', bdayStr)
             const dateBday = new Date(bdayStr + "Z");
 
             //Set up User object for User#create
@@ -50,9 +62,8 @@ class SessionForm extends React.Component {
                 password: password,
                 password_confirmation,
             }
-
             this.props.createUser(formUser)
-                .then ( () => this.props.history.push('/api/users/:user_id/playlists'));
+                .then ( () => this.props.history.push('/user/playlists'));
             // using playlists as the home webpage after login
         }
 
@@ -63,7 +74,7 @@ class SessionForm extends React.Component {
                 password: password,
             }
             this.props.createSession(formUser)
-                .then ( () => this.props.history.push('/api/users/:user_id/playlists'));
+                .then ( () => this.props.history.push('/user/playlists'));
             // using playlists as the home webpage after login
         }
     }
@@ -77,9 +88,11 @@ class SessionForm extends React.Component {
         const navLink = this.props.navLink;
 
         const demoLogin = (
-            <div className="sessionButton">
-                LOG IN AS DEMO USER
-            </div>
+            <button className="sessionButton" 
+                id="demo-button" 
+                onClick= {this.handleSubmitDemo}>
+                Log in as Demo User
+            </button>
         )
 
         const loginGreeting = (
@@ -108,7 +121,7 @@ class SessionForm extends React.Component {
                                 onChange={this.handleInput('password')}
                             />
                     </label>
-                <p /><button onClick={this.handleSubmit}>Log In</button>
+                <p /><button className="sessionButton" id="login-button" onClick={this.handleSubmit}>Log In</button>
             </form>
         )
 
@@ -162,9 +175,8 @@ class SessionForm extends React.Component {
                 </label>
                 <BirthdayItem handleSubmit={this.handleSubmit}
                     handleInput={this.handleInput.bind(this)}
-                    monthValue={this.state.monthValue}
                 />
-                <p /><button onClick={this.handleSubmit}>Sign Up</button>
+                <p /><button className="sessionButton" id="signup-button" onClick={this.handleSubmit}>Sign Up</button>
             </form>
         )
 
