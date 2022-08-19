@@ -36,7 +36,9 @@ class SessionForm extends React.Component {
             password: 'userdemo',
         }
         console.log(formUser);
-        this.props.createSession(formUser);
+        this.props.createSession(formUser)
+            .then ( () => this.props.history.push('/user/playlists'));
+        ;
     }
 
     handleSubmit (e) {

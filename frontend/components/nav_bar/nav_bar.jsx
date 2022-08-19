@@ -2,23 +2,31 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-const NavBar = (props) => {
-    const { currentUser, logout } = props;
-
-    const loggedOutDisplay = (
-        <nav className='logged-out'>
+class NavBar extends React.Component {
+    constructor (props) {
+        super(props)
+    }
+    
+    render () {
+        const { currentUser, logout } = this.props;
+        
+        const loggedOutDisplay = (
+            <nav className='logged-out'>
             <Link className="btn" to="/signup">Sign Up</Link>
-            <p /><Link className="btn" to="/login">Log In</Link>
+            <Link className="btn" to="/login">Log In</Link>
         </nav>
     );
-
+    
     let loggedInDisplay;
     if (currentUser) {
+        return loggedInDisplay = (
             <button onClick={logout}>Logout</button>
-            {/* button needs to be nested in drop down under username */}
+            // {/* button needs to be nested in drop down under username */}
+            )
+        }
+        
+        return (currentUser ? loggedInDisplay : loggedOutDisplay)
     }
-
-    return (currentUser ? loggedInDisplay : loggedOutDisplay)
 }
 
 export default NavBar;

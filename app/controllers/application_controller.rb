@@ -17,8 +17,8 @@ class ApplicationController < ActionController::Base
     end
 
     def require_login
-        redirect_to '/login' unless logged_in?
-    end
+        render json: ['Oops! Log in first!'], status: 401 unless current_user
+      end
 
     def logout
         current_user.reset_session_token!

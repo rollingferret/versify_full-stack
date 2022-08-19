@@ -1,16 +1,21 @@
 import React from "react";
 import NavBarContainer from "../nav_bar/nav_bar_container";
+import MyLinks from "../my_links";
 
 
+class PlaylistIndex extends React.Component {
+    constructor (props) {
+        super(props);
+    }
 
-class PlaylistIndex extends React.Component{
     render () {
         return (
             <div>
-                <h1>Playlist Index</h1>
+                <MyLinks />
                 <NavBarContainer />
-                </div>
-        )
+                <h1>Playlist Index Body PLACEHOLDER</h1>
+            </div>
+        )    
     }
 
 }
