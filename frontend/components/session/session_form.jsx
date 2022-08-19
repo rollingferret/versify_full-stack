@@ -1,9 +1,13 @@
 import React from 'react';
+import { Link,
+} from 'react-router-dom';
+
 import BirthdayItem from './signup_items/birthday_item';
 
 class SessionForm extends React.Component {
     constructor (props) {
         super(props);
+        console.log('PROPS', this.props)
         this.formType = props.formType;
         const usernameText = this.formType === 'signup' ?
             ('Enter a profile name') :
@@ -21,6 +25,7 @@ class SessionForm extends React.Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleSubmitDemo = this.handleSubmitDemo.bind(this);
+        // this.resetErrors = this.resetErrors.bind(this);
     }
 
     handleInput (field) {
@@ -40,6 +45,13 @@ class SessionForm extends React.Component {
             .then ( () => this.props.history.push('/user/playlists'));
         ;
     }
+
+    // resetErrors (e) {
+    //     e.preventDefault();
+    //     this.props.resetSessionErrors([]);
+    //     console.log(e.target);
+    //     this.props.history.push(`${e.target}`)
+    // }
 
     handleSubmit (e) {
         console.log(this.state);
@@ -182,19 +194,29 @@ class SessionForm extends React.Component {
             </form>
         )
 
+        const logErrors = (
+            <ul className="errorList">
+                {this.props.errors.map(err => (
+                    <li>{err}</li>
+                ))}
+            </ul>
+        )
+
         const signUp = (
             <div>
                 {signupGreeting}
+                {logErrors}
                 {signupForm}
-                {navLink}
+                <Link to={navLink.link}>{navLink.text}</Link>
             </div>
         )
 
         const userLogin = (
             <div>
                 {loginGreeting}
+                {logErrors}
                 {loginForm}
-                {navLink}
+                <Link to={navLink.link}>{navLink.text}</Link>
             </div>
         )
 

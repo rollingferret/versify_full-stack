@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import { endSession } from '../../actions/session_actions';
 import NavBar from './nav_bar';
 
-const mapStateToProps = ( {session, entities: { users } }) => ({
+const mapStateToProps = ( {session, entities: { users } }, ownProps) => ({
   currentUser: users[session.id]
 });
 

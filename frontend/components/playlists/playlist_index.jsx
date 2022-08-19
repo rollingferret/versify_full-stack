@@ -12,7 +12,7 @@ class PlaylistIndex extends React.Component {
         return (
             <div>
                 <MyLinks />
-                <NavBarContainer />
+                <NavBarContainer history={this.props.history}/>
                 <h1>Playlist Index Body PLACEHOLDER</h1>
             </div>
         )    

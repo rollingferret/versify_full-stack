@@ -5,18 +5,24 @@ import { Link,
 
 import { createUser,
     createSession,
+    logSessionErrors,
     } from '../../actions/session_actions';
 import SessionForm from "./session_form";
 
 const mapStateToProps = ({errors}) => ({
     errors: errors.session,
     formType: 'signup',
-    navLink: <Link to="/login">Already have an account? Log in instead.</Link>
+    navLink: {
+        text: "Already have an account? Log in instead.",
+        link: "/login",
+    },
 })
 
 const mapDispatchToProps = (dispatch) => ({
     createUser: formUser => dispatch( createUser(formUser) ),
     createSession: formUser => dispatch( createSession(formUser) ),
+    resetSessionErrors: () => dispatch(logSessionErrors)
+
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SessionForm)

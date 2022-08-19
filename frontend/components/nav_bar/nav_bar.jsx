@@ -8,7 +8,11 @@ class NavBar extends React.Component {
     }
     
     render () {
-        const { currentUser, logout } = this.props;
+        const { currentUser, logout,
+            history} = this.props;
+
+        const logoutClick = () => logout()
+            .then ( () => history.push('/'));
         
         const loggedOutDisplay = (
             <nav className='logged-out'>
@@ -20,7 +24,7 @@ class NavBar extends React.Component {
     let loggedInDisplay;
     if (currentUser) {
         return loggedInDisplay = (
-            <button onClick={logout}>Logout</button>
+            <button onClick={logoutClick}>Logout</button>
             // {/* button needs to be nested in drop down under username */}
             )
         }
