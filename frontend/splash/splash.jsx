@@ -9,9 +9,13 @@ const Splash = (props) => {
 
     return (
         <div>
-            <MyLinks />
-            <NavBarContainer />
-            <SplashDisplay currentUser={currentUser}/>
+            <div>
+                <MyLinks />
+                <NavBarContainer />
+                </div>
+            <div>
+                <SplashDisplay currentUser={currentUser}/>
+            </div>
         </div>
     )
 

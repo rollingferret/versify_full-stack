@@ -1,0 +1,146 @@
+// Place all the styles related to the api/sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+html {
+    background-color: #181a1b;
+}
+
+div .session {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;   
+    align-items: center; 
+    height: 100vh;
+    background-color: #181a1b;
+    padding: 100px;
+}
+
+.session:first-child {
+    margin-top: 100px;
+}
+
+.session-button {
+    display: inline-block;
+    font-size: 16px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 700;
+    // line-height: 20px;
+    color: white;
+    text-decoration: none;
+    background-color: #1db954;
+    width: 350px;
+    text-align: center;
+    padding: 13px 31px;
+    border-radius: 24px;
+    border: 2px solid #d9dadc;
+    margin-top: 20px auto;
+
+}
+
+#demo-button {
+    background-color: #405a93;
+}
+
+.session-button:hover {
+    border: 4px solid #d9dadc;
+    padding: 11px 30px;
+}
+
+.session h2 {
+    font-size: 32px;
+}
+
+.session input {
+    margin-top: 8px;
+    margin-bottom: 25px;
+    font-size: 16px;
+    width: 430px;
+    height: 50px;
+    padding: 2px 10px;
+    background-image: none;
+    border: 1px solid #d9dadc;
+    border-radius: 0;
+    display: block;
+    background-color: #181a1b;
+}
+
+.session label {
+    font-weight: 700;
+}
+
+.session input::placeholder {
+    color: #71695d;
+}
+
+.session .error-list {
+    list-style-type: none;
+    padding-top: 0px;
+    padding-bottom: 20px;
+}
+
+#session-error-item {
+    padding-top: 5px;
+}
+
+.session a {
+    color: #1db954
+}
+
+.session li {
+    color: #ee3c4e;
+}
+
+.session #fine-print {
+    display: inline-block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 12px;
+    line-height: 15px;
+    width: 400px;
+    text-align: center;
+}
+
+.session:last-child {
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+
+.session .form-title {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 20px;
+    line-height: 30px;
+    width: 100%;
+}
+
+.line {
+    border-bottom: 1px solid #d9dadc;
+    width: 200px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.session .divider {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.session .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.session .footer-link {
+    margin-top: 15px;
+}

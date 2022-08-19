@@ -2,36 +2,38 @@ import React from 'react';
 import { Link,
 } from 'react-router-dom';
 
-import BirthdayItem from './signup_items/birthday_item';
-
 class SessionForm extends React.Component {
     constructor (props) {
         super(props);
-        console.log('PROPS', this.props)
         this.formType = props.formType;
-        const usernameText = this.formType === 'signup' ?
-            ('Enter a profile name') :
-            ('');
         this.state = {
             email: '',
             password: '',
             emailConfirmation: '',
             password_confirmation: '',
-            username: usernameText,
-            yearValue: '2004',
-            monthValue: '01',
-            dayValue: '01',
+            username: '',
+            birthday: '', 
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleSubmitDemo = this.handleSubmitDemo.bind(this);
-        // this.resetErrors = this.resetErrors.bind(this);
+        this.handleKeyPress = this.handleKeyPress.bind(this);
+    }
+
+    componentWillUnmount() {
+        this.props.clearSessionErrors();
     }
 
     handleInput (field) {
         return (e) => {
             this.setState({ [field]: e.target.value })
         };
+    }
+    
+    handleKeyPress(event) {
+        if (event.key === "Enter") {
+          this.handleSubmit(event);
+        }
     }
 
     handleSubmitDemo (e) {
@@ -46,32 +48,21 @@ class SessionForm extends React.Component {
         ;
     }
 
-    // resetErrors (e) {
-    //     e.preventDefault();
-    //     this.props.resetSessionErrors([]);
-    //     console.log(e.target);
-    //     this.props.history.push(`${e.target}`)
-    // }
-
     handleSubmit (e) {
         console.log(this.state);
         e.preventDefault();
         const { email, 
             email_confirmation, password_confirmation, 
             username, password,
-            yearValue, monthValue, dayValue,
+            birthday,
             } = this.state;
 
         if (this.formType === 'signup') {
-            //Reformat birthday input to Date object
-            const bdayStr = ( yearValue+'/'+monthValue+'/'+dayValue )
-            const dateBday = new Date(bdayStr + "Z");
-
             //Set up User object for User#create
             const formUser = {
                 email: email,
                 email_confirmation,
-                birthday: dateBday,
+                birthday: birthday,
                 username: username,
                 password: password,
                 password_confirmation,
@@ -96,132 +87,146 @@ class SessionForm extends React.Component {
     render() {
         const { email, emailConfirmation, 
             password, password_confirmation, 
-            username
+            username, birthday,
         } = this.state
 
         const navLink = this.props.navLink;
+        const demoText = this.props.demoText;
+        const greetingText = this.props.greetingText;
+        const formText = this.props.formText;
 
         const demoLogin = (
-            <button className="sessionButton" 
+            <button className="session-button" 
                 id="demo-button" 
                 onClick= {this.handleSubmitDemo}>
-                Log in as Demo User
+                {demoText}
             </button>
         )
 
-        const loginGreeting = (
-            <div className='login-greeting'>
-                {demoLogin}
-                <h2>
-                    <p />or
-                    <p />Log in with your username.
-                </h2>
-            </div>
-        )
-
         const loginForm = (
-            <form className='session-form'>
+            <div className='session-form'>
                 <p /><label>Username
                     <p /><input 
                             type="text" 
+                            placeholder="Username"
                             value={username} 
                             onChange={this.handleInput('username')}
+                            onKeyPress={this.handleKeyPress}
                         />
                 </label>
                 <p /><label>Password
                         <p /><input 
                                 type="password" 
+                                placeholder="Username"
                                 value={password} 
                                 onChange={this.handleInput('password')}
+                                onKeyPress={this.handleKeyPress}
                             />
                     </label>
-                <p /><button className="sessionButton" id="login-button" onClick={this.handleSubmit}>Log In</button>
-            </form>
-        )
-
-        const signupGreeting = (
-            <div className='signup-greeting'>
-                <h1>Sign up for free to start listening.</h1>
-                { demoLogin }
-                <h2>
-                    <p />or
-                    <p />Sign up with your email address.
-                </h2>
+                <p /><button 
+                        className="session-button" 
+                        id="login-button" 
+                        onClick={this.handleSubmit}
+                        >Log In</button>
             </div>
         )
 
         const signupForm = (
-            <form className='session-form'>
+            <div className='session-form'>
                 <p /><label>What's your email?
                     <p /><input 
-                            type="text" 
+                            type="email"
+                            placeholder="Enter your email." 
                             value={email} 
                             onChange={this.handleInput('email')}
+                            onKeyPress={this.handleKeyPress}
                         />
                 </label>
                 <p /><label>Confirm your email
                     <p /><input 
                             type="text" 
+                            placeholder="Enter your email again." 
                             value={emailConfirmation} 
                             onChange={this.handleInput('emailConfirmation')}
+                            onKeyPress={this.handleKeyPress}
                         />
                 </label>
                 <p /><label>Create a password
                     <p /><input 
                             type="password" 
+                            placeholder="Create a password." 
                             value={password} 
                             onChange={this.handleInput('password')}
+                            onKeyPress={this.handleKeyPress}
                         />
                 </label>
                 <p /><label>Confirm your password
                     <p /><input 
                             type="password" 
+                            placeholder="Enter your password again." 
                             value={password_confirmation} 
                             onChange={this.handleInput('password_confirmation')}
+                            onKeyPress={this.handleKeyPress}
                         />
                 </label>
                 <p /><label>What should we call you?
                     <p /><input 
-                            type="text" 
+                            type="text"
+                            placeholder="Enter a profile name." 
                             value={username} 
                             onChange={this.handleInput('username')}
+                            onKeyPress={this.handleKeyPress}
                         />
                 </label>
-                <BirthdayItem handleSubmit={this.handleSubmit}
-                    handleInput={this.handleInput.bind(this)}
-                />
-                <p /><button className="sessionButton" id="signup-button" onClick={this.handleSubmit}>Sign Up</button>
-            </form>
+                <p /><label>What's your date of birth?
+                    <p /><input 
+                            type="date" 
+                            value={birthday} 
+                            onChange={this.handleInput('birthday')}
+                            onKeyPress={this.handleKeyPress}
+                        />
+                </label>
+                <p />
+                <div className="footer">
+                    <div id='fine-print'>{ this.props.footerText }</div>
+                    <p /><button 
+                            className="session-button" 
+                            id="signup-button" 
+                            onClick={this.handleSubmit}
+                            >Sign Up</button>
+                </div>
+            </div>
         )
 
+        // Refactor not to use index as key
         const logErrors = (
-            <ul className="errorList">
-                {this.props.errors.map(err => (
-                    <li>{err}</li>
-                ))}
-            </ul>
-        )
-
-        const signUp = (
-            <div>
-                {signupGreeting}
-                {logErrors}
-                {signupForm}
-                <Link to={navLink.link}>{navLink.text}</Link>
+            <div className="error-list">
+                <ul>
+                    {this.props.errors.map( (err, index) => (
+                        <li id='session-error-item' key={`${index}-err`}>{err}</li>
+                    ))}
+                </ul>
             </div>
         )
 
-        const userLogin = (
-            <div>
-                {loginGreeting}
-                {logErrors}
-                {loginForm}
-                <Link to={navLink.link}>{navLink.text}</Link>
-            </div>
-        )
+        const display = (this.formType === 'signup' ?  signupForm : loginForm)
 
         return (
-            this.formType === 'signup' ?  signUp : userLogin
+            <div className='session'>
+                <h2>{greetingText}</h2> 
+                <br />{demoLogin}
+                <div className='form-title'>
+                    <div className="divider">
+                        <div className="line"></div>
+                        <p>or</p>
+                        <div className="line"></div>
+                    </div>
+                    <p />{formText}
+                </div>
+                {logErrors}
+                {display}
+                <Link to={navLink.link} className='footer-link'>{navLink.text}</Link>
+            </div>
         )
     }
 }
