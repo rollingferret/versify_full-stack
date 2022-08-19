@@ -1,0 +1,19 @@
+Splash and NavBar with respective containers render differently based on logged in status; refactor NavBar into family class; create my external links for header; structure playlists index page
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch playlists
+# Changes to be committed:
+#	modified:   app/controllers/application_controller.rb
+#	modified:   app/controllers/playlists_controller.rb
+#	new file:   frontend/components/my_links.jsx
+#	modified:   frontend/components/nav_bar/nav_bar.jsx
+#	modified:   frontend/components/playlists/playlist_index.jsx
+#	modified:   frontend/components/playlists/playlist_index_container.js
+#	modified:   frontend/components/session/session_form.jsx
+#	modified:   frontend/components/session/signup_form_container.js
+#	modified:   frontend/splash/splash.jsx
+#	new file:   frontend/splash/splash_display.jsx
+#	modified:   frontend/util/session_util.js
+#
