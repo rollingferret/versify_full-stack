@@ -187,7 +187,7 @@ class SessionForm extends React.Component {
                         />
                 </label>
                 <p />
-                <div className="footer">
+                <div className="footer-form">
                     <div id='fine-print'>{ this.props.footerText }</div>
                     <p /><button 
                             className="session-button" 
@@ -213,8 +213,10 @@ class SessionForm extends React.Component {
 
         return (
             <div className='session'>
-                <h2>{greetingText}</h2> 
-                <br />{demoLogin}
+                <div className="greeting-n-demo">
+                    <h2>{greetingText}</h2> 
+                    <br />{demoLogin}
+                </div>
                 <div className='form-title'>
                     <div className="divider">
                         <div className="line"></div>

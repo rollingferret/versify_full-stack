@@ -17,7 +17,7 @@ const mapStateToProps = ( {errors} ) => ({
     demoText: 'Sign up as Demo User',
     greetingText: 'Sign up for free to start listening.',
     formText: 'Sign up with your email address',
-    footerText: "By clicking on sign-up, you agree that Versify is only a Spotify clone. Terms and Conditions and Spotify's privacy policy do not apply."
+    footerText: "By clicking on sign-up, you agree that Versify is only a Spotify clone. Terms and Conditions and Spotify's privacy policy do NOT apply."
 })
 
 const mapDispatchToProps = (dispatch) => ({
