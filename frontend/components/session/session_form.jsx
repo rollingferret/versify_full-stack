@@ -117,17 +117,20 @@ class SessionForm extends React.Component {
                 <p /><label>Password
                         <p /><input 
                                 type="password" 
-                                placeholder="Username"
+                                placeholder="Password"
                                 value={password} 
                                 onChange={this.handleInput('password')}
                                 onKeyPress={this.handleKeyPress}
                             />
                     </label>
-                <p /><button 
+                <p />
+                <div className="footer-form">
+                    <button 
                         className="session-button" 
                         id="login-button" 
                         onClick={this.handleSubmit}
                         >Log In</button>
+                </div>
             </div>
         )
 
@@ -223,7 +226,7 @@ class SessionForm extends React.Component {
                         <p>or</p>
                         <div className="line"></div>
                     </div>
-                    <p />{formText}
+                    <p>{formText}</p>
                 </div>
                 {logErrors}
                 {display}
