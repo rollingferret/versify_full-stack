@@ -1,35 +1,45 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import MyLinks from './my_links';
 
 
 class NavBar extends React.Component {
     constructor (props) {
         super(props)
+
+        this.state = {
+            currentUser: this.props.currentUser, // denotes Logged Out status
+        }
     }
     
     render () {
-        const { currentUser, logout,
-            history} = this.props;
+        console.log(this.props)
+        const { currentUser,
+            loggedOut,
+            loggedIn, 
+            logout,
+            history,
+        } = this.props;
+
+        const logoDiv = (
+            <div className="site-logo">
+                LOGO PLACEHOLDER
+            </div>
+        )
 
         const logoutClick = () => logout()
             .then ( () => history.push('/'));
+
+        const navDisplay = currentUser ? loggedIn : loggedOut;
         
-        const loggedOutDisplay = (
-            <nav className='logged-out'>
-            <Link className="btn" to="/signup">Sign Up</Link>
-            <Link className="btn" to="/login">Log In</Link>
-        </nav>
-    );
-    
-    let loggedInDisplay;
-    if (currentUser) {
-        return loggedInDisplay = (
-            <button onClick={logoutClick}>Logout</button>
-            // {/* button needs to be nested in drop down under username */}
-            )
-        }
-        
-        return (currentUser ? loggedInDisplay : loggedOutDisplay)
+        return (
+            <nav className="nav-container">
+                {logoDiv}
+                {/* <nav className="nav-links">
+                    <MyLinks />
+                    {navDisplay}
+                </nav> */}
+            </nav>
+        )
     }
 }
 

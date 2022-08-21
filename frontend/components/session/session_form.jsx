@@ -104,7 +104,7 @@ class SessionForm extends React.Component {
         )
 
         const loginForm = (
-            <div className='session-form'>
+            <form className='session-form'>
                 <p /><label>Username
                     <p /><input 
                             type="text" 
@@ -131,11 +131,11 @@ class SessionForm extends React.Component {
                         onClick={this.handleSubmit}
                         >Log In</button>
                 </div>
-            </div>
+            </form>
         )
 
         const signupForm = (
-            <div className='session-form'>
+            <form className='session-form'>
                 <p /><label>What's your email?
                     <p /><input 
                             type="email"
@@ -198,7 +198,7 @@ class SessionForm extends React.Component {
                             onClick={this.handleSubmit}
                             >Sign Up</button>
                 </div>
-            </div>
+            </form>
         )
 
         // Refactor not to use index as key

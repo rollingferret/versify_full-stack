@@ -8,7 +8,7 @@ class Api::SessionsController < ApplicationController
         login(@user)
         render "/api/users/show"
       else
-        render json: ["Please enter correct login information to proceed"], status: 401
+        render json: ["Please enter correct login information to proceed."], status: 401
       end
     end
   
