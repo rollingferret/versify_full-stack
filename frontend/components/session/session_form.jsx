@@ -42,14 +42,12 @@ class SessionForm extends React.Component {
             username: 'userdemo',
             password: 'userdemo',
         }
-        console.log(formUser);
         this.props.createSession(formUser)
-            .then ( () => this.props.history.push('/user/playlists'));
+            .then ( () => this.props.history.push('/playlists'));
         ;
     }
 
     handleSubmit (e) {
-        console.log(this.state);
         e.preventDefault();
         const { email, 
             email_confirmation, password_confirmation, 
@@ -68,7 +66,7 @@ class SessionForm extends React.Component {
                 password_confirmation,
             }
             this.props.createUser(formUser)
-                .then ( () => this.props.history.push('/user/playlists'));
+                .then ( () => this.props.history.push('/playlists'));
             // using playlists as the home webpage after login
         }
 
@@ -79,7 +77,7 @@ class SessionForm extends React.Component {
                 password: password,
             }
             this.props.createSession(formUser)
-                .then ( () => this.props.history.push('/user/playlists'));
+                .then ( () => this.props.history.push('/playlists'));
             // using playlists as the home webpage after login
         }
     }

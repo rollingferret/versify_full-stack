@@ -1,10 +1,81 @@
-// .site-logo
+.nav-links a {
+    color: white;
+}
 
-div .nav-container {
+.nav-links a:hover {
+    color: #1db954
+}
+
+.site-logo {
+    padding-right: 50%;
+}
+
+.nav-container {
+    font-weight: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    display: flex;
+    place-items: center;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 30px 100px;
+    background-color: black;
+}
+
+.nav-links {
+    display: flex;
+    place-items: center;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 500px;
+}
+
+.my-links {
     display: flex;
     flex-direction: row;
-    justify-content: space-betweem;
     align-items: center;
-    background-color: black;
-    border: 1px solid skyblue;
+    justify-content: space-around;
+    width: 100%;
+    border-right: 1px solid white;
+    padding-right: 50px;
+}
+
+.nav-display {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+
+.avatar-pic-nav {
+    margin: 0px 0px;
+    height: auto;
+    width: 100px;
+    display: flex;
+    // place-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    // align-items: center;
+}
+
+#avatar-arrow {
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100px;
+}
+
+#menu-item {
+    width: 100px;
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    background-color: #282828;
+    position: absolute;
+    height: auto;
 }

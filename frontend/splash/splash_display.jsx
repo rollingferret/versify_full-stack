@@ -1,12 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
-
 
 const SplashDisplay = (props) => {
     const { currentUser } = props;
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        props.history.push('/playlists');
+    }
+
     const loggedOutDisplay = (
-        <div className="splash-message">
+        <div className="splash-msg-loggedin">
             <h1>Music is everything.</h1>
         </div>
     )
@@ -16,9 +19,14 @@ const SplashDisplay = (props) => {
         const username = currentUser.username
         const name = username.charAt(0).toUpperCase() + username.slice(1)
         return loggedInDisplay = (
-            <div className='logged-in'>
-                <h3>Welcome back, {name}.</h3>
-                <Link to="/user/playlists" className="btn">Keep listening.</Link>
+            <div className='splash-msg-loggedin'>
+                <h1>Welcome back, {name}.</h1>
+                <h3>Jump back in</h3>
+                <button className="session-button" 
+                    id="continue-button" 
+                    onClick= {handleSubmit}>
+                    OPEN WEB PLAYER
+                </button>
             </div>
         )
     }

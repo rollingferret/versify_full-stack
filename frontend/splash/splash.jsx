@@ -4,16 +4,14 @@ import NavBarContainer from "../components/nav_bar/nav_bar_container";
 import SplashDisplay from "./splash_display";
 
 const Splash = (props) => {
-    const { currentUser } = props;
-
+    const { currentUser, history } = props;
+ 
     return (
-        <div className="splash">
-            <div>
-                <NavBarContainer/>
-            </div>
-            <div className='splash-display'>
-                <SplashDisplay currentUser={currentUser}/>
-            </div>
+        <div className="splash-page">
+            <NavBarContainer/>
+            <section className='splash-display'>
+                    <SplashDisplay currentUser={currentUser} history={history}/>
+            </section>
         </div>
     )
 

@@ -1,6 +1,9 @@
 import React from 'react';
-import MyLinks from './my_links';
+import {MdKeyboardArrowDown,
+    MdKeyboardArrowUp,
+} from 'react-icons/md'
 
+import MyLinks from './my_links';
 
 class NavBar extends React.Component {
     constructor (props) {
@@ -8,36 +11,70 @@ class NavBar extends React.Component {
 
         this.state = {
             currentUser: this.props.currentUser, // denotes Logged Out status
+            hovered: false,
         }
+
+        this.handleMouseEnter = this.handleMouseEnter.bind(this)
+        this.handleMouseLeave = this.handleMouseLeave.bind(this)
+    }
+
+    handleMouseEnter () {
+        this.setState({ hovered: true });
+    }
+    
+    handleMouseLeave () {
+        this.setState({ hovered: false });
     }
     
     render () {
-        console.log(this.props)
         const { currentUser,
-            loggedOut,
-            loggedIn, 
+            loggedOut, 
             logout,
             history,
         } = this.props;
+        const { hovered,
+        } = this.state;
 
         const logoDiv = (
             <div className="site-logo">
-                LOGO PLACEHOLDER
+                FAVICON
             </div>
         )
+        
+        const logoutClick = () => logout().then ( () => history.push('/'));
+        
+        const arrowDisplay = hovered ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />
 
-        const logoutClick = () => logout()
-            .then ( () => history.push('/'));
+        const loggedIn = (
+            <nav className='nav-display' id='splash-logged-in'>
+                <div className='avatar-pic-nav'
+                    onMouseEnter={this.handleMouseEnter}
+                    onMouseLeave={this.handleMouseLeave}
+                    >
+                    <div id='avatar-arrow'
+                    > PIC {arrowDisplay} </div>
+                </div>
+                {this.state.hovered
+                    ? (<div 
+                        id="menu-item" 
+                        onMouseEnter={this.handleMouseEnter}
+                        onMouseLeave={this.handleMouseLeave}>
+                        <a onClick={logoutClick}>Log out</a>
+                        </div>)
+                    : (null)
+                }
+            </nav>
+        )
 
         const navDisplay = currentUser ? loggedIn : loggedOut;
         
         return (
             <nav className="nav-container">
                 {logoDiv}
-                {/* <nav className="nav-links">
+                <nav className="nav-links">
                     <MyLinks />
                     {navDisplay}
-                </nav> */}
+                </nav>
             </nav>
         )
     }

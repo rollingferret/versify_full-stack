@@ -8,8 +8,9 @@ class PlaylistIndex extends React.Component {
 
     render () {
         return (
-            <div>
-                <NavBarContainer history={this.props.history}/>
+            <div className="playlist-index">
+                <NavBarContainer history={this.props.history}
+                />
                 <h1>Playlist Index Body PLACEHOLDER</h1>
             </div>
         )    
