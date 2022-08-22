@@ -10,9 +10,14 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack --watch --mode=development"
+    "watch": "webpack --watch --mode=development",
+    "postinstall": "webpack"
   },
-  "repository": {
+  "engines": {
+    "node": "16.17.0",
+    "npm": "8.15.0"
+  },
+"repository": {
     "type": "git",
     "url": "git+https://github.com/imartinez921/versify_fullstack.git"
   },
