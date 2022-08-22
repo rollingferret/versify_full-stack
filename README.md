@@ -73,3 +73,13 @@ Things you may want to cover:
     "webpack-cli": "^4.10.0"
   }
 }
+
+
+
+
+RUN THESE COMMANDS
+Bundler Output: Your RubyGems version (2.7.6.2) has a bug that prevents `required_ruby_version` from working for Bundler. Any scripts that use `gem install bundler` will break as soon as Bundler drops support for your Ruby version. Please upgrade RubyGems to avoid future breakage and silence this warning by running `gem update --system 3.2.3`
+       Your bundle only supports platforms ["x86_64-darwin-17", "x86_64-darwin-21"] but
+       your local platform is x86_64-linux. Add the current platform to the lockfile
+       with
+       `bundle lock --add-platform x86_64-linux` and try again.
