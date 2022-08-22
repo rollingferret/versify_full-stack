@@ -34,6 +34,7 @@ class NavBar extends React.Component {
         } = this.props;
         const { hovered,
         } = this.state;
+        console.log(history)
 
         const logoDiv = (
             <div className="site-logo">
@@ -42,6 +43,14 @@ class NavBar extends React.Component {
         )
         
         const logoutClick = () => logout().then ( () => history.push('/'));
+
+        const logoutHere = (<div 
+            className="menu-item" 
+            onMouseEnter={this.handleMouseEnter}
+            onMouseLeave={this.handleMouseLeave}>
+            <a onClick={logoutClick}>Log out</a>
+            </div>
+        )
         
         const arrowDisplay = hovered ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />
 
@@ -54,17 +63,11 @@ class NavBar extends React.Component {
                     <div id='avatar-arrow'
                     > PIC {arrowDisplay} </div>
                 </div>
-                {this.state.hovered
-                    ? (<div 
-                        id="menu-item" 
-                        onMouseEnter={this.handleMouseEnter}
-                        onMouseLeave={this.handleMouseLeave}>
-                        <a onClick={logoutClick}>Log out</a>
-                        </div>)
-                    : (null)
+                {this.state.hovered ? (logoutHere) : (null)
                 }
             </nav>
         )
+
 
         const navDisplay = currentUser ? loggedIn : loggedOut;
         
@@ -72,7 +75,9 @@ class NavBar extends React.Component {
             <nav className="nav-container">
                 {logoDiv}
                 <nav className="nav-links">
-                    <MyLinks />
+                    {history.location.pathname === '/' 
+                        ? <MyLinks /> 
+                        : null}
                     {navDisplay}
                 </nav>
             </nav>
