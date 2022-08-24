@@ -43,7 +43,7 @@ class SessionForm extends React.Component {
             password: 'userdemo',
         }
         this.props.createSession(formUser)
-            .then ( () => this.props.history.push('/playlists'));
+            .then ( () => this.props.history.push('/home'));
         ;
     }
 
@@ -66,7 +66,7 @@ class SessionForm extends React.Component {
                 password_confirmation,
             }
             this.props.createUser(formUser)
-                .then ( () => this.props.history.push('/playlists'));
+                .then ( () => this.props.history.push('/home'));
             // using playlists as the home webpage after login
         }
 
@@ -77,7 +77,7 @@ class SessionForm extends React.Component {
                 password: password,
             }
             this.props.createSession(formUser)
-                .then ( () => this.props.history.push('/playlists'));
+                .then ( () => this.props.history.push('/home'));
             // using playlists as the home webpage after login
         }
     }

@@ -1,13 +1,27 @@
+.nav-container div {
+    border-radius: 15px;
+}
+
 .nav-links a {
     color: white;
-}
+}x
 
 .nav-links a:hover {
     color: #1db954
 }
 
-.site-logo {
-    padding-right: 50%;
+.nav-container .site-logo {
+    display: flex;
+    align-items: center;
+    font-size: 40px;
+    width: 200px;
+}
+
+.site-logo h2 {
+    font-family: 'Trebuchet MS', 'impact';
+    vertical-align: center;
+    font-size: 25px;
+    padding-left: 5px;
 }
 
 .nav-container {
@@ -19,63 +33,79 @@
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    padding: 30px 100px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     background-color: black;
+    height: 30px;
 }
 
 .nav-links {
     display: flex;
     place-items: center;
-    flex-direction: row;
-    justify-content: space-evenly;
+    // justify-content: space-evenly;
     align-items: center;
-    width: 500px;
+    width: 200px;
 }
 
-.my-links {
+.nav-container .my-links {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
-    width: 100%;
-    border-right: 1px solid white;
-    padding-right: 50px;
+    justify-content: space-between;
+    width: 200px;
+    border-radius: 0px;
 }
 
-.nav-display {
+.nav-container .line {
+    border: 1px solid white;
+    height: 15px;
+}
+
+#splash-logged-out {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    width: 100%;
+    justify-content: space-between;
+    width: 200px;
 }
 
-
-.avatar-pic-nav {
-    margin: 0px 0px;
-    height: auto;
+#avatar-pic-nav {
+    margin: auto;
+    line-height: 27px;
     width: 100px;
-    display: flex;
-    // place-items: center;
-    flex-direction: column;
-    justify-content: space-evenly;
-    // align-items: center;
+    height: 25px;
+    background-color: black;
 }
 
-#avatar-arrow {
-    padding-left: 15px;
-    padding-right: 15px;
-    width: 100px;
+#avatar-pic-nav:hover {
+    background-color:  #282828;
 }
 
 .menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
     width: 100px;
+    height: auto;
     text-align: center;
-    margin-top: 20px;
-    padding-top: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 15px;
+    margin-top: 10px;
+    padding: 10px;
     background-color: #282828;
     position: absolute;
-    height: auto;
+    color:white;
+}
+
+.menu-item a {
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.menu-item a:hover {
+    color: #1db954
+}
+
+.search-container {
+    width: 400px;
+    background-color: skyblue;
 }

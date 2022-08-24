@@ -1,9 +1,11 @@
 import React from 'react';
 import {MdKeyboardArrowDown,
     MdKeyboardArrowUp,
-} from 'react-icons/md'
+} from 'react-icons/md';
+import Logo from '../logo';
 
 import MyLinks from './my_links';
+import SearchBar from './searchbar';
 
 class NavBar extends React.Component {
     constructor (props) {
@@ -11,19 +13,15 @@ class NavBar extends React.Component {
 
         this.state = {
             currentUser: this.props.currentUser, // denotes Logged Out status
-            hovered: false,
+            menuOpen: false,
         }
 
-        this.handleMouseEnter = this.handleMouseEnter.bind(this)
-        this.handleMouseLeave = this.handleMouseLeave.bind(this)
+        this.showMenu = this.showMenu.bind(this)
     }
 
-    handleMouseEnter () {
-        this.setState({ hovered: true });
-    }
-    
-    handleMouseLeave () {
-        this.setState({ hovered: false });
+    showMenu (e) {
+        e.preventDefault();
+        this.setState({ menuOpen: !this.state.menuOpen });
     }
     
     render () {
@@ -32,54 +30,66 @@ class NavBar extends React.Component {
             logout,
             history,
         } = this.props;
-        const { hovered,
+        const { menuOpen,
         } = this.state;
-        console.log(history)
 
-        const logoDiv = (
-            <div className="site-logo">
-                FAVICON
-            </div>
-        )
-        
-        const logoutClick = () => logout().then ( () => history.push('/'));
-
-        const logoutHere = (<div 
-            className="menu-item" 
-            onMouseEnter={this.handleMouseEnter}
-            onMouseLeave={this.handleMouseLeave}>
-            <a onClick={logoutClick}>Log out</a>
-            </div>
-        )
-        
-        const arrowDisplay = hovered ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />
-
-        const loggedIn = (
-            <nav className='nav-display' id='splash-logged-in'>
-                <div className='avatar-pic-nav'
-                    onMouseEnter={this.handleMouseEnter}
-                    onMouseLeave={this.handleMouseLeave}
-                    >
-                    <div id='avatar-arrow'
-                    > PIC {arrowDisplay} </div>
-                </div>
-                {this.state.hovered ? (logoutHere) : (null)
-                }
+        const navLinks = (<nav 
+            className="nav-links">
+                {history.location.pathname === '/' 
+                ? <MyLinks /> 
+                : null}
             </nav>
         )
 
+        // const logoDiv = (<div 
+        //     className="site-logo">
+        //     {history.location.pathname === '/' 
+        //         ? 
+        //         <>
+        //             <GiRingedPlanet /> 
+        //             <h2> Versify</h2>
+        //         </>
+        //         : null
+        //     }    
+        //     </div>
+        // )
+
+        const logoutClick = () => logout().then ( () => history.push('/'));
+
+        const dropMenu = (<div 
+            className="menu-item">
+                {history.location.pathname !== '/' 
+                    ?  <>
+                        <a href='https://github.com/imartinez921'>GitHub</a>
+                        <a href='https://www.linkedin.com/in/irenemartinez921/'>LinkedIn</a>
+                        </>
+                        : null}
+                <a onClick={logoutClick}>Log out</a>
+            </div>
+        )
+        
+        const arrowDisplay = menuOpen ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />
+
+        const loggedIn = (
+            <nav className='nav-display' id='splash-logged-in'>
+                <div id='avatar-pic-nav' onClick={this.showMenu}> PIC {arrowDisplay} </div>
+                {this.state.menuOpen ? (dropMenu) : (null)
+                }
+            </nav>
+        )
 
         const navDisplay = currentUser ? loggedIn : loggedOut;
         
         return (
             <nav className="nav-container">
-                {logoDiv}
-                <nav className="nav-links">
-                    {history.location.pathname === '/' 
-                        ? <MyLinks /> 
-                        : null}
-                    {navDisplay}
-                </nav>
+                <Logo history={history}/>
+                <div className='search-container'>
+                    {history.location.pathname !== '/' 
+                    ? <SearchBar history={history} />
+                    : null}
+                </div>
+                {navLinks}
+                {navDisplay}
             </nav>
         )
     }

@@ -1,5 +1,6 @@
 import React from "react";
-import NavBarContainer from "../nav_bar/nav_bar_container";
+
+import SidebarButton from '../side_bar/side_bar_button'
 
 class PlaylistIndex extends React.Component {
     constructor (props) {
@@ -8,10 +9,9 @@ class PlaylistIndex extends React.Component {
 
     render () {
         return (
-            <div className="playlist-index">
-                <NavBarContainer history={this.props.history}
-                />
-                <h1>Playlist Index Body PLACEHOLDER</h1>
+            <div className="playlist-index-container">
+                {/* <SidebarButton text='FIRST PLAYLIST PLACEHOLDER'/>
+                <SidebarButton text='SECOND LONG PLAYLIST PLACEHOLDER'/> */}
             </div>
         )    
     }

@@ -1,18 +1,18 @@
 import React from "react";
 
 const SplashDisplay = (props) => {
-    const { currentUser } = props;
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        props.history.push('/playlists');
-    }
-
+    
     const loggedOutDisplay = (
         <div className="splash-msg-loggedin">
             <h1>Music is everything.</h1>
         </div>
     )
+    const { currentUser } = props;
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        props.history.push('/home');
+    }
 
     let loggedInDisplay;
     if (currentUser) {
