@@ -1,6 +1,6 @@
 import React from "react";
 
-import NavBarContainer from "../components/nav_bar/nav_bar_container";
+import NavBarContainer from "../nav_bar/nav_bar_container";
 import SplashDisplay from "./splash_display";
 
 const Splash = (props) => {

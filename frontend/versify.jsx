@@ -9,6 +9,18 @@ import {
   postSession,
   deleteSession,
 } from './util/session_util'
+import {
+  postPlaylist,
+  patchPlaylist,
+  showPlaylist,
+  indexPlaylist,
+  deletePlaylist,
+} from './util/playlists_util'
+
+
+// {title: 'hellothere',
+//   user_id: 5,
+// }
 // TESTING END
 
 
@@ -28,6 +40,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //TESTING
   window.store = store;
+  window.postPlaylist = postPlaylist;
+  window.patchPlaylist = patchPlaylist;
+  window.showPlaylist = showPlaylist;
+  window.indexPlaylist = indexPlaylist;
+  window.deletePlaylist = deletePlaylist;
   //TESTING
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={store} />, root);

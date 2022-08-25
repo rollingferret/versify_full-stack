@@ -72,7 +72,10 @@ class NavBar extends React.Component {
 
         const loggedIn = (
             <nav className='nav-display' id='splash-logged-in'>
-                <div id='avatar-pic-nav' onClick={this.showMenu}> PIC {arrowDisplay} </div>
+                <div id='avatar-pic-nav' onClick={this.showMenu}> 
+                    <div id="avatar-pic"></div>
+                    <div id="arrow-display">{arrowDisplay} </div>
+                </div>
                 {this.state.menuOpen ? (dropMenu) : (null)
                 }
             </nav>

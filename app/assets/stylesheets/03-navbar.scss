@@ -1,10 +1,10 @@
 .nav-container div {
-    border-radius: 15px;
+    border-radius: 5px;
 }
 
 .nav-links a {
     color: white;
-}x
+}
 
 .nav-links a:hover {
     color: #1db954
@@ -25,7 +25,7 @@
 }
 
 .nav-container {
-    font-weight: bold;
+    font-weight: 700;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
     display: flex;
@@ -69,15 +69,24 @@
 }
 
 #avatar-pic-nav {
+    display: flex;
+    flex-direction: row;
+    place-items: center;
     margin: auto;
     line-height: 27px;
-    width: 100px;
-    height: 25px;
+    width: 50px;
+    height: 50px;
     background-color: black;
+    border-radius: 50%;
 }
 
 #avatar-pic-nav:hover {
     background-color:  #282828;
+}
+
+#arrow-display {
+    padding-left: 16px;
+    padding-top: 5px;
 }
 
 .menu-item {
@@ -108,4 +117,8 @@
 .search-container {
     width: 400px;
     background-color: skyblue;
+}
+
+.home-container .nav-container {
+    background-color: transparent;
 }
