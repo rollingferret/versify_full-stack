@@ -14,23 +14,52 @@ import PlaylistIndexContainer from '../playlists/playlist_index_container';
 import SidebarButton from './side_bar_button'
 
 const SideBar = (props) => {
+    console.log('PROPS', props);
+
+    const { createPlaylist,
+            currentUser,
+            fetchPlaylists,
+            playlists,
+    } = props
+
+    const handleSubmitCreate = (e) => {
+        e.preventDefault();
+
+        const number = Object.values(playlists).length
+
+        const defaultNew = ({ 
+            title: `Untitled Playlist #${number}`,
+            description: 'Please add a description',
+            user_id: currentUser.id,
+        }
+        )
+        console.log({defaultNew})
+        createPlaylist(defaultNew)
+        .then ( () => fetchPlaylists());
+    }
+
     return (
         <section className='sidebar-container'>
             <nav className="sidebar">
-                <div className="sidebar-button">
-                    <div className="icon">
-                        <MdOutlineAddBox />
+                <button className="sidebar-button"
+                name='playlist'
+                onClick={handleSubmitCreate}>
+                    <div className="icon" ><MdOutlineAddBox /></div>
+                    <div className="text" >Create Playlist</div>
+                </button>
+            </nav>
+                {/* <div className="sidebar-button"> */}
+                    {/* <div className="icon"> */}
+                        {/* <MdOutlineAddBox />
                     </div>
                     <div className="text">
                         <Link to='/create'>Create Playlist</Link>
-                    </div>
-                </div>
+                    </div> */}
+                {/* </div> */}
 
 
                 {/* <SidebarButton text='Home' icon={<AiFillHome />} path='/home' /> */}
                 {/* <SidebarButton text='Search' icon={<FaSearch />} path='/search' /> */}
-                {/* <SidebarButton text='Create Playlist' icon={<MdOutlineAddBox />} path='/home' /> */}
-            </nav>
             <div className="line"></div>
             <PlaylistIndexContainer /> 
         </section>

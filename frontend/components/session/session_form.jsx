@@ -42,6 +42,7 @@ class SessionForm extends React.Component {
             username: 'userdemo',
             password: 'userdemo',
         }
+        console.log(formUser)
         this.props.createSession(formUser)
             .then ( () => this.props.history.push('/home'));
         ;
@@ -96,7 +97,8 @@ class SessionForm extends React.Component {
         const demoLogin = (
             <button className="session-button" 
                 id="demo-button" 
-                onClick= {this.handleSubmitDemo}>
+                onClick= {this.handleSubmitDemo}
+                >
                 {demoText}
             </button>
         )
@@ -193,6 +195,7 @@ class SessionForm extends React.Component {
                     <p /><button 
                             className="session-button" 
                             id="signup-button" 
+                            name="user"
                             onClick={this.handleSubmit}
                             >Sign Up</button>
                 </div>

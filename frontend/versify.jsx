@@ -13,14 +13,18 @@ import {
   postPlaylist,
   patchPlaylist,
   showPlaylist,
-  indexPlaylist,
+  indexPlaylists,
   deletePlaylist,
 } from './util/playlists_util'
 
+// const play = {title:'thisone',
+// description: 'anew',
+// user_id: 1}
 
-// {title: 'hellothere',
-//   user_id: 5,
-// }
+// const edit = { title:'changednow',
+// description: 'changepls',
+// user_id: 1}
+
 // TESTING END
 
 
@@ -43,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.postPlaylist = postPlaylist;
   window.patchPlaylist = patchPlaylist;
   window.showPlaylist = showPlaylist;
-  window.indexPlaylist = indexPlaylist;
+  window.indexPlaylists = indexPlaylists;
   window.deletePlaylist = deletePlaylist;
   //TESTING
   const root = document.getElementById("root");

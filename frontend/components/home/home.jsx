@@ -12,6 +12,15 @@ class Home extends React.Component {
     }
 
     render () {
+        const {history,
+            currentUser,
+            createPlaylist,
+            clearPlaylistErrors,
+            playlists,
+            fetchPlaylists,
+            errors,
+        } = this.props;
+
         const logoDiv = (<div id="site-logo">
                 <GiRingedPlanet /> 
                 <h2> Versify</h2>
@@ -21,7 +30,13 @@ class Home extends React.Component {
             <div className="home-container">
                 {logoDiv}
                 <NavBarContainer history={this.props.history} />
-                <SideBar history={this.props.history} />
+                <SideBar history={history}  
+                    createPlaylist={createPlaylist}
+                    currentUser={currentUser}
+                    fetchPlaylists={fetchPlaylists}
+                    playlists={playlists}
+                    errors={errors}
+                />
             </div>
         )    
     }

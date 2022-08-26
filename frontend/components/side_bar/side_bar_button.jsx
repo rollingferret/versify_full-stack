@@ -2,15 +2,13 @@ import React from 'react';
 
 const SideBarButton = (props) => {
     const { text,
-            icon,
+        icon,
     } = props;
-    
+
     return (
-        <button className="sidebar-button" 
-            // onClick= {this.handleSubmitDemo}
-            >
-            <div className="icon"> {icon} </div>
-            <div className="text"> {text} </div>
+        <button className="sidebar">
+            <div className="icon" > {icon} </div>
+            <div className="text" > {text} </div>
         </button>
     )
 }

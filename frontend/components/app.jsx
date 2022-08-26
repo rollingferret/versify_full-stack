@@ -13,7 +13,7 @@ import SplashContainer from './splash/splash_container';
 import SignupFormContainer from './session/signup_form_container'
 import LoginFormContainer from './session/login_form_container'
 import HomeContainer from './home/home_container';
-import CreatePlaylistContainer from './playlists/create_playlist_container'
+// import EditPlaylistContainer from './playlists/edit_playlist_container'
 
 
 const App = () => (
@@ -23,7 +23,7 @@ const App = () => (
         <LoggedoutRoute exact path="/signup" component={SignupFormContainer} />
         <LoggedoutRoute exact path="/login" component={LoginFormContainer} />
         <AuthRoute exact path='/home' component={HomeContainer} />
-        <AuthRoute exact path='/create' component={CreatePlaylistContainer} />
+        {/* <AuthRoute exact path='/edit' component={EditPlaylistContainer} /> */}
       </Switch>
           
     </div>

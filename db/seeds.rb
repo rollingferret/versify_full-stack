@@ -8,3 +8,9 @@
 
 
 User.create(username: 'userdemo', email: 'userdemo', birthday: 19900101, password: 'userdemo')
+
+Playlist.create(title: 'My First Playlist', description: "I'm so excited", user_id: 1)
+
+Playlist.create(title: 'NYC Go Easy On Me', description: "Splitscreen Sadness", user_id: 1)
+
+Playlist.create(title: 'Splitscreen Sadness', description: "Splitscreen Sadness", user_id: 1)

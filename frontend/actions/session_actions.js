@@ -33,11 +33,13 @@ export const createUser = formUser => dispatch => (
     err => (dispatch( receiveSessionErrors(err.responseJSON) )))
 );
  
-export const createSession = formUser => dispatch => (
+export const createSession = formUser => dispatch => {
+    debugger
+    return(
     postSession(formUser)
     .then( user => dispatch( receiveCurrentUser(user)),
     err => (dispatch( receiveSessionErrors(err.responseJSON) )))
-);
+)};
  
 export const endSession = () => dispatch => (
     deleteSession()
@@ -46,8 +48,8 @@ export const endSession = () => dispatch => (
 
 export const clearSessionErrors = () => dispatch => (
     dispatch(resetSessionErrors())
-)
+);
 
 export const logSessionErrors = (err) => dispatch => (
     dispatch(receiveSessionErrors(err))
-)
+);

@@ -7,11 +7,16 @@ class PlaylistIndex extends React.Component {
         super(props);
     }
 
+    componentDidMount () {
+        this.props.fetchPlaylists();
+    }
+
     render () {
         return (
-            <div className="playlist-index-container">
-                {/* <SidebarButton text='FIRST PLAYLIST PLACEHOLDER'/>
-                <SidebarButton text='SECOND LONG PLAYLIST PLACEHOLDER'/> */}
+            <div id="playlist-index-container">
+                {this.props.playlists.map((playlist) => (
+                    <SidebarButton key={playlist.id} text={playlist.title}/>))
+          }
             </div>
         )    
     }
