@@ -1,10 +1,12 @@
-Versify is a clone of the Spotify web app but with a dark and starry undertone.
+# Versify
+
+## Versify is a clone of the Spotify web app but with a darker and starry undertone.
 
 Users can register or log in as the demo user.
 
 Users can create playlists.
 
-Future Features:
+## Future Features:
 - Editing and deleting playlists
 - Add song tracks to playlists
 - Music player
