@@ -14,10 +14,14 @@
     "postinstall": "webpack"
   },
   "engines": {
-    "node": "16.15.0",
-    "npm": "8.5.5"
+    "node": "16.17.0",
+    "npm": "8.15.0"
   },
-  "repository": {
+  "engines": {
+    "node": "16.17.0",
+    "npm": "8.15.0"
+  },
+"repository": {
     "type": "git",
     "url": "git+https://github.com/imartinez921/versify_fullstack.git"
   },
@@ -35,6 +39,7 @@
     "babel-loader": "^8.2.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.4.0",
     "react-redux": "^8.0.2",
     "react-router": "^4.1.2",
     "react-router-dom": "^4.1.2",

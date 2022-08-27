@@ -13,14 +13,22 @@
 #
 class User < ApplicationRecord
     attr_reader :password
-    after_initialize :ensure_session_token
+    before_create :ensure_session_token
     
-    validates :username, presence: true, uniqueness: true
-    validates :email, presence: true, uniqueness: true
+    validates :username, presence: true, 
+        uniqueness: { case_sensitive: false },
+        format: { without: /\s/, message: "- Spaces not allowed" }
+    validates :email, presence: true, 
+        uniqueness: { case_sensitive: false },
+        confirmation: {message: '- Emails do not match'}
     validates :birthday, presence: true
-    validates :password, length: {minimum: 8, allow_nil:true}
+    validates :password, length: {minimum: 8, allow_nil:true},  
+        confirmation: {message: '- Passwords do not match'}
+    # validates :email_confirmation, presence: true
+    # validates :password_confirmation, presence: true
+    
 
-    def User.find_by_credentials(username,password)
+    def User.find_by_credentials(username,password)        
         @user = User.find_by(username: username)
         if @user && @user.is_password?(password)
             @user
@@ -40,13 +48,13 @@ class User < ApplicationRecord
     end
 
     def reset_session_token!
-        self.session_token = SecureRandom::urlsafe_base24
+        self.session_token = SecureRandom::urlsafe_base64
         self.save!
         self.session_token
     end
 
     def ensure_session_token
-        self.session_token ||= SecureRandom::urlsafe_base24
+        self.session_token ||= SecureRandom::urlsafe_base64
     end
 
 end

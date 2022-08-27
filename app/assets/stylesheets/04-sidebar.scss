@@ -1,0 +1,159 @@
+.home-container #site-logo {
+    display: flex;
+    align-items: center;
+    font-size: 40px;
+    width: 225px;
+    height: 60px;
+    // total height is 60 + 10
+    position: absolute;
+    padding-top: 10px;
+    padding-left: 25px;
+    background-color: black;
+}
+
+#site-logo h2 {
+    font-family: 'Trebuchet MS', 'impact';
+    vertical-align: center;
+    font-size: 25px;
+    padding-left: 5px;
+}
+
+.sidebar-container a {
+    color: #959595;
+}
+
+.sidebar-container a:hover {
+    color: white;
+}
+
+.sidebar-container {
+    color: #71695d;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 16px;
+    width: 250px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    background-color: black;
+}
+
+nav.sidebar {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: auto;
+    background-color: black;
+    
+}
+
+.sidebar-container .line {
+    border-top: 1px solid #71695d;
+    margin-top: 20px;
+    padding-bottom: 6px;
+    margin-bottom: 6px;
+    width: 75%;
+    height: 11px;
+}
+
+.sidebar button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #b3b3b3;
+    height: 100%;
+    width: 100%;
+    border: none;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: black;
+}
+
+button.sidebar {
+    display: block;
+    text-align: left;
+    color: #b3b3b3;
+    height: 16px;
+    width: 100%;
+    border: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    // padding-top: 5px;
+    // padding-bottom: 5px;
+    background-color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#playlist-index-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: #b3b3b3;
+    font-weight: normal;
+    height: 100%;
+    width: 90%;
+    border: 1px solid black;
+    padding-left: 15px;
+
+}
+
+div.text #playlist-index-container {
+    font-weight: normal;
+}
+
+// div.sidebar-button {
+//     display: flex;
+//     flex-direction: row;
+//     align-items: center;
+//     color: #b3b3b3;
+//     height: 100%;
+//     width: 85%;
+//     border: none;
+//     // padding-left: 15px;
+//     // padding-right: 15px;
+//     padding-top: 5px;
+//     padding-bottom: 5px;
+// }
+
+
+
+.sidebar .icon {
+    padding-top: 5px;
+    width: 50px;
+    font-size: 25px;
+    // padding-right: 10px;
+}
+div.icon {
+    width: 50px;
+    font-size: 25px;
+    // background-color: violet;
+    text-align: center;
+}
+
+.sidebar .text {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #959595;
+}
+
+.sidebar .text:hover{
+    color: white;
+}
+
+// div.text {
+//     color: #d9dadc;
+//     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+//     font-size: 14px;
+//     font-weight: 700;
+// }
+
+// .sidebar-container button:hover {
+//     color: white;
+//     // background-color: #191919;
+// }
