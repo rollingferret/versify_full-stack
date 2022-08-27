@@ -1,85 +1,15 @@
-# README
+# <img width="49" alt="image" src="https://user-images.githubusercontent.com/102888592/187043189-5d690638-97ce-4580-a360-7c34b6282f56.png"> Versify
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Versify is a clone of the Spotify web app but with a darker and starry undertone.
 
-Things you may want to cover:
+Users can register for a new account or log in as the demo user.
 
-* Ruby version
+Users can create playlists.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-
-{
-  "name": "fullstack",
-  "private": true,
-  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
-  "version": "1.0.0",
-  "main": "index.js",
-  "directories": {
-    "lib": "lib",
-    "test": "test"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack --watch --mode=development",
-    "postinstall": "webpack"
-  },
-  "engines": {
-    "node": "16.17.0",
-    "npm": "8.15.0"
-  },
-"repository": {
-    "type": "git",
-    "url": "git+https://github.com/imartinez921/versify_fullstack.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/imartinez921/versify_fullstack/issues"
-  },
-  "homepage": "https://github.com/imartinez921/versify_fullstack#readme",
-  "dependencies": {
-    "@babel/core": "^7.18.10",
-    "@babel/preset-env": "^7.18.10",
-    "@babel/preset-react": "^7.18.6",
-    "babel-loader": "^8.2.5",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-icons": "^4.4.0",
-    "react-redux": "^8.0.2",
-    "react-router": "^4.1.2",
-    "react-router-dom": "^4.1.2",
-    "redux": "^4.2.0",
-    "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.2.0",
-    "webpack": "^5.74.0",
-    "webpack-cli": "^4.10.0"
-  }
-}
-
-
-
-
-RUN THESE COMMANDS
-Bundler Output: Your RubyGems version (2.7.6.2) has a bug that prevents `required_ruby_version` from working for Bundler. Any scripts that use `gem install bundler` will break as soon as Bundler drops support for your Ruby version. Please upgrade RubyGems to avoid future breakage and silence this warning by running `gem update --system 3.2.3`
-       Your bundle only supports platforms ["x86_64-darwin-17", "x86_64-darwin-21"] but
-       your local platform is x86_64-linux. Add the current platform to the lockfile
-       with
-       `bundle lock --add-platform x86_64-linux` and try again.
+## Future Features:
+- Editing and deleting playlists
+- Add song tracks to playlists
+- Music player
+- Album and Artist show pages
+- Search functionality for songs and artists to retrieve relevant albums and playlists
+- Liked Songs function

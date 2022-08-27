@@ -17,6 +17,10 @@
     "node": "16.17.0",
     "npm": "8.15.0"
   },
+  "engines": {
+    "node": "16.17.0",
+    "npm": "8.15.0"
+  },
 "repository": {
     "type": "git",
     "url": "git+https://github.com/imartinez921/versify_fullstack.git"
