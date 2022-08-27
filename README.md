@@ -1,24 +1,13 @@
-# README
+Versify is a clone of the Spotify web app but with a dark and starry undertone.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Users can register or log in as the demo user.
 
-Things you may want to cover:
+Users can create playlists.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Future Features:
+- Editing and deleting playlists
+- Add song tracks to playlists
+- Music player
+- Album and Artist show pages
+- Search functionality for songs and artists to retrieve relevant albums and playlists
+- Liked Songs function
