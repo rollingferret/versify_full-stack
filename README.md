@@ -1,5 +1,4 @@
-# Versify <img width="40" alt="image" src="https://user-images.githubusercontent.com/102888592/188548958-c1c4b162-dfd2-47a7-9e08-43f84d1b3f4a.png">
-
+# <img width="49" alt="image" src="https://user-images.githubusercontent.com/102888592/187043189-5d690638-97ce-4580-a360-7c34b6282f56.png"> Versify
 
 ## Versify is a clone of the Spotify web app but with a darker and starry undertone.
 

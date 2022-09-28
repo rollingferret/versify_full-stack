@@ -4,7 +4,7 @@ const SplashDisplay = (props) => {
     
     const loggedOutDisplay = (
         <div className="splash-msg-loggedin">
-            <h1>Music is everything.</h1>
+            <h1><span>Music is everything.</span></h1>
         </div>
     )
     const { currentUser } = props;

@@ -36,16 +36,20 @@ div .splash-page {
     color: #1ed75f;
 }
 
-.splash-msg-loggedin h1 {
+.splash-msg span {
+    background-color: #2d46b9;
+}
+
+.splash-msg h1 {
     text-align: center;
     padding-bottom: 70px;
     font-size: 65pt;
 }
 
-.splash-msg-loggedin h3 {
+.splash-msg h3 {
     font-size: 18pt;
 }
 
-.splash-msg-loggedin a {
+.splash-msg a {
     font-size: 25pt;
 }
