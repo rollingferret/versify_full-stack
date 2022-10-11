@@ -2,7 +2,10 @@ class Api::PlaylistsController < ApplicationController
     # before_action :require_login
 
     def index
-        @playlists = Playlist.all 
+        # debugger
+        # If we had passed user.id through the url, we'd get it from params
+        @playlists = Playlist.where(user_id: current_user.id)
+        .order(:updated_at).reverse_order 
         render :index 
     end
 

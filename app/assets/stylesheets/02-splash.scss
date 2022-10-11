@@ -8,6 +8,7 @@ html {
 
 .splash-page a:hover {
     color: #1db954;
+    transition: .2s;;
 }
 
 div .splash-page {
@@ -19,7 +20,7 @@ div .splash-page {
     // background-color: #1ed75f;
     background-image: url(https://www-growth.scdn.co/static/home/bursts-tablet.svg);
     background-size: 50%;
-    background-position: right 40% center;
+    background-position: right 48% center;
     background-color: #2d46b9;
 }
 
@@ -38,6 +39,9 @@ div .splash-page {
 
 .splash-msg span {
     background-color: #2d46b9;
+    padding: 10px;
+    border-radius: 5px;
+    line-height: 100px;
 }
 
 .splash-msg h1 {
@@ -46,8 +50,11 @@ div .splash-page {
     font-size: 65pt;
 }
 
-.splash-msg h3 {
+.splash-msg h3 span {
     font-size: 18pt;
+    background-color: #2d46b9;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .splash-msg a {

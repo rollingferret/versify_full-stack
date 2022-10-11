@@ -7,7 +7,8 @@
 }
 
 .nav-links a:hover {
-    color: #1db954
+    color: #1db954;
+    transition: .2s;
 }
 
 .nav-container .site-logo {
@@ -82,6 +83,7 @@
 
 #avatar-pic-nav:hover {
     background-color:  #282828;
+    transition: .2s;;
 }
 
 #arrow-display {
@@ -111,7 +113,8 @@
 }
 
 .menu-item a:hover {
-    color: #1db954
+    color: #1db954;
+    transition: .2s;;
 }
 
 .search-container {

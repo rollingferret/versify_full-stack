@@ -31,21 +31,20 @@ const SideBar = (props) => {
             title: `Untitled Playlist #${number}`,
             description: 'Please add a description',
             user_id: currentUser.id,
-        }
-        )
+        })
         console.log({defaultNew})
         createPlaylist(defaultNew)
-        .then ( () => fetchPlaylists());
+        .then ( () => fetchPlaylists(currentUser.id));
     }
 
     return (
         <section className='sidebar-container'>
             <nav className="sidebar">
                 <button className="sidebar-button"
-                name='playlist'
-                onClick={handleSubmitCreate}>
-                    <div className="icon" ><MdOutlineAddBox /></div>
-                    <div className="text" >Create Playlist</div>
+                    name='playlist'
+                    onClick={handleSubmitCreate}>
+                        <div className="icon" ><MdOutlineAddBox /></div>
+                        <div className="text" >Create Playlist</div>
                 </button>
             </nav>
                 {/* <div className="sidebar-button"> */}
@@ -61,7 +60,7 @@ const SideBar = (props) => {
                 {/* <SidebarButton text='Home' icon={<AiFillHome />} path='/home' /> */}
                 {/* <SidebarButton text='Search' icon={<FaSearch />} path='/search' /> */}
             <div className="line"></div>
-            <PlaylistIndexContainer /> 
+            <PlaylistIndexContainer currentUser={currentUser}/> 
         </section>
     )
 }

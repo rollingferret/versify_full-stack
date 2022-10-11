@@ -8,14 +8,14 @@ class PlaylistIndex extends React.Component {
     }
 
     componentDidMount () {
-        this.props.fetchPlaylists();
+        this.props.fetchPlaylists()
     }
-
+currentUser
     render () {
         return (
             <div id="playlist-index-container">
-                {this.props.playlists.map((playlist) => (
-                    <SidebarButton key={playlist.id} text={playlist.title}/>))
+                {this.props.playlists.map((playlist, idx) => (
+                    <SidebarButton key={`${idx} + ${this.props.currentUsername}`} text={playlist.title}/>))
           }
             </div>
         )    

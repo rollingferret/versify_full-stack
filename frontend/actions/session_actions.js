@@ -34,7 +34,7 @@ export const createUser = formUser => dispatch => (
 );
  
 export const createSession = formUser => dispatch => {
-    debugger
+    // debugger
     return(
     postSession(formUser)
     .then( user => dispatch( receiveCurrentUser(user)),

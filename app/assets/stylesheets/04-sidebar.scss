@@ -24,6 +24,7 @@
 
 .sidebar-container a:hover {
     color: white;
+    transition: .2s;;
 }
 
 .sidebar-container {
@@ -137,13 +138,14 @@ div.icon {
 
 .sidebar .text {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 14px;
+    font-size: 17px;
     font-weight: 700;
     color: #959595;
 }
 
 .sidebar .text:hover{
     color: white;
+    transition: .2s;;
 }
 
 // div.text {
@@ -156,4 +158,5 @@ div.icon {
 // .sidebar-container button:hover {
 //     color: white;
 //     // background-color: #191919;
+//     transition: .2s;;
 // }
