@@ -1,8 +1,18 @@
+.playlist-index-container::-webkit-scrollbar {
+    width: 5px;/*Gives you width to the scrollbar*/
+}
+
+.playlist-index-container::-webkit-scrollbar-thumb {
+    background-color: #959595;
+    border-radius: 15px;
+}
+
+
 .home-container #site-logo {
     display: flex;
     align-items: center;
     font-size: 45px;
-    width: 280px;
+    width: 250px;
     height: 66px;
     position: absolute;
     padding-top: 5px;
@@ -17,26 +27,18 @@
     padding-left: 5px;
 }
 
-.sidebar-container a {
-    color: #959595;
-}
-
-.sidebar-container a:hover {
-    color: white;
-    transition: .2s;;
-}
-
 .sidebar-container {
     color: #71695d;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 16px;
-    width: 300px;
+    width: 270px;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 20px;
     background-color: black;
+    // overflow-y: hidden;
 }
 
 nav.sidebar {
@@ -71,7 +73,7 @@ div.icon {
     border-top: 1px solid #71695d;
     margin-top: 20px;
     padding-bottom: 6px;
-    width: 250px;
+    width: 195px;
     height: 11px;
 }
 
@@ -90,7 +92,7 @@ button.sidebar-nav {
 
 .sidebar-nav .text-button {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     color: #959595;
     font-weight: bold;
     display: block;
@@ -113,8 +115,8 @@ button.sidebar {
     height: 16px;
     width: 100%;
     background-color: black;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 8px;
+    margin-bottom: 8px;
     padding: 0px 25px 5px 25px;
 }
 
@@ -124,18 +126,31 @@ button.sidebar {
     align-items: flex-start;
     color: #b3b3b3;
     font-weight: normal;
-    height: 100%;
-    width: 98%;
+    height: 510px;
+    width: 85%;
     border: 1px solid black;
     overflow-y: auto;
 }
 
 .sidebar .text-playlist {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     color: #959595;
     display: block;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.sidebar-container a {
+    color: #959595;
+}
+
+.sidebar .text-playlist:hover,
+button.sidebar-nav .icon:hover,
+button.sidebar-nav .text-button:hover,
+.playlist-index-container::-webkit-scrollbar-thumb:hover
+{
+    color: white;
+    transition: .2s;;
 }
