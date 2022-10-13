@@ -40,11 +40,11 @@ const SideBar = (props) => {
     return (
         <section className='sidebar-container'>
             <nav className="sidebar">
-                <button className="sidebar-button"
+                <button className="sidebar-nav"
                     name='playlist'
                     onClick={handleSubmitCreate}>
                         <div className="icon" ><MdOutlineAddBox /></div>
-                        <div className="text" >Create Playlist</div>
+                        <div className="text-button" >Create Playlist</div>
                 </button>
             </nav>
                 {/* <div className="sidebar-button"> */}

@@ -8,7 +8,7 @@ const SideBarButton = (props) => {
     return (
         <button className="sidebar">
             <div className="icon" > {icon} </div>
-            <div className="text" > {text} </div>
+            <div className="text-playlist" > {text} </div>
         </button>
     )
 }
