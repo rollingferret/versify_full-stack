@@ -10,8 +10,9 @@ class PlaylistIndex extends React.Component {
     componentDidMount () {
         this.props.fetchPlaylists()
     }
-currentUser
+
     render () {
+        debugger
         return (
             <div className="playlist-index-container">
                 {this.props.playlists.map((playlist, idx) => (

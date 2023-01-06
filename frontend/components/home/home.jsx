@@ -26,6 +26,8 @@ class Home extends React.Component {
                 <h2> Versify</h2>
             </div>
         )
+
+        debugger
         return (
             <div className="home-container">
                 {logoDiv}

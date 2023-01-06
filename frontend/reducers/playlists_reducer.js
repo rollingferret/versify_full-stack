@@ -5,11 +5,12 @@ import { RECEIVE_CURRENT_PLAYLIST,
 
 const playlistsReducer = (state = {}, action) => {
     Object.freeze(state);
+    debugger
     switch (action.type) {
-        case RECEIVE_CURRENT_PLAYLIST:
-            return { [action.playlist.id]: action.playlist};
         case RECEIVE_ALL_PLAYLISTS:
             return action.playlists;
+        case RECEIVE_CURRENT_PLAYLIST:
+            return { [action.playlist.id]: action.playlist};
         case DELETE_PLAYLIST:
             
         default:

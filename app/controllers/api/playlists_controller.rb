@@ -3,9 +3,10 @@ class Api::PlaylistsController < ApplicationController
 
     def index
         # If we had passed user.id through the url, we'd get it from params
-        @playlists = Playlist.where(user_id: current_user.id)
-        .order(:updated_at).reverse_order 
-        render :index 
+        @playlists = 
+            Playlist.where(user_id: current_user.id).order('updated_at DESC')
+        render :index
+        debugger
     end
 
     def create
