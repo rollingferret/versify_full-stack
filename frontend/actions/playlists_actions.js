@@ -13,8 +13,15 @@ export const RECEIVE_PLAYLIST_ERRORS = 'RECEIVE_PLAYLIST_ERRORS';
 export const RESET_PLAYLIST_ERRORS = 'RESET_PLAYLIST_ERRORS';
 
 
-export const clearPlaylistErrors = () => dispatch => (
-    dispatch(resetPlaylistErrors())
+// export const clearPlaylistErrors = () => dispatch => (
+//     dispatch(resetPlaylistErrors())
+// );
+
+
+export const fetchPlaylists = () => dispatch => (
+    indexPlaylists()
+    .then (playlists => dispatch( receiveAllPlaylists(playlists) ),
+    err => (dispatch( receivePlaylistErrors(err.responseJSON) )))
 );
 
 // export const createPlaylist = (formPlaylist) => dispatch => (
@@ -23,32 +30,33 @@ export const clearPlaylistErrors = () => dispatch => (
 //     err => (dispatch( receivePlaylistErrors(err.responseJSON) )))
 // );
 
-export const createPlaylist = (defaultPlaylist) => dispatch => (
+export const createPlaylist = (defaultPlaylist) => dispatch => 
+{   
+    debugger
+    return (
     postPlaylist(defaultPlaylist)
     .then( playlist => dispatch( receiveCurrentPlaylist(playlist) ),
     err => (dispatch( receivePlaylistErrors(err.responseJSON) )))
-);
+)};
 
-export const displayPlaylist = (id) => dispatch => (
-    showPlaylist(id)
+export const displayPlaylist = (playlistId) => dispatch => 
+{   debugger
+    // return console.log("THIS IS DISPLAYPLAYLIST");
+    return (
+    showPlaylist(playlistId)
     .then (playlist => dispatch( receiveCurrentPlaylist(playlist) ),
     err => (dispatch( receivePlaylistErrors(err.responseJSON) )))
-);
+)
+};
 
-export const fetchPlaylists = () => dispatch => (
-    indexPlaylists()
-    .then (playlists => dispatch( receiveAllPlaylists(playlists) ),
-    err => (dispatch( receivePlaylistErrors(err.responseJSON) )))
-);
-
-export const editPlaylist = (playlist, id) => dispatch => (
-    patchPlaylist(playlist, id)
+export const editPlaylist = (playlist, playlistId) => dispatch => (
+    patchPlaylist(playlist, playlistId)
     .then( playlist => dispatch( receiveCurrentPlaylist(playlist) ),
     err => (dispatch( receivePlaylistErrors(err.responseJSON) )))
 );
 
-export const removePlaylist = (id) => dispatch => (
-    deletePlaylist(id)
+export const removePlaylist = (playlistId) => dispatch => (
+    deletePlaylist(playlistId)
     .then ( () => dispatch())
 )
 
@@ -66,11 +74,11 @@ const resetPlaylistErrors = () => ({
 
 const receiveCurrentPlaylist = (playlist) => ({
     type: RECEIVE_CURRENT_PLAYLIST,
-    playlist: playlist,
+    playlist,
 });
 
 const receiveAllPlaylists = (playlists) => ({
     type: RECEIVE_ALL_PLAYLISTS,
-    playlists: playlists,
+    playlists,
 });
 

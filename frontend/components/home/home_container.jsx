@@ -6,8 +6,8 @@ import { clearPlaylistErrors,
     fetchPlaylists,
     editPlaylist,
     removePlaylist,
-} from "../../actions/playlists_actions";
-    
+} from "../../actions/playlists_actions";   
+
 import Home from './home'
 
 const mapStateToProps = ( {session, entities: { users },  entities: { playlists } }, {errors}) => ({
