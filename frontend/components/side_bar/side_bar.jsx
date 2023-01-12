@@ -11,7 +11,7 @@ import {MdOutlineAddBox,p
 } from 'react-icons/md';
 
 import PlaylistIndexContainer from '../playlists/playlist_index_container';
-import SidebarButton from './side_bar_button'
+import SidebarNavButton from './side_bar_nav_button'
 
 const SideBar = (props) => {
     console.log('PROPS', props);
@@ -57,8 +57,8 @@ const SideBar = (props) => {
                 {/* </div> */}
 
 
-                {/* <SidebarButton text='Home' icon={<AiFillHome />} path='/home' /> */}
-                {/* <SidebarButton text='Search' icon={<FaSearch />} path='/search' /> */}
+                {/* <SidebarNavButton text='Home' icon={<AiFillHome />} path='/home' /> */}
+                {/* <SidebarNavButton text='Search' icon={<FaSearch />} path='/search' /> */}
             <div className="line"></div>
             <PlaylistIndexContainer currentUser={currentUser}/> 
         </section>

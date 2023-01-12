@@ -6,7 +6,6 @@ class Api::PlaylistsController < ApplicationController
         @playlists = 
             Playlist.where(user_id: current_user.id).order('updated_at DESC')
         render :index
-        debugger
     end
 
     def create
