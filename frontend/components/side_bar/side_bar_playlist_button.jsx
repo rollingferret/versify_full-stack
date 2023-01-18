@@ -1,7 +1,7 @@
 import React from 'react';
 import { showPlaylist } from '../../util/playlists_util';
 
-const SidebarPlaylistButton = (props) => {
+const SideBarPlaylistButton = (props) => {
     const { text,
         icon,
     } = props;
@@ -25,4 +25,4 @@ const SidebarPlaylistButton = (props) => {
     )
 }
 
-export default SidebarPlaylistButton;
+export default SideBarPlaylistButton;

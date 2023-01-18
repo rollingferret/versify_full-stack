@@ -1,6 +1,6 @@
 import React from "react";
 
-import SidebarPlaylistButton from '../side_bar/side_bar_playlist_button'
+import SideBarPlaylistButton from '../side_bar/side_bar_playlist_button'
 
 class PlaylistIndex extends React.Component {
     constructor (props) {
@@ -12,11 +12,10 @@ class PlaylistIndex extends React.Component {
     }
 
     render () {
-        debugger
         return (
             <div className="playlist-index-container">
                 {this.props.playlists.map((playlist, idx) => (
-                    <SidebarPlaylistButton key={`${idx} + ${this.props.currentUsername}`} text={playlist.title} playlistId={playlist.id} />))
+                    <SideBarPlaylistButton key={`${idx} + ${this.props.currentUsername}`} text={playlist.title} playlistId={playlist.id} />))
           }
             </div>
         )    

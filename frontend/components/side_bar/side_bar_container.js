@@ -1,9 +1,17 @@
 import {connect} from 'react-redux';
-import Sidebar from './side_bar';
+import SideBar from './side_bar';
 import { displayPlaylist,
 } from '../../actions/playlists_actions';
 
 
-const mapStateToProps = (state, ownProps) => {
-    
+const mapStateToProps = ({entities: { playlists } }, ownProps) => {
+return (
+    { playlists,
 }
+)}
+
+const mapDispatchToProps = (dispatch) => ({
+    
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(SideBar)

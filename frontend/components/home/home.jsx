@@ -4,7 +4,7 @@ import {GiRingedPlanet,
 
 
 import NavBarContainer from "../nav_bar/nav_bar_container";
-import SideBar from '../side_bar/side_bar'
+import SideBarContainer from "../side_bar/side_bar_container";
 
 class Home extends React.Component {
     constructor (props) {
@@ -27,12 +27,11 @@ class Home extends React.Component {
             </div>
         )
 
-        debugger
         return (
             <div className="home-container">
                 {logoDiv}
                 <NavBarContainer history={this.props.history} />
-                <SideBar history={history}  
+                <SideBarContainer history={history}  
                     createPlaylist={createPlaylist}
                     currentUser={currentUser}
                     fetchPlaylists={fetchPlaylists}

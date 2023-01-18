@@ -1,7 +1,7 @@
 import React from 'react';
 import { showPlaylist } from '../../util/playlists_util';
 
-const SidebarNavButton = (props) => {
+const SideBarNavButton = (props) => {
     // eg. Home button, Search button
     const { text,
         icon,
@@ -26,4 +26,4 @@ const SidebarNavButton = (props) => {
     )
 }
 
-export default SidebarNavButton;
+export default SideBarNavButton;
