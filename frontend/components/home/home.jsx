@@ -16,8 +16,6 @@ class Home extends React.Component {
             currentUser,
             createPlaylist,
             clearPlaylistErrors,
-            playlists,
-            fetchPlaylists,
             errors,
         } = this.props;
 
@@ -32,10 +30,7 @@ class Home extends React.Component {
                 {logoDiv}
                 <NavBarContainer history={this.props.history} />
                 <SideBarContainer history={history}  
-                    createPlaylist={createPlaylist}
                     currentUser={currentUser}
-                    fetchPlaylists={fetchPlaylists}
-                    playlists={playlists}
                     errors={errors}
                 />
             </div>

@@ -1,9 +1,6 @@
 import { connect } from "react-redux";
 
 import { clearPlaylistErrors,
-    createPlaylist,
-    displayPlaylist,
-    fetchPlaylists,
     editPlaylist,
     removePlaylist,
 } from "../../actions/playlists_actions";   
@@ -17,10 +14,7 @@ const mapStateToProps = ( {session, entities: { users },  entities: { playlists 
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    fetchPlaylists: () => dispatch( fetchPlaylists() ),
     editPlaylist: (playlist, id) => dispatch( editPlaylist(playlist, id) ),
-    displayPlaylist: (id) => dispatch( displayPlaylist(id) ),
-    createPlaylist: (formPlaylist) => dispatch( createPlaylist(formPlaylist) ),
     clearPlaylistErrors: () => dispatch(clearPlaylistErrors()),
 })
 

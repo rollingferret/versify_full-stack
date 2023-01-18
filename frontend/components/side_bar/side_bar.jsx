@@ -17,9 +17,10 @@ const SideBar = (props) => {
     console.log('PROPS', props);
 
     const { createPlaylist,
-            currentUser,
-            fetchPlaylists,
-            playlists,
+        displayPlaylist,
+        fetchPlaylists,
+        currentUser,
+        playlists,
     } = props
 
     const handleSubmitCreate = (e) => {

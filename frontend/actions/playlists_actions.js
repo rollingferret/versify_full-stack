@@ -32,7 +32,7 @@ export const fetchPlaylists = () => dispatch => (
 
 export const createPlaylist = (defaultPlaylist) => dispatch => 
 {   
-    debugger
+    // debugger
     return (
     postPlaylist(defaultPlaylist)
     .then( playlist => dispatch( receiveCurrentPlaylist(playlist) ),
