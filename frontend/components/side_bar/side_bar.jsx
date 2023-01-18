@@ -19,22 +19,25 @@ const SideBar = (props) => {
     const { createPlaylist,
         displayPlaylist,
         fetchPlaylists,
-        currentUser,
         playlists,
+        history,
+        currentUser,
+        errors,
     } = props
 
     const handleSubmitCreate = (e) => {
         e.preventDefault();
 
-        const number = Object.values(playlists).length
+        const number = playlists.length;
 
-        const defaultNew = ({ 
+        const defaultNewPlaylist = { 
             title: `Untitled Playlist #${number}`,
             description: 'Please add a description',
             user_id: currentUser.id,
-        })
-        console.log({defaultNew})
-        createPlaylist(defaultNew)
+        }
+
+        console.log({defaultNewPlaylist})
+        createPlaylist(defaultNewPlaylist)
         .then ( () => fetchPlaylists(currentUser.id));
     }
 
