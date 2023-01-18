@@ -24,18 +24,12 @@ export const fetchPlaylists = () => dispatch => (
     err => (dispatch( receivePlaylistErrors(err.responseJSON) )))
 );
 
-// export const createPlaylist = (formPlaylist) => dispatch => (
-//     postPlaylist(formPlaylist)
-//     .then( playlist => dispatch( receiveCurrentPlaylist(playlist) ),
-//     err => (dispatch( receivePlaylistErrors(err.responseJSON) )))
-// );
-
 export const createPlaylist = (defaultPlaylist) => dispatch => 
 {   
     // debugger
     return (
     postPlaylist(defaultPlaylist)
-    .then( playlist => dispatch( receiveCurrentPlaylist(playlist) ),
+    .then( defaultPlaylist => dispatch( receiveCurrentPlaylist(defaultPlaylist) ),
     err => (dispatch( receivePlaylistErrors(err.responseJSON) )))
 )};
 

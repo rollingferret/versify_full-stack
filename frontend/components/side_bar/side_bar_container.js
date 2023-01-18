@@ -14,7 +14,7 @@ return (
 
 const mapDispatchToProps = (dispatch) => ({
     fetchPlaylists: () => dispatch( fetchPlaylists() ),
-    createPlaylist: (formPlaylist) => dispatch( createPlaylist(formPlaylist) ),
+    createPlaylist: (defaultPlaylist) => dispatch( createPlaylist(defaultPlaylist) ),
     displayPlaylist: (id) => dispatch( displayPlaylist(id) ),
 })
 
