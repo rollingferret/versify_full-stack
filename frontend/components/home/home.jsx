@@ -25,6 +25,8 @@ class Home extends React.Component {
             </div>
         )
 
+        console.log('HOME PROPS', this.props)        
+
         return (
             <div className="home-container">
                 {logoDiv}

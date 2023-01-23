@@ -14,7 +14,7 @@ import PlaylistIndexContainer from '../playlists/playlist_index_container';
 import SideBarNavButton from './side_bar_nav_button'
 
 const SideBar = (props) => {
-    console.log('PROPS', props);
+    console.log('SIDEBAR PROPS', props);
 
     const { createPlaylist,
         displayPlaylist,
@@ -65,6 +65,7 @@ const SideBar = (props) => {
                 {/* <SideBarNavButton text='Search' icon={<FaSearch />} path='/search' /> */}
             <div className="line"></div>
             <PlaylistIndexContainer currentUser={currentUser}/> 
+                {/* pass currentUser through as props to keep on refresh */}
         </section>
     )
 }

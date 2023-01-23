@@ -6,11 +6,10 @@ import { fetchPlaylists,
 } from '../../actions/playlists_actions';
 
 
-const mapStateToProps = ({entities: { playlists } }, ownProps) => {
-return (
-    { playlists,
-}
-)}
+const mapStateToProps = ({ entities: { playlists } }, ownProps) => ({
+    playlists: Object.values(playlists),
+    currentUser: ownProps.currentUser,     // pass this through as props to keep on refresh
+})
 
 const mapDispatchToProps = (dispatch) => ({
     fetchPlaylists: () => dispatch( fetchPlaylists() ),
