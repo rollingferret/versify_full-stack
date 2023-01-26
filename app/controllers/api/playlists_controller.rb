@@ -20,6 +20,7 @@ class Api::PlaylistsController < ApplicationController
     def show
         @playlist = Playlist.find(params[:id])
         if @playlist && @playlist.user_id == current_user.id
+            # currently only showing user's own playlists
             render :show
         else
             render json: ['Could not find playlist'], status: 400
@@ -48,7 +49,7 @@ class Api::PlaylistsController < ApplicationController
     # def selected_playlist
     #     Playlist.find(params[:playlist_id])
     # end
-
+        
 
     def playlist_params
         params.require(:playlist).permit(:title, :description, :user_id)

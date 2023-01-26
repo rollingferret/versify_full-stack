@@ -35,7 +35,6 @@ export const createPlaylist = (defaultPlaylist) => dispatch =>
 
 export const displayPlaylist = (playlistId) => dispatch => 
 {   debugger
-    // return console.log("THIS IS DISPLAYPLAYLIST");
     return (
     showPlaylist(playlistId)
     .then (playlist => dispatch( receiveCurrentPlaylist(playlist) ),
@@ -66,10 +65,13 @@ const resetPlaylistErrors = () => ({
     type: RESET_PLAYLIST_ERRORS,
 });
 
-const receiveCurrentPlaylist = (playlist) => ({
-    type: RECEIVE_CURRENT_PLAYLIST,
-    playlist,
-});
+const receiveCurrentPlaylist = (playlistObj) => {
+    debugger;
+    return ({
+        type: RECEIVE_CURRENT_PLAYLIST,
+        playlist: playlistObj.playlist,
+    })
+};
 
 const receiveAllPlaylists = (playlists) => ({
     type: RECEIVE_ALL_PLAYLISTS,

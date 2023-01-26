@@ -9,6 +9,7 @@ const PlaylistIndex = (props) => {
     console.log('INDEX PROPS', props)
 
     const { fetchPlaylists,
+        displayPlaylist,
         playlists,
         currentUsername,
     } = props;
@@ -26,7 +27,7 @@ const PlaylistIndex = (props) => {
         :
         <div className="playlist-index-container">
             {playlists.map((playlist) => (
-                <SideBarPlaylistButton key={`${playlist.id} + ${currentUsername}`} text={playlist.title} playlistId={playlist.id} />))
+                <SideBarPlaylistButton key={`${playlist.id} + ${playlist.title}`} title={playlist.title} playlistId={playlist.id} displayPlaylist={displayPlaylist} />))
             }
         </div>
     )
