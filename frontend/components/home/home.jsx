@@ -5,6 +5,7 @@ import {GiRingedPlanet,
 
 import NavBarContainer from "../nav_bar/nav_bar_container";
 import SideBarContainer from "../side_bar/side_bar_container";
+import PlaylistShowContainer from "../playlists/playlist_show_container";
 
 class Home extends React.Component {
     constructor (props) {
@@ -35,6 +36,7 @@ class Home extends React.Component {
                     currentUser={currentUser}
                     errors={errors}
                 />
+                <PlaylistShowContainer />
             </div>
         )    
     }

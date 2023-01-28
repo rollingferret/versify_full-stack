@@ -8,7 +8,6 @@ const SideBarNavButton = (props) => {
     } = props;
 
     const clickToShowPlaylist = (e) => {
-        debugger;
         e.preventDefault();
         showPlaylist(props.playlistId);
         // displayPlaylist(props.playlistId);

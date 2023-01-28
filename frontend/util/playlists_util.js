@@ -9,7 +9,7 @@ export const postPlaylist = (playlist) => {
 };
 
 export const showPlaylist = (playlistId) => 
-{   debugger
+{   
     return (
     $.ajax({
     method: 'GET',
