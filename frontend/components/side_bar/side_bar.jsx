@@ -64,7 +64,7 @@ const SideBar = (props) => {
                 {/* <SideBarNavButton text='Home' icon={<AiFillHome />} path='/home' /> */}
                 {/* <SideBarNavButton text='Search' icon={<FaSearch />} path='/search' /> */}
             <div className="line"></div>
-            <PlaylistIndexContainer currentUser={currentUser}/> 
+            <PlaylistIndexContainer currentUser={currentUser} history={history}/> 
                 {/* pass currentUser through as props to keep on refresh */}
         </section>
     )

@@ -1,18 +1,12 @@
 import { connect } from "react-redux";
 
-import { clearPlaylistErrors,
-} from "../../actions/playlists_actions";   
+import Home from "./home";
 
-import Home from './home'
+const mapStateToProps = (state, ownProps) => {
+    return null;
+}
 
-const mapStateToProps = ( {session, entities: { users },  entities: { playlists } }, {errors}) => ({
-    playlists: Object.values(playlists),
-    currentUser: users[session.id],
-    errors: errors,
-})
-
-const mapDispatchToProps = (dispatch) => ({
-    clearPlaylistErrors: () => dispatch(clearPlaylistErrors()),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+const mapDispatchToProps = (dispatch) => {
+    return null;
+}
+export default connect(null, null)(Home);

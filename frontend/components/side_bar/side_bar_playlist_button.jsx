@@ -2,8 +2,8 @@ import React from 'react';
 
 const SideBarPlaylistButton = (props) => {
     const { title,
-        displayPlaylist,
         playlistId,
+        history,
     } = props;
     console.log('SideBarPlaylistButtonPROPS', props);
 
@@ -13,7 +13,8 @@ const SideBarPlaylistButton = (props) => {
 
     const clickToShowPlaylist = (e) => {
         e.preventDefault();
-        displayPlaylist(playlistId); 
+        debugger;
+        history.push(`/playlist/${playlistId}`); 
     }
     return (
         <button 

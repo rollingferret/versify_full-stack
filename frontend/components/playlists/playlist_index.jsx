@@ -12,6 +12,7 @@ const PlaylistIndex = (props) => {
         displayPlaylist,
         playlists,
         currentUsername,
+        history,
     } = props;
 
     useEffect( () => {
@@ -27,7 +28,7 @@ const PlaylistIndex = (props) => {
         :
         <div className="playlist-index-container">
             {playlists.map((playlist) => (
-                <SideBarPlaylistButton key={`${playlist.id} + ${playlist.title}`} title={playlist.title} playlistId={playlist.id} displayPlaylist={displayPlaylist} />))
+                <SideBarPlaylistButton key={`${playlist.id} + ${playlist.title}`} title={playlist.title} playlistId={playlist.id} displayPlaylist={displayPlaylist} history={history} />))
             }
         </div>
     )

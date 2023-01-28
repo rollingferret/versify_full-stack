@@ -1,5 +1,4 @@
 export const postPlaylist = (playlist) => {
-    debugger;
     return ($.ajax({
         method: 'POST',
         // url: '/api/users/:user_id/playlists',

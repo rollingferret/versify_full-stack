@@ -12,7 +12,7 @@ import { LoggedoutRoute } from '../util/session_route_util';
 import SplashContainer from './splash/splash_container';
 import SignupFormContainer from './session/signup_form_container'
 import LoginFormContainer from './session/login_form_container'
-import HomeContainer from './home/home_container';
+import MainContainer from './main/main_container';
 // import EditPlaylistContainer from './playlists/edit_playlist_container'
 
 
@@ -22,8 +22,9 @@ const App = () => (
         <Route exact path="/" component={SplashContainer} />
         <LoggedoutRoute exact path="/signup" component={SignupFormContainer} />
         <LoggedoutRoute exact path="/login" component={LoginFormContainer} />
-        <AuthRoute exact path='/home' component={HomeContainer} />
-        {/* <AuthRoute exact path='/edit' component={EditPlaylistContainer} /> */}
+        <AuthRoute exact path="/home" component={MainContainer} />
+        <AuthRoute path="/playlist/:id" component={MainContainer} />
+        {/* <AuthRoute exact path="/edit" component={EditPlaylistContainer} /> */}
       </Switch>
           
     </div>
