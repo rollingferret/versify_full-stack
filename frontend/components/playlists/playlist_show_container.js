@@ -7,11 +7,9 @@ import { editPlaylist,
 import PlaylistShow from "./playlist_show";
 
 const mapStateToProps = (state, ownProps) => {
-    debugger;
-    return (
-        null
-        // {playlist: state.entities.playlists[ownProps.match.params.playlistId],}
-    )
+    return ({
+        match: ownProps.match,
+    })
 }
 
 const mapDispatchToProps = (dispatch) => ({
@@ -20,4 +18,4 @@ const mapDispatchToProps = (dispatch) => ({
     removePlaylist: (playlistId) => dispatch( removePlaylist(playlistId) ),
 })
 
-export default connect(null, mapDispatchToProps)(PlaylistShow);
+export default connect(mapStateToProps, mapDispatchToProps)(PlaylistShow);

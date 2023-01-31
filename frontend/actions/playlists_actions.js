@@ -35,6 +35,7 @@ export const createPlaylist = (defaultPlaylist) => dispatch =>
 
 export const displayPlaylist = (playlistId) => dispatch => 
 {   debugger;
+    console.log('RUNNING DISPLAY PLAYLIST with', playlistId)
     return (
     showPlaylist(playlistId)
     .then (playlist => dispatch( receiveCurrentPlaylist(playlist) ),

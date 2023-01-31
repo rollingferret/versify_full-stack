@@ -15,7 +15,7 @@ const PlaylistShow = (props) => {
 
     useEffect( () => {
         displayPlaylist(playlistId);
-    }, []);
+    });
     
     return (
         <div>
