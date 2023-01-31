@@ -6,8 +6,8 @@ import { fetchPlaylists,
 } from '../../actions/playlists_actions';
 
 
-const mapStateToProps = ({ entities: { playlists } }, ownProps) => ({
-    playlists: Object.values(playlists), //debugger: change this to keys of state for readability
+const mapStateToProps = (state, ownProps) => ({
+    playlists: Object.values(state.entities.playlists),
     currentUser: ownProps.currentUser,     // pass this through as props to keep on refresh
     history: ownProps.history,
 })
