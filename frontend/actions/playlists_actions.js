@@ -39,6 +39,7 @@ export const displayPlaylist = (playlistId) => dispatch =>
     return (
     showPlaylist(playlistId)
     .then (playlist => dispatch( receiveCurrentPlaylist(playlist) ),
+    // err => (console.log(err)) )
     err => (dispatch( receivePlaylistErrors(err.responseJSON) )))
 )
 };

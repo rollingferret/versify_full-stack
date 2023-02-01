@@ -37,8 +37,9 @@ const SideBar = (props) => {
         }
 
         console.log({defaultNewPlaylist})
-        createPlaylist(defaultNewPlaylist)
-        .then ( () => fetchPlaylists(currentUser.id));
+        return createPlaylist(defaultNewPlaylist)
+        .then( () => fetchPlaylists(currentUser.id))
+        .then( (actionObj) => history.push(`/playlist/${actionObj.playlists[0].id}`) )
     }
 
     return (

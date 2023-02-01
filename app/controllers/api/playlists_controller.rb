@@ -23,7 +23,7 @@ class Api::PlaylistsController < ApplicationController
             # currently only showing user's own playlists
             render :show
         else
-            render json: ['Could not find playlist'], status: 400
+            render json: ['Could not find playlist'] >> @playlist.errors.full_messages, status: 404
         end
     end
 
