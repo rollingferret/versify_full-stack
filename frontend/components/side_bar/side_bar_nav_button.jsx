@@ -1,26 +1,25 @@
 import React from 'react';
-import { showPlaylist } from '../../util/playlists_util';
 
 const SideBarNavButton = (props) => {
     // eg. Home button, Search button
     const { text,
         icon,
+        url,
+        history,
     } = props;
 
-    const clickToShowPlaylist = (e) => {
+    console.log('SideBarNAVButtonPROPS', props);
+
+    const clickToNavigate = (e) => {
         e.preventDefault();
-        showPlaylist(props.playlistId);
-        // displayPlaylist(props.playlistId);
-        // ^ create sidebar container for mapdispatchtoprops to execute dispatch
+        history.push(`/${url}`)
     }
 
     return (
-        <button 
-            className="sidebar"
-            onClick={clickToShowPlaylist.bind(clickToShowPlaylist)}
-        >
-                <div className="icon" > {icon} </div>
-                <div className="text-playlist" > {text} </div>
+        <button className="sidebar-nav"
+            onClick={clickToNavigate}>
+            <div className="icon" > {icon} </div>
+            <div className="text-playlist" > {text} </div>
         </button>
     )
 }

@@ -1,13 +1,10 @@
 import React from 'react'
-import { Link,
-} from 'react-router-dom';
-
 
 import {AiFillHome,
 } from 'react-icons/ai';
 import {FaSearch,
 } from 'react-icons/fa';
-import {MdOutlineAddBox,p
+import {MdOutlineAddBox,
 } from 'react-icons/md';
 
 import PlaylistIndexContainer from '../playlists/playlist_index_container';
@@ -45,6 +42,12 @@ const SideBar = (props) => {
     return (
         <section className='sidebar-container'>
             <nav className="sidebar">
+                <SideBarNavButton history={history} 
+                    text='Home' 
+                    icon={<AiFillHome />} 
+                    url='home' 
+                />
+                {/* <SideBarNavButton history={history} text='Search' icon={<FaSearch />} url='search' /> */}
                 <button className="sidebar-nav"
                     name='playlist'
                     onClick={handleSubmitCreate}>
@@ -52,18 +55,7 @@ const SideBar = (props) => {
                         <div className="text-button" >Create Playlist</div>
                 </button>
             </nav>
-                {/* <div className="sidebar-button"> */}
-                    {/* <div className="icon"> */}
-                        {/* <MdOutlineAddBox />
-                    </div>
-                    <div className="text">
-                        <Link to='/create'>Create Playlist</Link>
-                    </div> */}
-                {/* </div> */}
 
-
-                {/* <SideBarNavButton text='Home' icon={<AiFillHome />} path='/home' /> */}
-                {/* <SideBarNavButton text='Search' icon={<FaSearch />} path='/search' /> */}
             <div className="line"></div>
             <PlaylistIndexContainer currentUser={currentUser} history={history}/> 
                 {/* pass currentUser through as props to keep on refresh */}
