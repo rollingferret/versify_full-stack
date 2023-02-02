@@ -25,6 +25,7 @@ const PlaylistIndex = (props) => {
         <div className="playlist-index-container-empty">
             You currently have no playlists.
         </div>
+        
         :
         <div className="playlist-index-container">
             {playlists.map((playlist) => (

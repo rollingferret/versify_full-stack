@@ -5,7 +5,6 @@ const SideBarPlaylistButton = (props) => {
         playlistId,
         history,
     } = props;
-    console.log('SideBarPlaylistButtonPROPS', props);
 
     // console.log(self);
     // const component = self;
