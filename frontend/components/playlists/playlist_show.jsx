@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import PlaylistHeader from "./playlist_header";
 import PlaylistNav from "./playlist_nav";
 import PlaylistBody from "./playlist_body";
-import { displayPlaylist } from "../../actions/playlists_actions";
 
 
 const PlaylistShow = (props) => {

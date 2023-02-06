@@ -2,7 +2,13 @@ import React from "react";
 
 
 const PlaylistHeader = (props) => {
-    return 'This is PlaylistHeader'
+    console.log('This is PlaylistHeader')
+
+    return (
+        <div className="playlister-header">
+            
+        </div>
+    )
 }
 
 export default PlaylistHeader;
