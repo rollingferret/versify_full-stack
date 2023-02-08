@@ -1,9 +1,8 @@
 div .main-container {
     background-color: #181a1b;
     height: 100vh;
-    width: 100%;
+    width: 100vw;
     background-image: url(https://wallpapercave.com/wp/wp4575286.jpg);
-    background-size: 150%;
-    background-position: right 40% center;
+    background-size: cover;
     overflow-y: hidden;
 }
