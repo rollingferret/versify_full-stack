@@ -41,7 +41,7 @@ class Main extends React.Component {
         )
 
         return (
-            <div className="main-container">
+            <div className="main-grid-container">
                 {logoDiv}
                 <NavBarContainer history={this.props.history} />
                 <SideBarContainer history={history}
@@ -49,9 +49,11 @@ class Main extends React.Component {
                     errors={errors}
                 />
 
-                {path === "/home" && <HomeContainer />}
-                {path === "/playlist/:id" && <PlaylistShowContainer 
-                    match={match} />}
+                <div className="show-container">
+                    {path === "/home" && <HomeContainer />}
+                    {path === "/playlist/:id" && <PlaylistShowContainer 
+                        match={match} />}
+                </div>
             </div>
         )    
     }

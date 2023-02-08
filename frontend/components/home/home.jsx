@@ -4,9 +4,9 @@ const Home = (props) => {
     console.log('HOME PROPS', props)
     
     return (
-        <div>
+        <>
             'THIS IS HOME'
-        </div>
+        </>
     )
 }
 

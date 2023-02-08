@@ -17,12 +17,12 @@ const PlaylistShow = (props) => {
     });
     
     return (
-        <div>
+        <>
             This is PlaylistShow for PlaylistId #`${playlistId}`
             <PlaylistHeader />
             <PlaylistNav />
             <PlaylistBody />
-        </div>
+        </>
 
 )}
 
