@@ -2,7 +2,6 @@ import React from 'react';
 import {MdKeyboardArrowDown,
     MdKeyboardArrowUp,
 } from 'react-icons/md';
-import Logo from '../logo';
 
 import MyLinks from './my_links';
 import SearchBar from './searchbar';
@@ -41,19 +40,6 @@ class NavBar extends React.Component {
             </nav>
         )
 
-        // const logoDiv = (<div 
-        //     className="site-logo">
-        //     {history.location.pathname === '/' 
-        //         ? 
-        //         <>
-        //             <GiRingedPlanet /> 
-        //             <h2> Versify</h2>
-        //         </>
-        //         : null
-        //     }    
-        //     </div>
-        // )
-
         const logoutClick = () => logout().then ( () => history.push('/'));
 
         const dropMenu = (<div 
@@ -85,7 +71,9 @@ class NavBar extends React.Component {
         
         return (
             <nav className="nav-container">
-                <Logo history={history}/>
+                <div id="site-logo">
+                    <Logo history={history}/>
+                </div>
                 <div className='search-container'>
                     {history.location.pathname !== '/' 
                     ? <SearchBar history={history} />
