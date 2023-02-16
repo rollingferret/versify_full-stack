@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import { endSession } from '../../actions/session_actions';
-import NavBar from './nav_bar';
+import NavBarSplash from './nav_bar_splash';
 
 const mapStateToProps = ( {session, entities: { users } }) => ({
   currentUser: users[session.id],
@@ -22,4 +22,4 @@ const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(endSession()),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+export default connect(mapStateToProps, mapDispatchToProps)(NavBarSplash);

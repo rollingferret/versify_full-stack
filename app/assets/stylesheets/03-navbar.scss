@@ -1,4 +1,4 @@
-.nav-container div {
+.nav-container-splash div {
     border-radius: 5px;
 }
 
@@ -19,10 +19,8 @@
     width: 120px;
     height: 66px;
     position: absolute;
-    /* top: 5px; */
     left: 0px;
     padding-left: 20px;
-    /* padding-top: 5px; */
     padding-right: 130px;
     background-color: black;
 }
@@ -35,18 +33,17 @@
     padding-left: 5px;
 }
 
-.nav-container {
+.nav-container-splash {
     font-weight: 700;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
     text-align: center;
     display: flex;
     place-items: center;
     flex-direction: row;
     justify-content: space-evenly;
-    align-items: center;
-    padding-top: 20px;
+    padding-top: 0;
     background-color: black;
-    height: 32px;
+    height: 66px;
 }
 
 .nav-links {
@@ -57,7 +54,7 @@
     width: 200px;
 }
 
-.nav-container .my-links {
+.nav-container-splash .my-links {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -66,7 +63,7 @@
     border-radius: 0px;
 }
 
-.nav-container .line {
+.nav-container-splash .line {
     border: 1px solid white;
     height: 15px;
 }
@@ -88,6 +85,9 @@
     height: 50px;
     background-color: black;
     border-radius: 50%;
+    position: absolute;
+    top: 6px;
+    right: 97px;
 }
 
 #avatar-pic-nav:hover {
@@ -112,7 +112,9 @@
     padding: 10px;
     background-color: #282828;
     position: absolute;
-    color:white;
+    right: 100px;
+    top: 58px;
+    color: white;
 }
 
 .menu-item a {
@@ -131,6 +133,6 @@
     background-color: skyblue;
 }
 
-.main-grid-container .nav-container {
+.main-grid-container .nav-container-splash {
     background-color: transparent;
 }

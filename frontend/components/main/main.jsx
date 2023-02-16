@@ -41,18 +41,21 @@ class Main extends React.Component {
         )
 
         return (
-            <div className="main-grid-container">
-                {logoDiv}
-                <NavBarContainer history={this.props.history} />
+            <div className="main-container">
+                <div className="nav-container-splash">
+                    <NavBarContainer history={this.props.history} />
+                </div>
                 <SideBarContainer history={history}
                     currentUser={currentUser}
                     errors={errors}
                 />
 
-                <div className="show-container">
-                    {path === "/home" && <HomeContainer />}
-                    {path === "/playlist/:id" && <PlaylistShowContainer 
-                        match={match} />}
+                <div className="main-grid-container">
+                    <div className="show-container">
+                        {path === "/home" && <HomeContainer />}
+                        {path === "/playlist/:id" && <PlaylistShowContainer 
+                            match={match} />}
+                    </div>
                 </div>
             </div>
         )    

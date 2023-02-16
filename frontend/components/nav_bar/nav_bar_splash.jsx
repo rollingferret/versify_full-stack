@@ -5,8 +5,9 @@ import {MdKeyboardArrowDown,
 
 import MyLinks from './my_links';
 import SearchBar from './searchbar';
+import Logo from '../logo';
 
-class NavBar extends React.Component {
+class NavBarSplash extends React.Component {
     constructor (props) {
         super(props)
 
@@ -32,6 +33,7 @@ class NavBar extends React.Component {
         const { menuOpen,
         } = this.state;
 
+        // Only show Links in NavBarSplash if on Splash page
         const navLinks = (<nav 
             className="nav-links">
                 {history.location.pathname === '/' 
@@ -42,6 +44,7 @@ class NavBar extends React.Component {
 
         const logoutClick = () => logout().then ( () => history.push('/'));
 
+        // When not on Splash page, show Links in user drop-down
         const dropMenu = (<div 
             className="menu-item">
                 {history.location.pathname !== '/' 
@@ -70,7 +73,7 @@ class NavBar extends React.Component {
         const navDisplay = currentUser ? loggedIn : loggedOut;
         
         return (
-            <nav className="nav-container">
+            <nav className="nav-container-splash">
                 <div id="site-logo">
                     <Logo history={history}/>
                 </div>
@@ -86,4 +89,4 @@ class NavBar extends React.Component {
     }
 }
 
-export default NavBar;
+export default NavBarSplash;
