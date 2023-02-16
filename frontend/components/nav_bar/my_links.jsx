@@ -3,8 +3,12 @@ import React from "react";
 const MyLinks = () => {
     return (
     <div className="my-links">
-        <a href='https://github.com/imartinez921'>GitHub</a>
-        <a href='https://www.linkedin.com/in/irenemartinez921/'>LinkedIn</a>
+        <div>
+            <a href='https://github.com/imartinez921'>GitHub</a>
+        </div>
+        <div>
+            <a href='https://www.linkedin.com/in/irenemartinez921/'>LinkedIn</a>
+        </div>
     </div>
     )
 }
