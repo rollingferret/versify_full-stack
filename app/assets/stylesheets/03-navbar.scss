@@ -42,9 +42,24 @@
     justify-content: flex-end;
     margin-right: 0px;
     margin-left: 270px;
-    padding-right: 50px;
+    padding-right: 75px;
     height: 66px;
     background-color: black;
+    align-items: center;
+}
+
+.nav-container-main {
+    font-weight: 700;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 0px;
+    margin-left: 270px;
+    padding-right: 50px;
+    height: 66px;
+    background-color: transparent;
     align-items: center;
 }
 
@@ -63,6 +78,7 @@
     justify-content: space-around;
     background-color: black;
     width: 340px;
+    margin-right: 135px;
 }
 
 .logged-out-links {
@@ -75,7 +91,7 @@
 .nav-container-splash .line {
     border: 1px solid white;
     height: 15px;
-    margin-left: 60px;
+    margin-left: -75px;
     margin-right: 95px;
 }
 

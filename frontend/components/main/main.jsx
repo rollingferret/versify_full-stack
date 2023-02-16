@@ -1,9 +1,7 @@
 import React from "react";
-import {GiRingedPlanet,
-} from 'react-icons/gi';
 
 
-import NavBarContainer from "../nav_bar/nav_bar_container";
+import NavBarMainContainer from "../nav_bar/nav_bar_main_container";
 import SideBarContainer from "../side_bar/side_bar_container";
 import HomeContainer from "../home/home_container";
 import PlaylistShowContainer from "../playlists/playlist_show_container";
@@ -34,16 +32,10 @@ class Main extends React.Component {
 
     console.log('MAIN PROPS', this.props)        
 
-        const logoDiv = (<div id="site-logo">
-                <GiRingedPlanet /> 
-                <h2> Versify</h2>
-            </div>
-        )
-
         return (
             <div className="main-container">
-                <div className="nav-container-splash">
-                    <NavBarContainer history={this.props.history} />
+                <div className="nav-container-main">
+                    <NavBarMainContainer history={this.props.history} />
                 </div>
                 <SideBarContainer history={history}
                     currentUser={currentUser}

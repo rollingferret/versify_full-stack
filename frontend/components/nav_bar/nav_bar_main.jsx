@@ -7,7 +7,7 @@ import MyLinks from './my_links';
 import SearchBar from './searchbar';
 import Logo from '../logo';
 
-class NavBarSplash extends React.Component {
+class NavBarMain extends React.Component {
     constructor (props) {
         super(props)
 
@@ -32,15 +32,6 @@ class NavBarSplash extends React.Component {
         } = this.props;
         const { menuOpen,
         } = this.state;
-
-        // Only show Links in NavBarSplash if on Splash page
-        const navLinks = (<nav 
-            className="nav-links">
-                {history.location.pathname === '/' 
-                ? <MyLinks /> 
-                : null}
-            </nav>
-        )
 
         const logoutClick = () => logout().then ( () => history.push('/'));
 
@@ -73,7 +64,7 @@ class NavBarSplash extends React.Component {
         const navDisplay = currentUser ? loggedIn : loggedOut;
         
         return (
-            <nav className="nav-container-splash">
+            <nav className="nav-container-main">
                 <div id="site-logo">
                     <Logo history={history}/>
                 </div>
@@ -82,11 +73,16 @@ class NavBarSplash extends React.Component {
                     ? <SearchBar history={history} />
                     : null}
                 </div>
-                {navLinks}
-                {navDisplay}
+                <nav className='nav-display' id='splash-logged-in'>
+                    <div id='avatar-pic-nav' onClick={this.showMenu}> 
+                        <div id="avatar-pic"></div>
+                        <div id="arrow-display">{arrowDisplay} </div>
+                    </div>
+                {this.state.menuOpen ? (dropMenu) : (null)}
+            </nav>
             </nav>
         )
     }
 }
 
-export default NavBarSplash;
+export default NavBarMain;
