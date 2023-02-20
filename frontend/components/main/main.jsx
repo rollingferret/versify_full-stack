@@ -42,12 +42,12 @@ class Main extends React.Component {
                     errors={errors}
                 />
 
-                <div className="main-grid-container">
-                    <div className="show-container">
-                        {path === "/home" && <HomeContainer />}
-                        {path === "/playlist/:id" && <PlaylistShowContainer 
-                            match={match} />}
-                    </div>
+                <div className="current-container">
+                    {path === "/home" && <HomeContainer />}
+
+
+                    {path === "/playlist/:id" && <PlaylistShowContainer 
+                        match={match} />}
                 </div>
             </div>
         )    
