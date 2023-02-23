@@ -18,7 +18,7 @@ const PlaylistShow = (props) => {
     
     return (
         <div className="playlist-show-container">
-            <h1>This is PlaylistShow for PlaylistId #${playlistId}</h1>
+            <h1>This is PlaylistShow for PlaylistId #{playlistId}</h1>
             <PlaylistHeader />
             <PlaylistNav />
             <PlaylistBody />
