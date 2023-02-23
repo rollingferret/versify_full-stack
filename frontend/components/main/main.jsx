@@ -1,9 +1,6 @@
 import React from "react";
-import {GiRingedPlanet,
-} from 'react-icons/gi';
 
-
-import NavBarContainer from "../nav_bar/nav_bar_container";
+import NavBarMainContainer from "../nav_bar/nav_bar_main_container";
 import SideBarContainer from "../side_bar/side_bar_container";
 import HomeContainer from "../home/home_container";
 import PlaylistShowContainer from "../playlists/playlist_show_container";
@@ -13,49 +10,37 @@ class Main extends React.Component {
         super(props);
     }
 
-    viewType () {
+    currentViewType () {
         switch (this.props.path) {
             case "/home":
-                return null;
-        case "/playlist/:id":
-                return <PlaylistShowContainer />;
-
+                return <HomeContainer />;
+            case "/playlist/:id":
+                return <PlaylistShowContainer  match={this.props.match} />;
+            default:
+                return <HomeContainer />;
         }
     }
 
     render () {
         const {history,
-            match,
             currentUser,
-            path,
-            clearPlaylistErrors,
             errors,
         } = this.props;
 
     console.log('MAIN PROPS', this.props)        
 
-        const logoDiv = (<div id="site-logo">
-                <GiRingedPlanet /> 
-                <h2> Versify</h2>
-            </div>
-        )
-
         return (
             <div className="main-container">
-                <div className="nav-container-splash">
-                    <NavBarContainer history={this.props.history} />
-                </div>
+                <nav className="nav-container-main">
+                    <NavBarMainContainer history={history} />
+                </nav>
+                
                 <SideBarContainer history={history}
                     currentUser={currentUser}
                     errors={errors}
                 />
-
-                <div className="main-grid-container">
-                    <div className="show-container">
-                        {path === "/home" && <HomeContainer />}
-                        {path === "/playlist/:id" && <PlaylistShowContainer 
-                            match={match} />}
-                    </div>
+                <div className="current-container">
+                    {this.currentViewType()}
                 </div>
             </div>
         )    

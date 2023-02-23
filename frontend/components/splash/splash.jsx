@@ -1,6 +1,6 @@
 import React from "react";
 
-import NavBarContainer from "../nav_bar/nav_bar_container";
+import NavBarSplashContainer from "../nav_bar/nav_bar_splash_container";
 import SplashDisplay from "./splash_display";
 
 const Splash = (props) => {
@@ -8,7 +8,7 @@ const Splash = (props) => {
  
     return (
         <div className="splash-page">
-            <NavBarContainer history={history}/>
+            <NavBarSplashContainer history={history}/>
             <section className='splash-display'>
                     <SplashDisplay currentUser={currentUser} history={history}/>
             </section>

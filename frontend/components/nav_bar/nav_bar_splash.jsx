@@ -1,10 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {MdKeyboardArrowDown,
     MdKeyboardArrowUp,
 } from 'react-icons/md';
 
 import MyLinks from './my_links';
-import SearchBar from './searchbar';
 import Logo from '../logo';
 
 class NavBarSplash extends React.Component {
@@ -17,7 +17,10 @@ class NavBarSplash extends React.Component {
         }
 
         this.showMenu = this.showMenu.bind(this)
+        console.log('NAVBAR PROPS', props)
     }
+
+ 
 
     showMenu (e) {
         e.preventDefault();
@@ -26,63 +29,51 @@ class NavBarSplash extends React.Component {
     
     render () {
         const { currentUser,
-            loggedOut, 
             logout,
             history,
         } = this.props;
         const { menuOpen,
         } = this.state;
 
-        // Only show Links in NavBarSplash if on Splash page
-        const navLinks = (<nav 
-            className="nav-links">
-                {history.location.pathname === '/' 
-                ? <MyLinks /> 
-                : null}
-            </nav>
-        )
-
         const logoutClick = () => logout().then ( () => history.push('/'));
 
-        // When not on Splash page, show Links in user drop-down
         const dropMenu = (<div 
             className="menu-item">
-                {history.location.pathname !== '/' 
-                    ?  <>
-                        <a href='https://github.com/imartinez921'>GitHub</a>
-                        <a href='https://www.linkedin.com/in/irenemartinez921/'>LinkedIn</a>
-                        </>
-                        : null}
                 <a onClick={logoutClick}>Log out</a>
             </div>
         )
         
         const arrowDisplay = menuOpen ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />
 
+        const loggedOut = (
+            <div className="logged-out-links">
+              <div className="line"></div>
+              <nav className='nav-display' id='splash-logged-out'>
+                <Link className="btn" to="/signup">Sign Up</Link>
+                <Link className="btn" to="/login">Log In</Link>
+              </nav>
+            </div>
+        )
+
         const loggedIn = (
             <nav className='nav-display' id='splash-logged-in'>
-                <div id='avatar-pic-nav' onClick={this.showMenu}> 
+                <div id='avatar-pic-nav-splash' onClick={this.showMenu}> 
                     <div id="avatar-pic"></div>
-                    <div id="arrow-display">{arrowDisplay} </div>
+                    <div id="arrow-display"> {currentUser !== undefined ? currentUser.username : null} {arrowDisplay} </div>
                 </div>
                 {this.state.menuOpen ? (dropMenu) : (null)
                 }
             </nav>
         )
 
-        const navDisplay = currentUser ? loggedIn : loggedOut;
+        const navDisplay = (currentUser !== undefined ? loggedIn : loggedOut);
         
         return (
             <nav className="nav-container-splash">
                 <div id="site-logo">
                     <Logo history={history}/>
                 </div>
-                <div className='search-container'>
-                    {history.location.pathname !== '/' 
-                    ? <SearchBar history={history} />
-                    : null}
-                </div>
-                {navLinks}
+                <MyLinks />
                 {navDisplay}
             </nav>
         )
