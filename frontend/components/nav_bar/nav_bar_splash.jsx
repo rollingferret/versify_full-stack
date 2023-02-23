@@ -38,7 +38,7 @@ class NavBarSplash extends React.Component {
         const logoutClick = () => logout().then ( () => history.push('/'));
 
         const dropMenu = (<div 
-            className="menu-item">
+            className="menu-item-splash">
                 <a onClick={logoutClick}>Log out</a>
             </div>
         )
