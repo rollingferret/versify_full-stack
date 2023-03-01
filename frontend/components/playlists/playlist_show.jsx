@@ -4,17 +4,21 @@ import PlaylistNav from "./playlist_nav";
 import PlaylistBody from "./playlist_body";
 
 
-const PlaylistShow = (props) => {
-    debugger;
-    console.log('PLAYLISTSHOW PROPS', props);
+const PlaylistShow = ({ playlistId, 
+    displayPlaylist, 
+    editPlaylist, 
+    removePlaylist,
+    clearCurrent, 
+}) => {
 
-    const playlistId = props.match.params.id;
-    const { displayPlaylist,
-    } = props;
 
+// Upon mount: fetch playlist from database based on params :id
+// Upon dismount: clear currentItem slice of state
     useEffect( () => {
         displayPlaylist(playlistId);
-    });
+
+        return () => clearCurrent();
+    }, []);
     
     return (
         <div className="playlist-show-container">

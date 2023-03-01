@@ -46,7 +46,7 @@ class NavBarMain extends React.Component {
 
         return (
             <>
-                <div class="site-logo-main">
+                <div className="site-logo-main">
                     <Logo history={history}/>
                 </div>
 

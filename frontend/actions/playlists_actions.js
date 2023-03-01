@@ -6,6 +6,7 @@ import {
     deletePlaylist,
   } from '../util/playlists_util';
 
+export const RESET_CURRENT = 'RESET_CURRENT';
 export const RECEIVE_CURRENT_PLAYLIST = 'RECEIVE_CURRENT_PLAYLIST';
 export const RECEIVE_ALL_PLAYLISTS = 'RECEIVE_ALL_PLAYLISTS';
 export const DELETE_PLAYLIST = 'DELETE_PLAYLIST';
@@ -16,6 +17,10 @@ export const RESET_PLAYLIST_ERRORS = 'RESET_PLAYLIST_ERRORS';
 // export const clearPlaylistErrors = () => dispatch => (
 //     dispatch(resetPlaylistErrors())
 // );
+
+export const clearCurrent = () => dispatch => (
+    dispatch(resetCurrent())
+);
 
 
 export const fetchPlaylists = () => dispatch => (
@@ -55,8 +60,9 @@ export const removePlaylist = (playlistId) => dispatch => (
     .then ( () => dispatch())
 )
 
-
-
+const resetCurrent = () => ({
+    type: RESET_CURRENT,
+})
 
 const receivePlaylistErrors = (errors) => ({
     type: RECEIVE_PLAYLIST_ERRORS,
