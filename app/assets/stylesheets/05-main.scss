@@ -8,8 +8,7 @@
 }
 
 .current-container {
-    background-color: rgba(0, 0, 0, 0.6); 
-    // writing as rgba will prevent opacity from passing down to children
+    background-color: transparent;
     width: calc(100% - 270px);
     height: calc(100% - 85px);
     position: absolute;

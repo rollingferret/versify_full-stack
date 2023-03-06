@@ -1,8 +1,10 @@
 import React from "react";
 
 
-const PlaylistBody = (props) => {
-    return 'This is PlaylistBody'
+const PlaylistBody = ({ playlistSongs }) => {
+    <>
+        <h1>{playlistSongs}</h1>
+    </>
 }
 
 export default PlaylistBody;

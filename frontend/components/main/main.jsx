@@ -2,27 +2,17 @@ import React from "react";
 
 import NavBarMainContainer from "../nav_bar/nav_bar_main_container";
 import SideBarContainer from "../side_bar/side_bar_container";
-import HomeContainer from "../home/home_container";
-import PlaylistShowContainer from "../playlists/playlist_show_container";
+import CurrentViewContainer from "./current_view_container";
 
 class Main extends React.Component {
     constructor (props) {
         super(props);
     }
 
-    currentViewType () {
-        switch (this.props.path) {
-            case "/home":
-                return <HomeContainer />;
-            case "/playlist/:id":
-                return <PlaylistShowContainer  match={this.props.match} />;
-            default:
-                return <HomeContainer />;
-        }
-    }
-
     render () {
         const {history,
+            params,
+            path,
             currentUser,
             errors,
         } = this.props;
@@ -40,7 +30,9 @@ class Main extends React.Component {
                     errors={errors}
                 />
                 <div className="current-container">
-                    {this.currentViewType()}
+                    <CurrentViewContainer currentUser={currentUser}
+                        params={params} path={path}
+                    />
                 </div>
             </div>
         )    

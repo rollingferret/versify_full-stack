@@ -39,7 +39,8 @@ export const createPlaylist = (defaultPlaylist) => dispatch =>
 )};
 
 export const displayPlaylist = (playlistId) => dispatch => 
-{   debugger;
+{   
+    // debugger;
     console.log('RUNNING DISPLAY PLAYLIST with', playlistId)
     return (
     showPlaylist(playlistId)
@@ -74,7 +75,7 @@ const resetPlaylistErrors = () => ({
 });
 
 const receiveCurrentPlaylist = (playlistObj) => {
-    debugger;
+    // debugger;
     return ({
         type: RECEIVE_CURRENT_PLAYLIST,
         playlist: playlistObj.playlist,

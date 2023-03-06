@@ -4,15 +4,13 @@ const SideBarPlaylistButton = (props) => {
     const { title,
         playlistId,
         history,
+        displayPlaylist,
     } = props;
 
-    // console.log(self);
-    // const component = self;
-    // const displayPlaylistBind = displayPlaylist.bind(component);
 
     const clickToShowPlaylist = (e) => {
         e.preventDefault();
-        debugger;
+        displayPlaylist(playlistId);
         history.push(`/playlist/${playlistId}`); 
     }
     return (

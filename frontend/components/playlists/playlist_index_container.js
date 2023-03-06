@@ -8,14 +8,14 @@ import {fetchPlaylists,
 const mapStateToProps = ( {entities: { playlists }}, ownProps) => ({
     currentUsername: ownProps.currentUser.username,
     currentUser: ownProps.currentUser,
-    history: ownProps.history,
     // pass this through as props to keep on refresh
+    history: ownProps.history,
     playlists: Object.values(playlists),
 })
 
 const mapDispatchToProps = (dispatch) => ({
     fetchPlaylists: () => dispatch(fetchPlaylists()),
-    displayPlaylist: (id) => dispatch( displayPlaylist(id) ),
+    displayPlaylist: (playlistId) => dispatch(displayPlaylist(playlistId)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlaylistIndex)

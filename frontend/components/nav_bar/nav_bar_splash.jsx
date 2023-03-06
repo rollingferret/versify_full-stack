@@ -70,7 +70,7 @@ class NavBarSplash extends React.Component {
         
         return (
             <nav className="nav-container-splash">
-                <div class="site-logo-splash">
+                <div className="site-logo-splash">
                     <Logo history={history}/>
                 </div>
                 <MyLinks />

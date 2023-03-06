@@ -1,8 +1,10 @@
 import React from "react";
 
 
-const PlaylistNav = (props) => {
-    return 'This is PlaylistNav';
+const PlaylistNav = ({ id }) => {
+    <>
+        <h1>This is Playlist #{id}</h1>
+    </>
 }
 
 export default PlaylistNav;

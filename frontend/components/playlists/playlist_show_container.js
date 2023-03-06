@@ -1,21 +1,22 @@
 import { connect } from "react-redux";
-import { editPlaylist,
+import { displayPlaylist,
+    editPlaylist,
     removePlaylist,
-    displayPlaylist,
     clearCurrent,
 } from "../../actions/playlists_actions";
 
 import PlaylistShow from "./playlist_show";
 
-const mapStateToProps = (state, { match }) => {
+const mapStateToProps = (state, ownProps) => {
     return ({
-        playlistId: match.params.id,
-        // state: state.entities.currentItem,
+        currentPlaylist: state.entities.currentPlaylist,
+        params: ownProps.params,
+        currentUser: ownProps.currentUser,
     })
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    displayPlaylist: (id) => dispatch( displayPlaylist(id) ),
+    displayPlaylist: (playlistId) => dispatch( displayPlaylist(playlistId) ),
     editPlaylist: (playlist, playlistId) => dispatch( editPlaylist(playlist, playlistId) ),
     removePlaylist: (playlistId) => dispatch( removePlaylist(playlistId) ),
     clearCurrent: () => dispatch( clearCurrent() ),
