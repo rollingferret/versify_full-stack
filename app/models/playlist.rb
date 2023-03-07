@@ -1,4 +1,22 @@
+# == Schema Information
+#
+# Table name: playlists
+#
+#  id          :bigint           not null, primary key
+#  title       :string           not null
+#  description :text             not null
+#  user_id     :integer          not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
 class Playlist < ApplicationRecord    
     validates :title, presence: true
     validates :description, presence: true
+
+    # has_many :songs
+
+    # belongs_to :user,
+    #     primary_key: :id, 
+    #     foreign_key: :song_id,
+    #     class_name: :Song
 end

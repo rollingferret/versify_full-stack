@@ -3,17 +3,17 @@ import { RECEIVE_CURRENT_PLAYLIST,
     DELETE_PLAYLIST,
 } from "../actions/playlists_actions";
 
-const playlistsReducer = (state = {}, action) => {
-    Object.freeze(state);
+
+const playlistsReducer = (playlistsState = {}, action) => {
+    Object.freeze(playlistsState); // playlistsState is an array
     switch (action.type) {
-        case RECEIVE_CURRENT_PLAYLIST:
-            return { [action.playlist.id]: action.playlist};
         case RECEIVE_ALL_PLAYLISTS:
             return action.playlists;
         case DELETE_PLAYLIST:
+            return {};
             
         default:
-            return state;
+            return playlistsState;
     }
 }
 

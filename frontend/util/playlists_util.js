@@ -7,36 +7,35 @@ export const postPlaylist = (playlist) => {
     }))
 };
 
-export const patchPlaylist = (playlist, id) => {
+export const showPlaylist = (playlistId) => 
+{   
     return (
-        $.ajax({
-        method: 'PATCH',
-        url: `/api/users/:user_id/playlists/:id`,
-        // url: `/api/playlists/${id}`,
-        data: { playlist },
-        })
-    )
-};
-
-export const showPlaylist = (id) => (
     $.ajax({
     method: 'GET',
-    url: `/api/playlists/${id}`,
+    url: `/api/playlists/${playlistId}`,
     })
-);
+);}
+
+// export const patchPlaylist = (playlist, playlistId) => {
+//     return (
+//         $.ajax({
+//         method: 'PATCH',
+//         url: `/api/playlists/${playlistId}`,
+//         data: { playlist },
+//         })
+//     )
+// };
 
 export const indexPlaylists = () => (
-// export const indexPlaylists = (userId) => (
     $.ajax({
     method: 'GET',
     url: `/api/playlists`,
-    // url: `/api/users/${userId}/playlists`,
     })
 );
 
-export const deletePlaylist = (id) => (
-    $.ajax ({
-        method: 'DELETE',
-        url: `/api/playlists/${id}`,
-    })
-);
+// export const deletePlaylist = (playlistId) => (
+//     $.ajax ({
+//         method: 'DELETE',
+//         url: `/api/playlists/${playlistId}`,
+//     })
+// );

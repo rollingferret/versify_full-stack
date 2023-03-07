@@ -2,11 +2,10 @@ class Api::PlaylistsController < ApplicationController
     # before_action :require_login
 
     def index
-        # debugger
         # If we had passed user.id through the url, we'd get it from params
-        @playlists = Playlist.where(user_id: current_user.id)
-        .order(:updated_at).reverse_order 
-        render :index 
+        @playlists = 
+            Playlist.where(user_id: current_user.id).order('updated_at DESC')
+        render :index
     end
 
     def create
@@ -15,6 +14,17 @@ class Api::PlaylistsController < ApplicationController
             render :show
         else
             render json: @playlist.errors.full_messages, status: 401
+        end
+    end
+
+    def show
+        @playlist = Playlist.find(params[:id])
+        if @playlist && @playlist.user_id == current_user.id
+            # currently only showing user's own playlists
+            render :show
+        else
+            render json: ['Could not find playlist']
+            # render json: ['Could not find playlist'] >> @playlist.errors.full_messages, status: 404
         end
     end
 
@@ -37,9 +47,10 @@ class Api::PlaylistsController < ApplicationController
 
     private
 
-    def selected_playlist
-        Playlist.find(params[:id])
-    end
+    # def selected_playlist
+    #     Playlist.find(params[:playlist_id])
+    # end
+        
 
     def playlist_params
         params.require(:playlist).permit(:title, :description, :user_id)

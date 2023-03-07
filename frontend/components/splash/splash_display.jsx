@@ -20,8 +20,8 @@ const SplashDisplay = (props) => {
         const name = username.charAt(0).toUpperCase() + username.slice(1)
         return loggedInDisplay = (
             <div className='splash-msg'>
-                <h1><span>Welcome back, {name}.</span></h1>
-                <h3><span>Jump back in</span></h3>
+                <h1>Welcome back, {name}.</h1>
+                <h3>Jump back in</h3>
                 <button className="session-button" 
                     id="continue-button" 
                     onClick= {handleSubmit}>

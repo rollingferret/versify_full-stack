@@ -1,0 +1,17 @@
+.main-container {
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(https://wallpapercave.com/wp/wp4575286.jpg);
+    background-size: cover;
+    overflow-y: hidden;
+}
+
+.current-container {
+    background-color: transparent;
+    width: calc(100% - 270px);
+    height: calc(100% - 85px);
+    position: absolute;
+    top: 85px;
+    left: 270px;
+}

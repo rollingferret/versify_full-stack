@@ -1,45 +1,53 @@
 import React from 'react'
-import { Link,
-} from 'react-router-dom';
-
 
 import {AiFillHome,
 } from 'react-icons/ai';
 import {FaSearch,
 } from 'react-icons/fa';
-import {MdOutlineAddBox,p
+import {MdOutlineAddBox,
 } from 'react-icons/md';
 
 import PlaylistIndexContainer from '../playlists/playlist_index_container';
-import SidebarButton from './side_bar_button'
+import SideBarNavButton from './side_bar_nav_button'
 
 const SideBar = (props) => {
-    console.log('PROPS', props);
+    console.log('SIDEBAR PROPS', props);
 
     const { createPlaylist,
-            currentUser,
-            fetchPlaylists,
-            playlists,
+        displayPlaylist,
+        fetchPlaylists,
+        playlists,
+        history,
+        currentUser,
+        errors,
     } = props
 
     const handleSubmitCreate = (e) => {
         e.preventDefault();
 
-        const number = Object.values(playlists).length
+        const number = playlists.length;
 
-        const defaultNew = ({ 
+        const defaultNewPlaylist = { 
             title: `Untitled Playlist #${number}`,
             description: 'Please add a description',
             user_id: currentUser.id,
-        })
-        console.log({defaultNew})
-        createPlaylist(defaultNew)
-        .then ( () => fetchPlaylists(currentUser.id));
+        }
+
+        console.log({defaultNewPlaylist})
+        return createPlaylist(defaultNewPlaylist)
+        .then( () => fetchPlaylists(currentUser.id))
+        .then( (actionObj) => history.push(`/playlist/${actionObj.playlists[0].id}`) )
     }
 
     return (
         <section className='sidebar-container'>
             <nav className="sidebar">
+                <SideBarNavButton history={history} 
+                    text='Home' 
+                    icon={<AiFillHome />} 
+                    url='home' 
+                />
+                {/* <SideBarNavButton history={history} text='Search' icon={<FaSearch />} url='search' /> */}
                 <button className="sidebar-nav"
                     name='playlist'
                     onClick={handleSubmitCreate}>
@@ -47,20 +55,10 @@ const SideBar = (props) => {
                         <div className="text-button" >Create Playlist</div>
                 </button>
             </nav>
-                {/* <div className="sidebar-button"> */}
-                    {/* <div className="icon"> */}
-                        {/* <MdOutlineAddBox />
-                    </div>
-                    <div className="text">
-                        <Link to='/create'>Create Playlist</Link>
-                    </div> */}
-                {/* </div> */}
 
-
-                {/* <SidebarButton text='Home' icon={<AiFillHome />} path='/home' /> */}
-                {/* <SidebarButton text='Search' icon={<FaSearch />} path='/search' /> */}
             <div className="line"></div>
-            <PlaylistIndexContainer currentUser={currentUser}/> 
+            <PlaylistIndexContainer currentUser={currentUser} history={history}/> 
+                {/* pass currentUser through as props to keep on refresh */}
         </section>
     )
 }

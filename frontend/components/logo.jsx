@@ -4,19 +4,12 @@ import {GiRingedPlanet,
 } from 'react-icons/gi';
 
 const Logo = (props) => {
-
     return( 
-        <div 
-        className="site-logo">
-        {props.history.location.pathname === '/' 
-            ? 
-            <>
+        <div id="logo">
                 <GiRingedPlanet /> 
                 <h2> Versify</h2>
-            </>
-            : null
-        }    
-    </div>
+        </div>
+
     )
 }
 

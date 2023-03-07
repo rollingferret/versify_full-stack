@@ -1,30 +1,10 @@
 .playlist-index-container::-webkit-scrollbar {
-    width: 5px;/*Gives you width to the scrollbar*/
+    width: 5px; /*Gives width for the scrollbar*/
 }
 
 .playlist-index-container::-webkit-scrollbar-thumb {
     background-color: #959595;
     border-radius: 15px;
-}
-
-
-.home-container #site-logo {
-    display: flex;
-    align-items: center;
-    font-size: 45px;
-    width: 250px;
-    height: 66px;
-    position: absolute;
-    padding-top: 5px;
-    padding-left: 20px;
-    background-color: black;
-}
-
-#site-logo h2 {
-    font-family: 'Trebuchet MS', 'impact';
-    vertical-align: center;
-    font-size: 21px;
-    padding-left: 5px;
 }
 
 .sidebar-container {
@@ -36,9 +16,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 20px;
     background-color: black;
-    // overflow-y: hidden;
 }
 
 nav.sidebar {
@@ -78,6 +56,19 @@ div.icon {
 }
 
 // sidebar nav buttons
+button.sidebar-nav:first-child {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #b3b3b3;
+    height: 100%;
+    width: 100%;
+    margin-top: 12px;
+    border: none;
+    padding: 15px 10px 5px 10px;
+    background-color: black;
+}
+
 button.sidebar-nav {
     display: flex;
     flex-direction: row;
@@ -123,11 +114,11 @@ button.sidebar {
 .playlist-index-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    /* align-items: flex-start; */
+    /* text-align: left; */
     color: #b3b3b3;
-    font-weight: normal;
     height: 510px;
-    width: 85%;
+    width: 100%;
     border: 1px solid black;
     overflow-y: auto;
 }

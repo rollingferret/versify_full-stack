@@ -1,43 +1,98 @@
-.nav-container div {
-    border-radius: 5px;
-}
-
-.nav-links a {
+.nav-container-splash a {
     color: white;
 }
 
-.nav-links a:hover {
+.nav-container-splash a:hover {
     color: #1db954;
     transition: .2s;
 }
 
-.nav-container .site-logo {
+.site-logo-splash {
+    color: white;
     display: flex;
     align-items: center;
-    font-size: 40px;
-    width: 200px;
+    font-size: 45px;
+    width: 120px;
+    height: 80px;
+    position: absolute;
+    left: 0px;
+    padding-left: 60px;
+    padding-right: 130px;
+    background-color: black;
 }
 
-.site-logo h2 {
+.site-logo-splash h2 {
     font-family: 'Trebuchet MS', 'impact';
+    color: white;
     vertical-align: center;
-    font-size: 25px;
+    font-size: 21px;
+    padding-left: 5px;
+    font-family: 'Trebuchet MS', 'impact';
+    color: white;
+    vertical-align: center;
     padding-left: 5px;
 }
 
-.nav-container {
+.site-logo-main {
+    color: white;
+    display: flex;
+    align-items: center;
+    font-size: 49px;
+    width: calc(270px - 25px - 130px);
+    height: 66px;
+    position: absolute;
+    left: 0px;
+    padding-left: 25px;
+    padding-right: 130px;
+    padding-top: 10px;
+    background-color: black;
+}
+
+.site-logo-main h2 {
+    font-family: 'Trebuchet MS', 'impact';
+    color: white;
+    vertical-align: center;
+    padding-left: 5px;
+    font-family: 'Trebuchet MS', 'impact';
+    color: white;
+    vertical-align: center;
+    font-size: 23px;
+    padding-left: 5px;
+}
+
+#logo {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    background: transparent;
+}
+
+.nav-container-splash {
     font-weight: 700;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
     text-align: center;
     display: flex;
-    place-items: center;
     flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    justify-content: flex-end;
+    margin-right: 0px;
+    margin-left: 270px;
+    padding-right: 75px;
+    height: 80px;
     background-color: black;
-    height: 30px;
+    align-items: center;
+}
+
+.nav-container-main {
+    font-weight: 700;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+    text-align: center;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 0px;
+    height: 66px;
+    width: 100vw;
+    background-color: transparent;
+    align-items: center;
 }
 
 .nav-links {
@@ -46,20 +101,29 @@
     // justify-content: space-evenly;
     align-items: center;
     width: 200px;
+    background-color: purple;
 }
 
-.nav-container .my-links {
+.my-links {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 200px;
-    border-radius: 0px;
+    justify-content: space-around;
+    background-color: black;
+    width: 340px;
 }
 
-.nav-container .line {
+.logged-out-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: black;
+}
+
+.nav-container-splash .line {
     border: 1px solid white;
     height: 15px;
+    margin-left: 55px;
+    margin-right: 95px;
 }
 
 #splash-logged-out {
@@ -69,50 +133,90 @@
     width: 200px;
 }
 
-#avatar-pic-nav {
+#avatar-pic-nav-splash {
+    top: 16px;
+    right: 55px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 23px;
+    color: #fff;
+    cursor: pointer;
     display: flex;
+    white-space: nowrap;
+    height: 32px;
+    padding: 0 20px 0px 20px;
+    font-size: 15px;
     flex-direction: row;
-    place-items: center;
-    margin: auto;
-    line-height: 27px;
-    width: 50px;
-    height: 50px;
-    background-color: black;
-    border-radius: 50%;
+    justify-content: center;
 }
 
-#avatar-pic-nav:hover {
+#avatar-pic-nav-main {
+    position: absolute;
+    top: 16px;
+    right: 25px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 23px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    width: auto;
+    height: 32px;
+    padding: 0px 16px 0px 20px;
+    font-size: 15px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#avatar-pic-nav-splash:hover, #avatar-pic-nav-main:hover {
     background-color:  #282828;
     transition: .2s;;
 }
 
 #arrow-display {
-    padding-left: 16px;
+    padding-left: 12px;
     padding-top: 5px;
 }
 
-.menu-item {
+.menu-item-splash {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
+    font-size: 15px;
+    z-index: 1;
     width: 100px;
     height: auto;
-    text-align: center;
-    margin-top: 10px;
-    padding: 10px;
+    padding: 7px;
     background-color: #282828;
     position: absolute;
-    color:white;
-}
-
-.menu-item a {
+    right: 75px;
+    top: 67px;
     color: white;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    border-radius: 4px;
 }
 
-.menu-item a:hover {
+.menu-item-main {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    z-index: 1;
+    width: 100px;
+    height: auto;
+    padding: 7px;
+    background-color: #282828;
+    position: absolute;
+    right: 25px;
+    top: 57px;
+    color: white;
+    border-radius: 4px;
+}
+
+.menu-item-main a, .menu-item-splash a  {
+    cursor: pointer;
+    color: white;
+    padding: 10px 0px 10px 0px;
+}
+
+.menu-item-main a:hover, .menu-item-splash a:hover  {
+    cursor: pointer;
     color: #1db954;
     transition: .2s;;
 }
@@ -122,6 +226,6 @@
     background-color: skyblue;
 }
 
-.home-container .nav-container {
+.main-grid-container .nav-container-splash {
     background-color: transparent;
 }
