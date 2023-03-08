@@ -17,17 +17,17 @@
     "node": "16.17.0",
     "npm": "8.15.0"
   },
-"repository": {
+  "repository": {
     "type": "git",
-    "url": "git+https://github.com/imartinez921/versify_fullstack.git"
+    "url": "git+https://github.com/imartinez921/versify_full-stack.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/imartinez921/versify_fullstack/issues"
+    "url": "https://github.com/imartinez921/versify_full-stack/issues"
   },
-  "homepage": "https://github.com/imartinez921/versify_fullstack#readme",
+  "homepage": "https://github.com/imartinez921/versify_full-stack#readme",
   "dependencies": {
     "@babel/core": "^7.18.10",
     "@babel/preset-env": "^7.18.10",
@@ -35,7 +35,7 @@
     "babel-loader": "^8.2.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^4.4.0",
+    "react-icons": "^4.8.0",
     "react-redux": "^8.0.2",
     "react-router": "^4.1.2",
     "react-router-dom": "^4.1.2",

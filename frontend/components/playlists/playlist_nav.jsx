@@ -1,10 +1,23 @@
 import React from "react";
 
+import {RxDotsHorizontal,
+} from 'react-icons/rx';
+import {GrPlayFill,
+} from 'react-icons/gr';
+
 
 const PlaylistNav = ({ id }) => {
-    <>
-        <h1>This is Playlist #{id}</h1>
-    </>
+
+    return (
+        <>
+            <div id="playlist-play-button">
+                <GrPlayFill />
+            </div>
+            <div id="playlist-dropdown">
+                <RxDotsHorizontal />
+            </div>
+        </>
+    )
 }
 
 export default PlaylistNav;

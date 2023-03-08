@@ -8,10 +8,11 @@
     background: #1f0075;
     display: flex;
     width: calc(100% - 30px - 30px);
-    height: calc(275px - 30px - 5px);
-    padding: 30px 30px 5px 30px;
+    height: calc(260px - 30px - 30px);
+    padding: 30px 30px 30px 30px;
     font-family: Trebuchet MS;
     color: white;
+    align-items: center;
 }
 
 .playlist-header #title {
@@ -20,8 +21,8 @@
     letter-spacing: -2px;
     font-size: 60pt;
     padding: 0px;
-    margin: 25px 0px 50px 0px;
-    max-height: 40pt;
+    margin: 25px 0px 25px 0px;
+    max-height: 105pt;
 }
 
 .playlist-header h2 {
@@ -46,14 +47,45 @@
 }
 
 .playlist-nav {
-    background: #4c1616;
-    width: 100%;
-    height: 140px;
+    // background: #4c1616;
+    display: flex;
+    background: #575146e6;
+    width: calc(100% - 30px);
+    height: 118px;
+    align-items: center;
+    padding: 0px 0px 0px 30px;
+    gap: 25px;
+}
+
+#playlist-play-button {
+    background: red;
+    height: 56px;
+    width: 56px;
+}
+
+#playlist-play-button {
+    display: flex;
+    background: #34d760;
+    height: 56px;
+    width: 56px;
+    border-radius: 500px;
+    align-items: center;
+    justify-content: center;
+}
+
+#playlist-play-button svg {
+    margin-left: 4px;
+    font-size: 17pt;
+}
+
+#playlist-dropdown {
+    font-size: 30px;
+    color: rgba(247, 245, 242, 0.5);
 }
 
 .playlist-songs-index {
     background: #ff7272;
     width: 100%;
-    height: calc(100% - 140px - 275px);
+    height: calc(100% - 118px - 260px);
     overflow-y: auto;
 }

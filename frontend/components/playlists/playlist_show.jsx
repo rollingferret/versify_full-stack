@@ -30,11 +30,6 @@ const PlaylistShow = ({ currentPlaylist,
         return () => clearCurrent();
     }, []);
 
-    // return (
-    //     <div className="playlist-show">
-    //         <h1>{title} {description} ID:{id} {playlistSongs} </h1>
-    //     </div>
-    // )
     return (
         <div className="playlist-show">
             <div className="playlist-header">
