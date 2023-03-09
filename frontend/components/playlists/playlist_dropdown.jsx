@@ -2,10 +2,14 @@ import React from "React";
 
 const PlaylistDropdown = (props) => {
 
+    const keepDropdownOpen = (event) => {
+        event.stopPropagation();
+    }
+
     return (
-        <div className="playlist-dropdown-item">
-            <button>Edit Playlist</button>
-            <button>Delete Playlist</button>
+        <div className="playlist-dropdown-item" onClick={keepDropdownOpen}>
+            <button className="playlist-dropdown-button">Edit details</button>
+            <button className="playlist-dropdown-button">Delete </button>
         </div>
     )
 }

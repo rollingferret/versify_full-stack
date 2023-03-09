@@ -11,13 +11,16 @@ const PlaylistNav = ({id,
     playlistDropdown,
     openPlaylistDropdown,
     closePlaylistDropdown,
+    editPlaylist,
+    removePlaylist,
 }) => {
 
-// UseEffect takes 2 args, a callback function and an array of dependencies that 
-// will trigger a re-render.
-// setTimeout takes 2 args, an anonymous function and # of milliseconds
+// UseEffect takes 2 args, a callback function and an array of dependencies that will trigger a re-render.
+// setTimeout takes 2 args, an anonymous function and # of milliseconds.
 // It turns the updating callback function into an async function which will wait until
-// all the synchronous code has run before executing
+// all the synchronous code has run before executing.
+// (It will allow the Component to load before running the updating function again.
+// Otherwise the eventListener will come on and then come off immediately.
     useEffect( () => {
         setTimeout( () => 
             {playlistDropdown.isOpen ? 
@@ -29,8 +32,6 @@ const PlaylistNav = ({id,
 
     const toggleDropdown = (event) => {
         event.preventDefault();
-        event.stopPropagation();
-        console.log(event);
         playlistDropdown.isOpen ? closePlaylistDropdown() : openPlaylistDropdown();
     }
 
@@ -40,10 +41,13 @@ const PlaylistNav = ({id,
                 <GrPlayFill />
             </div>
             <div id="playlist-dropdown-dots" onClick={toggleDropdown}>
-            {/* <div id="playlist-dropdown-dots"> */}
                 <RxDotsHorizontal />
             </div>
-            {playlistDropdown.isOpen ? <PlaylistDropdown /> : null}
+            {playlistDropdown.isOpen ? 
+                <PlaylistDropdown id={id} 
+                    editPlaylist={editPlaylist} 
+                    removePlaylist={removePlaylist}/> 
+                : null}
         </>
     )
 }

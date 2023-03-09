@@ -43,6 +43,8 @@ const PlaylistShow = ({ currentPlaylist,
                     playlistDropdown={playlistDropdown}
                     openPlaylistDropdown={openPlaylistDropdown}
                     closePlaylistDropdown={closePlaylistDropdown}
+                    editPlaylist={editPlaylist}
+                    removePlaylist={removePlaylist}
                 /> 
             </div>
             <div className="playlist-songs-index">

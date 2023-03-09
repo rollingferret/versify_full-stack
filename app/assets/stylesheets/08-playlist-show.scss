@@ -82,25 +82,33 @@
     flex-direction: column;
     font-size: 15px;
     z-index: 1;
-    width: 105px;
+    width: 107px;
     height: auto;
-    padding: 7px;
-    background-color: #282828;
+    padding: 3px;
+    background-color: black;
     position: absolute;
-    left: 150px;
-    top: 300px;
+    left: 143px;
+    top: 280px;
     color: white;
     border-radius: 4px;
+    align-items: flex-start;
 }
 
-.playlist-dropdown-item button {
-    font-weight: 700;
+.playlist-dropdown-button {
+    width: 100%;
+    font-size: 10.5pt;
     font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
     cursor: pointer;
     color: white;
-    padding: 10px 0px 10px 0px;
+    padding: 11px 11px 11px 11px;
     background: transparent;
     border: none;
+    text-align: left;
+}
+
+button.playlist-dropdown-button:hover {
+    background: #282828;
+    transition: .2s;
 }
 
 .playlist-songs-index {
