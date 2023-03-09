@@ -3,9 +3,9 @@ import React from "React";
 const PlaylistDropdown = (props) => {
 
     return (
-        <div id="playlist-dropdown-menu">
-            Edit
-            Delete
+        <div className="playlist-dropdown-item">
+            <button>Edit Playlist</button>
+            <button>Delete Playlist</button>
         </div>
     )
 }

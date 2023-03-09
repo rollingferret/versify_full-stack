@@ -20,7 +20,7 @@ const PlaylistShow = ({ currentPlaylist,
         title,
         description,
     } = currentPlaylist;
-    const playlistSongs = 'PLACEHOLDER FOR SONGS INDEX'
+    const playlistedSongs = 'PLACEHOLDER FOR SONGS INDEX from state, see container'
 
 
 // Upon mount: fetch playlist from database based on params :id
@@ -47,7 +47,7 @@ const PlaylistShow = ({ currentPlaylist,
             </div>
             <div className="playlist-songs-index">
                 {/* Just placeholding for PlaylistNav */}
-                <PlaylistBody playlistSongs={playlistSongs}/>
+                <PlaylistBody playlistedSongs={playlistedSongs}/>
             </div>
         </div>
     )

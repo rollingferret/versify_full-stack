@@ -16,6 +16,7 @@ const mapStateToProps = (state, ownProps) => {
         params: ownProps.params,
         currentUser: ownProps.currentUser,
         playlistDropdown: state.ui.playlistDropdown,
+        // playlistedSongs: state.currentPlaylist.playlistedSongs,
     })
 }
 
