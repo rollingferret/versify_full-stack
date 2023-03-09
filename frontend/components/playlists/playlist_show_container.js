@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { displayPlaylist,
     editPlaylist,
-    removePlaylist,
+    destroyPlaylist,
     clearCurrent,
 } from "../../actions/playlists_actions";
 import { openPlaylistDropdown,
@@ -14,6 +14,7 @@ const mapStateToProps = (state, ownProps) => {
     return ({
         currentPlaylist: state.entities.currentPlaylist,
         params: ownProps.params,
+        history: ownProps.history,
         currentUser: ownProps.currentUser,
         playlistDropdown: state.ui.playlistDropdown,
         // playlistedSongs: state.currentPlaylist.playlistedSongs,
@@ -23,7 +24,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => ({
     displayPlaylist: (playlistId) => dispatch( displayPlaylist(playlistId) ),
     editPlaylist: (playlist, playlistId) => dispatch( editPlaylist(playlist, playlistId) ),
-    removePlaylist: (playlistId) => dispatch( removePlaylist(playlistId) ),
+    destroyPlaylist: (playlistId) => dispatch( destroyPlaylist(playlistId) ),
     clearCurrent: () => dispatch( clearCurrent() ),
     openPlaylistDropdown: () => dispatch( openPlaylistDropdown() ),
     closePlaylistDropdown: () => dispatch( closePlaylistDropdown() ),

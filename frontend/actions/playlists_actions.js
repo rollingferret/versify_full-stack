@@ -50,15 +50,17 @@ export const displayPlaylist = (playlistId) => dispatch =>
 )
 };
 
-export const editPlaylist = (playlist, playlistId) => dispatch => (
-    patchPlaylist(playlist, playlistId)
+export const editPlaylist = (playlist, playlistId) => dispatch => {
+    console.log('RUNNING EDIT');
+    return (patchPlaylist(playlist, playlistId)
     .then( playlist => dispatch( receiveCurrentPlaylist(playlist) ),
-    err => (dispatch( receivePlaylistErrors(err.responseJSON) )))
-);
+    err => (dispatch( receivePlaylistErrors(err.responseJSON) ))))
+};
 
-export const removePlaylist = (playlistId) => dispatch => (
+export const destroyPlaylist = (playlistId) => dispatch => (
     deletePlaylist(playlistId)
-    .then ( () => dispatch())
+    .then( () => dispatch( removePlaylist() ),
+        err => (dispatch( receivePlaylistErrors(err.responseJSON) )))
 )
 
 const resetCurrent = () => ({
@@ -87,3 +89,6 @@ const receiveAllPlaylists = (playlists) => ({
     playlists,
 });
 
+const removePlaylist = () => ({
+    type: DELETE_PLAYLIST,
+})

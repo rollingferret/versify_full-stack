@@ -5,7 +5,8 @@ import {fetchPlaylists,
 } from '../../actions/playlists_actions';
 
 
-const mapStateToProps = ( {entities: { playlists }}, ownProps) => ({
+const mapStateToProps = ( {entities: { playlists, currentPlaylist }}, ownProps) => ({
+    currentPlaylist: currentPlaylist,
     currentUsername: ownProps.currentUser.username,
     currentUser: ownProps.currentUser,
     // pass this through as props to keep on refresh

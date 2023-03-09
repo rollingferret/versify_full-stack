@@ -11,7 +11,6 @@ const playlistsReducer = (playlistsState = {}, action) => {
             return action.playlists;
         case DELETE_PLAYLIST:
             return {};
-            
         default:
             return playlistsState;
     }

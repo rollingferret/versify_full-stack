@@ -11,6 +11,7 @@ const CurrentView = (props) => {
         const { path,
             params,
             currentUser,
+            history,
         } = props;
 
         switch (path) {
@@ -18,7 +19,7 @@ const CurrentView = (props) => {
                 return <HomeContainer />;
             case "/playlist/:id":
                 return <PlaylistShowContainer
-                    params={params} currentUser={currentUser} />;
+                    params={params} currentUser={currentUser} history={history}/>;
             default:
                 return <HomeContainer />;
         }

@@ -12,7 +12,8 @@ const PlaylistNav = ({id,
     openPlaylistDropdown,
     closePlaylistDropdown,
     editPlaylist,
-    removePlaylist,
+    destroyPlaylist,
+    history,
 }) => {
 
 // UseEffect takes 2 args, a callback function and an array of dependencies that will trigger a re-render.
@@ -46,7 +47,8 @@ const PlaylistNav = ({id,
             {playlistDropdown.isOpen ? 
                 <PlaylistDropdown id={id} 
                     editPlaylist={editPlaylist} 
-                    removePlaylist={removePlaylist}/> 
+                    destroyPlaylist={destroyPlaylist}
+                    history={history}/> 
                 : null}
         </>
     )

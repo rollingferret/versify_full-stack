@@ -33,9 +33,9 @@ export const indexPlaylists = () => (
     })
 );
 
-// export const deletePlaylist = (playlistId) => (
-//     $.ajax ({
-//         method: 'DELETE',
-//         url: `/api/playlists/${playlistId}`,
-//     })
-// );
+export const deletePlaylist = (playlistId) => (
+    $.ajax ({
+        method: 'DELETE',
+        url: `/api/playlists/${playlistId}`,
+    })
+);

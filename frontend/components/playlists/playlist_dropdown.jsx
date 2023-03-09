@@ -1,9 +1,25 @@
 import React from "React";
 
-const PlaylistDropdown = (props) => {
+const PlaylistDropdown = ({
+    id,
+    editPlaylist,
+    destroyPlaylist,
+    history,
+}) => {
 
     const keepDropdownOpen = (event) => {
         event.stopPropagation();
+        //prevents re-rendering of parent and keeps menu open
+
+        switch (event.target.innerText){
+            case "Edit details":
+                return console.log('OPEN EDIT MODAL')
+            case "Delete":
+                destroyPlaylist(id)
+                .then
+                return history.push('/home')
+            default: null;
+        }
     }
 
     return (

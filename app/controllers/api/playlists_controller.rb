@@ -24,7 +24,7 @@ class Api::PlaylistsController < ApplicationController
             render :show
         else
             render json: ['Could not find playlist']
-            # render json: ['Could not find playlist'] >> @playlist.errors.full_messages, status: 404
+            render json: @playlist.errors.full_messages << ['Could not find playlist'], status: 404
         end
     end
 
@@ -38,6 +38,20 @@ class Api::PlaylistsController < ApplicationController
             render json: @playlist.errors.full_messages, status: 401
         end
     end
+
+    def destroy
+        @playlist = Playlist.find(params[:id])
+        if @playlist && @playlist.user_id == current_user.id
+            if @playlist.destroy!
+                render :show
+            else
+                render json: @playlist.errors.full_messages, status: 500
+            end
+        else
+            render json: @playlist.errors.full_messages, status: 401
+        end
+    end
+
 
     # start with create
     # edit button will make an edit request to the backend

@@ -2,18 +2,20 @@ import React, { useEffect } from "react";
 import PlaylistHeader from "./playlist_header";
 import PlaylistNav from "./playlist_nav";
 import PlaylistBody from "./playlist_body";
+import { fetchPlaylists } from "../../actions/playlists_actions";
 
 
 const PlaylistShow = ({ currentPlaylist,
     params,
+    history,
+    currentUser,
     playlistDropdown,
     displayPlaylist,
     editPlaylist, 
-    removePlaylist,
+    destroyPlaylist,
+    clearCurrent,
     openPlaylistDropdown,
     closePlaylistDropdown,
-    clearCurrent,
-    currentUser,
 }) => {
 
     const { id, 
@@ -21,7 +23,6 @@ const PlaylistShow = ({ currentPlaylist,
         description,
     } = currentPlaylist;
     const playlistedSongs = 'PLACEHOLDER FOR SONGS INDEX from state, see container'
-
 
 // Upon mount: fetch playlist from database based on params :id
 // Upon dismount: clear currentItem slice of state
@@ -44,7 +45,8 @@ const PlaylistShow = ({ currentPlaylist,
                     openPlaylistDropdown={openPlaylistDropdown}
                     closePlaylistDropdown={closePlaylistDropdown}
                     editPlaylist={editPlaylist}
-                    removePlaylist={removePlaylist}
+                    destroyPlaylist={destroyPlaylist}
+                    history={history}
                 /> 
             </div>
             <div className="playlist-songs-index">
