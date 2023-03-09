@@ -1,7 +1,9 @@
 import { connect } from "react-redux";
 
 import { clearPlaylistErrors,
-} from "../../actions/playlists_actions";   
+} from "../../actions/playlists_actions";
+import { closePlaylistDropdown,
+} from "../../actions/ui_actions";   
 
 import Main from './main'
 
@@ -15,6 +17,7 @@ const mapStateToProps = ( {session, entities:{ users }, entities:{ playlists }, 
 })
 
 const mapDispatchToProps = (dispatch) => ({
+    closePlaylistDropdown: () => dispatch( closePlaylistDropdown() ),
     clearPlaylistErrors: () => dispatch(clearPlaylistErrors()),
 })
 

@@ -17,7 +17,6 @@ class NavBarSplash extends React.Component {
         }
 
         this.showMenu = this.showMenu.bind(this)
-        console.log('NAVBAR PROPS', props)
     }
 
  

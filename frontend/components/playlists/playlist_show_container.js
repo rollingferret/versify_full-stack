@@ -4,6 +4,9 @@ import { displayPlaylist,
     removePlaylist,
     clearCurrent,
 } from "../../actions/playlists_actions";
+import { openPlaylistDropdown,
+    closePlaylistDropdown,
+ } from "../../actions/ui_actions";
 
 import PlaylistShow from "./playlist_show";
 
@@ -12,6 +15,7 @@ const mapStateToProps = (state, ownProps) => {
         currentPlaylist: state.entities.currentPlaylist,
         params: ownProps.params,
         currentUser: ownProps.currentUser,
+        playlistDropdown: state.ui.playlistDropdown,
     })
 }
 
@@ -20,6 +24,8 @@ const mapDispatchToProps = (dispatch) => ({
     editPlaylist: (playlist, playlistId) => dispatch( editPlaylist(playlist, playlistId) ),
     removePlaylist: (playlistId) => dispatch( removePlaylist(playlistId) ),
     clearCurrent: () => dispatch( clearCurrent() ),
+    openPlaylistDropdown: () => dispatch( openPlaylistDropdown() ),
+    closePlaylistDropdown: () => dispatch( closePlaylistDropdown() ),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlaylistShow);

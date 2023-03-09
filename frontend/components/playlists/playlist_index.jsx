@@ -6,8 +6,6 @@ import SideBarPlaylistButton from '../side_bar/side_bar_playlist_button'
 // PlaylistIndex is simple enough to convert to functional component
 const PlaylistIndex = (props) => {
 
-    console.log('INDEX PROPS', props)
-
     const { fetchPlaylists,
         displayPlaylist,
         playlists,

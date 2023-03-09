@@ -4,7 +4,7 @@ import { displayPlaylist,
     removePlaylist,
 } from "../../actions/playlists_actions";
 
-import currentItem from "./current_view";
+import CurrentView from "./current_view";
 
 const mapStateToProps = (state, ownProps) => {
     return ({
@@ -22,4 +22,4 @@ const mapDispatchToProps = (dispatch) => {
     })
 }
 
-export default connect (mapStateToProps, mapDispatchToProps)(currentItem);
+export default connect (mapStateToProps, mapDispatchToProps)(CurrentView);

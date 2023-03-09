@@ -1,10 +1,9 @@
 import React from "react";
-import { editPlaylist } from "../../actions/playlists_actions.js";
 
 import HomeContainer from '../home/home_container.jsx'
 import PlaylistShowContainer from "../playlists/playlist_show_container";
 
-const currentView = (props) => {
+const CurrentView = (props) => {
 
     console.log('CURRENTitem PROPS', props);
 
@@ -34,4 +33,4 @@ const currentView = (props) => {
 
 }
 
-export default currentView;
+export default CurrentView;

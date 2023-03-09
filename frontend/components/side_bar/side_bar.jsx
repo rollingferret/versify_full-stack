@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 
 import {AiFillHome,
 } from 'react-icons/ai';
@@ -22,6 +22,14 @@ const SideBar = (props) => {
         errors,
     } = props
 
+    const playlistIndexRender = useMemo( () => <PlaylistIndexContainer 
+        currentUser={currentUser} history={history}
+        />, [playlists]
+    )
+
+    // const handleDropdown = useMemo( () => <PlaylistDropdown 
+    // playlistDropdown={playlistDropdown} />, [playlistDropdown] )
+
     const handleSubmitCreate = (e) => {
         e.preventDefault();
 
@@ -33,7 +41,6 @@ const SideBar = (props) => {
             user_id: currentUser.id,
         }
 
-        console.log({defaultNewPlaylist})
         return createPlaylist(defaultNewPlaylist)
         .then( () => fetchPlaylists(currentUser.id))
         .then( (actionObj) => history.push(`/playlist/${actionObj.playlists[0].id}`) )
@@ -57,7 +64,8 @@ const SideBar = (props) => {
             </nav>
 
             <div className="line"></div>
-            <PlaylistIndexContainer currentUser={currentUser} history={history}/> 
+            {playlistIndexRender}
+                {/* Only re-render Playlist#Index of the playlists slice of state changes */}
                 {/* pass currentUser through as props to keep on refresh */}
         </section>
     )

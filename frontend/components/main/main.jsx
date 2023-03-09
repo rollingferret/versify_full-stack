@@ -9,6 +9,11 @@ class Main extends React.Component {
         super(props);
     }
 
+    // clearUi (event) {
+    //     event.preventDefault();
+    //     console.log(event.target);
+    // }
+
     render () {
         const {history,
             params,
@@ -17,10 +22,10 @@ class Main extends React.Component {
             errors,
         } = this.props;
 
-    console.log('MAIN PROPS', this.props)        
+    // console.log('MAIN PROPS', this.props)        
 
         return (
-            <div className="main-container">
+            <div className="main-container" onClick={this.clearUi}>
                 <nav className="nav-container-main">
                     <NavBarMainContainer history={history} />
                 </nav>

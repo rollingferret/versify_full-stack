@@ -6,9 +6,12 @@ import PlaylistBody from "./playlist_body";
 
 const PlaylistShow = ({ currentPlaylist,
     params,
+    playlistDropdown,
     displayPlaylist,
     editPlaylist, 
     removePlaylist,
+    openPlaylistDropdown,
+    closePlaylistDropdown,
     clearCurrent,
     currentUser,
 }) => {
@@ -17,7 +20,6 @@ const PlaylistShow = ({ currentPlaylist,
         title,
         description,
     } = currentPlaylist;
-    console.log(currentPlaylist);
     const playlistSongs = 'PLACEHOLDER FOR SONGS INDEX'
 
 
@@ -37,7 +39,11 @@ const PlaylistShow = ({ currentPlaylist,
                     currentUser={currentUser} />
             </div>
             <div className="playlist-nav">
-                <PlaylistNav id={id}/> 
+                <PlaylistNav id={id} 
+                    playlistDropdown={playlistDropdown}
+                    openPlaylistDropdown={openPlaylistDropdown}
+                    closePlaylistDropdown={closePlaylistDropdown}
+                /> 
             </div>
             <div className="playlist-songs-index">
                 {/* Just placeholding for PlaylistNav */}
