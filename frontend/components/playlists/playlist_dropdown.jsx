@@ -15,9 +15,10 @@ const PlaylistDropdown = ({
 }) => {
 
     useEffect( () => {
-        console.log('MOUNTED')
         setTimeout( () => {
-            if (playlistDropdownState.isOpen) window.addEventListener('click', closePlaylistDropdown)
+            if (playlistDropdownState.isOpen && !playlistModalState.isOpen) {
+                window.addEventListener('click', closePlaylistDropdown);
+            } 
         }, 0)
         // if (playlistDropdownState.isOpen) window.addEventListener('click', closePlaylistDropdown);
         
@@ -50,7 +51,9 @@ const PlaylistDropdown = ({
                 <button className="playlist-dropdown-button">Edit details</button>
                 <button className="playlist-dropdown-button">Delete </button>
             </div>
-            {playlistModalState.isOpen && <PlaylistModal 
+            {playlistModalState.isOpen && <PlaylistModal
+                playlistModalState={playlistModalState}
+                closePlaylistDropdown={closePlaylistDropdown}
                 closePlaylistModal={closePlaylistModal}
                 currentPlaylist={currentPlaylist}
             />}
