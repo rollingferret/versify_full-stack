@@ -9,7 +9,8 @@ const playlistsReducer = (playlistsState = {}, action) => {
     switch (action.type) {
         case RECEIVE_ALL_PLAYLISTS:
             return action.playlists;
-        case DELETE_PLAYLIST:
+        case DELETE_PLAYLIST: 
+            // sometimes playlist fetch before it is deleted from front-end
             return {};
         default:
             return playlistsState;
