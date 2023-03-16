@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import { displayPlaylist,
+    fetchPlaylists,
     editPlaylist,
     destroyPlaylist,
     clearCurrent,
@@ -16,13 +17,14 @@ const mapStateToProps = (state, ownProps) => {
         params: ownProps.params,
         history: ownProps.history,
         currentUser: ownProps.currentUser,
-        playlistDropdown: state.ui.playlistDropdown,
+        playlistDropdownState: state.ui.playlistDropdown,
         // playlistedSongs: state.currentPlaylist.playlistedSongs,
     })
 }
 
 const mapDispatchToProps = (dispatch) => ({
     displayPlaylist: (playlistId) => dispatch( displayPlaylist(playlistId) ),
+    fetchPlaylists: (playlistId) => dispatch( fetchPlaylists(playlistId) ),
     editPlaylist: (playlist, playlistId) => dispatch( editPlaylist(playlist, playlistId) ),
     destroyPlaylist: (playlistId) => dispatch( destroyPlaylist(playlistId) ),
     clearCurrent: () => dispatch( clearCurrent() ),

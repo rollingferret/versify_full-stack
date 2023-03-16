@@ -9,11 +9,11 @@ import { fetchPlaylists,
 const mapStateToProps = (state, ownProps) => ({
     playlists: Object.values(state.entities.playlists),
     currentUser: ownProps.currentUser,     // pass this through as props to keep on refresh
+    path: ownProps.path,
     history: ownProps.history,
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    displayPlaylist: (id) => dispatch( displayPlaylist(id) ),
     fetchPlaylists: () => dispatch( fetchPlaylists() ),
     createPlaylist: (defaultPlaylist) => dispatch( createPlaylist(defaultPlaylist) ),
 })

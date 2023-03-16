@@ -8,9 +8,10 @@ import {GrPlayFill,
 
 
 const PlaylistNav = ({id,
-    playlistDropdown,
+    playlistDropdownState,
     openPlaylistDropdown,
     closePlaylistDropdown,
+    fetchPlaylists,
     editPlaylist,
     destroyPlaylist,
     history,
@@ -23,17 +24,13 @@ const PlaylistNav = ({id,
 // (It will allow the Component to load before running the updating function again.
 // Otherwise the eventListener will come on and then come off immediately.
     useEffect( () => {
-        setTimeout( () => 
-            {playlistDropdown.isOpen ? 
-                window.addEventListener('click', closePlaylistDropdown)
-                : window.removeEventListener('click', closePlaylistDropdown)
-        }, 0)
-    }, [playlistDropdown])
-
+        if (!playlistDropdownState.isOpen) window.removeEventListener('click', closePlaylistDropdown)
+        }, [playlistDropdownState]
+    )
 
     const toggleDropdown = (event) => {
         event.preventDefault();
-        playlistDropdown.isOpen ? closePlaylistDropdown() : openPlaylistDropdown();
+        playlistDropdownState.isOpen ? closePlaylistDropdown() : openPlaylistDropdown();
     }
 
     return (
@@ -44,12 +41,16 @@ const PlaylistNav = ({id,
             <div id="playlist-dropdown-dots" onClick={toggleDropdown}>
                 <RxDotsHorizontal />
             </div>
-            {playlistDropdown.isOpen ? 
+            {playlistDropdownState.isOpen ? 
                 <PlaylistDropdown id={id} 
+                    playlistDropdownState={playlistDropdownState}
+                    closePlaylistDropdown={closePlaylistDropdown}
+                    fetchPlaylists={fetchPlaylists}
                     editPlaylist={editPlaylist} 
                     destroyPlaylist={destroyPlaylist}
                     history={history}/> 
-                : null}
+                : null
+            }
         </>
     )
 }

@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useEffect } from 'react'
 
 import {AiFillHome,
 } from 'react-icons/ai';
@@ -14,18 +14,18 @@ const SideBar = (props) => {
     // console.log('SIDEBAR PROPS', props);
 
     const { createPlaylist,
-        displayPlaylist,
         fetchPlaylists,
         playlists,
+        path,
         history,
         currentUser,
         errors,
     } = props
 
-    const playlistIndexRender = useMemo( () => <PlaylistIndexContainer 
-        currentUser={currentUser} history={history}
-        />, [playlists]
-    )
+    // const playlistIndexRender = useMemo( () => <PlaylistIndexContainer 
+    //     currentUser={currentUser} history={history}
+    //     />, [playlists]
+    // )
 
     // const handleDropdown = useMemo( () => <PlaylistDropdown 
     // playlistDropdown={playlistDropdown} />, [playlistDropdown] )
@@ -64,7 +64,9 @@ const SideBar = (props) => {
             </nav>
 
             <div className="line"></div>
-            {playlistIndexRender}
+            <PlaylistIndexContainer currentUser={currentUser} 
+                history={history} path={path}/>
+            {/* {playlistIndexRender} */}
                 {/* Only re-render Playlist#Index of the playlists slice of state changes */}
                 {/* pass currentUser through as props to keep on refresh */}
         </section>

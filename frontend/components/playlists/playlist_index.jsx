@@ -11,12 +11,13 @@ const PlaylistIndex = (props) => {
         playlists,
         currentPlaylist,
         currentUsername,
+        path,
         history,
     } = props;
 
     useEffect( () => {
         fetchPlaylists();
-    }, [currentPlaylist]);
+    }, [path]);
 
     return (
         playlists.length === 0 ?

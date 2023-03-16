@@ -25,6 +25,7 @@ const Main = ({history,
             </nav>
             
             <SideBarContainer history={history}
+                path={path}
                 currentUser={currentUser}
                 errors={errors}
             />
