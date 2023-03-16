@@ -9,7 +9,6 @@ import {
 export const RESET_CURRENT = 'RESET_CURRENT';
 export const RECEIVE_CURRENT_PLAYLIST = 'RECEIVE_CURRENT_PLAYLIST';
 export const RECEIVE_ALL_PLAYLISTS = 'RECEIVE_ALL_PLAYLISTS';
-export const DELETE_PLAYLIST = 'DELETE_PLAYLIST';
 export const RECEIVE_PLAYLIST_ERRORS = 'RECEIVE_PLAYLIST_ERRORS';
 export const RESET_PLAYLIST_ERRORS = 'RESET_PLAYLIST_ERRORS';
 
@@ -57,7 +56,7 @@ export const editPlaylist = (playlist, playlistId) => dispatch => {
 
 export const destroyPlaylist = (playlistId) => dispatch => (
     deletePlaylist(playlistId)
-    .then( () => dispatch( removePlaylist() ),
+    .then( () => dispatch( fetchPlaylists() ),
         err => (dispatch( receivePlaylistErrors(err.responseJSON) )))
 )
 
@@ -86,7 +85,3 @@ const receiveAllPlaylists = (playlists) => ({
     type: RECEIVE_ALL_PLAYLISTS,
     playlists,
 });
-
-const removePlaylist = () => ({
-    type: DELETE_PLAYLIST,
-})
