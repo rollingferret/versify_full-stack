@@ -5,6 +5,10 @@ import {PLAYLIST_MODAL_OPEN,
 const playlistModalReducer = (playlistModalState = {}, action) => {
     Object.freeze(playlistModalState);
     switch (action.type) {
+        case PLAYLIST_MODAL_OPEN:
+            return {isOpen: true};
+        case PLAYLIST_MODAL_CLOSE:
+            return {isOpen: false};
         default:
             return playlistModalState;
     }
