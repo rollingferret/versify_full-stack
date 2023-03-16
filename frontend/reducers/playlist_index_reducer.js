@@ -1,6 +1,4 @@
-import { RECEIVE_CURRENT_PLAYLIST,
-    RECEIVE_ALL_PLAYLISTS,
-    DELETE_PLAYLIST,
+import { RECEIVE_ALL_PLAYLISTS,
 } from "../actions/playlists_actions";
 
 
@@ -9,8 +7,6 @@ const playlistsReducer = (playlistsState = {}, action) => {
     switch (action.type) {
         case RECEIVE_ALL_PLAYLISTS:
             return action.playlists;
-        case DELETE_PLAYLIST:
-            return {};
         default:
             return playlistsState;
     }

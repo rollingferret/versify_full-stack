@@ -14,10 +14,6 @@ const Main = ({history,
     displayPlaylist,
 }) => {
 
-    // useEffect( () => {
-    //     fetchPlaylists();
-    // }, [currentPlaylist]);
-
     return (
         <div className="main-container">
             <nav className="nav-container-main">
