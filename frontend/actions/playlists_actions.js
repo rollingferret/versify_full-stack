@@ -25,8 +25,8 @@ export const clearCurrent = () => dispatch => (
 
 export const fetchPlaylists = () => dispatch => (
     indexPlaylists()
-    .then (playlists => dispatch( receiveAllPlaylists(playlists) ),
-    err => (dispatch( receivePlaylistErrors(err.responseJSON) )))
+        .then (playlists => dispatch( receiveAllPlaylists(playlists) ),
+        err => (dispatch( receivePlaylistErrors(err.responseJSON) )))
 );
 
 export const createPlaylist = (defaultPlaylist) => dispatch => 
@@ -34,27 +34,25 @@ export const createPlaylist = (defaultPlaylist) => dispatch =>
     // debugger
     return (
     postPlaylist(defaultPlaylist)
-    .then( defaultPlaylist => dispatch( receiveCurrentPlaylist(defaultPlaylist) ),
-    err => (dispatch( receivePlaylistErrors(err.responseJSON) )))
+        .then( defaultPlaylist => dispatch( receiveCurrentPlaylist(defaultPlaylist) ),
+        err => (dispatch( receivePlaylistErrors(err.responseJSON) )))
 )};
 
 export const displayPlaylist = (playlistId) => dispatch => 
 {   
-    // debugger;
-    // console.log('RUNNING DISPLAY PLAYLIST with', playlistId)
     return (
     showPlaylist(playlistId)
-    .then (playlist => dispatch( receiveCurrentPlaylist(playlist) ),
-    // err => (console.log(err)) )
-    err => (dispatch( receivePlaylistErrors(err.responseJSON) )))
+        .then (playlist => dispatch( receiveCurrentPlaylist(playlist) ),
+        err => (dispatch( receivePlaylistErrors(err.responseJSON) )))
+        // err => (console.log(err)) )
 )
 };
 
 export const editPlaylist = (playlist, playlistId) => dispatch => {
     console.log('RUNNING EDIT');
     return (patchPlaylist(playlist, playlistId)
-    .then( playlist => dispatch( receiveCurrentPlaylist(playlist) ),
-    err => (dispatch( receivePlaylistErrors(err.responseJSON) ))))
+        .then( playlist => dispatch( receiveCurrentPlaylist(playlist) ),
+        err => (dispatch( receivePlaylistErrors(err.responseJSON) ))))
 };
 
 export const destroyPlaylist = (playlistId) => dispatch => (

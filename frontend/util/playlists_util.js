@@ -16,15 +16,15 @@ export const showPlaylist = (playlistId) =>
     })
 );}
 
-// export const patchPlaylist = (playlist, playlistId) => {
-//     return (
-//         $.ajax({
-//         method: 'PATCH',
-//         url: `/api/playlists/${playlistId}`,
-//         data: { playlist },
-//         })
-//     )
-// };
+export const patchPlaylist = (playlist, playlistId) => {
+    return (
+        $.ajax({
+        method: 'PATCH',
+        url: `/api/playlists/${playlistId}`,
+        data: { playlist },
+        })
+    )
+};
 
 export const indexPlaylists = () => (
     $.ajax({
