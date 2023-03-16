@@ -10,6 +10,7 @@ const PlaylistShow = ({ currentPlaylist,
     history,
     currentUser,
     playlistDropdownState,
+    playlistModalState,
     displayPlaylist,
     fetchPlaylists,
     editPlaylist, 
@@ -17,6 +18,8 @@ const PlaylistShow = ({ currentPlaylist,
     clearCurrent,
     openPlaylistDropdown,
     closePlaylistDropdown,
+    openPlaylistModal,
+    closePlaylistModal,
 }) => {
 
     const { id, 
@@ -41,14 +44,17 @@ const PlaylistShow = ({ currentPlaylist,
                     currentUser={currentUser} />
             </div>
             <div className="playlist-nav">
-                <PlaylistNav id={id} 
+                <PlaylistNav currentPlaylist={currentPlaylist} 
                     playlistDropdownState={playlistDropdownState}
+                    playlistModalState={playlistModalState}
                     openPlaylistDropdown={openPlaylistDropdown}
                     closePlaylistDropdown={closePlaylistDropdown}
                     fetchPlaylists={fetchPlaylists}
                     editPlaylist={editPlaylist}
                     destroyPlaylist={destroyPlaylist}
                     history={history}
+                    openPlaylistModal={openPlaylistModal}
+                    closePlaylistModal={closePlaylistModal}
                 /> 
             </div>
             <div className="playlist-songs-index">

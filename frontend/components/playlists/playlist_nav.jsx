@@ -7,10 +7,13 @@ import {GrPlayFill,
 } from 'react-icons/gr';
 
 
-const PlaylistNav = ({id,
+const PlaylistNav = ({currentPlaylist,
     playlistDropdownState,
+    playlistModalState,
     openPlaylistDropdown,
     closePlaylistDropdown,
+    openPlaylistModal,
+    closePlaylistModal,
     fetchPlaylists,
     editPlaylist,
     destroyPlaylist,
@@ -42,9 +45,12 @@ const PlaylistNav = ({id,
                 <RxDotsHorizontal />
             </div>
             {playlistDropdownState.isOpen ? 
-                <PlaylistDropdown id={id} 
+                <PlaylistDropdown currentPlaylist={currentPlaylist} 
                     playlistDropdownState={playlistDropdownState}
+                    playlistModalState={playlistModalState}
                     closePlaylistDropdown={closePlaylistDropdown}
+                    openPlaylistModal={openPlaylistModal}
+                    closePlaylistModal={closePlaylistModal}
                     fetchPlaylists={fetchPlaylists}
                     editPlaylist={editPlaylist} 
                     destroyPlaylist={destroyPlaylist}

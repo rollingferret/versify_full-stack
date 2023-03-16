@@ -1,9 +1,13 @@
 import React, { useEffect } from "react";
+import PlaylistModal from "./playlist_modal";
 
 const PlaylistDropdown = ({
-    id,
+    currentPlaylist,
     playlistDropdownState,
+    playlistModalState,
     closePlaylistDropdown,
+    openPlaylistModal,
+    closePlaylistModal,
     fetchPlaylists,
     editPlaylist,
     destroyPlaylist,
@@ -30,21 +34,27 @@ const PlaylistDropdown = ({
 
         switch (event.target.innerText){
             case "Edit details":
-                return console.log('OPEN EDIT MODAL')
+                openPlaylistModal();
+                return console.log('OPEN EDIT MODAL');
             case "Delete":
-                destroyPlaylist(id)
+                destroyPlaylist(currentPlaylist.id)
                     .then(fetchPlaylists())
-                    // .then(closePlaylistDropdown())
                 return history.push('/home')
             default: null;
         }
     }
 
     return (
-        <div className="playlist-dropdown-item" onClick={keepDropdownOpen}>
-            <button className="playlist-dropdown-button">Edit details</button>
-            <button className="playlist-dropdown-button">Delete </button>
-        </div>
+        <>
+            <div className="playlist-dropdown-item" onClick={keepDropdownOpen}>
+                <button className="playlist-dropdown-button">Edit details</button>
+                <button className="playlist-dropdown-button">Delete </button>
+            </div>
+            {playlistModalState.isOpen && <PlaylistModal 
+                closePlaylistModal={closePlaylistModal}
+                currentPlaylist={currentPlaylist}
+            />}
+        </>
     )
 }
 
