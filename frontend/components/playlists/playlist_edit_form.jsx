@@ -16,11 +16,14 @@ const PlaylistEditForm = ({ currentPlaylist, editPlaylist }) => {
 
     console.log('User ID', userId)
 
-
-    // Submit button action
+    // Submit button onClick action
     const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log('SUBMIT CLICKED')
+        e.preventDefault();
+        const editedPlaylist = {
+            title: newTitle,
+            description: newDescription,
+        }
+        editPlaylist(editedPlaylist, playlistId);
     }
 
     return <>
@@ -46,7 +49,9 @@ const PlaylistEditForm = ({ currentPlaylist, editPlaylist }) => {
                 />
             </label>
             <br />
-            <input type="submit" value="Save" />
+            <input type="submit" value="Save" 
+                onClick={handleSubmit}
+            />
         </form>
     </>
 }

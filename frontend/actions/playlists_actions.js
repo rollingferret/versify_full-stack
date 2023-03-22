@@ -48,9 +48,11 @@ export const displayPlaylist = (playlistId) => dispatch =>
 };
 
 export const editPlaylist = (playlist, playlistId) => dispatch => {
-    console.log('RUNNING EDIT');
     return (patchPlaylist(playlist, playlistId)
-        .then( playlist => dispatch( receiveCurrentPlaylist(playlist) ),
+        .then( playlist => {
+            dispatch( receiveCurrentPlaylist(playlist) );
+            dispatch( fetchPlaylists() );
+        },
         err => (dispatch( receivePlaylistErrors(err.responseJSON) ))))
 };
 
