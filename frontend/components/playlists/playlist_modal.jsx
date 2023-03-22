@@ -24,11 +24,15 @@ const PlaylistModal = ({
         <div className="modal-background">
         
             <div className="modal-focus">
-                <CgClose onClick={closePlaylistModal}/>
-                <PlaylistEditForm currentPlaylist={currentPlaylist}
-                    editPlaylist={editPlaylist}
-                />
-
+                <div className="modal-header">
+                    <h3>Edit details</h3>
+                    <CgClose onClick={closePlaylistModal}/>
+                </div>
+                <div className="modal-body">
+                    <PlaylistEditForm currentPlaylist={currentPlaylist}
+                        editPlaylist={editPlaylist}
+                    />
+                </div>
             </div>
         </div>
     

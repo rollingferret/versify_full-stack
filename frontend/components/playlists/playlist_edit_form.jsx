@@ -26,33 +26,38 @@ const PlaylistEditForm = ({ currentPlaylist, editPlaylist }) => {
         editPlaylist(editedPlaylist, playlistId);
     }
 
-    return <>
-        <h3> This is PlaylistEditForm</h3>
-        <div className="playlist-art-edit"></div>
-
-        <form className="edit-content">
-            <label htmlFor="Playlist Title">
-                <input type="text" 
-                    id="Playlist Title" 
-                    name="title" 
-                    value={newTitle}
-                    onChange={e => setNewTitle(e.target.value)}
-                />
-            </label>
-            <br />
-            <label htmlFor="Playlist Description">
-                <input type="text" 
-                    id="Playlist Description" 
-                    name="description" 
-                    value={newDescription}
-                    onChange={e => setNewDescription(e.target.value)}
-                />
-            </label>
-            <br />
-            <input type="submit" value="Save" 
-                onClick={handleSubmit}
-            />
-        </form>
-    </>
+    return (
+        <>
+            <form className="edit-playlist-form">
+                <div className="playlist-art-edit"></div>
+                <div className="edit-content">
+                    <label htmlFor="title">
+                        <input type="text" 
+                            id="title" 
+                            name="title" 
+                            value={newTitle}
+                            onChange={e => setNewTitle(e.target.value)}
+                        />
+                    </label>
+                    <br />
+                    <label htmlFor="description">
+                        <textarea id="description" 
+                            name="description" 
+                            value={newDescription}
+                            onChange={e => setNewDescription(e.target.value)}
+                        />
+                    </label>
+                    <br />
+                </div>
+            </form>
+            <button className="save-button" onClick={handleSubmit}>
+                Save
+            </button>
+            <div className="edit-footer">
+                By proceeding, you agree to give this Spotify clone access to the 
+                image you choose to upload. Please make sure you have the right to upload the image.
+            </div>
+        </>
+    )
 }
 export default PlaylistEditForm;

@@ -9,11 +9,28 @@
 }
 
 .modal-focus {
-    background: red;
+    background: #272727;
     position: fixed;
     top: 25%;
     left: 25%;
     z-index: 2;
-    width: 50vw;
-    height: 50vh;
+    width: 475px;
+    height: 385px;
+    padding: 25px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: Trebuchet MS;
+    color: white;
+    margin-bottom: 25px;
+}
+
+.modal-body {
+    height: 300px;
+    width: 100%;
 }
