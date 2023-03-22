@@ -56,6 +56,7 @@ const PlaylistDropdown = ({
                 closePlaylistDropdown={closePlaylistDropdown}
                 closePlaylistModal={closePlaylistModal}
                 currentPlaylist={currentPlaylist}
+                editPlaylist={editPlaylist}
             />}
         </>
     )

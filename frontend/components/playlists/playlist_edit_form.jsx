@@ -1,12 +1,27 @@
 import React from 'react';
-import { Link,
-} from 'react-router-dom';
 
 
 // Consider writing as functional Component with React Hooks
 
-const PlaylistEditForm = (props) => {
-    // Need to edit Title and Description
-    return 'This is PlaylistEditForm';
+const PlaylistEditForm = ({
+    currentPlaylist,
+    editPlaylist,
+}) => {
+    
+    const playlistId = currentPlaylist.id;
+    const userId = currentPlaylist.user_id;
+    const { title, description } = currentPlaylist;
+
+    console.log('User ID', userId)
+
+    return <>
+        <h3> This is PlaylistEditForm</h3>
+        <div className="playlist-art-edit"></div>
+        <form className="edit-content">
+            <input type="text" name="title" id="" />
+            <input type="text" name="description" id="" />
+            <input type="submit" value="Save" />
+        </form>
+    </>
 }
 export default PlaylistEditForm;
