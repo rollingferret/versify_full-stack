@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import PlaylistHeader from "./playlist_header";
 import PlaylistNav from "./playlist_nav";
 import PlaylistBody from "./playlist_body";
-import { fetchPlaylists } from "../../actions/playlists_actions";
 
 
 const PlaylistShow = ({ currentPlaylist,
@@ -58,7 +57,6 @@ const PlaylistShow = ({ currentPlaylist,
                 /> 
             </div>
             <div className="playlist-songs-index">
-                {/* Just placeholding for PlaylistNav */}
                 <PlaylistBody playlistedSongs={playlistedSongs}/>
             </div>
         </div>

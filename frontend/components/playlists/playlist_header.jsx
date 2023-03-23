@@ -15,7 +15,9 @@ const PlaylistHeader = ({ title, description, currentUser }) => {
                     {title}
                 </div>
                 <div id="description">
-                    <h3>Description {description}</h3>
+                    <h3>{description}</h3>
+                </div>
+                <div id="username">
                     <h2>{currentUser.username}</h2>
                 </div>
             </div>

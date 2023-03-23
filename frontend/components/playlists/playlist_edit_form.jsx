@@ -34,7 +34,8 @@ const PlaylistEditForm = ({ currentPlaylist, editPlaylist }) => {
                     <label htmlFor="title">
                         <input type="text" 
                             id="title" 
-                            name="title" 
+                            name="title"
+                            maxLength="21"
                             value={newTitle}
                             onChange={e => setNewTitle(e.target.value)}
                         />
@@ -43,6 +44,7 @@ const PlaylistEditForm = ({ currentPlaylist, editPlaylist }) => {
                     <label htmlFor="description">
                         <textarea id="description" 
                             name="description" 
+                            maxLength="300"
                             value={newDescription}
                             onChange={e => setNewDescription(e.target.value)}
                         />
