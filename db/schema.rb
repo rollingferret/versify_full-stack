@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_07_161652) do
+ActiveRecord::Schema.define(version: 2023_03_29_174633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,15 +43,19 @@ ActiveRecord::Schema.define(version: 2023_02_07_161652) do
     t.string "genre", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "photo_url"
     t.index ["artist_id", "title"], name: "index_albums_on_artist_id_and_title", unique: true
     t.index ["artist_id"], name: "index_albums_on_artist_id"
+    t.index ["photo_url"], name: "index_albums_on_photo_url"
   end
 
   create_table "artists", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "photo_url"
     t.index ["name"], name: "index_artists_on_name"
+    t.index ["photo_url"], name: "index_artists_on_photo_url"
   end
 
   create_table "playlists", force: :cascade do |t|
