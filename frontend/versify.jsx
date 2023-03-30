@@ -4,18 +4,11 @@ import Root from './components/root';
 import configureStore from './store/store';
 
 // TESTING START
+
 import {
-  postUser,
-  postSession,
-  deleteSession,
-} from './util/session_util'
-import {
-  postPlaylist,
-  patchPlaylist,
-  showPlaylist,
-  indexPlaylists,
-  deletePlaylist,
-} from './util/playlists_util'
+  indexArtists,
+  showArtist,
+} from './util/artists_util'
 
 // const play = {title:'thisone',
 // description: 'anew',
@@ -44,11 +37,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //TESTING
   window.store = store;
-  window.postPlaylist = postPlaylist;
-  window.patchPlaylist = patchPlaylist;
-  window.showPlaylist = showPlaylist;
-  window.indexPlaylists = indexPlaylists;
-  window.deletePlaylist = deletePlaylist;
+  window.indexArtists = indexArtists;
+  window.showArtist = showArtist;
+
   //TESTING
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={store} />, root);
