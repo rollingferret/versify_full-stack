@@ -7,68 +7,60 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-
-# Linking images from S3 (https://stackoverflow.com/questions/55027846/how-to-seed-database-from-s3-in-a-ror-app)
-# require 'faker'
-# require 'aws-sdk-s3' 
-
-# s3 = Aws::S3::Resource.new(region: 'us-west-2') # Change this to your region
-
-# Item.destroy_all
-
-# 20.times do |i|
-#     item = Item.create!(
-#                     title: Faker::Games::Pokemon.name,
-#                     description: Faker::Lorem.paragraph_by_chars(60, false),
-#                     price: 5.0)
-
-#     # Create the object to retrieve
-#     obj = s3.bucket('my-bucket').object('#{i}.jpg')    # change this to your bucket name
-
-#     # Get the item's content and save it to local
-#     obj.get(response_target: 'app/assets/images/chatons/#{i}.jpg')
-
-#     item.image.attach(io: File.open("app/assets/images/chatons/#{i}.jpg"), filename: "#{i}.jpg")
-
-# end
-
 require 'open-uri'
-
 User.create(username: 'userdemo', email: 'userdemo', birthday: 19900101, password: 'userdemo')
 
 Playlist.create(title: 'My First Playlist', description: "I'm so excited", user_id: 1)
-
 Playlist.create(title: 'NYC Go Easy On Me', description: "My love for Alicia Keys", user_id: 1)
-
 Playlist.create(title: 'Splitscreen Sadness', description: "When the sadness is sad.", user_id: 1)
 
-Artist.create(name: 'Juls')
-Artist.create(name: 'Haile')
-Artist.create(name: 'Sauti Sol')
-Artist.create(name: 'Wizkid')
-Artist.create(name: 'JAEL')
-Artist.create(name: 'Jhene Aiko')
-Artist.create(name: 'John Legend')
-Artist.create(name: 'Koffee')
-Artist.create(name: 'Alicia Keys')
-Artist.create(name: 'Tems')
-Artist.create(name: 'Burna Boy', photo_url: 'https://versify-dev.s3.amazonaws.com/tWhDiQxdhCSxZEETa5xELH7i')
-# artist = Artist.create(name: 'Burna Boy')
-# artist.photo.attach(
-#     io: File.open('https://versify-dev.s3.amazonaws.com/tWhDiQxdhCSxZEETa5xELH7i'),
-#     filename: 'avatar-burna-boy.pdf',
-#     content_type: 'image/pdf',
-#     identify: false,
-# )
+artists = [
+    'Juls', 
+    'Haile', 
+    'Sauti Sol', 
+    'Wizkid', 
+    'JAEL', 
+    'Jhene Aiko', 
+    'John Legend', 
+    'Koffee', 
+    'Alicia Keys', 
+    'Tems', 
+    'Burna Boy'
+]
+artist_photos = [
+    "https://versify-dev.s3.amazonaws.com/images/artists/avatar-juls.jpeg",
+    "https://versify-dev.s3.amazonaws.com/images/artists/avatar-haile.jpeg",
+    "https://versify-dev.s3.amazonaws.com/images/artists/avatar-sauti-sol.jpeg",
+    "https://versify-dev.s3.amazonaws.com/images/artists/avatar-wizkid.jpeg",
+    "https://versify-dev.s3.amazonaws.com/images/artists/avatar-jael.jpeg",
+    "https://versify-dev.s3.amazonaws.com/images/artists/avatar-jhene-aiko.jpeg",
+    "https://versify-dev.s3.amazonaws.com/images/artists/avatar-john-legend.jpeg",
+    "https://versify-dev.s3.amazonaws.com/images/artists/avatar-koffee.jpeg",
+    "https://versify-dev.s3.amazonaws.com/images/artists/avatar-alicia-keys.jpeg",
+    "https://versify-dev.s3.amazonaws.com/images/artists/avatar-tems.jpeg",
+    "https://versify-dev.s3.amazonaws.com/images/artists/avatar-burna-boy.jpeg",
+]
 
-    
+# Seed artists in the database with corresponding image url
+# Then create Artist instances and attach their artist photo
+(0... artists.length).each do |i|
+    artist = Artist.create(name: artists[i], photo_url: artist_photos[i])
+    artist.photo.attach(
+        io: URI.open(artist_photos[i]),
+        filename: 'avatar-'+ artists[i].downcase().split(' ').join('-'),
+        content_type: 'image/jpeg',
+    )
+end
 
-Album.create(title: 'Sounds of My World', year: 2021, artist_id: 1, genre: 'Afrobeats')
-Album.create(title: 'Time', year: 2018, artist_id: 5, genre: 'R&B')
-Album.create(title: 'Trip', year: 2017, artist_id: 7, genre: 'R&B')
-Album.create(title: 'Bigger Love', year: 2020, artist_id: 8, genre: 'R&B')
-Album.create(title: 'Rapture EP', year: 2019, artist_id: 9, genre: 'Dancehall')
-Album.create(title: 'KEYS', year: 2021, artist_id: 10, genre: 'R&B')
-Album.create(title: 'For Broken Ears', year: 2020, artist_id: 11, genre: 'R&B')
-Album.create(title: 'Made In Lagos', year: 2020, artist_id: 4, genre: 'Afrobeats')
-Album.create(title: 'Twice As Tall', year: 2020, artist_id: 12, genre: 'Afrobeats')
+albums = [
+    {title: 'Sounds of My World', year: 2021, artist_id: 1, genre: 'Afrobeats'},
+    {title: 'Time', year: 2018, artist_id: 5, genre: 'R&B'},
+    {title: 'Trip', year: 2017, artist_id: 7, genre: 'R&B'},
+    {title: 'Bigger Love', year: 2020, artist_id: 8, genre: 'R&B'},
+    {title: 'Rapture EP', year: 2019, artist_id: 9, genre: 'Dancehall'},
+    {title: 'KEYS', year: 2021, artist_id: 10, genre: 'R&B'},
+    {title: 'For Broken Ears', year: 2020, artist_id: 11, genre: 'R&B'},
+    {title: 'Made In Lagos', year: 2020, artist_id: 4, genre: 'Afrobeats'},
+    {title: 'Twice As Tall', year: 2020, artist_id: 12, genre: 'Afrobeats'},
+]
+albums.each { |album| Album.create(album)}
