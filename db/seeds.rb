@@ -63,4 +63,19 @@ albums = [
     {title: 'Made In Lagos', year: 2020, artist_id: 4, genre: 'Afrobeats'},
     {title: 'Twice As Tall', year: 2020, artist_id: 12, genre: 'Afrobeats'},
 ]
-albums.each { |album| Album.create(album)}
+album_photos = [
+    "https://versify-dev.s3.amazonaws.com/images/albums/sounds-of-my-world.jpeg",
+    "https://versify-dev.s3.amazonaws.com/images/albums/time.jpeg",
+    "https://versify-dev.s3.amazonaws.com/images/albums/trip.jpeg",
+    "https://versify-dev.s3.amazonaws.com/images/albums/bigger-love.jpeg",
+    "https://versify-dev.s3.amazonaws.com/images/albums/rapture-ep.jpeg",
+    "https://versify-dev.s3.amazonaws.com/images/albums/keys.jpeg",
+    "https://versify-dev.s3.amazonaws.com/images/albums/for-broken-ears.jpeg",
+    "https://versify-dev.s3.amazonaws.com/images/albums/made-in-lagos.jpeg",
+    "https://versify-dev.s3.amazonaws.com/images/albums/twice-as-tall.jpeg",
+]
+(0...albums.length).each do |i|
+    album = albums[i]
+    album[:photo_url] = album_photos[i]
+    Album.create(album)
+end
