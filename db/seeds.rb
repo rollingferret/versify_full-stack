@@ -76,6 +76,6 @@ album_photos = [
 ]
 (0...albums.length).each do |i|
     album = albums[i]
-    # album[:photo_url] = album_photos[i]
+    album[:photo_url] = album_photos[i]
     Album.create(album)
 end
