@@ -2,7 +2,7 @@ import { RECEIVE_ALL_PLAYLISTS,
 } from "../actions/playlists_actions";
 
 
-const playlistsReducer = (playlistsState = {}, action) => {
+const playlistIndexReducer = (playlistsState = {}, action) => {
     Object.freeze(playlistsState); // playlistsState is an array
     switch (action.type) {
         case RECEIVE_ALL_PLAYLISTS:
@@ -12,4 +12,4 @@ const playlistsReducer = (playlistsState = {}, action) => {
     }
 }
 
-export default playlistsReducer;
+export default playlistIndexReducer;
