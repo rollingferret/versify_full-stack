@@ -17,13 +17,13 @@ const CurrentView = (props) => {
         switch (path) {
             case "/home":
                 return <HomeContainer 
-                    params={params} history={history}/>;
+                    params={params} history={history} path={path}/>;
             case "/playlist/:id":
                 return <PlaylistShowContainer
                     params={params} currentUser={currentUser} history={history}/>;
             default:
                 return <HomeContainer 
-                    params={params} history={history}/>;
+                    params={params} history={history} path={path}/>;
         }
     }
 

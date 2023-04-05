@@ -1,9 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
+import ArtistCard from './artist_card'
 
-const ArtistIndex = (props) => {
+const ArtistIndex = ({
+    artists,
+    params,
+    history,
+    path,
+    fetchArtists,
+    displayArtist,
+}) => {
+    
+    useEffect( () => {
+        fetchArtists();
+    }, [])
+
+    console.log(artists)
 
     return (
-        "ARTIST INDEX GOES HERE"
+        artists.length === 0 ?
+        <div className="artist-index-grid">
+        </div>
+
+        :
+        <div className="artist-index-grid">
+            All Artists List
+            {artists.map(artist => (
+                <ArtistCard artist={artist}/>
+            ))}
+        </div>
     )
 }
 

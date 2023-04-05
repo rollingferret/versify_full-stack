@@ -1,24 +1,18 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-import ArtistIndex from "../artists/artist_index";
+import ArtistIndexContainer from "../artists/artist_index_container";
 
 const Home = ({
     params,
     history,
+    path,
     fetchArtists,
 }) => {
-
-    useEffect( () => {
-        fetchArtists();
-    })
     // console.log('HOME PROPS', props)
-    
+
     return (
         <div className="home">
-            'THIS IS HOME'
-            <div className="artist-index-home">
-                <ArtistIndex params={params} history={history}/>;
-            </div>
+            <ArtistIndexContainer params={params} history={history} path={path}/>;
         </div>
     )
 }
