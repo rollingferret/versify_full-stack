@@ -1,7 +1,7 @@
 class Api::ArtistsController < ApplicationController
 
     def index
-        @artists = Artist.all
+        @artists = Artist.all.order("name ASC")
         render :index
     end
 
