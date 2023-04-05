@@ -7,6 +7,7 @@ import ArtistIndex from "./artist_index";
 
 
 const mapStateToProps = ( {entities: {artists}}, ownProps) => ({
+    artists: artists,
     params: ownProps.params,
     history: ownProps.history,
     // artists: Object.values(artists),

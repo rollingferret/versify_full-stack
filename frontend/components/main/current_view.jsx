@@ -22,7 +22,8 @@ const CurrentView = (props) => {
                 return <PlaylistShowContainer
                     params={params} currentUser={currentUser} history={history}/>;
             default:
-                return <HomeContainer />;
+                return <HomeContainer 
+                    params={params} history={history}/>;
         }
     }
 

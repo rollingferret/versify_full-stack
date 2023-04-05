@@ -2,15 +2,18 @@ import { connect } from "react-redux";
 
 import { fetchPlaylists,
 } from "../../actions/playlists_actions";
+import { fetchArtists,
+} from "../../actions/artist_actions";
 
 import Home from "./home";
 
 const mapStateToProps = (state, ownProps) => ({
     // currentPlaylist: state.entitities.currentPlaylist,
-    playlists: Object.values(state.entities.playlists),
+    params: ownProps.params,
+    history: ownProps.history,
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    fetchPlaylists: () => dispatch( fetchPlaylists() ),
+    fetchArtists: () => dispatch( fetchArtists() ,)
 })
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
