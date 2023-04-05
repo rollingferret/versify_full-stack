@@ -16,7 +16,8 @@ const CurrentView = (props) => {
 
         switch (path) {
             case "/home":
-                return <HomeContainer />;
+                return <HomeContainer 
+                    params={params} history={history}/>;
             case "/playlist/:id":
                 return <PlaylistShowContainer
                     params={params} currentUser={currentUser} history={history}/>;
