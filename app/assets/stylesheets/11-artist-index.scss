@@ -1,0 +1,15 @@
+.artist-index-grid {
+    display: grid;
+    grid-template-columns: repeat(4) 184px;
+    grid-auto-rows: 184px;
+}
+
+.index-grid-item {
+    background-color: skyblue;
+    display: block;
+}
+
+.index-grid-item img {
+    height: 184px;
+    width: 184px;
+}
