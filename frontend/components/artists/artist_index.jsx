@@ -18,16 +18,19 @@ const ArtistIndex = ({
 
     return (
         artists.length === 0 ?
-        <div className="artist-index-grid">
-        </div>
+            null
 
-        :
-        <div className="artist-index-grid">
-            All Artists List
-            {artists.map(artist => (
-                <ArtistCard artist={artist}/>
-            ))}
-        </div>
+            :
+            <div>
+                <div className="artist-index-header">
+                    <h1>All Artists</h1>
+                </div>
+                <div className="artist-index-grid">
+                    {artists.map(artist => (
+                        <ArtistCard artist={artist}/>
+                    ))}
+                </div>
+            </div>
     )
 }
 

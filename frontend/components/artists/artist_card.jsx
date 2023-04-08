@@ -7,9 +7,14 @@ const ArtistCard = ({artist}) => {
     } =  artist;
 
     return (
-        <div className="index-grid-item">
-            {name}
+        <div className="card"> 
             <img src={photo_url} alt="" srcset="" />
+            <div className="card-title">
+                {name}
+            </div>
+            <div className="card-subtitle">
+                Artist
+            </div>
         </div>
     )
 }

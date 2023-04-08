@@ -12,7 +12,10 @@ const Home = ({
 
     return (
         <div className="home">
-            <ArtistIndexContainer params={params} history={history} path={path}/>;
+            <div className="home-header">
+                Your Versify
+            </div>
+            <ArtistIndexContainer params={params} history={history} path={path}/>
         </div>
     )
 }
