@@ -1,5 +1,18 @@
 .home {
     background-color: rgba(0, 0, 0, 0.6);
-    height: 100%;
-    width: 100%;
+    height: calc(100% - 60px);
+    width: calc(100% - 60px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: auto;
+    display: flex;
+    padding: 30px;
+    flex-direction: column;
+}
+
+.home-header {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 50px;
 }
