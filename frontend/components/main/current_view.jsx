@@ -21,6 +21,9 @@ const CurrentView = (props) => {
             case "/playlist/:id":
                 return <PlaylistShowContainer
                     params={params} currentUser={currentUser} history={history}/>;
+            case "/artist/:id":
+                return <ArtistShowContainer
+                    params={params} currentUser={currentUser} history={history}/>;
             default:
                 return <HomeContainer 
                     params={params} history={history} path={path}/>;

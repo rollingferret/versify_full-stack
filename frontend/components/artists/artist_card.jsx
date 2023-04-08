@@ -1,10 +1,22 @@
 import React from "react";
 
 
-const ArtistCard = ({artist}) => {
-    const { name,
+const ArtistCard = ({
+    artist,
+    urlParams,
+    history,
+    displayArtist,
+}) => {
+    const { id,
+        name,
         photo_url,
     } =  artist;
+
+    const clickToShowArtist = (e) => {
+        e.preventDefault();
+        displayArtist(id),
+        history.push(`/artists/${id}`)
+    }
 
     return (
         <div className="card"> 

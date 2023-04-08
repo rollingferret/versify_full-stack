@@ -24,6 +24,7 @@ const App = () => (
         <LoggedoutRoute exact path="/login" component={LoginFormContainer} />
         <AuthRoute exact path="/home" component={MainContainer} />
         <AuthRoute path="/playlist/:id" component={MainContainer} />
+        <AuthRoute path="/artist/:id" component={MainContainer} />
       </Switch>
           
     </div>

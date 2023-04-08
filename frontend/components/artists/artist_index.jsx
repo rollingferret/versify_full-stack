@@ -27,7 +27,8 @@ const ArtistIndex = ({
                 </div>
                 <div className="artist-index-grid">
                     {artists.map(artist => (
-                        <ArtistCard artist={artist}/>
+                        <ArtistCard artist={artist} urlParams={params} 
+                            history={history} displayArtist={displayArtist}/>
                     ))}
                 </div>
             </div>
