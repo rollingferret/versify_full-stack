@@ -19,8 +19,8 @@ const ArtistCard = ({
     }
 
     return (
-        <div className="card"> 
-            <img src={photo_url} alt="" srcset="" />
+        <div className="card" onClick={clickToShowArtist}> 
+            <img src={photo_url} alt="" srcSet="" />
             <div className="card-title">
                 {name}
             </div>

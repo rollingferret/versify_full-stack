@@ -4,7 +4,7 @@ import { indexArtists,
 
 // ACTION TYPES
 export const RECEIVE_ALL_ARTISTS = "RECEIVE_ALL_ARTISTS";
-export const RECEIVE_CURRENT_ARTIST = "RECEIVE_CURRENT_ARTISTS";
+export const RECEIVE_CURRENT_ARTIST = "RECEIVE_CURRENT_ARTIST";
 
 
 // THUNK ACTIONS
@@ -13,10 +13,13 @@ const receiveAllArtists = (artists) => ({
     artists,
 })
 
-const receiveCurrentArtist = (artistObj) => ({
-    type: RECEIVE_CURRENT_ARTIST,
-    artist: artistObj.artist,
-})
+const receiveCurrentArtist = (artistObj) => {
+    debugger
+    return {
+        type: RECEIVE_CURRENT_ARTIST,
+        artist: artistObj.artist,
+    }
+}
 
 
 // THUNK ACTION CREATORS
