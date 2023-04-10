@@ -7,8 +7,8 @@ import { clearPlaylistErrors,
 
 import Main from './main'
 
-const mapStateToProps = ( {session, entities:{ users }, entities:{ playlists}, entities:{ currentPlaylist }, errors}, ownProps ) => ({
-    currentPlaylist: currentPlaylist,
+const mapStateToProps = ( {session, entities:{ users }, entities:{ playlists}, entities:{ currentItem }, errors}, ownProps ) => ({
+    currentPlaylist: currentItem,
     playlists: Object.values(playlists),
     currentUser: users[session.id],
     errors: errors,

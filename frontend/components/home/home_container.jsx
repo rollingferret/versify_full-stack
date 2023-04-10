@@ -8,7 +8,6 @@ import { fetchArtists,
 import Home from "./home";
 
 const mapStateToProps = (state, ownProps) => ({
-    // currentPlaylist: state.entitities.currentPlaylist,
     params: ownProps.params,
     history: ownProps.history,
 })

@@ -6,8 +6,8 @@ import { RECEIVE_CURRENT_ARTIST,
 }from "../actions/artist_actions";
 
 // used for Playlist#show & Album#show
-const currentPlaylistReducer = (currPlaylistState = {}, action) => {
-    Object.freeze(currPlaylistState) // currPlaylistState is an object
+const currentItemReducer = (currItemState = {}, action) => {
+    Object.freeze(currItemState) // currItemState is an object
     switch (action.type) {
         case RECEIVE_CURRENT_PLAYLIST:
             let currPlaylist = action.playlist;
@@ -18,9 +18,9 @@ const currentPlaylistReducer = (currPlaylistState = {}, action) => {
         case RESET_CURRENT:
             return {};
         default:
-            return currPlaylistState;
+            return currItemState;
     }
 }
 
 
-export default currentPlaylistReducer;
+export default currentItemReducer;
