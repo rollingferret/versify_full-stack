@@ -8,16 +8,19 @@ export const RECEIVE_CURRENT_ARTIST = "RECEIVE_CURRENT_ARTIST";
 
 
 // THUNK ACTIONS
-const receiveAllArtists = (artists) => ({
+const receiveAllArtists = (artists) => {
+    debugger
+    return ({
     type: RECEIVE_ALL_ARTISTS,
     artists,
-})
+})}
 
 const receiveCurrentArtist = (artistObj) => {
     debugger
     return {
-        type: RECEIVE_CURRENT_ARTIST,
+        type: RECEIVE_CURRENT_ARTIST, // multiple data types because fetched with associations
         artist: artistObj.artist,
+        albums: artistObj.albums,
     }
 }
 
