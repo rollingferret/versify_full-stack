@@ -47,7 +47,7 @@ const PlaylistDropdown = ({
 
     return (
         <>
-            <div className="playlist-dropdown-item" onClick={keepDropdownOpen}>
+            <div className="dropdown-item playlist-dropdown" onClick={keepDropdownOpen}>
                 <button className="playlist-dropdown-button">Edit details</button>
                 <button className="playlist-dropdown-button">Delete </button>
             </div>
