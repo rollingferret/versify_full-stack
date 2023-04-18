@@ -55,13 +55,13 @@ end
 albums = [
     {title: 'Sounds of My World', year: 2021, artist_id: 1, genre: 'Afrobeats'},
     {title: 'Time', year: 2018, artist_id: 5, genre: 'R&B'},
-    {title: 'Trip', year: 2017, artist_id: 7, genre: 'R&B'},
-    {title: 'Bigger Love', year: 2020, artist_id: 8, genre: 'R&B'},
-    {title: 'Rapture EP', year: 2019, artist_id: 9, genre: 'Dancehall'},
-    {title: 'KEYS', year: 2021, artist_id: 10, genre: 'R&B'},
-    {title: 'For Broken Ears', year: 2020, artist_id: 11, genre: 'R&B'},
+    {title: 'Trip', year: 2017, artist_id: 6, genre: 'R&B'},
+    {title: 'Bigger Love', year: 2020, artist_id: 7, genre: 'R&B'},
+    {title: 'Rapture EP', year: 2019, artist_id: 8, genre: 'Dancehall'},
+    {title: 'KEYS', year: 2021, artist_id: 9, genre: 'R&B'},
+    {title: 'For Broken Ears', year: 2020, artist_id: 10, genre: 'R&B'},
     {title: 'Made In Lagos', year: 2020, artist_id: 4, genre: 'Afrobeats'},
-    {title: 'Twice As Tall', year: 2020, artist_id: 12, genre: 'Afrobeats'},
+    {title: 'Twice As Tall', year: 2020, artist_id: 11, genre: 'Afrobeats'},
 ]
 album_photos = [
     "https://versify-dev.s3.amazonaws.com/images/albums/sounds-of-my-world.jpeg",
