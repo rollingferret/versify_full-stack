@@ -90,20 +90,9 @@
     color: rgba(247, 245, 242, 0.5);
 }
 
-.playlist-dropdown-item {
-    display: flex;
-    flex-direction: column;
-    font-size: 15px;
-    z-index: 1;
-    width: 107px;
-    height: auto;
-    padding: 3px;
-    background-color: black;
-    position: absolute;
+.playlist-dropdown {
     left: 143px;
     top: 280px;
-    color: white;
-    border-radius: 4px;
     align-items: flex-start;
 }
 
@@ -120,7 +109,7 @@
 }
 
 button.playlist-dropdown-button:hover {
-    background: #282828;
+    background: #3e3e3e;
     transition: .2s;
 }
 

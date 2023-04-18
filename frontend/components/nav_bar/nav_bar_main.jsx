@@ -35,7 +35,7 @@ class NavBarMain extends React.Component {
         const logoutClick = () => logout().then ( () => history.push('/'));
 
         const dropMenu = (<div 
-            className="menu-item-main">
+            className="dropdown-item menu-main">
                     <a href='https://github.com/imartinez921'>GitHub</a>
                     <a href='https://www.linkedin.com/in/irenemartinez921/'>LinkedIn</a>
                 <a onClick={logoutClick}>Log out</a>
