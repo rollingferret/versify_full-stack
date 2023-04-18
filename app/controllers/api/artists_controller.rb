@@ -6,11 +6,12 @@ class Api::ArtistsController < ApplicationController
     end
 
     def show
-        @artist = Artist.find(params[:id])
+        @artist = Artist.includes(:albums).find(params[:id])
         if @artist
             render :show
         else
-            render json: @artist.errors.full_messages << ['Could not find artist. Please try again'], status: 404
+            # render json: @artist.errors.full_messages << ['Could not find artist. Please try again'], status: 404
+            render json: @artist.errors.full_messages, status: 404
         end
     end
 
@@ -22,12 +23,8 @@ class Api::ArtistsController < ApplicationController
     # end
 
 
-
-
-
-
-
-    def artists_params
-        params.require(:artist).permit(:name)
-    end
+    private
+        def artist_params
+            params.require(:artist).permit(:name)
+        end
 end
