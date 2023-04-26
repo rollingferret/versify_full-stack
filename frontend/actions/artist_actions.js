@@ -9,10 +9,9 @@ export const RECEIVE_CURRENT_ARTIST = "RECEIVE_CURRENT_ARTIST";
 
 // THUNK ACTIONS
 const receiveAllArtists = (artists) => {
-    debugger
     return ({
-    type: RECEIVE_ALL_ARTISTS,
-    artists,
+        type: RECEIVE_ALL_ARTISTS,
+        artists,
 })}
 
 const receiveCurrentArtist = (artistObj) => {
