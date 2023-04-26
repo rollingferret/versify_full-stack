@@ -2,6 +2,7 @@ import React from "react";
 
 import HomeContainer from '../home/home_container.jsx'
 import PlaylistShowContainer from "../playlists/playlist_show_container";
+import ArtistShowContainer from "../artists/artist_show_container";
 
 const CurrentView = (props) => {
 

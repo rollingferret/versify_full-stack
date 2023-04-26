@@ -15,7 +15,7 @@ const receiveAllArtists = (artists) => {
 })}
 
 const receiveCurrentArtist = (artistObj) => {
-    debugger
+    // debugger
     return {
         type: RECEIVE_CURRENT_ARTIST, // multiple data types because fetched with associations
         artist: artistObj.artist,
