@@ -5,6 +5,7 @@ const ArtistCard = ({
     artist,
     urlParams,
     history,
+    displayArtist,
 }) => {
     const { id,
         name,
@@ -13,6 +14,7 @@ const ArtistCard = ({
 
     const clickToShowArtist = (e) => {
         e.preventDefault();
+        displayArtist(id)
         history.push(`/artist/${id}`)
     }
 
