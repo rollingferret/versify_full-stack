@@ -9,7 +9,7 @@ import ArtistShow from "./artist_show";
 const mapStateToProps = (state, ownProps) => {
     return ({
         currentArtist: state.entities.currentItem,
-        albums: state.albums,
+        albums: state.entities.albums,
         params: ownProps.params,
         currentUser: ownProps.currentUser,
         history: ownProps.history,

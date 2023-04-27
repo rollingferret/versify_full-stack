@@ -56,7 +56,7 @@ const PlaylistShow = ({ currentPlaylist,
                     closePlaylistModal={closePlaylistModal}
                 /> 
             </div>
-            <div className="playlist-songs-index">
+            <div className="song-index">
                 <PlaylistBody playlistedSongs={playlistedSongs}/>
             </div>
         </div>
