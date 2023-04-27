@@ -6,7 +6,7 @@ const albumIndexReducer = (albumsState = {}, action) => {
     switch (action.type) {
         case RECEIVE_CURRENT_ARTIST:
             let artistAlbums = action.albums;
-            return artistAlbums;
+            return artistAlbums ? artistAlbums : albumsState;
         default:
             return albumsState;
     }
