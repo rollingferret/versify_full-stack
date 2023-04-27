@@ -59,7 +59,6 @@
 }
 
 .playlist-nav {
-    // background: #4c1616;
     display: flex;
     background: #575146e6;
     width: calc(100% - 30px);
@@ -67,7 +66,6 @@
     align-items: center;
     padding: 0px 0px 0px 30px;
     gap: 25px;
-    overflow: visible;
 }
 
 #playlist-play-button {
@@ -113,7 +111,7 @@ button.playlist-dropdown-button:hover {
     transition: .2s;
 }
 
-.playlist-songs-index {
+.song-index {
     background: #bbbbbb6c;
     width: 100%;
     height: calc(100% - 118px - 260px);
