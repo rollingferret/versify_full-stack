@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { displayArtist } from "../../actions/artist_actions";
 
 import ArtistHeader from "./artist_header";
 import AlbumIndex from "../albums/album_index";
@@ -14,14 +13,15 @@ const ArtistShow = (
         clearCurrent,
     }
 ) => {
-
+    console.log("PARAMS",params)
+    console.log("ALBUMS", albums)
+    
     useEffect( () => {
         displayArtist(params.id)
 
         return () => clearCurrent();
     }, [params]) // Will run whenever params.id changes
 
-    
     return (
         <div className="artist-show-background" style={{ backgroundImage: `url(${currentArtist.photo_url})` }}>
             <div className="artist-show">
@@ -33,9 +33,10 @@ const ArtistShow = (
                 </div>
                 <div className="song-index">
                 </div>
-                <div className="album-index">
+                {albums.length > 0 ?
                     <AlbumIndex albums={albums} />
-                </div>
+                    : null
+                }
             </div>
         </div>
     )
