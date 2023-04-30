@@ -62,6 +62,7 @@ albums = [
     {title: 'For Broken Ears', year: 2020, artist_id: 10, genre: 'R&B'},
     {title: 'Made In Lagos', year: 2020, artist_id: 4, genre: 'Afrobeats'},
     {title: 'Twice As Tall', year: 2020, artist_id: 11, genre: 'Afrobeats'},
+    {title: 'calm & patient', year: 2023, artist_id: 6, genre: 'R&B'}
 ]
 album_photos = [
     "https://versify-dev.s3.amazonaws.com/images/albums/sounds-of-my-world.jpeg",
@@ -73,6 +74,7 @@ album_photos = [
     "https://versify-dev.s3.amazonaws.com/images/albums/for-broken-ears.jpeg",
     "https://versify-dev.s3.amazonaws.com/images/albums/made-in-lagos.jpeg",
     "https://versify-dev.s3.amazonaws.com/images/albums/twice-as-tall.jpeg",
+    "https://versify-dev.s3.amazonaws.com/images/albums/calm-and-patient-art.jpeg",
 ]
 (0...albums.length).each do |i|
     album = albums[i]
