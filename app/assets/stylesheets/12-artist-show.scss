@@ -1,7 +1,11 @@
 .artist-show {
+    position: relative;
+    z-index: 1;
     background: #0000008a;
     width: 100%;
-    height: 100%;
+    height: calc(100vh - 76px);
+    overflow-y: scroll;
+    padding: none;
 }
 
 .artist-header {
@@ -37,9 +41,8 @@
 }
 
 .artist-nav {
-    // background: #4c1616;
     display: flex;
-    background: #575146e6;
+    background: #1a1816e6;
     width: calc(100% - 30px);
     height: 118px;
     align-items: center;
@@ -48,8 +51,33 @@
 }
 
 .album-index {
-    background: #bbbbbb2f;
-    width: 100%;
+    background: black;
+    padding: 15px;
+}
+
+.album-index-grid {
+    display: grid;
+    background: #121212e0;
+    width: 100vw;
     height: calc(100% - 118px - 260px);
     color: white;
+    grid-template-columns: repeat(4, 216px);
+    grid-auto-rows: minmax(294px, 294px);
+    grid-gap: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-align: center;
+}
+
+.album img {
+    border-radius: 8px;
+    text-align: center;
+}
+
+.album-index-header h2 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-bottom: 15px;
 }
