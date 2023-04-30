@@ -9,6 +9,7 @@ const ArtistShow = (
         params,
         currentUser,
         history,
+        path,
         displayArtist,
         clearCurrent,
     }
@@ -20,10 +21,10 @@ const ArtistShow = (
         displayArtist(params.id)
 
         return () => clearCurrent();
-    }, [params]) // Will run whenever params.id changes
+    }, [params, path]) // Will run whenever params.id changes
 
     return (
-        <div className="artist-show-background" style={{ backgroundImage: `url(${currentArtist.photo_url})` }}>
+        <div className="artist-show-background" style={{ backgroundImage: `url(${currentArtist.photo_url})`, backgroundSize: '50%' }}>
             <div className="artist-show">
                 <div className="artist-header">
                     <ArtistHeader currentArtist={currentArtist} />
@@ -31,8 +32,8 @@ const ArtistShow = (
                 <div className="artist-nav">
 
                 </div>
-                <div className="song-index">
-                </div>
+                {/* <div className="song-index">
+                </div> */}
                 {albums.length > 0 ?
                     <AlbumIndex albums={albums} />
                     : null
