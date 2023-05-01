@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  album: one
+  collabartist1: one
+  collabartist2: one
+  collabartist3: one
+  tracknum: 1
+  duration: 2023-04-30 22:20:30
+  audio_url: MyString
+
+two:
+  title: MyString
+  album: two
+  collabartist1: two
+  collabartist2: two
+  collabartist3: two
+  tracknum: 1
+  duration: 2023-04-30 22:20:30
+  audio_url: MyString
