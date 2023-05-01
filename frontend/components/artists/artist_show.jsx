@@ -34,9 +34,10 @@ const ArtistShow = (
                 </div>
                 {/* <div className="song-index">
                 </div> */}
-                {albums.length > 0 ?
-                    <AlbumIndex albums={albums} />
-                    : null
+                {albums.length > 0 ? <AlbumIndex albums={albums} />
+                    : null 
+                // Leave this null because will incorporate featured tracks later
+                // "Featuring This Artist"
                 }
             </div>
         </div>
