@@ -112,9 +112,10 @@ button.playlist-dropdown-button:hover {
 }
 
 .song-index {
-    background: #bbbbbb6c;
+    background: red;
     width: 100%;
     height: calc(100% - 118px - 260px);
     overflow-y: auto;
     color: white;
+    height: 50px;
 }
