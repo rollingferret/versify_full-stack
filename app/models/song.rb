@@ -3,7 +3,7 @@ class Song < ApplicationRecord
   foreign_key: :album_id,
   class_name: :Album
 
-  belongs_to :song_artist,
+  has_one :song_artist,
   through: :album,
   source: :album_artist
 
