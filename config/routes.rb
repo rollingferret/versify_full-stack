@@ -7,6 +7,7 @@ namespace :api, defaults: {format: :json} do
   resources :playlists, only: [:index, :show, :create, :update, :destroy]
   resources :artists, only: [:index, :show]
   resources :albums, only: [:index, :show]
+  resources :songs, only: [:index, :show]
 end
   
   root 'static_pages#root'
