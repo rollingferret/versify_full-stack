@@ -6,9 +6,9 @@ import configureStore from './store/store';
 // TESTING START
 
 import {
-  indexArtists,
-  showArtist,
-} from './util/artists_util'
+  indexAlbums,
+  showAlbum,
+} from './util/albums_util'
 
 // const play = {title:'thisone',
 // description: 'anew',
@@ -37,8 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //TESTING
   window.store = store;
-  window.indexArtists = indexArtists;
-  window.showArtist = showArtist;
+  window.indexAlbums = indexAlbums;
+  window.showAlbum = showAlbum;
 
   //TESTING
   const root = document.getElementById("root");
