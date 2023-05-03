@@ -81,3 +81,6 @@ album_photos = [
     album[:photo_url] = album_photos[i]
     Album.create(album)
 end
+
+Song.create!(title:"Irene", album_id:5, tracknum:1, duration:90, audio_url:"google.com")
+Song.create!(title:"hold my love", album_id:2, tracknum:1, duration:52.seconds, audio_url:"google.com")
