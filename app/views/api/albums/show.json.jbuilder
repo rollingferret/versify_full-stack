@@ -3,11 +3,11 @@ json.album do
 end
 
 json.album_artist do
-    json.partial! "/api/artists/artist", artist: @album.album_artist
+    json.extract! @album.album_artist, :id, :name
 end
 
 json.tracks do
     json.array! @album.tracks do |track|
-        json.partial! "/api/tracks/track", track: track
+        json.partial! "/api/songs/song", song: track
     end
 end
