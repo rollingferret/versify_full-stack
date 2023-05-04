@@ -82,5 +82,27 @@ album_photos = [
     Album.create(album)
 end
 
+# Trial songs to test case-insensitive ordering
 Song.create!(title:"Irene", album_id:5, tracknum:1, duration:90, audio_url:"google.com")
 Song.create!(title:"hold my love", album_id:2, tracknum:1, duration:52.seconds, audio_url:"google.com")
+
+songs_data = [
+    { title: "Makossa Riddim", album_id: 1, tracknum: 3, duration: 182, audio_url: "https://versify-dev.s3.amazonaws.com/audio/makossa-riddim.mp3" },
+    { title: "Mare", album_id: 1, tracknum: 10, duration: 209, audio_url: "https://versify-dev.s3.amazonaws.com/audio/mare.mp3" },
+    { title: "Close To Me", album_id: 1, tracknum: 1, duration: 180, audio_url: "https://versify-dev.s3.amazonaws.com/audio/close-to-me.mp3" },
+    { title: "The Girl with the Tattoo - Miguel Cover", album_id: 2, tracknum: 1, duration: 209, audio_url: "https://versify-dev.s3.amazonaws.com/audio/the-girl-with-the-tattoo.mp3" },
+    # { title: "New Balance", album_id: 3, tracknum: 8, duration: 279,  audio_url: "" },
+    { title: "U Move, I Move (feat. Jhene Aiko)", album_id: 4, tracknum: 7, duration: 223, audio_url: "https://versify-dev.s3.amazonaws.com/audio/u-move-i-move.mp3" },
+    # { title: "Don't Walk Away (feat. Koffee)", album_id: 4, tracknum: 12, duration: 220,  audio_url: "" },
+    { title: "Toast", album_id: 5, tracknum: 2, duration: 191, audio_url: "https://versify-dev.s3.amazonaws.com/audio/toast.mp3" },
+    # { title: "Like Water (Originals)", album_id: 6, tracknum: 13, duration: 237,  audio_url: "" },
+    { title: "Free Mind", album_id: 7, tracknum: 3, duration: 247, audio_url: "https://versify-dev.s3.amazonaws.com/audio/free-mind.mp3" },
+    { title: "Essence (feat. Tems)", album_id: 8, tracknum: 11, duration: 248, audio_url: "https://versify-dev.s3.amazonaws.com/audio/essence.mp3" },
+    { title: "Time Flies (feat. Sauti Sol)", album_id: 9, tracknum: 11, duration: 224, audio_url: "https://versify-dev.s3.amazonaws.com/audio/time-flies.mp3" },
+    { title: "Ginger (feat. Burna Boy)", album_id: 8, tracknum: 2, duration: 196, audio_url: "https://versify-dev.s3.amazonaws.com/audio/ginger.mp3" },
+    { title: "calm & patient", album_id: 10, tracknum: 1, duration: 213, audio_url: "https://versify-dev.s3.amazonaws.com/audio/calm-and-patient.mp3" }
+  ]
+  
+  songs_data.each do |song_data|
+    Song.create(song_data)
+  end
