@@ -106,3 +106,18 @@ songs_data = [
   songs_data.each do |song_data|
     Song.create(song_data)
   end
+
+
+  collabs = [
+    {song_id: 1, artist_id: 2},
+    {song_id: 2, artist_id: 3},
+    {song_id: 3, artist_id: 4},
+    {song_id: 3, artist_id: 5},
+    {song_id: 7, artist_id: 8},
+    {song_id: 12, artist_id: 3},
+    {song_id: 13, artist_id: 11},
+  ]
+
+    collabs.each do |collab|
+        Collab.create(collab)
+    end
