@@ -17,16 +17,8 @@ class Artist < ApplicationRecord
     foreign_key: :artist_id,
     class_name: :Album
 
-    # has_one :collab1,
-    # foreign_key: :collabartist1_id,
-    # class_name: :Song
-
-    # has_one :collab2,
-    # foreign_key: :collabartist2_id,
-    # class_name: :Song
-
-    # has_one :collab3,
-    # foreign_key: :collabartist3_id,
-    # class_name: :Song
+    has_many :collabs,
+    foreign_key: :artist_id,
+    class_name: :Collab
 
 end

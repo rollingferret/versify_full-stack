@@ -7,16 +7,8 @@ class Song < ApplicationRecord
   through: :album,
   source: :album_artist
 
-  # belongs_to :collabartist1,
-  # foreign_key: :collabartist1_id,
-  # class_name: :Artist
-
-  # belongs_to :collabartist2,
-  # foreign_key: :collabartist2_id,
-  # class_name: :Artist
-
-  # belongs_to :collabartist3,
-  # foreign_key: :collabartist3_id,
-  # class_name: :Artist
+  has_many :collab_artists,
+  foreign_key: :song_id,
+  class_name: :Collab
 
 end
