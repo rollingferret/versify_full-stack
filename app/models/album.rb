@@ -17,5 +17,9 @@ class Album < ApplicationRecord
   belongs_to :album_artist,
   foreign_key: :artist_id,
   class_name: :Artist
+
+  has_many :tracks,
+  foreign_key: :album_id,
+  class_name: :Song
   
 end
