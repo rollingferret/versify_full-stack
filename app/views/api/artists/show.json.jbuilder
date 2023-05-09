@@ -7,3 +7,9 @@ json.albums do
         json.partial!("api/albums/album", album: album)
     end
 end
+
+json.collabs do
+    json.array! @artist.collabs.each do |collab|
+        json.partial!("api/collabs/collab", collab: collab)
+    end
+end
