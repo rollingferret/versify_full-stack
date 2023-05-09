@@ -21,4 +21,8 @@ class Artist < ApplicationRecord
     foreign_key: :artist_id,
     class_name: :Collab
 
+    has_many :collab_songs,
+    through: :collabs,
+    source: :collab
+
 end

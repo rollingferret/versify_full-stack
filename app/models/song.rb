@@ -7,8 +7,12 @@ class Song < ApplicationRecord
   through: :album,
   source: :album_artist
 
-  has_many :collab_artists,
+  has_many :collabs,
   foreign_key: :song_id,
   class_name: :Collab
+
+  has_many :collab_artists,
+  through: :collabs,
+  source: :collab_artist
 
 end
