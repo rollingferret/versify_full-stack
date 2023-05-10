@@ -83,8 +83,8 @@ album_photos = [
 end
 
 # Trial songs to test case-insensitive ordering
-Song.create!(title:"Irene", album_id:5, tracknum:1, duration:90, audio_url:"google.com")
-Song.create!(title:"hold my love", album_id:2, tracknum:1, duration:52.seconds, audio_url:"google.com")
+# Song.create!(title:"Irene", album_id:5, tracknum:1, duration:90, audio_url:"google.com")
+# Song.create!(title:"hold my love", album_id:2, tracknum:1, duration:52.seconds, audio_url:"google.com")
 
 songs_data = [
     { title: "Makossa Riddim", album_id: 1, tracknum: 3, duration: 182, audio_url: "https://versify-dev.s3.amazonaws.com/audio/makossa-riddim.mp3" },

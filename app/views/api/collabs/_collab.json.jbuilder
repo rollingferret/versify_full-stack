@@ -1,0 +1,1 @@
+json.extract! collab, :id, :song_id, :artist_id
