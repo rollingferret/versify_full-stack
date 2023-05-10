@@ -3,6 +3,8 @@
 ## Versify is a clone of the Spotify web client but with a darker and starry undertone.
 ### Versify provides a very similar user experience to Spotify online, with a focus on Afropop and R&B genres.
 
+https://github.com/imartinez921/versify_full-stack/assets/102888592/a8f16509-3e44-406c-a119-5a9a4c74382b
+
 * Users can register for a new account or log in as the demo user.
 * Users can create, edit, and delete playlists.
 * Users can view and play music off Artist and Album pages.
