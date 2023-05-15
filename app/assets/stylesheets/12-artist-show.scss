@@ -81,3 +81,12 @@
     font-weight: 900;
     margin-bottom: 15px;
 }
+
+.card-subtitle a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.card-subtitle .artist-name {
+    display: inline;
+}
