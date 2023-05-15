@@ -21,6 +21,7 @@ const ArtistShow = (
     
     useEffect( () => {
         displayArtist(params.id);
+        document.getElementById("artist-show").scrollTo(0, 0);
 
         return () => clearCurrent();
     }, [params]); // Will run whenever params.id changes, otherwise ArtistShow doesn't re-render
