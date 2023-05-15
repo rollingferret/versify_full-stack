@@ -10,6 +10,7 @@ const mapStateToProps = (state, ownProps) => {
     return ({
         currentArtist: state.entities.currentItem,
         albums: state.entities.albums,
+        collabSongs: state.entities.songs,
         params: ownProps.params,
         path: ownProps.path,
         currentUser: ownProps.currentUser,
