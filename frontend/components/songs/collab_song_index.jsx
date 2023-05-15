@@ -4,6 +4,7 @@ import SongCard from "./song_card";
 const CollabSongIndex = ({
     songs,
     currentArtist,
+    history,
 }) => {
     console.log("SONGS", songs)
     return <div className="album-index">
@@ -14,7 +15,7 @@ const CollabSongIndex = ({
     </div>
     <div className="album-index-grid">
         {songs.map( song => (
-            <SongCard key={`${song.id}+${song.title}`} song={song} currentArtist={currentArtist} />
+            <SongCard key={`${song.id}+${song.title}`} song={song} currentArtist={currentArtist} history={history}/>
         ))}
     </div>
 </div>

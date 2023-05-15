@@ -4,6 +4,7 @@ import ArtistLinkContainer from "../artists/artist_link_container";
 const SongCard = ({
     song,
     currentArtist,
+    history,
 }) => {
 
     const { id,
@@ -15,10 +16,10 @@ const SongCard = ({
     const albumId = song.album_id;
 
     const collabArtistNames = collabArtists.map(artist => {
-        return <div className="artist-name" key={`${artist.name}+"collab"+${artist.id}`}><ArtistLinkContainer artist={artist} currentArtist={currentArtist}/>, </div>
+        return <div className="artist-name" key={`${artist.name}+"collab"+${artist.id}`}><ArtistLinkContainer artist={artist} currentArtist={currentArtist} history={history}/>, </div>
     })
 
-    const songArtistName = <ArtistLinkContainer artist={songArtist} currentArtist={currentArtist}/>
+    const songArtistName = <ArtistLinkContainer artist={songArtist} currentArtist={currentArtist} history={history}/>
 
     return (
         <div className="card album">

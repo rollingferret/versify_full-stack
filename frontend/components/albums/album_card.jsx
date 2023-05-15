@@ -1,6 +1,9 @@
 import React from "react";
 
-const AlbumCard = ({ album }) => {
+const AlbumCard = ({ album, 
+    history,
+}) => {
+    
     const { id,
         title,
         photo_url,

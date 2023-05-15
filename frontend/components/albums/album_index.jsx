@@ -2,7 +2,10 @@ import React from "react";
 import AlbumCard from "./album_card";
 
 
-const AlbumIndex = ({albums}) => {
+const AlbumIndex = ({ albums,
+    history,
+}) => {
+    
     return <div className="album-index">
             <div className="album-index-header">
                 <h2>
@@ -14,7 +17,7 @@ const AlbumIndex = ({albums}) => {
                     // <li key={`${album.id}+${album.title}`}>
                     //     {album.title}
                     // </li>
-                    <AlbumCard key={`${album.id}+${album.title}`} album={album} />
+                    <AlbumCard key={`${album.id}+${album.title}`} album={album} history={history}/>
                 ))}
             </div>
         </div>
