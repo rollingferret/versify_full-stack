@@ -44,12 +44,7 @@ artist_photos = [
 # Seed artists in the database with corresponding image url
 # Then create Artist instances and attach their artist photo
 (0... artists.length).each do |i|
-    artist = Artist.create(name: artists[i], photo_url: artist_photos[i])
-    artist.photo.attach(
-        io: URI.open(artist_photos[i]),
-        filename: 'avatar-'+ artists[i].downcase().split(' ').join('-'),
-        content_type: 'image/jpeg',
-    )
+    Artist.create(name: artists[i], photo_url: artist_photos[i])
 end
 
 albums = [
