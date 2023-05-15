@@ -1,7 +1,6 @@
 import React from "react";
 
 const AlbumCard = ({ album }) => {
-    console.log("ALBUM", album)
     const { id,
         title,
         photo_url,

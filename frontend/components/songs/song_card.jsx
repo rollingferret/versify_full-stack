@@ -1,4 +1,5 @@
 import React from "react";
+import ArtistLinkContainer from "../artists/artist_link_container";
 
 const SongCard = ({
     song,
@@ -14,9 +15,10 @@ const SongCard = ({
     const albumId = song.album_id;
 
     const collabArtistNames = collabArtists.map(artist => {
-        return <span key={`${artist.name}+"collab"+${artist.id}`}>{artist.name}, </span>
+        return <div key={`${artist.name}+"collab"+${artist.id}`}><ArtistLinkContainer artist={artist} currentArtist={currentArtist}/>,</div>
     })
-    console.log("COLLABARTISTS", collabArtists)
+
+    const songArtistName = <ArtistLinkContainer artist={songArtist} currentArtist={currentArtist}/>
 
     return (
         <div className="card album">
@@ -27,7 +29,7 @@ const SongCard = ({
                 {title}
             </div>
             <div className="card-subtitle">
-                {collabArtistNames} {songArtist.name} • Song
+                {collabArtistNames} {songArtistName} • Song
             </div>
         </div>
     )
