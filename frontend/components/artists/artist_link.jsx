@@ -4,6 +4,7 @@ const ArtistLink = ({
     artist,
     currentArtist,
     displayArtist,
+    history,
 }) => {
 
     const { id,
@@ -12,7 +13,7 @@ const ArtistLink = ({
 
     const handleClick = (e) => {
         e.preventDefault();
-        return displayArtist(id);
+        return history.push(`/artist/${id}`);
     }
 
     if (name === currentArtist.name) {
