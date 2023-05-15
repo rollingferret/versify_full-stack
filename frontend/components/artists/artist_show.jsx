@@ -2,10 +2,12 @@ import React, { useEffect } from "react";
 
 import ArtistHeader from "./artist_header";
 import AlbumIndex from "../albums/album_index";
+import CollabSongIndex from "../songs/collab_song_index";
 
 const ArtistShow = (
     {   currentArtist,
         albums,
+        collabSongs,
         params,
         currentUser,
         history,
@@ -36,6 +38,10 @@ const ArtistShow = (
                 </div> */}
                 {albums.length > 0 ?
                     <AlbumIndex albums={albums} />
+                    : null
+                }
+                {collabSongs.length > 0 ?
+                    <CollabSongIndex songs={collabSongs} currentArtist={currentArtist}/>
                     : null
                 }
             </div>
