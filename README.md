@@ -8,7 +8,7 @@ https://github.com/imartinez921/versify_full-stack/assets/102888592/a8f16509-3e4
 * Users can register for a new account or log in as the demo user.
 * Users can create, edit, and delete playlists.
 
-## Future features:
+## Features under development:
 * Users can view and play music off Artist and Album pages.
 * Users can search for songs, artists, and albums.
 * Users can add Liked songs to their library.
