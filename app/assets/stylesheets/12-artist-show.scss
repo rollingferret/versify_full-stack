@@ -58,7 +58,7 @@
 .album-index-grid {
     display: grid;
     background: #121212e0;
-    width: 100vw;
+    width: 100%;
     height: calc(100% - 118px - 260px);
     color: white;
     grid-template-columns: repeat(4, 216px);
