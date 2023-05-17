@@ -6,6 +6,7 @@
 ![ezgif com-video-to-gif](https://github.com/imartinez921/versify_full-stack/assets/102888592/5d069a21-1f36-4b04-b3b4-3479d0d6455d)
 
 * Users can register for a new account or log in as the demo user.
+* Users can view Artist pages.
 * Users can create, edit, and delete playlists.
 
 ## Features under development:
