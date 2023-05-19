@@ -25,6 +25,7 @@ const App = () => (
         <AuthRoute exact path="/home" component={MainContainer} />
         <AuthRoute path="/playlist/:id" component={MainContainer} />
         <AuthRoute path="/artist/:id" component={MainContainer} />
+        <AuthRoute path="/album/:id" component={MainContainer} />
       </Switch>
           
     </div>
