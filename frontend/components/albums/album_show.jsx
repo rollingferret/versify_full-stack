@@ -12,7 +12,6 @@ const AlbumShow = ({
 
     useEffect( () => {
         displayAlbum(params.id);
-        debugger;
         // document.getElementById("album-show").scrollTo(0, 0);
 
         return () => clearCurrent();

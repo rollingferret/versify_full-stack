@@ -7,7 +7,6 @@ export const RECEIVE_CURRENT_ALBUM = "RECEIVE_CURRENT_ALBUM"
 
 // THUNK ACTIONS
 const receiveCurrentAlbum = (albumObj) => {
-    debugger;
     return ({
         type: RECEIVE_CURRENT_ALBUM,
         album: albumObj.album,
