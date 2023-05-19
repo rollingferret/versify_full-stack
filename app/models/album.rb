@@ -12,7 +12,9 @@
 #
 class Album < ApplicationRecord
   validates :title, presence:true
-  validates :title, presence:true
+  validates :year, presence:true
+  validates :genre, presence:true
+  validates :artist_id, presence:true
 
   belongs_to :album_artist,
   foreign_key: :artist_id,
