@@ -1,5 +1,7 @@
 import { RECEIVE_CURRENT_ARTIST,
 } from "../actions/artist_actions";
+import { RECEIVE_CURRENT_ALBUM,
+} from "../actions/album_actions";
 
 
 const songIndexReducer = (songsState = {}, action) => {
@@ -7,6 +9,8 @@ const songIndexReducer = (songsState = {}, action) => {
     switch (action.type) {
         case RECEIVE_CURRENT_ARTIST:
             return action.songs;
+        case RECEIVE_CURRENT_ALBUM:
+            return action.tracks;
         default:
             return songsState;
     }

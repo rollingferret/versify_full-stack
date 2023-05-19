@@ -3,7 +3,10 @@ import { RECEIVE_CURRENT_PLAYLIST,
 } from "../actions/playlists_actions";
 
 import { RECEIVE_CURRENT_ARTIST,
-}from "../actions/artist_actions";
+} from "../actions/artist_actions";
+
+import { RECEIVE_CURRENT_ALBUM,
+} from "../actions/album_actions";
 
 // used for Playlist#show & Album#show
 const currentItemReducer = (currItemState = {}, action) => {
@@ -15,6 +18,9 @@ const currentItemReducer = (currItemState = {}, action) => {
         case RECEIVE_CURRENT_ARTIST:
             let currArtist = action.artist;
             return currArtist;
+        case RECEIVE_CURRENT_ALBUM:
+            let currAlbum = action.album;
+            return currAlbum;
         case RESET_CURRENT:
             return {};
         default:
