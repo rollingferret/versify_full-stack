@@ -19,4 +19,4 @@ const receiveCurrentAlbum = (albumObj) => {
 export const displayAlbum = (albumId) => (dispatch) => {
     return showAlbum(albumId)
         .then((album) => dispatch(receiveCurrentAlbum(album)))
-}
+};
