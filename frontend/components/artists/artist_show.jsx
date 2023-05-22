@@ -13,6 +13,7 @@ const ArtistShow = (
         history,
         path,
         displayArtist,
+        displayAlbum,
         clearCurrent,
     }
 ) => {
@@ -38,7 +39,7 @@ const ArtistShow = (
                 {/* <div className="song-index">
                 </div> */}
                 {albums.length > 0 ?
-                    <AlbumIndex albums={albums} history={history} />
+                    <AlbumIndex albums={albums} history={history} displayAlbum={displayAlbum}/>
                     : null
                 }
                 {collabSongs.length > 0 ?
