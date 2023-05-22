@@ -1,6 +1,9 @@
 import { connect } from "react-redux";
 import { displayArtist,
 } from "../../actions/artist_actions";
+import { displayAlbum,
+} from "../../actions/album_actions";
+
 import { clearCurrent,
 } from "../../actions/playlists_actions";
 
@@ -19,6 +22,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => ({
     displayArtist: (artistId) => dispatch( displayArtist(artistId) ),
+    displayAlbum: (albumId) => dispatch( displayAlbum(albumId) ),
     clearCurrent: () => dispatch( clearCurrent() ),
 })
 

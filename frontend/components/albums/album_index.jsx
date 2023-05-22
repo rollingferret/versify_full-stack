@@ -4,6 +4,7 @@ import AlbumCard from "./album_card";
 
 const AlbumIndex = ({ albums,
     history,
+    displayAlbum,
 }) => {
     
     return <div className="album-index">
@@ -14,10 +15,11 @@ const AlbumIndex = ({ albums,
             </div>
             <div className="album-index-grid">
                 {albums.map( album => (
-                    // <li key={`${album.id}+${album.title}`}>
-                    //     {album.title}
-                    // </li>
-                    <AlbumCard key={`${album.id}+${album.title}`} album={album} history={history}/>
+                    <AlbumCard key={`${album.id}+${album.title}`} 
+                        album={album} 
+                        history={history}
+                        displayAlbum={displayAlbum}
+                    />
                 ))}
             </div>
         </div>
