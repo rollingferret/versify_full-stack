@@ -2,6 +2,7 @@ import React from "react";
 
 const AlbumCard = ({ album, 
     history,
+    displayAlbum,
 }) => {
     
     const { id,
@@ -9,11 +10,16 @@ const AlbumCard = ({ album,
         photo_url,
         year,
     } =  album;
-
     console.log(photo_url)
 
+    const clickToShowAlbum = (e) => {
+        e.preventDefault();
+        displayAlbum(id);
+        return history.push(`/album/${id}`)
+    }
+
     return (
-        <div className="card album">
+        <div className="card album" onClick={clickToShowAlbum}>
             <div className="album-card-art">
                 <img src={photo_url} alt="" />
             </div>
