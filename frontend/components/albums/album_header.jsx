@@ -3,13 +3,18 @@ import React from 'react';
 const AlbumHeader = ({ album,
 }) => {
 
-  console.log("ALBUM", album)
   const { id,
       title,
       genre,
       year,
       albumPhotoUrl,
+      number,
+      hrs,
+      mins,
+      duration,
   } = album;
+
+  const songWord = number === 1 ? "song" : "songs";
 
   return (
     <>
@@ -22,7 +27,7 @@ const AlbumHeader = ({ album,
           {title}
         </div>
         <div id="description">
-          <h3>{genre} • {year}</h3>
+          <h3>{genre} • {year} • {number} {songWord}, {hrs} h {mins} min</h3>
         </div>
       </div>
     </>
