@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => {
     return {
     currentAlbum: state.entities.currentItem,
     tracks: state.entities.songs,
-    albumArtist: state.entities.currentItem.tracks,
+    albumArtist: state.entities.currentItem.albumArtist,
     params: ownProps.params,
     currentUser: ownProps.currentUser,
     history: ownProps.history,
