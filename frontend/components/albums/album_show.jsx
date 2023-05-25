@@ -1,14 +1,15 @@
 import React, { useEffect } from "react";
 import AlbumHeader from "./album_header";
-import TrackIndexContainer from "../songs/track_index_container";
+import TrackIndex from "../songs/track_index";
 
 const AlbumShow = ({
     currentAlbum,
-    currentUser,
+    tracks,
     displayAlbum,
     clearCurrent,
-    history,
     params,
+    history,
+    currentUser,
 }) => {
 
     useEffect( () => {
@@ -18,7 +19,6 @@ const AlbumShow = ({
         return () => clearCurrent();
     }, [params]); // Will run whenever params.id changes, otherwise ArtistShow doesn't re-render
 
-    console.log("CURRENT", currentAlbum)
     return (
         <div className="album-show">
             <div className="album-header">
@@ -28,7 +28,7 @@ const AlbumShow = ({
 
             </div>
             <div className="song-index">
-                <TrackIndexContainer />
+                <TrackIndex tracks={tracks}/>
             </div>
         </div>
     )
