@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import AlbumHeader from "./album_header";
+import TrackIndexContainer from "../songs/track_index_container";
 
 const AlbumShow = ({
     currentAlbum,
@@ -27,7 +28,7 @@ const AlbumShow = ({
 
             </div>
             <div className="song-index">
-
+                <TrackIndexContainer />
             </div>
         </div>
     )
