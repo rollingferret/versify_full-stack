@@ -1,1 +1,2 @@
-json.extract! artist, :id, :name, :photo_url
+json.extract! artist, :id, :name
+json.photoUrl artist.photo_url

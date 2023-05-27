@@ -14,8 +14,6 @@ const ArtistIndex = ({
         fetchArtists();
     }, [])
 
-    console.log(artists)
-
     return (
         artists.length === 0 ?
             null

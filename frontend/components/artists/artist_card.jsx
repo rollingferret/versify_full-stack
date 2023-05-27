@@ -9,7 +9,7 @@ const ArtistCard = ({
 }) => {
     const { id,
         name,
-        photo_url,
+        photoUrl,
     } =  artist;
 
     const clickToShowArtist = (e) => {
@@ -20,7 +20,7 @@ const ArtistCard = ({
 
     return (
         <div className="card" onClick={clickToShowArtist}> 
-            <img src={photo_url} alt="" srcSet="" />
+            <img src={photoUrl} alt="" srcSet="" />
             <div className="card-title">
                 {name}
             </div>
