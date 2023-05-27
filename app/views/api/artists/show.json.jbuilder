@@ -4,7 +4,8 @@ end
 
 json.albums do
     json.array! @artist.albums.each do |album|
-        json.extract! album, :id, :title, :year, :photo_url
+        json.extract! album, :id, :title, :year
+        json.albumPhotoUrl album.photo_url
     end
 end
 

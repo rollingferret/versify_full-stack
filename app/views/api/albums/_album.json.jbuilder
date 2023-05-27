@@ -1,2 +1,3 @@
-json.extract! album, :id, :title, :artist_id, :genre, :year
+json.extract! album, :id, :title, :genre, :year
+json.artistId album.artist_id
 json.albumPhotoUrl album.photo_url
