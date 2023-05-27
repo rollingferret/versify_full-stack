@@ -4,7 +4,7 @@ import TrackCard from "./track_card";
 
 const TrackIndex = ({
     tracks,
-    displayArtist,
+    history,
 }) => {
 
     return (
@@ -25,7 +25,7 @@ const TrackIndex = ({
             </div>
             {tracks.length > 0 ? 
                 (tracks.map( track => {
-                    return <TrackCard key={`"track" + ${track.id}`} track={track} displayArtist={displayArtist} />
+                    return <TrackCard key={`"track" + ${track.id}`} track={track} history={history} />
                 }))
                 : null
             }

@@ -1,7 +1,10 @@
 import React from "react";
 import ArtistLinkContainer from "../artists/artist_link_container"; 
 
-const TrackCard = ( {track} ) => {
+const TrackCard = ({
+    track,
+    history
+}) => {
 
     const { tracknum,
         title,

@@ -27,9 +27,7 @@ const AlbumShow = ({
             <div className="album-nav">
 
             </div>
-            <div className="song-index">
-                <TrackIndex tracks={tracks}/>
-            </div>
+            <TrackIndex tracks={tracks} history={history}/>
         </div>
     )
 }

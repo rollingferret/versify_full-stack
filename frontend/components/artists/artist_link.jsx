@@ -16,12 +16,15 @@ const ArtistLink = ({
         return history.push(`/artist/${id}`);
     }
 
-    if (name === currentArtist.name) {
-        return <span>{name}</span>
-    } else {
+    if (currentArtist === null) {
         return <a onClick={handleClick} className="artist-link">{name}</a>
+    } else {
+        if (name === currentArtist.name) {
+            return <span>{name}</span>
+        } else {
+            return <a onClick={handleClick} className="artist-link">{name}</a>
+        }
     }
-
 }
 
 export default ArtistLink;
