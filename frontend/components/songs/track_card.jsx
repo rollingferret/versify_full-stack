@@ -1,4 +1,7 @@
 import React from "react";
+
+import {RxDotsHorizontal,
+} from 'react-icons/rx';
 import ArtistLinkContainer from "../artists/artist_link_container"; 
 
 const TrackCard = ({
@@ -41,6 +44,9 @@ const TrackCard = ({
             </div>
             <div className="track-card-duration">
                 {mins}:{secs}
+            </div>
+            <div className="track-card-menu-dots">
+                <RxDotsHorizontal />
             </div>
         </div>
     )
