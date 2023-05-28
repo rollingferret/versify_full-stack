@@ -20,7 +20,7 @@ const TrackCard = ({
         return <div className="artist-name" key={`${artist.name}+"collab"+${artist.id}`}><ArtistLinkContainer artist={artist} currentArtist={null} history={history}/>, </div>
     })
 
-    const songArtistName = <ArtistLinkContainer artist={songArtist} currentArtist={null} history={history}/>
+    const songArtistName = <div className="artist-name" key={`${songArtist.name}+"track"+${songArtist.id}+${tracknum}`}><ArtistLinkContainer artist={songArtist} currentArtist={null} history={history}/></div>
 
 
     return ( 
