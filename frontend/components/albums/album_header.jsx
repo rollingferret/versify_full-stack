@@ -1,37 +1,47 @@
 import React from 'react';
 
+import ArtistLink from '../artists/artist_link';
+
 const AlbumHeader = ({ album,
+  history,
 }) => {
 
   const { id,
       title,
       genre,
       year,
+      albumArtist,
       albumPhotoUrl,
       number,
       hrs,
       mins,
-      duration,
   } = album;
 
   const songWord = number === 1 ? "song" : "songs";
 
-  return (
-    <>
-      <div className="album-art">
-        <img src={albumPhotoUrl} />
+  const hours = hrs === 0 ? "" : `${hrs} h `;
+
+  const header = (<>
+    <div className="album-art">
+      <img src={albumPhotoUrl} />
+    </div>
+    <div className="album-header-text">
+      <h2>Album</h2>
+      <div className="album-title">
+        {title}
       </div>
-      <div className="album-header-text">
-        <h2>Album</h2>
-        <div className="playlist-title">
-          {title}
-        </div>
-        <div id="description">
-          <h3>{genre} • {year} • {number} {songWord}, {hrs} h {mins} min</h3>
-        </div>
+      <div className="album-description">
+        <h3>
+          <ArtistLink artist={albumArtist} currentArtist={null} 
+            history={history}/>
+          &nbsp;• {genre} • {year} • {number} {songWord}, {hours} {mins} min
+        </h3>
       </div>
-    </>
-  );
+    </div>
+  </>)
+
+  return albumArtist ? header : null   
+  // ArtistLink wil error out immediately if albumArtist prop is not yet passed
 };
 
 export default AlbumHeader;
