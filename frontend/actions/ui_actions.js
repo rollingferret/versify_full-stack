@@ -4,6 +4,8 @@ export const PLAYLISTNAV_DROPDOWN_OPEN = 'PLAYLISTNAV_DROPDOWN_OPEN'
 export const PLAYLISTNAV_DROPDOWN_CLOSE = 'PLAYLISTNAV_DROPDOWN_CLOSE'
 export const PLAYLISTEDIT_MODAL_OPEN = 'PLAYLISTEDIT_MODAL_OPEN'
 export const PLAYLISTEDIT_MODAL_CLOSE = 'PLAYLISTEDIT_MODAL_CLOSE'
+export const TRACKCARD_DROPDOWN_OPEN = 'TRACKCARD_DROPDOWN_OPEN'
+export const TRACKCARD_DROPDOWN_CLOSE = 'TRACKCARD_DROPDOWN_CLOSE'
 export const ALBUMNAV_DROPDOWN_OPEN = 'ALBUMNAV_DROPDOWN_OPEN'
 export const ALBUMNAV_DROPDOWN_CLOSE = 'ALBUMNAV_DROPDOWN_CLOSE'
 
@@ -32,9 +34,7 @@ const albumNavDropdownClose = () => ({
     type: ALBUMNAV_DROPDOWN_CLOSE,
 })
 
-
-
-// Declare Thunk action creators that link actions to dispatch
+// Declare Thunk action creators linked to dispatch
 export const openPlaylistNavDropdown = () => dispatch => (
     dispatch(playlistNavDropdownOpen())
 );
@@ -49,9 +49,6 @@ export const closePlaylistEditModal = () => dispatch => (
     dispatch(playlistEditModalClose())
 );
 
-export const openAlbumNavDropdown = () => dispatch => (
-    dispatch(albumNavDropdownOpen())
-);
 
 export const closeAlbumNavDropdown = () => dispatch => (
     dispatch(albumNavDropdownClose())
