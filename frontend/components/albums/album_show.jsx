@@ -14,15 +14,17 @@ const AlbumShow = ({
 
     useEffect( () => {
         displayAlbum(params.id);
-        // document.getElementById("album-show").scrollTo(0, 0);
+        
+        const rendered = document.getElementById("album-show");
+        rendered ? rendered.scrollTo(0, 0) : null;
 
         return () => clearCurrent();
     }, [params]); // Will run whenever params.id changes, otherwise ArtistShow doesn't re-render
 
-    return (
+    const albumShow = (
         <div className="album-show">
             <div className="album-header">
-                <AlbumHeader album={currentAlbum} />
+                <AlbumHeader album={currentAlbum} history={history} />
             </div>
             <div className="album-nav">
 
@@ -30,6 +32,7 @@ const AlbumShow = ({
             <TrackIndex tracks={tracks} history={history}/>
         </div>
     )
+    return currentAlbum.albumPhotoUrl ? albumShow : null
 }
 
 export default AlbumShow;

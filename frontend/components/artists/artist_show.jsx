@@ -17,18 +17,20 @@ const ArtistShow = (
         clearCurrent,
     }
 ) => {
-    console.log("PARAMS",params)
-    console.log("ALBUMS", albums)
     
     useEffect( () => {
         displayArtist(params.id);
-        document.getElementById("artist-show").scrollTo(0, 0);
 
-        return () => clearCurrent();
+        const rendered = document.getElementById("album-show");
+        rendered ? rendered.scrollTo(0, 0) : null;
+
+        return () => {
+            clearCurrent();
+        }
     }, [params]); // Will run whenever params.id changes, otherwise ArtistShow doesn't re-render
 
-    return (
-        <div className="artist-show-background" style={{ backgroundImage: `url(${currentArtist.photo_url})`, backgroundSize: '50%' }}>
+    const artistShow = (
+        <div className="artist-show-background" style={{ backgroundImage: `url(${currentArtist.photoUrl})`, backgroundSize: '50%' }}>
             <div className="artist-show" id="artist-show">
                 <div className="artist-header">
                     <ArtistHeader currentArtist={currentArtist} />
@@ -49,6 +51,8 @@ const ArtistShow = (
             </div>
         </div>
     )
+
+    return currentArtist.photoUrl ? artistShow : null
 }
 
 export default ArtistShow;
