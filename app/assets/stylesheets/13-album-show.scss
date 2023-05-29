@@ -1,3 +1,4 @@
+// AlbumShow
 .album-show {
     background: transparent;
     width: 100%;
@@ -6,8 +7,9 @@
     overflow-x: hidden;
 }
 
+// AlbumHeader
 .album-header {
-    background: #1f0075;
+    background: #01182be0;
     display: flex;
     width: calc(100% - 30px - 30px);
     height: calc(260px - 30px - 30px);
@@ -57,12 +59,6 @@
     cursor: pointer;
 }   
 
-.album-nav {
-    display: flex;
-    background: #575146e6;
-    width: calc(100% - 30px);
-    height: 118px;
-    align-items: center;
-    padding: 0px 0px 0px 30px;
-    gap: 25px;
-}
+
+// AlbumNav sources PlaylistNav styles
+

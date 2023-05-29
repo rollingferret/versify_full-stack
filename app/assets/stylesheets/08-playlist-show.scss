@@ -4,8 +4,10 @@
     height: 100%;
 }
 
+
+// PlaylistHeader
 .playlist-header {
-    background: #1f0075;
+    background: #211a36ed;
     display: flex;
     width: calc(100% - 30px - 30px);
     height: calc(260px - 30px - 30px);
@@ -58,9 +60,11 @@
     margin-right: 30px;
 }
 
-.playlist-nav {
+
+// PlaylistNav
+.playlist-nav, .album-nav {
     display: flex;
-    background: #575146e6;
+    background: #23201be6;
     width: calc(100% - 30px);
     height: 118px;
     align-items: center;
@@ -111,6 +115,8 @@ button.playlist-dropdown-button:hover {
     transition: .2s;
 }
 
+
+// PlaylistedSongIndex
 .song-index {
     background: red;
     width: 100%;

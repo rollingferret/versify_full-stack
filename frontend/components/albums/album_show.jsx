@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
+
 import AlbumHeader from "./album_header";
+import AlbumNav from "./album_nav";
 import TrackIndex from "../songs/track_index";
 
 const AlbumShow = ({
@@ -27,7 +29,7 @@ const AlbumShow = ({
                 <AlbumHeader album={currentAlbum} history={history} />
             </div>
             <div className="album-nav">
-
+                <AlbumNav />
             </div>
             <TrackIndex tracks={tracks} history={history}/>
         </div>
