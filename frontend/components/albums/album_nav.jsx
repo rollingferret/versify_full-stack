@@ -9,7 +9,7 @@ const AlbumNav = ({ props }) => {
 
     // const toggleAlbumNavDropdown = (event) => {
     //     event.preventDefault();
-    //     playlistDropdownState.isOpen ? closePlaylistDropdown() : openPlaylistDropdown();
+    //     playlistNavDropdownState.isOpen ? closePlaylistNavDropdown() : openPlaylistNavDropdown();
     // }
 
     return (
