@@ -1,4 +1,9 @@
-json.extract! song, :id, :title, :album_id, :tracknum, :duration, :audio_url, :album_image_url
+json.extract! song, :id, :title, :tracknum
+json.albumId song.album_id 
+json.mins (song.duration / 60).floor
+json.secs (song.duration % 60).to_s.rjust(2, '0')
+json.audioUrl song.audio_url
+json.albumImageUrl song.album_image_url
 json.songArtist do 
     json.extract! song.song_artist, :id, :name
 end

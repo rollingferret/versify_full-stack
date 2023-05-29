@@ -7,10 +7,9 @@ const AlbumCard = ({ album,
     
     const { id,
         title,
-        photo_url,
+        albumPhotoUrl,
         year,
     } =  album;
-    console.log(photo_url)
 
     const clickToShowAlbum = (e) => {
         e.preventDefault();
@@ -21,7 +20,7 @@ const AlbumCard = ({ album,
     return (
         <div className="card album" onClick={clickToShowAlbum}>
             <div className="album-card-art">
-                <img src={photo_url} alt="" />
+                <img src={albumPhotoUrl} alt="" />
             </div>
             <div className="card-title">
                 {title}

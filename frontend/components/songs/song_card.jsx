@@ -9,11 +9,11 @@ const SongCard = ({
 
     const { id,
         title,
-        album_image_url,
+        albumId,
+        albumImageUrl,
         songArtist,
         collabArtists,
     } =  song;
-    const albumId = song.album_id;
 
     const collabArtistNames = collabArtists.map(artist => {
         return <div className="artist-name" key={`${artist.name}+"collab"+${artist.id}`}><ArtistLinkContainer artist={artist} currentArtist={currentArtist} history={history}/>, </div>
@@ -24,7 +24,7 @@ const SongCard = ({
     return (
         <div className="card album">
             <div className="album-card-art">
-                <img src={album_image_url} alt="" />
+                <img src={albumImageUrl} alt="" />
             </div>
             <div className="card-title">
                 {title}

@@ -1,0 +1,71 @@
+.track-index {
+    background-color: #011c32e0;
+    padding: 24px;
+}
+
+.track-index-headings {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 12px;
+    color: #959595;
+}
+
+.track-index-headings, .track-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 36px;
+    gap: 30px;
+    padding: 0 16px;
+}
+
+.track-card {
+    height: 56px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: .9rem;
+    line-height: 23px;
+    margin: 5px 0px;
+}
+
+.track-index-heading-tracknum, .track-card-tracknum {
+    width: 15px;
+}
+
+.track-index-heading-title, .track-card-title-artist-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 700px;
+}
+
+.track-card-artist {
+    display: inline;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: .9rem;
+    color: #959595;
+}
+
+.track-card-artist .artist-name {
+    display: inline;
+}
+
+.track-card-artist a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.track-index-heading-liked, .track-card-liked {
+    text-align: center;
+    width: 15px;
+}
+
+.track-index-heading-duration, .track-card-duration {
+    text-align: center;
+    width: 30px;
+}   
+
+.track-card-menu-dots {
+    width: 35px;
+    text-align: center;
+}

@@ -1,36 +1,38 @@
 import React, { useEffect } from "react";
 import AlbumHeader from "./album_header";
+import TrackIndex from "../songs/track_index";
 
 const AlbumShow = ({
     currentAlbum,
-    currentUser,
+    tracks,
     displayAlbum,
     clearCurrent,
-    history,
     params,
+    history,
+    currentUser,
 }) => {
 
     useEffect( () => {
         displayAlbum(params.id);
-        // document.getElementById("album-show").scrollTo(0, 0);
+        
+        const rendered = document.getElementById("album-show");
+        rendered ? rendered.scrollTo(0, 0) : null;
 
         return () => clearCurrent();
     }, [params]); // Will run whenever params.id changes, otherwise ArtistShow doesn't re-render
 
-    console.log("CURRENT", currentAlbum)
-    return (
+    const albumShow = (
         <div className="album-show">
             <div className="album-header">
-                <AlbumHeader album={currentAlbum} />
+                <AlbumHeader album={currentAlbum} history={history} />
             </div>
             <div className="album-nav">
 
             </div>
-            <div className="song-index">
-
-            </div>
+            <TrackIndex tracks={tracks} history={history}/>
         </div>
     )
+    return currentAlbum.albumPhotoUrl ? albumShow : null
 }
 
 export default AlbumShow;

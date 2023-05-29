@@ -11,10 +11,9 @@ const mapStateToProps = (state, ownProps) => {
     return {
     currentAlbum: state.entities.currentItem,
     tracks: state.entities.songs,
-    albumArtist: state.entities.currentItem.tracks,
     params: ownProps.params,
-    currentUser: ownProps.currentUser,
     history: ownProps.history,
+    currentUser: ownProps.currentUser,
 }}
 
 const mapDispatchToProps = dispatch => ({

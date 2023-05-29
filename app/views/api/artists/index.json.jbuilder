@@ -1,3 +1,5 @@
 if @artists != nil
-    json.array! @artists, :id, :name, :photo_url
+    json.array! @artists.each do |artist|
+        json.partial! "api/artists/artist", artist: artist
+    end
 end
