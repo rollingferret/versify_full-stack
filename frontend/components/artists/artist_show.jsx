@@ -21,7 +21,7 @@ const ArtistShow = (
     useEffect( () => {
         displayArtist(params.id);
 
-        const rendered = document.getElementById("album-show");
+        const rendered = document.getElementById("artist-show");
         rendered ? rendered.scrollTo(0, 0) : null;
 
         return () => {
