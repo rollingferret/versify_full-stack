@@ -3,6 +3,9 @@ import { clearCurrent,
 } from "../../actions/playlists_actions";
 import { displayAlbum,
 } from "../../actions/album_actions";
+import { openAlbumNavDropdown,
+    closeAlbumNavDropdown,
+} from "../../actions/ui_actions";
 
 import AlbumShow from "./album_show";
 
@@ -17,6 +20,8 @@ const mapStateToProps = (state, ownProps) => {
 }}
 
 const mapDispatchToProps = dispatch => ({
+    closeAlbumNavDropdown: () => dispatch( closeAlbumNavDropdown() ),
+    openAlbumNavDropdown: () => dispatch( openAlbumNavDropdown() ),
     displayAlbum: (albumId) => dispatch( displayAlbum(albumId) ),
     clearCurrent: () => dispatch( clearCurrent() ),
 })

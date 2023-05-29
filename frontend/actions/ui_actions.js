@@ -6,7 +6,8 @@ export const PLAYLISTEDIT_MODAL_OPEN = 'PLAYLISTEDIT_MODAL_OPEN'
 export const PLAYLISTEDIT_MODAL_CLOSE = 'PLAYLISTEDIT_MODAL_CLOSE'
 export const TRACKCARD_DROPDOWN_OPEN = 'TRACKCARD_DROPDOWN_OPEN'
 export const TRACKCARD_DROPDOWN_CLOSE = 'TRACKCARD_DROPDOWN_CLOSE'
-
+export const ALBUMNAV_DROPDOWN_OPEN = 'ALBUMNAV_DROPDOWN_OPEN'
+export const ALBUMNAV_DROPDOWN_CLOSE = 'ALBUMNAV_DROPDOWN_CLOSE'
 
 // Declare actions that will be read by the reducer
 const playlistNavDropdownOpen = () => ({
@@ -18,21 +19,20 @@ const playlistNavDropdownClose = () => ({
 })
 
 const playlistEditModalOpen = () => ({
-    type: PLAYLISTEDIT_MODAL_OPEN
+    type: PLAYLISTEDIT_MODAL_OPEN,
 })
 
 const playlistEditModalClose = () => ({
-    type: PLAYLISTEDIT_MODAL_CLOSE
+    type: PLAYLISTEDIT_MODAL_CLOSE,
 })
 
-const trackCardDropdownOpen = () => ({
-    type: TRACKCARD_DROPDOWN_OPEN
+const albumNavDropdownOpen = () => ({
+    type: ALBUMNAV_DROPDOWN_OPEN,
 })
 
-const trackCardDropdownClose = () => ({
-    type: TRACKCARD_DROPDOWN_CLOSE
+const albumNavDropdownClose = () => ({
+    type: ALBUMNAV_DROPDOWN_CLOSE,
 })
-
 
 // Declare Thunk action creators linked to dispatch
 export const openPlaylistNavDropdown = () => dispatch => (
@@ -49,10 +49,7 @@ export const closePlaylistEditModal = () => dispatch => (
     dispatch(playlistEditModalClose())
 );
 
-export const openTrackCardDropdown = () => dispatch => (
-    dispatch(trackCardDropdownOpen())
-);
 
-export const closeTrackCardDropdown = () => dispatch => (
-    dispatch(trackCardDropdownClose())
+export const closeAlbumNavDropdown = () => dispatch => (
+    dispatch(albumNavDropdownClose())
 );
