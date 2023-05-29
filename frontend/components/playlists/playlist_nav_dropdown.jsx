@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
-import PlaylistModal from "./playlist_modal";
+import PlaylistEditModal from "./playlist_edit_modal";
 
-const PlaylistDropdown = ({
+const PlaylistNavDropdown = ({
     currentPlaylist,
-    playlistDropdownState,
-    playlistModalState,
-    closePlaylistDropdown,
-    openPlaylistModal,
-    closePlaylistModal,
+    playlistNavDropdownState,
+    playlistEditModalState,
+    closePlaylistNavDropdown,
+    openPlaylistEditModal,
+    closePlaylistEditModal,
     fetchPlaylists,
     editPlaylist,
     destroyPlaylist,
@@ -16,15 +16,15 @@ const PlaylistDropdown = ({
 
     useEffect( () => {
         setTimeout( () => {
-            if (playlistDropdownState.isOpen && !playlistModalState.isOpen) {
-                window.addEventListener('click', closePlaylistDropdown);
+            if (playlistNavDropdownState.isOpen && !playlistEditModalState.isOpen) {
+                window.addEventListener('click', closePlaylistNavDropdown);
             } 
         }, 0)
-        // if (playlistDropdownState.isOpen) window.addEventListener('click', closePlaylistDropdown);
+        // if (playlistNavDropdownState.isOpen) window.addEventListener('click', closePlaylistNavDropdown);
         
         return () => {
-            closePlaylistDropdown();
-            window.removeEventListener('click', closePlaylistDropdown)
+            closePlaylistNavDropdown();
+            window.removeEventListener('click', closePlaylistNavDropdown)
         }
     }, [])
 
@@ -35,7 +35,7 @@ const PlaylistDropdown = ({
 
         switch (event.target.innerText){
             case "Edit details":
-                openPlaylistModal();
+                openPlaylistEditModal();
                 return console.log('OPEN EDIT MODAL');
             case "Delete":
                 destroyPlaylist(currentPlaylist.id)
@@ -51,10 +51,10 @@ const PlaylistDropdown = ({
                 <button className="playlist-dropdown-button">Edit details</button>
                 <button className="playlist-dropdown-button">Delete </button>
             </div>
-            {playlistModalState.isOpen && <PlaylistModal
-                playlistModalState={playlistModalState}
-                closePlaylistDropdown={closePlaylistDropdown}
-                closePlaylistModal={closePlaylistModal}
+            {playlistEditModalState.isOpen && <PlaylistEditModal
+                playlistEditModalState={playlistEditModalState}
+                closePlaylistNavDropdown={closePlaylistNavDropdown}
+                closePlaylistEditModal={closePlaylistEditModal}
                 currentPlaylist={currentPlaylist}
                 editPlaylist={editPlaylist}
             />}
@@ -62,4 +62,4 @@ const PlaylistDropdown = ({
     )
 }
 
-export default PlaylistDropdown;
+export default PlaylistNavDropdown;
