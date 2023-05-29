@@ -3,20 +3,20 @@ import {CgClose,
 } from 'react-icons/cg';
 import PlaylistEditForm from './playlist_edit_form';
 
-const PlaylistModal = ({
-    playlistModalState,
-    closePlaylistDropdown,
-    closePlaylistModal,
+const PlaylistEditModal = ({
+    playlistEditModalState,
+    closePlaylistNavDropdown,
+    closePlaylistEditModal,
     currentPlaylist,
     editPlaylist,
 }) => {
 
     useEffect(() => {
-        window.removeEventListener('click', closePlaylistDropdown);
+        window.removeEventListener('click', closePlaylistNavDropdown);
         
         return () => {
-            closePlaylistDropdown();
-            closePlaylistModal();
+            closePlaylistNavDropdown();
+            closePlaylistEditModal();
         }
     },[])
     
@@ -26,7 +26,7 @@ const PlaylistModal = ({
             <div className="modal-focus">
                 <div className="modal-header">
                     <h3>Edit details</h3>
-                    <CgClose onClick={closePlaylistModal}/>
+                    <CgClose onClick={closePlaylistEditModal}/>
                 </div>
                 <div className="modal-body">
                     <PlaylistEditForm currentPlaylist={currentPlaylist}
@@ -41,4 +41,4 @@ const PlaylistModal = ({
 
 }
 
-export default PlaylistModal;
+export default PlaylistEditModal;

@@ -27,8 +27,8 @@ const SideBar = (props) => {
     //     />, [playlists]
     // )
 
-    // const handleDropdown = useMemo( () => <PlaylistDropdown 
-    // playlistDropdown={playlistDropdown} />, [playlistDropdown] )
+    // const handleDropdown = useMemo( () => <playlistNavDropdown 
+    // playlistNavDropdown={playlistNavDropdown} />, [playlistNavDropdown] )
 
     const handleSubmitCreate = (e) => {
         e.preventDefault();
