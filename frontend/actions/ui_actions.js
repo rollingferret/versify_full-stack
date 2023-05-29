@@ -1,39 +1,39 @@
 
 // Declare action type constants
-export const PLAYLIST_DROPDOWN_OPEN = 'PLAYLIST_DROPDOWN_OPEN'
-export const PLAYLIST_DROPDOWN_CLOSE = 'PLAYLIST_DROPDOWN_CLOSE'
-export const PLAYLIST_MODAL_OPEN = 'PLAYLIST_MODAL_OPEN'
-export const PLAYLIST_MODAL_CLOSE = 'PLAYLIST_MODAL_CLOSE'
+export const PLAYLISTNAV_DROPDOWN_OPEN = 'PLAYLISTNAV_DROPDOWN_OPEN'
+export const PLAYLISTNAV_DROPDOWN_CLOSE = 'PLAYLISTNAV_DROPDOWN_CLOSE'
+export const PLAYLISTEDIT_MODAL_OPEN = 'PLAYLISTEDIT_MODAL_OPEN'
+export const PLAYLISTEDIT_MODAL_CLOSE = 'PLAYLISTEDIT_MODAL_CLOSE'
 
 // Declare actions that will be read by the reducer
-const playlistDropdownOpen = () => ({
-    type: PLAYLIST_DROPDOWN_OPEN,
+const playlistNavDropdownOpen = () => ({
+    type: PLAYLISTNAV_DROPDOWN_OPEN,
 })
 
-const playlistDropdownClose = () => ({
-    type: PLAYLIST_DROPDOWN_CLOSE,
+const playlistNavDropdownClose = () => ({
+    type: PLAYLISTNAV_DROPDOWN_CLOSE,
 })
 
-const playlistModelOpen = () => ({
-    type: PLAYLIST_MODAL_OPEN
+const playlistEditModalOpen = () => ({
+    type: PLAYLISTEDIT_MODAL_OPEN
 })
 
-const playlistModelClose = () => ({
-    type: PLAYLIST_MODAL_CLOSE
+const playlistEditModalClose = () => ({
+    type: PLAYLISTEDIT_MODAL_CLOSE
 })
 
 // Declare Thunk action creators linked to dispatch
-export const openPlaylistDropdown = () => dispatch => (
-    dispatch(playlistDropdownOpen())
+export const openPlaylistNavDropdown = () => dispatch => (
+    dispatch(playlistNavDropdownOpen())
 );
-export const closePlaylistDropdown = () => dispatch => (
-    dispatch(playlistDropdownClose())
+export const closePlaylistNavDropdown = () => dispatch => (
+    dispatch(playlistNavDropdownClose())
 );
 
-export const openPlaylistModal = () => dispatch => (
-    dispatch(playlistModelOpen())
+export const openPlaylistEditModal = () => dispatch => (
+    dispatch(playlistEditModalOpen())
 );
-export const closePlaylistModal = () => dispatch => (
-    dispatch(playlistModelClose())
+export const closePlaylistEditModal = () => dispatch => (
+    dispatch(playlistEditModalClose())
 );
 

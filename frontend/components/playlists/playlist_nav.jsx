@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import PlaylistDropdown from "./playlist_dropdown";
+import PlaylistNavDropdown from "./playlist_nav_dropdown";
 
 import {RxDotsHorizontal,
 } from 'react-icons/rx';
@@ -8,12 +8,12 @@ import {GrPlayFill,
 
 
 const PlaylistNav = ({currentPlaylist,
-    playlistDropdownState,
-    playlistModalState,
-    openPlaylistDropdown,
-    closePlaylistDropdown,
-    openPlaylistModal,
-    closePlaylistModal,
+    playlistNavDropdownState,
+    playlistEditModalState,
+    openPlaylistNavDropdown,
+    closePlaylistNavDropdown,
+    openPlaylistEditModal,
+    closePlaylistEditModal,
     fetchPlaylists,
     editPlaylist,
     destroyPlaylist,
@@ -27,13 +27,13 @@ const PlaylistNav = ({currentPlaylist,
 // (It will allow the Component to load before running the updating function again.
 // Otherwise the eventListener will come on and then come off immediately.
     useEffect( () => {
-        if (!playlistDropdownState.isOpen) window.removeEventListener('click', closePlaylistDropdown)
-        }, [playlistDropdownState]
+        if (!playlistNavDropdownState.isOpen) window.removeEventListener('click', closePlaylistNavDropdown)
+        }, [playlistNavDropdownState]
     )
 
     const toggleDropdown = (event) => {
         event.preventDefault();
-        playlistDropdownState.isOpen ? closePlaylistDropdown() : openPlaylistDropdown();
+        playlistNavDropdownState.isOpen ? closePlaylistNavDropdown() : openPlaylistNavDropdown();
     }
 
     return (
@@ -44,13 +44,13 @@ const PlaylistNav = ({currentPlaylist,
             <div id="playlist-dropdown-dots" onClick={toggleDropdown}>
                 <RxDotsHorizontal />
             </div>
-            {playlistDropdownState.isOpen ? 
-                <PlaylistDropdown currentPlaylist={currentPlaylist} 
-                    playlistDropdownState={playlistDropdownState}
-                    playlistModalState={playlistModalState}
-                    closePlaylistDropdown={closePlaylistDropdown}
-                    openPlaylistModal={openPlaylistModal}
-                    closePlaylistModal={closePlaylistModal}
+            {playlistNavDropdownState.isOpen ? 
+                <PlaylistNavDropdown currentPlaylist={currentPlaylist} 
+                    playlistNavDropdownState={playlistNavDropdownState}
+                    playlistEditModalState={playlistEditModalState}
+                    closePlaylistNavDropdown={closePlaylistNavDropdown}
+                    openPlaylistEditModal={openPlaylistEditModal}
+                    closePlaylistEditModal={closePlaylistEditModal}
                     fetchPlaylists={fetchPlaylists}
                     editPlaylist={editPlaylist} 
                     destroyPlaylist={destroyPlaylist}
