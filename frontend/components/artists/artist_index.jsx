@@ -14,27 +14,25 @@ const ArtistIndex = ({
         fetchArtists();
     }, [])
 
+    const artistMap = artists ? (
+        artists.map(artist => (
+            <ArtistCard key={`${artist.name + 'ind'}`} artist={artist} urlParams={params} 
+                history={history} displayArtist={displayArtist}/>
+        ))    
+        ) : null;
+
     const artistIndex = artists ? (
         <div>
             <div className="artist-index-header">
                 <h1>All Artists</h1>
             </div>
             <div className="artist-index-grid">
-                {artists.map(artist => (
-                    <ArtistCard key={`${artist.name + 'ind'}`} artist={artist} urlParams={params} 
-                        history={history} displayArtist={displayArtist}/>
-                ))}
+                {artistMap}
             </div>
         </div>
-    ) : null;
+        ) : null;
 
-    if (artists.length > 0) {
-        if (artists[artists.length-1].photoUrl) {
-            return artistIndex;
-        }
-    } else {
-        return null;
-    }   
+    return artistMap ? artistIndex : null;
 }
 
 export default ArtistIndex;
