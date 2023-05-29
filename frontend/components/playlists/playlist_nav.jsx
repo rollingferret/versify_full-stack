@@ -31,7 +31,7 @@ const PlaylistNav = ({currentPlaylist,
         }, [playlistDropdownState]
     )
 
-    const toggleDropdown = (event) => {
+    const togglePlaylistNavDropdown = (event) => {
         event.preventDefault();
         playlistDropdownState.isOpen ? closePlaylistDropdown() : openPlaylistDropdown();
     }
@@ -41,7 +41,7 @@ const PlaylistNav = ({currentPlaylist,
             <div id="playlist-play-button">
                 <GrPlayFill />
             </div>
-            <div id="playlist-dropdown-dots" onClick={toggleDropdown}>
+            <div id="playlist-dropdown-dots" onClick={togglePlaylistNavDropdown}>
                 <RxDotsHorizontal />
             </div>
             {playlistDropdownState.isOpen ? 
