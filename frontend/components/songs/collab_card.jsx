@@ -1,7 +1,7 @@
 import React from "react";
 import ArtistLinkContainer from "../artists/artist_link_container";
 
-const SongCard = ({
+const CollabSongCard = ({
     song,
     currentArtist,
     history,
@@ -36,4 +36,4 @@ const SongCard = ({
     )
 }
 
-export default SongCard;
+export default CollabSongCard;
