@@ -22,7 +22,7 @@ const CollabSongCard = ({
     const songArtistName = <ArtistLinkContainer artist={songArtist} currentArtist={currentArtist} history={history}/>
 
     return (
-        <div className="card album">
+        <div className="card album-card">
             <div className="album-card-art">
                 <img src={albumImageUrl} alt="" />
             </div>

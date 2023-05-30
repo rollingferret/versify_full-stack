@@ -18,7 +18,7 @@ const AlbumCard = ({ album,
     }
 
     return (
-        <div className="card album" onClick={clickToShowAlbum}>
+        <div className="card album-card" onClick={clickToShowAlbum}>
             <div className="album-card-art">
                 <img src={albumPhotoUrl} alt="" />
             </div>
