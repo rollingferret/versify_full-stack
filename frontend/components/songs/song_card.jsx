@@ -4,8 +4,8 @@ import {RxDotsHorizontal,
 } from 'react-icons/rx';
 import ArtistLinkContainer from "../artists/artist_link_container"; 
 
-const TrackCard = ({
-    track,
+const SongCard = ({
+    song,
     history
 }) => {
 
@@ -17,7 +17,7 @@ const TrackCard = ({
         songArtist,
         collabArtists,
         audioUrl,
-    } = track;
+    } = song;
 
     const collabArtistNames = collabArtists.map(artist => {
         return <div className="artist-name" key={`${artist.name}+"collab"+${artist.id}`}><ArtistLinkContainer artist={artist} currentArtist={null} history={history}/>, </div>
@@ -27,29 +27,29 @@ const TrackCard = ({
 
 
     return ( 
-        <div className="track-card">
-            <div className="track-card-tracknum">
+        <div className="song-card">
+            <div className="song-card-tracknum">
                 {tracknum}
             </div>
-            <div className="track-card-title-artist-block">
-                <div className="track-card-title">
+            <div className="song-card-title-artist-block">
+                <div className="song-card-title">
                     {title}
                 </div>
-                <div className="track-card-artist">
+                <div className="song-card-artist">
                     {collabArtistNames} {songArtistName}
                 </div>
             </div>
-            <div className="track-card-liked">
+            <div className="song-card-liked">
                 &hearts;
             </div>
-            <div className="track-card-duration">
+            <div className="song-card-duration">
                 {mins}:{secs}
             </div>
-            <div className="track-card-menu-dots">
+            <div className="song-card-menu-dots">
                 <RxDotsHorizontal />
             </div>
         </div>
     )
 }
 
-export default TrackCard;
+export default SongCard;

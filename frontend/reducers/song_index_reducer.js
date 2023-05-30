@@ -14,7 +14,7 @@ const songIndexReducer = (songsState = {}, action) => {
         case RECEIVE_CURRENT_ARTIST:
             return action.songs;
         case RECEIVE_CURRENT_ALBUM:
-            return action.tracks;
+            return action.songs;
         default:
             return songsState;
     }

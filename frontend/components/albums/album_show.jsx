@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 import AlbumHeader from "./album_header";
 import AlbumNav from "./album_nav";
-import TrackIndex from "../songs/track_index";
+import SongIndex from "../songs/song_index";
 
 const AlbumShow = ({
     currentAlbum,
@@ -31,7 +31,7 @@ const AlbumShow = ({
             <div className="album-nav">
                 <AlbumNav />
             </div>
-            <TrackIndex tracks={tracks} history={history}/>
+            <SongIndex songs={tracks} history={history} source="album"/>
         </div>
     )
     return currentAlbum.albumPhotoUrl ? albumShow : null
