@@ -2,7 +2,7 @@ import {connect} from 'react-redux';
 import PlaylistIndex from './playlist_index';
 import {fetchPlaylists,
     displayPlaylist,
-} from '../../actions/playlists_actions';
+} from '../../actions/playlist_actions';
 
 
 const mapStateToProps = ( {entities: { playlists, currentItem }}, ownProps) => ({

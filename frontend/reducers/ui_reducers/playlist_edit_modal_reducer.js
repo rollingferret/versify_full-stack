@@ -2,7 +2,7 @@ import {PLAYLISTEDIT_MODAL_OPEN,
     PLAYLISTEDIT_MODAL_CLOSE,
 } from '../../actions/ui_actions'
 import { RECEIVE_CURRENT_PLAYLIST,
-} from '../../actions/playlists_actions';
+} from '../../actions/playlist_actions';
 
 const playlistEditModalReducer = (playlistEditModalState = {}, action) => {
     Object.freeze(playlistEditModalState);
