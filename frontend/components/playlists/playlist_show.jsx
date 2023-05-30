@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import PlaylistHeader from "./playlist_header";
 import PlaylistNav from "./playlist_nav";
-import PlaylistBody from "./playlist_body";
+import SongIndex from "../songs/song_index";
 
 
 const PlaylistShow = ({ 
@@ -9,7 +9,7 @@ const PlaylistShow = ({
     params,
     history,
     currentUser,
-    songs,
+    playlistSongs,
     playlistNavDropdownState,
     playlistEditModalState,
     displayPlaylist,
@@ -27,7 +27,6 @@ const PlaylistShow = ({
         title,
         description,
     } = currentPlaylist;
-    const playlistedSongs = 'PLACEHOLDER FOR SONGS INDEX from state, see container'
 
 // Upon mount: fetch playlist from database based on params :id
 // Upon dismount: clear currentItem slice of state
@@ -58,9 +57,7 @@ const PlaylistShow = ({
                     closePlaylistEditModal={closePlaylistEditModal}
                 /> 
             </div>
-            {/* <div className="song-index">
-                <PlaylistBody playlistedSongs={playlistedSongs}/>
-            </div> */}
+            <SongIndex songs={playlistSongs} source="playlist" history={history} />
         </div>
     )
 }

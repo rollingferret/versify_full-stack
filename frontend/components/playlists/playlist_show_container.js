@@ -18,11 +18,10 @@ const mapStateToProps = (state, ownProps) => {
         currentPlaylist: state.entities.currentItem,
         params: ownProps.params,
         history: ownProps.history,
+        playlistSongs: state.entities.songs,
         currentUser: ownProps.currentUser,
-        songs: state.entities.songs,
         playlistNavDropdownState: state.ui.playlistNavDropdown,
         playlistEditModalState: state.ui.playlistEditModal,
-        // playlistedSongs: state.currentPlaylist.playlistedSongs,
     })
 }
 
