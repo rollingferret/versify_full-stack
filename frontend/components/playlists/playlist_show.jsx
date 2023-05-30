@@ -4,10 +4,12 @@ import PlaylistNav from "./playlist_nav";
 import PlaylistBody from "./playlist_body";
 
 
-const PlaylistShow = ({ currentPlaylist,
+const PlaylistShow = ({ 
+    currentPlaylist,
     params,
     history,
     currentUser,
+    songs,
     playlistNavDropdownState,
     playlistEditModalState,
     displayPlaylist,
@@ -34,7 +36,7 @@ const PlaylistShow = ({ currentPlaylist,
         // Maybe there's a way to check whether the params.id has changed from the previous and then trigger re-render
 
         return () => clearCurrent();
-    }, []);
+    }, [params]);
 
     return (
         <div className="playlist-show">
