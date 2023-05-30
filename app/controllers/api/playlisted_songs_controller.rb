@@ -1,9 +1,9 @@
-class Api::PlaylistedSongController < ApplicationController
+class Api::PlaylistedSongsController < ApplicationController
 
     def create
         @playlisted_song = PlaylistedSong.new(playlisted_song_params)
         if @playlisted_song.save!
-            render :show
+            render :index
         else
             render json: @playlisted_song.errors.full_messages, status: 422
         end
@@ -22,7 +22,7 @@ class Api::PlaylistedSongController < ApplicationController
 
 
     def index
-        @playlist_songs = PlaylistedSong.includes(:song).find_by(playlist_id: params[:playlist_id])
+        @playlisted_songs = PlaylistedSong.includes(:song).find_by(playlist_id: params[:playlist_id])
         render :index
     end
 
