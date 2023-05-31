@@ -1,8 +1,8 @@
-.playlist-index-container::-webkit-scrollbar {
+.playlist-index::-webkit-scrollbar {
     width: 5px; /*Gives width for the scrollbar*/
 }
 
-.playlist-index-container::-webkit-scrollbar-thumb {
+.playlist-index::-webkit-scrollbar-thumb {
     background-color: #959595;
     border-radius: 15px;
 }
@@ -111,7 +111,7 @@ button.sidebar {
     padding: 0px 25px 5px 25px;
 }
 
-.playlist-index-container {
+.playlist-index {
     display: flex;
     flex-direction: column;
     /* align-items: flex-start; */
@@ -140,7 +140,7 @@ button.sidebar {
 .sidebar .text-playlist:hover,
 button.sidebar-nav .icon:hover,
 button.sidebar-nav .text-button:hover,
-.playlist-index-container::-webkit-scrollbar-thumb:hover
+.playlist-index::-webkit-scrollbar-thumb:hover
 {
     color: white;
     transition: .2s;;
