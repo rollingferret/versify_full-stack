@@ -1,6 +1,6 @@
 import { RECEIVE_CURRENT_PLAYLIST,
     RESET_CURRENT, 
-} from "../actions/playlists_actions";
+} from "../actions/playlist_actions";
 
 import { RECEIVE_CURRENT_ARTIST,
 } from "../actions/artist_actions";

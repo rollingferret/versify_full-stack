@@ -3,7 +3,7 @@ import SideBar from './side_bar';
 import { fetchPlaylists,
     createPlaylist,
     displayPlaylist,
-} from '../../actions/playlists_actions';
+} from '../../actions/playlist_actions';
 
 
 const mapStateToProps = (state, ownProps) => ({

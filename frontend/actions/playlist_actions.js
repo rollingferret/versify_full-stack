@@ -76,10 +76,10 @@ const resetPlaylistErrors = () => ({
 });
 
 const receiveCurrentPlaylist = (playlistObj) => {
-    // debugger;
     return ({
         type: RECEIVE_CURRENT_PLAYLIST,
         playlist: playlistObj.playlist,
+        songs: playlistObj.songs,
     })
 };
 

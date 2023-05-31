@@ -4,7 +4,7 @@ import { displayPlaylist,
     editPlaylist,
     destroyPlaylist,
     clearCurrent,
-} from "../../actions/playlists_actions";
+} from "../../actions/playlist_actions";
 import { openPlaylistNavDropdown,
     closePlaylistNavDropdown,
     openPlaylistEditModal,
@@ -18,10 +18,10 @@ const mapStateToProps = (state, ownProps) => {
         currentPlaylist: state.entities.currentItem,
         params: ownProps.params,
         history: ownProps.history,
+        playlistSongs: state.entities.songs,
         currentUser: ownProps.currentUser,
         playlistNavDropdownState: state.ui.playlistNavDropdown,
         playlistEditModalState: state.ui.playlistEditModal,
-        // playlistedSongs: state.currentPlaylist.playlistedSongs,
     })
 }
 

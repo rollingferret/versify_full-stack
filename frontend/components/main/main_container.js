@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { clearPlaylistErrors,
     fetchPlaylists,
     displayPlaylist,
-} from "../../actions/playlists_actions";
+} from "../../actions/playlist_actions";
 
 import Main from './main'
 

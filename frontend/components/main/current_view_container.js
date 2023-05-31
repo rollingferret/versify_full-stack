@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { displayPlaylist,
     editPlaylist,
     destroyPlaylist,
-} from "../../actions/playlists_actions";
+} from "../../actions/playlist_actions";
 
 import CurrentView from "./current_view";
 

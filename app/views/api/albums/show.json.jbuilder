@@ -1,6 +1,6 @@
 totalDuration = 0
 
-json.tracks do
+json.songs do
     json.array! @album.tracks do |track|
         json.partial! "/api/songs/song", song: track
         totalDuration += track.duration

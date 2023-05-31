@@ -5,7 +5,7 @@ import { displayAlbum,
 } from "../../actions/album_actions";
 
 import { clearCurrent,
-} from "../../actions/playlists_actions";
+} from "../../actions/playlist_actions";
 
 import ArtistShow from "./artist_show";
 

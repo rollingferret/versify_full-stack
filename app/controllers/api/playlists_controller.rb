@@ -5,6 +5,7 @@ class Api::PlaylistsController < ApplicationController
         # If we had passed user.id through the url, we'd get it from params
         @playlists = 
             Playlist.where(user_id: current_user.id).order('updated_at DESC')
+            # Playlist.where(user_id: current_user.id).includes(:songs).order('updated_at DESC')
         render :index
     end
 
@@ -18,7 +19,7 @@ class Api::PlaylistsController < ApplicationController
     end
 
     def show
-        @playlist = Playlist.find(params[:id])
+        @playlist = Playlist.includes(:playlist_songs, playlist_songs: [:song_artist, :album, :collab_artists]).find(params[:id])
         if @playlist && @playlist.user_id == current_user.id
             # currently only showing user's own playlists
             render :show

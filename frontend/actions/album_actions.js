@@ -10,7 +10,7 @@ const receiveCurrentAlbum = (albumObj) => {
     return ({
         type: RECEIVE_CURRENT_ALBUM,
         album: albumObj.album,
-        tracks: albumObj.tracks,
+        songs: albumObj.songs,
     })
 }
 

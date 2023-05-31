@@ -1,3 +1,6 @@
+import { RECEIVE_CURRENT_PLAYLIST,
+    RESET_CURRENT,
+} from "../actions/playlist_actions";
 import { RECEIVE_CURRENT_ARTIST,
 } from "../actions/artist_actions";
 import { RECEIVE_CURRENT_ALBUM,
@@ -7,10 +10,12 @@ import { RECEIVE_CURRENT_ALBUM,
 const songIndexReducer = (songsState = {}, action) => {
     Object.freeze(songsState);
     switch (action.type) {
+        case RECEIVE_CURRENT_PLAYLIST:
+            return action.songs;
         case RECEIVE_CURRENT_ARTIST:
             return action.songs;
         case RECEIVE_CURRENT_ALBUM:
-            return action.tracks;
+            return action.songs;
         default:
             return songsState;
     }
