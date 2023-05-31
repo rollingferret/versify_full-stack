@@ -1,4 +1,5 @@
 import { RECEIVE_CURRENT_PLAYLIST,
+    RESET_CURRENT,
 } from "../actions/playlist_actions";
 import { RECEIVE_CURRENT_ARTIST,
 } from "../actions/artist_actions";
@@ -10,7 +11,7 @@ const songIndexReducer = (songsState = {}, action) => {
     Object.freeze(songsState);
     switch (action.type) {
         case RECEIVE_CURRENT_PLAYLIST:
-            return action.songs.length > 0 ? action.songs : songsState;
+            return action.songs;
         case RECEIVE_CURRENT_ARTIST:
             return action.songs;
         case RECEIVE_CURRENT_ALBUM:
