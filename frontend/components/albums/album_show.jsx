@@ -31,7 +31,7 @@ const AlbumShow = ({
             <div className="album-nav">
                 <AlbumNav />
             </div>
-            <SongIndex songs={tracks} history={history} source="album"/>
+            <SongIndex source="album" songs={tracks} history={history}/>
         </div>
     )
     return currentAlbum.albumPhotoUrl ? albumShow : null

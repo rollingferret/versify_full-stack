@@ -10,17 +10,9 @@ const PlaylistShow = ({
     history,
     currentUser,
     playlistSongs,
-    playlistNavDropdownState,
-    playlistEditModalState,
     displayPlaylist,
-    fetchPlaylists,
-    editPlaylist, 
-    destroyPlaylist,
     clearCurrent,
-    openPlaylistNavDropdown,
-    closePlaylistNavDropdown,
-    openPlaylistEditModal,
-    closePlaylistEditModal,
+    ... props
 }) => {
 
     const { id, 
@@ -45,19 +37,11 @@ const PlaylistShow = ({
             </div>
             <div className="playlist-nav">
                 <PlaylistNav currentPlaylist={currentPlaylist} 
-                    playlistNavDropdownState={playlistNavDropdownState}
-                    playlistEditModalState={playlistEditModalState}
-                    openPlaylistNavDropdown={openPlaylistNavDropdown}
-                    closePlaylistNavDropdown={closePlaylistNavDropdown}
-                    fetchPlaylists={fetchPlaylists}
-                    editPlaylist={editPlaylist}
-                    destroyPlaylist={destroyPlaylist}
                     history={history}
-                    openPlaylistEditModal={openPlaylistEditModal}
-                    closePlaylistEditModal={closePlaylistEditModal}
+                    {...props}
                 /> 
             </div>
-            <SongIndex songs={playlistSongs} source="playlist" history={history} />
+                <SongIndex source="playlist" songs={playlistSongs} history={history} />
         </div>
     )
 }

@@ -3,8 +3,8 @@ import SongCard from "./song_card";
 
 
 const SongIndex = ({
-    songs,
     source,
+    songs,
     history,
 }) => {
 
