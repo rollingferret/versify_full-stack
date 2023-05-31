@@ -1,5 +1,14 @@
-json.playlistedSong do
-    json.playlistedSongId @playlisted_song.id
-    json.playlistId @playlisted_song.playlist_id
-    json.songId @playlisted_song.song_id
+if @songs
+    json.songs do
+        json.array! @songs.each do |song|
+            json.partial! "api/songs/song", song: song
+            json.song_artist do
+                json.partial! "api/artists/artist", artist: song.song_artist
+            end
+            json.playlistedId @playlisted_song.id
+            json.album do
+                json.partial! "api/albums/album", album: song.album
+            end
+        end
+    end
 end
