@@ -8,7 +8,7 @@ const SongIndex = ({
     history,
 }) => {
 
-    return (
+    const songIndex = (
         <div className={`song-index` + " " + source}>
             <div className="song-index-headings">
                 <div className="song-index-heading-tracknum">
@@ -30,8 +30,16 @@ const SongIndex = ({
                 }))
                 : null
             }
+        </div>    
+    )
+
+    const emptyPlaylist = (
+        <div className="song-index song-index-empty">
+            <h3>Add some songs to your playlist!</h3>
         </div>
     )
+
+    return songs.length > 0 ? songIndex : emptyPlaylist;
 }
 
 export default SongIndex;
