@@ -5,12 +5,13 @@ import {RxDotsHorizontal,
 import ArtistLinkContainer from "../artists/artist_link_container"; 
 
 const SongCard = ({
+    source,
     song,
-    history
+    history,
+    index,
 }) => {
 
-    const { tracknum,
-        title,
+    const { title,
         albumId,
         mins,
         secs,
@@ -18,6 +19,8 @@ const SongCard = ({
         collabArtists,
         audioUrl,
     } = song;
+
+    let tracknum = (source === "album") ? song.tracknum : index+1;
 
     const collabArtistNames = collabArtists.map(artist => {
         return <div className="artist-name" key={`${artist.name}+"collab"+${artist.id}`}><ArtistLinkContainer artist={artist} currentArtist={null} history={history}/>, </div>

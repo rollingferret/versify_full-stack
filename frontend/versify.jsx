@@ -10,6 +10,9 @@ import {
   deletePlaylistedSong,
   indexPlaylistedSongs,
 } from './util/playlisted_songs_util';
+import { createNewPlaylistedSong,
+  removePlaylistedSong,
+} from "./actions/playlisted_song_actions";
 
 // const play = {title:'thisone',
 // description: 'anew',
@@ -41,6 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
   window.postPlaylistedSong = postPlaylistedSong;
   window.deletePlaylistedSong = deletePlaylistedSong;
   window.indexPlaylistedSongs = indexPlaylistedSongs;
+  window.createNewPlaylistedSong = createNewPlaylistedSong;
+  window.removePlaylistedSong = removePlaylistedSong;
 
 
   //TESTING
