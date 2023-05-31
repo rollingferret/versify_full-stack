@@ -6,9 +6,10 @@ import configureStore from './store/store';
 // TESTING START
 
 import {
-  indexAlbums,
-  showAlbum,
-} from './util/albums_util'
+  postPlaylistedSong,
+  deletePlaylistedSong,
+  indexPlaylistedSongs,
+} from './util/playlisted_songs_util';
 
 // const play = {title:'thisone',
 // description: 'anew',
@@ -37,8 +38,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //TESTING
   window.store = store;
-  window.indexAlbums = indexAlbums;
-  window.showAlbum = showAlbum;
+  window.postPlaylistedSong = postPlaylistedSong;
+  window.deletePlaylistedSong = deletePlaylistedSong;
+  window.indexPlaylistedSongs = indexPlaylistedSongs;
+
 
   //TESTING
   const root = document.getElementById("root");

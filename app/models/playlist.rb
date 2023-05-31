@@ -12,8 +12,16 @@
 class Playlist < ApplicationRecord    
     validates :title, presence: true
     validates :description, presence: true
+    validates :user_id, presence: true
 
-    # has_many :songs
+    has_many :playlisted_songs, dependent: :destroy,
+    foreign_key: :playlist_id,
+    class_name: :PlaylistedSong
+
+    has_many :playlist_songs,
+    through: :playlisted_songs,
+    source: :song
+    
 
     # belongs_to :user,
     #     primary_key: :id, 

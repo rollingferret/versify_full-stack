@@ -1,5 +1,5 @@
 import { RECEIVE_ALL_PLAYLISTS,
-} from "../actions/playlists_actions";
+} from "../actions/playlist_actions";
 
 
 const playlistIndexReducer = (playlistsState = {}, action) => {

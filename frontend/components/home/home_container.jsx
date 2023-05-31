@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 
 import { fetchPlaylists,
-} from "../../actions/playlists_actions";
+} from "../../actions/playlist_actions";
 import { fetchArtists,
 } from "../../actions/artist_actions";
 

@@ -22,12 +22,12 @@ const PlaylistIndex = (props) => {
     return (
         playlists.length === 0 ?
 
-        <div className="playlist-index-container-empty">
+        <div className="playlist-index-empty">
             You currently have no playlists.
         </div>
         
         :
-        <div className="playlist-index-container">
+        <div className="playlist-index">
             {playlists.map((playlist) => (
                 <SideBarPlaylistButton key={`${playlist.id} + ${playlist.title}`} title={playlist.title} playlistId={playlist.id} displayPlaylist={displayPlaylist} history={history} />))
             }

@@ -7,17 +7,18 @@ import {GrPlayFill,
 } from 'react-icons/gr';
 
 
-const PlaylistNav = ({currentPlaylist,
+const PlaylistNav = ({
+    currentPlaylist,
+    history,
     playlistNavDropdownState,
     playlistEditModalState,
+    fetchPlaylists,
+    editPlaylist,
+    destroyPlaylist,
     openPlaylistNavDropdown,
     closePlaylistNavDropdown,
     openPlaylistEditModal,
     closePlaylistEditModal,
-    fetchPlaylists,
-    editPlaylist,
-    destroyPlaylist,
-    history,
 }) => {
 
 // UseEffect takes 2 args, a callback function and an array of dependencies that will trigger a re-render.

@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { clearCurrent,
-} from "../../actions/playlists_actions";
+} from "../../actions/playlist_actions";
 import { displayAlbum,
 } from "../../actions/album_actions";
 import { openAlbumNavDropdown,

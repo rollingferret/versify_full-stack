@@ -1,36 +1,52 @@
 import React from "react";
-import ArtistLinkContainer from "../artists/artist_link_container";
+
+import {RxDotsHorizontal,
+} from 'react-icons/rx';
+import ArtistLinkContainer from "../artists/artist_link_container"; 
 
 const SongCard = ({
     song,
-    currentArtist,
-    history,
+    history
 }) => {
 
-    const { id,
+    const { tracknum,
         title,
         albumId,
-        albumImageUrl,
+        mins,
+        secs,
         songArtist,
         collabArtists,
-    } =  song;
+        audioUrl,
+    } = song;
 
     const collabArtistNames = collabArtists.map(artist => {
-        return <div className="artist-name" key={`${artist.name}+"collab"+${artist.id}`}><ArtistLinkContainer artist={artist} currentArtist={currentArtist} history={history}/>, </div>
+        return <div className="artist-name" key={`${artist.name}+"collab"+${artist.id}`}><ArtistLinkContainer artist={artist} currentArtist={null} history={history}/>, </div>
     })
 
-    const songArtistName = <ArtistLinkContainer artist={songArtist} currentArtist={currentArtist} history={history}/>
+    const songArtistName = <div className="artist-name" key={`${songArtist.name}+"track"+${songArtist.id}+${tracknum}`}><ArtistLinkContainer artist={songArtist} currentArtist={null} history={history}/></div>
 
-    return (
-        <div className="card album">
-            <div className="album-card-art">
-                <img src={albumImageUrl} alt="" />
+
+    return ( 
+        <div className="song-card">
+            <div className="song-card-tracknum">
+                {tracknum}
             </div>
-            <div className="card-title">
-                {title}
+            <div className="song-card-title-artist-block">
+                <div className="song-card-title">
+                    {title}
+                </div>
+                <div className="song-card-artist">
+                    {collabArtistNames} {songArtistName}
+                </div>
             </div>
-            <div className="card-subtitle">
-                {collabArtistNames} {songArtistName} • Song
+            <div className="song-card-liked">
+                &hearts;
+            </div>
+            <div className="song-card-duration">
+                {mins}:{secs}
+            </div>
+            <div className="song-card-menu-dots">
+                <RxDotsHorizontal />
             </div>
         </div>
     )
