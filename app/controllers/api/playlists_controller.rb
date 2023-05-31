@@ -19,7 +19,7 @@ class Api::PlaylistsController < ApplicationController
     end
 
     def show
-        @playlist = Playlist.includes(:playlist_songs).find(params[:id])
+        @playlist = Playlist.includes(:playlist_songs, playlist_songs: [:song_artist, :album, :collab_artists]).find(params[:id])
         if @playlist && @playlist.user_id == current_user.id
             # currently only showing user's own playlists
             render :show
