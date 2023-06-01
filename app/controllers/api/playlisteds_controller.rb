@@ -1,7 +1,7 @@
-class Api::PlaylistedSongsController < ApplicationController
+class Api::PlaylistedsController < ApplicationController
 
     def create
-        @playlisted_song = PlaylistedSong.new(playlisted_song_params)
+        @playlisted_song = Playlisted.new(playlisted_song_params)
         if @playlisted_song.save!
             render :show
         else
@@ -10,7 +10,7 @@ class Api::PlaylistedSongsController < ApplicationController
     end
 
     def destroy
-        @playlisted_song = PlaylistedSong.find(params[:id])
+        @playlisted_song = Playlisted.find(params[:id])
         if @playlisted_song && (@playlisted_song.playlist.user_id == current_user.id)
             if @playlisted_song.destroy!
                 render :show
@@ -22,7 +22,7 @@ class Api::PlaylistedSongsController < ApplicationController
 
 
     def index
-        @playlisted_songs = PlaylistedSong.includes(:song).find_by(playlist_id: params[:playlist_id])
+        @playlisted = Playlisted.includes(:song).find_by(playlist_id: params[:playlist_id])
         render :index
     end
 
@@ -31,7 +31,7 @@ class Api::PlaylistedSongsController < ApplicationController
 
 
     private
-    def playlisted_song_params
+    def playlisted_params
         params.require(:playlisted_song).permit(:song_id, :playlist_id)
     end
 end

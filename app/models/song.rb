@@ -15,12 +15,12 @@ class Song < ApplicationRecord
   through: :collabs,
   source: :collab_artist
 
-  has_many :playlisted_songs,
+  has_many :playlisted,
   foreign_key: :song_id,
-  class_name: :PlaylistedSong
+  class_name: :Playlisted
 
   has_many :playlists,
-  through: :playlisted_songs,
+  through: :playlisted,
   source: :playlist
 
 end

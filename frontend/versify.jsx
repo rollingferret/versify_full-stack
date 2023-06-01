@@ -6,12 +6,12 @@ import configureStore from './store/store';
 // TESTING START
 
 import {
-  postPlaylistedSong,
-  deletePlaylistedSong,
-  indexPlaylistedSongs,
-} from './util/playlisted_songs_util';
-import { createNewPlaylistedSong,
-  removePlaylistedSong,
+  postPlaylisted,
+  deletePlaylisted,
+  indexPlaylisted,
+} from './util/playlisteds_util';
+import { createNewPlaylisted,
+  removePlaylisted,
 } from "./actions/playlisted_song_actions";
 
 // const play = {title:'thisone',
@@ -41,11 +41,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //TESTING
   window.store = store;
-  window.postPlaylistedSong = postPlaylistedSong;
-  window.deletePlaylistedSong = deletePlaylistedSong;
-  window.indexPlaylistedSongs = indexPlaylistedSongs;
-  window.createNewPlaylistedSong = createNewPlaylistedSong;
-  window.removePlaylistedSong = removePlaylistedSong;
+  window.postPlaylisted = postPlaylisted;
+  window.deletePlaylisted = deletePlaylisted;
+  window.indexPlaylisted = indexPlaylisted;
+  window.createNewPlaylisted = createNewPlaylisted;
+  window.removePlaylisted = removePlaylisted;
 
 
   //TESTING

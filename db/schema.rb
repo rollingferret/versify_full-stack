@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_29_192330) do
+ActiveRecord::Schema.define(version: 2023_06_01_202057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,14 +68,14 @@ ActiveRecord::Schema.define(version: 2023_05_29_192330) do
     t.index ["song_id"], name: "index_collabs_on_song_id"
   end
 
-  create_table "playlisted_songs", force: :cascade do |t|
+  create_table "playlisteds", force: :cascade do |t|
     t.integer "song_id", null: false
     t.integer "playlist_id", null: false
     t.string "timestamps"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["playlist_id"], name: "index_playlisted_songs_on_playlist_id"
-    t.index ["song_id"], name: "index_playlisted_songs_on_song_id"
+    t.index ["playlist_id"], name: "index_playlisteds_on_playlist_id"
+    t.index ["song_id"], name: "index_playlisteds_on_song_id"
   end
 
   create_table "playlists", force: :cascade do |t|

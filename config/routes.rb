@@ -8,7 +8,7 @@ namespace :api, defaults: {format: :json} do
   resources :artists, only: [:index, :show]
   resources :albums, only: [:index, :show]
   resources :songs, only: [:index, :show]
-  resources :playlisted_songs, only: [:create, :destroy]
+  resources :playlisteds, only: [:create, :destroy]
 end
   
   root 'static_pages#root'
@@ -34,9 +34,9 @@ end
 #                 api_album GET    /api/albums/:id(.:format)                    api/albums#show {:format=>:json}
 #                 api_songs GET    /api/songs(.:format)                         api/songs#index {:format=>:json}
 #                  api_song GET    /api/songs/:id(.:format)                     api/songs#show {:format=>:json}
-#      api_playlisted_songs GET    /api/playlisted_songs(.:format)              api/playlisted_songs#index {:format=>:json}
-#                           POST   /api/playlisted_songs(.:format)              api/playlisted_songs#create {:format=>:json}
-#       api_playlisted_song DELETE /api/playlisted_songs/:id(.:format)          api/playlisted_songs#destroy {:format=>:json}
+#      api_playlisted GET    /api/playlisted(.:format)              api/playlisted#index {:format=>:json}
+#                           POST   /api/playlisted(.:format)              api/playlisted#create {:format=>:json}
+#       api_playlisted_song DELETE /api/playlisted/:id(.:format)          api/playlisted#destroy {:format=>:json}
 #                      root GET    /                                                                                        static_pages#root
 #        rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
 # rails_blob_representation GET    /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
