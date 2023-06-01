@@ -14,12 +14,12 @@ class Playlist < ApplicationRecord
     validates :description, presence: true
     validates :user_id, presence: true
 
-    has_many :playlisted_songs, dependent: :destroy,
+    has_many :playlisted, dependent: :destroy,
     foreign_key: :playlist_id,
-    class_name: :PlaylistedSong
+    class_name: :Playlisted
 
     has_many :playlist_songs,
-    through: :playlisted_songs,
+    through: :playlisted,
     source: :song
     
 
