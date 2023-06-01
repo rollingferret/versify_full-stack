@@ -1,5 +1,6 @@
 class PlaylistedSong < ApplicationRecord
     after_create :update_playlist
+    validates :playlist_id, :song_id, presence: true
 
     belongs_to :playlist,
     foreign_key: :playlist_id,

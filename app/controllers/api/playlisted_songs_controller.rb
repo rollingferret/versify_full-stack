@@ -3,7 +3,7 @@ class Api::PlaylistedSongsController < ApplicationController
     def create
         @playlisted_song = PlaylistedSong.new(playlisted_song_params)
         if @playlisted_song.save!
-            render :index
+            render :show
         else
             render json: @playlisted_song.errors.full_messages, status: 422
         end
