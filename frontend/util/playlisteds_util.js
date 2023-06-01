@@ -6,10 +6,10 @@ export const postPlaylisted = ( songId, playlistId ) => (
     })
 );
 
-export const deletePlaylisted = (playlistedSongId) => (
+export const deletePlaylisted = (playlistedId) => (
     $.ajax({
         method: 'DELETE',
-        url: `/api/playlisteds/${playlistedSongId}`
+        url: `/api/playlisteds/${playlistedId}`
     })
 );
 
