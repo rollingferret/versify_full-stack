@@ -5,7 +5,7 @@ if @songs
             json.song_artist do
                 json.partial! "api/artists/artist", artist: song.song_artist
             end
-            json.playlistedId @playlisted_song.id
+            json.playlistedId @playlisted.id
             json.album do
                 json.partial! "api/albums/album", album: song.album
             end

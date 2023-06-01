@@ -12,7 +12,7 @@ import {
 } from './util/playlisteds_util';
 import { createNewPlaylisted,
   removePlaylisted,
-} from "./actions/playlisted_song_actions";
+} from "./actions/playlisted_actions";
 
 // const play = {title:'thisone',
 // description: 'anew',
