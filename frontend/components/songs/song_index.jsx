@@ -6,6 +6,8 @@ const SongIndex = ({
     source,
     songs,
     history,
+    songCardDropdownState,
+    openSongCardDropdown,
 }) => {
 
     const songIndex = (
@@ -26,7 +28,13 @@ const SongIndex = ({
             </div>
             {songs.length > 0 ? 
                 (songs.map( (song, index) => {
-                    return <SongCard key={`${source} + ${song.id} + ${index}`} source={source} song={song} history={history} index={index} />
+                    return <SongCard key={`${source} + ${song.id} + ${index}`} 
+                        source={source}
+                        song={song}
+                        history={history}
+                        index={index}
+                        songCardDropdownState={songCardDropdownState}
+                        openSongCardDropdown={openSongCardDropdown}/>
                 }))
                 : null
             }
