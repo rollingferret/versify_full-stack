@@ -5,7 +5,6 @@ const SongCardDropdown = ({
     source,
     songId,
     history,
-    songCardDropdownState,
  }) => {
 
     return (

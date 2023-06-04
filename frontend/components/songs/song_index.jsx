@@ -1,15 +1,36 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import SongCard from "./song_card";
+import SongCardDropdown from "./song_card_dropdown";
 
 
 const SongIndex = ({
     source,
     songs,
     history,
-    songCardDropdownState,
-    openSongCardDropdown,
-    closeSongCardDropdown,
+    params,
 }) => {
+
+    const [songCardDropdownState, setSongCardDropdownState] = useState({ isOpen: false });
+    const [selectedSongId, setSelectedSongId] = useState(null);
+    const [playlistedId, setPlaylistedId] = useState(null);
+    
+    const updateSongCardDropdownState = (newState) => {
+        setSongCardDropdownState(newState);
+    };
+    const updateselectedSongId = (newState) => {
+        setSelectedSongId(newState);
+    };
+    const updatePlaylistedId = (newState) => {
+        setPlaylistedId(newState);
+    };
+    
+    useEffect( () => {
+        return () => {
+            updateselectedSongId(null);
+            updateSongCardDropdownState({ isOpen: false });
+        }
+    }, [params]);
 
     const songIndex = (
         <div className={`song-index` + " " + source}>
@@ -36,8 +57,10 @@ const SongIndex = ({
                         history={history}
                         index={index}
                         songCardDropdownState={songCardDropdownState}
-                        openSongCardDropdown={openSongCardDropdown}
-                        closeSongCardDropdown={closeSongCardDropdown}/>
+                        updateSongCardDropdownState={updateSongCardDropdownState}
+                        updateselectedSongId={updateselectedSongId}
+                        updatePlaylistedId={updatePlaylistedId}
+                    />
                 }))
                 : null
             }
@@ -50,7 +73,16 @@ const SongIndex = ({
         </div>
     )
 
-    return songs.length > 0 ? songIndex : emptyPlaylist;
+    return <>
+        {songs.length > 0 ? songIndex : emptyPlaylist};
+        {songCardDropdownState.isOpen && <SongCardDropdown 
+                source={source} 
+                songId={selectedSongId} 
+                history={history}
+                songCardDropdownState={songCardDropdownState}
+            />
+        }
+    </>
 }
 
 export default SongIndex;

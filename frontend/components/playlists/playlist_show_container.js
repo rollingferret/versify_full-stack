@@ -9,8 +9,6 @@ import { openPlaylistNavDropdown,
     closePlaylistNavDropdown,
     openPlaylistEditModal,
     closePlaylistEditModal,
-    openSongCardDropdown,
-    closeSongCardDropdown,
  } from "../../actions/ui_actions";
 
 import PlaylistShow from "./playlist_show";
@@ -24,7 +22,6 @@ const mapStateToProps = (state, ownProps) => {
         currentUser: ownProps.currentUser,
         playlistNavDropdownState: state.ui.playlistNavDropdown,
         playlistEditModalState: state.ui.playlistEditModal,
-        songCardDropdownState: state.ui.songCardDropdown,
     })
 }
 
@@ -38,8 +35,6 @@ const mapDispatchToProps = (dispatch) => ({
     closePlaylistNavDropdown: () => dispatch( closePlaylistNavDropdown() ),
     openPlaylistEditModal: () => dispatch( openPlaylistEditModal() ),
     closePlaylistEditModal: () => dispatch( closePlaylistEditModal() ),
-    openSongCardDropdown: () => dispatch( openSongCardDropdown() ),
-    closeSongCardDropdown: () => dispatch( closeSongCardDropdown() ),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlaylistShow);

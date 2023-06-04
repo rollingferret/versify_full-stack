@@ -1,5 +1,4 @@
 import React from "react";
-import SongCardDropdown from "./song_card_dropdown";
 
 import {RxDotsHorizontal,
 } from 'react-icons/rx';
@@ -11,8 +10,9 @@ const SongCard = ({
     history,
     index,
     songCardDropdownState,
-    openSongCardDropdown,
-    closeSongCardDropdown,
+    updateSongCardDropdownState,
+    updateselectedSongId,
+    updatePlaylistedId,
 }) => {
 
     const {
@@ -21,6 +21,7 @@ const SongCard = ({
         albumId,
         mins,
         secs,
+        playlistedId,
         songArtist,
         collabArtists,
         audioUrl,
@@ -49,7 +50,13 @@ const SongCard = ({
 
     const toggleSongCardDropdown = (event) => {
         event.preventDefault();
-        songCardDropdownState.isOpen ? closeSongCardDropdown() : openSongCardDropdown();
+        if (songCardDropdownState.isOpen) {
+            updateSongCardDropdownState({ isOpen: false });
+        } else {
+            updateSongCardDropdownState({ isOpen: true });
+            updateselectedSongId(id);
+            updatePlaylistedId(playlistedId);
+        }
     }
 
     return ( 
@@ -74,13 +81,6 @@ const SongCard = ({
             <div className="song-card-menu-dots" onClick={toggleSongCardDropdown}>
                 <RxDotsHorizontal />
             </div>
-            {songCardDropdownState.isOpen && <SongCardDropdown 
-                source={source} 
-                songId={id} 
-                history={history} 
-                songCardDropdownState={songCardDropdownState}
-                />
-            }
         </div>
     )
 }

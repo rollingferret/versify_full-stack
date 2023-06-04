@@ -10,11 +10,8 @@ const PlaylistShow = ({
     history,
     playlistSongs,
     currentUser,
-    songCardDropdownState,
     displayPlaylist,
     clearCurrent,
-    openSongCardDropdown,
-    closeSongCardDropdown,
     ... props
 }) => {
 
@@ -39,17 +36,18 @@ const PlaylistShow = ({
                     currentUser={currentUser} />
             </div>
             <div className="playlist-nav">
-                <PlaylistNav currentPlaylist={currentPlaylist} 
+                <PlaylistNav 
+                    currentPlaylist={currentPlaylist} 
                     history={history}
                     {...props}
                 /> 
             </div>
-                <SongIndex source="playlist" 
+                <SongIndex
+                    source="playlist" 
                     songs={playlistSongs} 
-                    history={history} 
-                    songCardDropdownState={songCardDropdownState}
-                    openSongCardDropdown={openSongCardDropdown}
-                    closeSongCardDropdown={closeSongCardDropdown} />
+                    history={history}
+                    params={params}
+                />
         </div>
     )
 }
