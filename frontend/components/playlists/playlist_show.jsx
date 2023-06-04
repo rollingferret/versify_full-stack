@@ -8,8 +8,8 @@ const PlaylistShow = ({
     currentPlaylist,
     params,
     history,
-    currentUser,
     playlistSongs,
+    currentUser,
     displayPlaylist,
     clearCurrent,
     ... props
@@ -36,12 +36,18 @@ const PlaylistShow = ({
                     currentUser={currentUser} />
             </div>
             <div className="playlist-nav">
-                <PlaylistNav currentPlaylist={currentPlaylist} 
+                <PlaylistNav 
+                    currentPlaylist={currentPlaylist} 
                     history={history}
                     {...props}
                 /> 
             </div>
-                <SongIndex source="playlist" songs={playlistSongs} history={history} />
+                <SongIndex
+                    source="playlist" 
+                    songs={playlistSongs} 
+                    history={history}
+                    params={params}
+                />
         </div>
     )
 }

@@ -35,7 +35,6 @@ const mapDispatchToProps = (dispatch) => ({
     closePlaylistNavDropdown: () => dispatch( closePlaylistNavDropdown() ),
     openPlaylistEditModal: () => dispatch( openPlaylistEditModal() ),
     closePlaylistEditModal: () => dispatch( closePlaylistEditModal() ),
-
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlaylistShow);

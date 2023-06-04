@@ -1,5 +1,10 @@
 .song-card-dropdown {
-    left: 143px;
-    top: 280px;
-    align-items: flex-start;
+    // left: 143px;
+    // top: 280px;
+    // align-items: flex-start;
+    position: absolute;
+    z-index: 3;
+    left: 100px;
+    top: 100px;
+    font-size: 50px;
 }

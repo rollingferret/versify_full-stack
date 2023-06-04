@@ -9,12 +9,19 @@ const SongCard = ({
     song,
     history,
     index,
+    songCardDropdownState,
+    updateSongCardDropdownState,
+    updateSelectedSongId,
+    updatePlaylistedId,
 }) => {
 
-    const { title,
+    const {
+        id,
+        title,
         albumId,
         mins,
         secs,
+        playlistedId,
         songArtist,
         collabArtists,
         audioUrl,
@@ -23,11 +30,34 @@ const SongCard = ({
     let tracknum = (source === "album") ? song.tracknum : index+1;
 
     const collabArtistNames = collabArtists.map(artist => {
-        return <div className="artist-name" key={`${artist.name}+"collab"+${artist.id}`}><ArtistLinkContainer artist={artist} currentArtist={null} history={history}/>, </div>
+        return <div className="artist-name" key={`${artist.name}+"collab"+${artist.id}`}>
+            <ArtistLinkContainer 
+                artist={artist} 
+                currentArtist={null} 
+                history={history}
+            />, 
+        </div>
     })
 
-    const songArtistName = <div className="artist-name" key={`${songArtist.name}+"track"+${songArtist.id}+${tracknum}`}><ArtistLinkContainer artist={songArtist} currentArtist={null} history={history}/></div>
+    const songArtistName = <div className="artist-name" 
+        key={`${songArtist.name}+"track"+${songArtist.id}+${tracknum}`}>
+            <ArtistLinkContainer 
+                artist={songArtist} 
+                currentArtist={null} 
+                history={history}
+            />
+        </div>
 
+    const toggleSongCardDropdown = (event) => {
+        event.preventDefault();
+        if (songCardDropdownState.isOpen) {
+            updateSongCardDropdownState({ isOpen: false });
+        } else {
+            updateSongCardDropdownState({ isOpen: true });
+            updateSelectedSongId(id);
+            updatePlaylistedId(playlistedId);
+        }
+    }
 
     return ( 
         <div className="song-card">
@@ -48,7 +78,7 @@ const SongCard = ({
             <div className="song-card-duration">
                 {mins}:{secs}
             </div>
-            <div className="song-card-menu-dots">
+            <div className="song-card-menu-dots" onClick={toggleSongCardDropdown}>
                 <RxDotsHorizontal />
             </div>
         </div>

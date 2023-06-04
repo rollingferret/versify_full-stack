@@ -1,12 +1,36 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import SongCard from "./song_card";
+import SongCardDropdown from "./song_card_dropdown";
 
 
 const SongIndex = ({
     source,
     songs,
     history,
+    params,
 }) => {
+
+    const [songCardDropdownState, setSongCardDropdownState] = useState({ isOpen: false });
+    const [selectedSongId, setSelectedSongId] = useState(null);
+    const [playlistedId, setPlaylistedId] = useState(null);
+    
+    const updateSongCardDropdownState = (newState) => {
+        setSongCardDropdownState(newState);
+    };
+    const updateSelectedSongId = (newState) => {
+        setSelectedSongId(newState);
+    };
+    const updatePlaylistedId = (newState) => {
+        setPlaylistedId(newState);
+    };
+    
+    useEffect( () => {
+        return () => {
+            updateSelectedSongId(null);
+            updateSongCardDropdownState({ isOpen: false });
+        }
+    }, [params]);
 
     const songIndex = (
         <div className={`song-index` + " " + source}>
@@ -26,7 +50,17 @@ const SongIndex = ({
             </div>
             {songs.length > 0 ? 
                 (songs.map( (song, index) => {
-                    return <SongCard key={`${source} + ${song.id} + ${index}`} source={source} song={song} history={history} index={index} />
+                    return <SongCard
+                        key={`${source} + ${song.id} + ${index}`} 
+                        source={source}
+                        song={song}
+                        history={history}
+                        index={index}
+                        songCardDropdownState={songCardDropdownState}
+                        updateSongCardDropdownState={updateSongCardDropdownState}
+                        updateSelectedSongId={updateSelectedSongId}
+                        updatePlaylistedId={updatePlaylistedId}
+                    />
                 }))
                 : null
             }
@@ -39,7 +73,16 @@ const SongIndex = ({
         </div>
     )
 
-    return songs.length > 0 ? songIndex : emptyPlaylist;
+    return <>
+        {songs.length > 0 ? songIndex : emptyPlaylist};
+        {songCardDropdownState.isOpen && <SongCardDropdown 
+                source={source} 
+                songId={selectedSongId} 
+                history={history}
+                songCardDropdownState={songCardDropdownState}
+            />
+        }
+    </>
 }
 
 export default SongIndex;
