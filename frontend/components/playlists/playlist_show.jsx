@@ -17,7 +17,6 @@ const PlaylistShow = ({
     closeSongCardDropdown,
     ... props
 }) => {
-    console.log("PLAYLIST SHOW", songCardDropdownState)
 
     const { id, 
         title,

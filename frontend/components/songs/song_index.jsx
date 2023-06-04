@@ -10,7 +10,7 @@ const SongIndex = ({
     openSongCardDropdown,
     closeSongCardDropdown,
 }) => {
-    console.log("SONG INDEX", songCardDropdownState)
+
     const songIndex = (
         <div className={`song-index` + " " + source}>
             <div className="song-index-headings">
@@ -29,7 +29,8 @@ const SongIndex = ({
             </div>
             {songs.length > 0 ? 
                 (songs.map( (song, index) => {
-                    return <SongCard key={`${source} + ${song.id} + ${index}`} 
+                    return <SongCard
+                        key={`${source} + ${song.id} + ${index}`} 
                         source={source}
                         song={song}
                         history={history}
