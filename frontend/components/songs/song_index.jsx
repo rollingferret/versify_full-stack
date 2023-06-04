@@ -18,7 +18,7 @@ const SongIndex = ({
     const updateSongCardDropdownState = (newState) => {
         setSongCardDropdownState(newState);
     };
-    const updateselectedSongId = (newState) => {
+    const updateSelectedSongId = (newState) => {
         setSelectedSongId(newState);
     };
     const updatePlaylistedId = (newState) => {
@@ -27,7 +27,7 @@ const SongIndex = ({
     
     useEffect( () => {
         return () => {
-            updateselectedSongId(null);
+            updateSelectedSongId(null);
             updateSongCardDropdownState({ isOpen: false });
         }
     }, [params]);
@@ -58,7 +58,7 @@ const SongIndex = ({
                         index={index}
                         songCardDropdownState={songCardDropdownState}
                         updateSongCardDropdownState={updateSongCardDropdownState}
-                        updateselectedSongId={updateselectedSongId}
+                        updateSelectedSongId={updateSelectedSongId}
                         updatePlaylistedId={updatePlaylistedId}
                     />
                 }))

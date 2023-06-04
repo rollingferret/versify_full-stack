@@ -11,7 +11,7 @@ const SongCard = ({
     index,
     songCardDropdownState,
     updateSongCardDropdownState,
-    updateselectedSongId,
+    updateSelectedSongId,
     updatePlaylistedId,
 }) => {
 
@@ -54,7 +54,7 @@ const SongCard = ({
             updateSongCardDropdownState({ isOpen: false });
         } else {
             updateSongCardDropdownState({ isOpen: true });
-            updateselectedSongId(id);
+            updateSelectedSongId(id);
             updatePlaylistedId(playlistedId);
         }
     }
