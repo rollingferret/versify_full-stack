@@ -8,12 +8,15 @@ const PlaylistShow = ({
     currentPlaylist,
     params,
     history,
-    currentUser,
     playlistSongs,
+    currentUser,
+    songCardDropdownState,
     displayPlaylist,
     clearCurrent,
+    openSongCardDropdown,
     ... props
 }) => {
+    console.log("PLAYLIST SHOW", songCardDropdownState)
 
     const { id, 
         title,
@@ -41,7 +44,11 @@ const PlaylistShow = ({
                     {...props}
                 /> 
             </div>
-                <SongIndex source="playlist" songs={playlistSongs} history={history} />
+                <SongIndex source="playlist" 
+                    songs={playlistSongs} 
+                    history={history} 
+                    songCardDropdownState={songCardDropdownState}
+                    openSongCardDropdown={openSongCardDropdown} />
         </div>
     )
 }

@@ -1,15 +1,20 @@
 import React from "react";
 
 
-const SongCardDropdown = ({ props }) => {
+const SongCardDropdown = ({ 
+    source,
+    songId,
+    history,
+    songCardDropdownState,
+ }) => {
 
 
 
-
-
-    return <div className="song-card-dropdown">
-        THIS IS TRACK CARD DROPDOWN
-    </div>
+    return songCardDropdownState.isOpen ? 
+        <div className="song-card-dropdown">
+            THIS IS TRACK CARD DROPDOWN
+        </div>
+        : null
 
 }
 

@@ -23,6 +23,7 @@ const mapStateToProps = (state, ownProps) => {
         currentUser: ownProps.currentUser,
         playlistNavDropdownState: state.ui.playlistNavDropdown,
         playlistEditModalState: state.ui.playlistEditModal,
+        songCardDropdownState: state.ui.songCardDropdown,
     })
 }
 

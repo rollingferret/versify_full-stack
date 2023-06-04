@@ -9,7 +9,7 @@ const SongIndex = ({
     songCardDropdownState,
     openSongCardDropdown,
 }) => {
-
+    console.log("SONG INDEX", songCardDropdownState)
     const songIndex = (
         <div className={`song-index` + " " + source}>
             <div className="song-index-headings">

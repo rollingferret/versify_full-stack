@@ -3,7 +3,7 @@ import { SONGCARD_DROPDOWN_OPEN,
 } from "../../actions/ui_actions";
 
 
-const songCardDropdownReducer = (songCardDropdownState = {}, action) => {
+const songCardDropdownReducer = (songCardDropdownState = {isOpen: false}, action) => {
     Object.freeze(songCardDropdownState) // songCardDropdownState is a key-value pair
     switch (action.type) {
         case SONGCARD_DROPDOWN_OPEN:
