@@ -12,6 +12,7 @@ const SongCard = ({
     index,
     songCardDropdownState,
     openSongCardDropdown,
+    closeSongCardDropdown,
 }) => {
 
     const { id,
@@ -34,7 +35,7 @@ const SongCard = ({
 
     const toggleSongCardDropdown = (event) => {
         event.preventDefault();
-        songCardDropdownState.isOpen ? null : openSongCardDropdown();
+        songCardDropdownState.isOpen ? closeSongCardDropdown() : openSongCardDropdown();
     }
 
     return ( 
@@ -56,14 +57,16 @@ const SongCard = ({
             <div className="song-card-duration">
                 {mins}:{secs}
             </div>
-            <div className="song-card-menu-dots" onClick= {toggleSongCardDropdown}>
+            <div className="song-card-menu-dots" onClick={toggleSongCardDropdown}>
                 <RxDotsHorizontal />
             </div>
-            <SongCardDropdown 
+            {songCardDropdownState.isOpen && <SongCardDropdown 
                 source={source} 
                 songId={id} 
                 history={history} 
-                songCardDropdownState={songCardDropdownState}/>
+                songCardDropdownState={songCardDropdownState}
+                />
+            }
         </div>
     )
 }

@@ -8,14 +8,11 @@ const SongCardDropdown = ({
     songCardDropdownState,
  }) => {
 
-
-
-    return songCardDropdownState.isOpen ? 
+    return (
         <div className="song-card-dropdown">
             THIS IS TRACK CARD DROPDOWN
         </div>
-        : null
-
+    )
 }
 
 export default SongCardDropdown
