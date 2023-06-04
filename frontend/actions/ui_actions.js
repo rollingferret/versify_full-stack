@@ -38,6 +38,10 @@ const songCardDropdownOpen = () => ({
     type: SONGCARD_DROPDOWN_OPEN,
 })
 
+const songCardDropdownClose = () => ({
+    type: SONGCARD_DROPDOWN_CLOSE,
+})
+
 
 
 // Declare Thunk action creators linked to dispatch
@@ -57,6 +61,10 @@ export const closePlaylistEditModal = () => dispatch => (
 
 export const openSongCardDropdown = () => dispatch => (
     dispatch(songCardDropdownOpen())
+);
+
+export const closeSongCardDropdown = () => dispatch => (
+    dispatch(songCardDropdownClose())
 );
 
 

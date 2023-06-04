@@ -9,7 +9,8 @@ import { openPlaylistNavDropdown,
     closePlaylistNavDropdown,
     openPlaylistEditModal,
     closePlaylistEditModal,
-    openSongCardDropdown
+    openSongCardDropdown,
+    closeSongCardDropdown,
  } from "../../actions/ui_actions";
 
 import PlaylistShow from "./playlist_show";
@@ -38,6 +39,7 @@ const mapDispatchToProps = (dispatch) => ({
     openPlaylistEditModal: () => dispatch( openPlaylistEditModal() ),
     closePlaylistEditModal: () => dispatch( closePlaylistEditModal() ),
     openSongCardDropdown: () => dispatch( openSongCardDropdown() ),
+    closeSongCardDropdown: () => dispatch( closeSongCardDropdown() ),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlaylistShow);

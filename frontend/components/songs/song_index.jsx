@@ -8,6 +8,7 @@ const SongIndex = ({
     history,
     songCardDropdownState,
     openSongCardDropdown,
+    closeSongCardDropdown,
 }) => {
     console.log("SONG INDEX", songCardDropdownState)
     const songIndex = (
@@ -34,7 +35,8 @@ const SongIndex = ({
                         history={history}
                         index={index}
                         songCardDropdownState={songCardDropdownState}
-                        openSongCardDropdown={openSongCardDropdown}/>
+                        openSongCardDropdown={openSongCardDropdown}
+                        closeSongCardDropdown={closeSongCardDropdown}/>
                 }))
                 : null
             }

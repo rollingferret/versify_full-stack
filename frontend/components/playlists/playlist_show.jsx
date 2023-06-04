@@ -14,6 +14,7 @@ const PlaylistShow = ({
     displayPlaylist,
     clearCurrent,
     openSongCardDropdown,
+    closeSongCardDropdown,
     ... props
 }) => {
     console.log("PLAYLIST SHOW", songCardDropdownState)
@@ -48,7 +49,8 @@ const PlaylistShow = ({
                     songs={playlistSongs} 
                     history={history} 
                     songCardDropdownState={songCardDropdownState}
-                    openSongCardDropdown={openSongCardDropdown} />
+                    openSongCardDropdown={openSongCardDropdown}
+                    closeSongCardDropdown={closeSongCardDropdown} />
         </div>
     )
 }
