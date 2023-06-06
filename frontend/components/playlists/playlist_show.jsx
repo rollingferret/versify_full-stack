@@ -8,6 +8,7 @@ const PlaylistShow = ({
     currentPlaylist,
     params,
     history,
+    playlists,
     playlistSongs,
     currentUser,
     displayPlaylist,
@@ -44,6 +45,7 @@ const PlaylistShow = ({
             </div>
                 <SongIndex
                     source="playlist" 
+                    playlists={playlists}
                     songs={playlistSongs} 
                     history={history}
                     params={params}

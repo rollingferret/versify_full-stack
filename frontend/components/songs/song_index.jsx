@@ -1,16 +1,17 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import SongCard from "./song_card";
-import SongCardDropdown from "./song_card_dropdown";
+import SongCardDropdownContainer from "./song_card_dropdown_container";
 
 
 const SongIndex = ({
     source,
+    playlists,
     songs,
     history,
     params,
 }) => {
-
+    
     const [songCardDropdownState, setSongCardDropdownState] = useState({ isOpen: false });
     const [selectedSongId, setSelectedSongId] = useState(null);
     const [playlistedId, setPlaylistedId] = useState(null);
@@ -32,6 +33,28 @@ const SongIndex = ({
         }
     }, [params]);
 
+    let songCardDropdownItems;
+    if (source === "playlist") {
+        songCardDropdownItems = [
+            {
+                title: "Remove from this playlist"
+            }, 
+            {
+                title: "Add to playlist",
+                submenu: [playlists],
+            },
+        ]
+    } else if (source === "album") {
+        songCardDropdownItems = [
+            {
+                title: "Add to playlist",
+                submenu: [playlists], 
+                // Enclose in array since dropdown uses recursive .map function
+            }
+        ]
+    };
+    console.log("DROPDOWN ITEMS", songCardDropdownItems)
+    console.log(songCardDropdownState)
     const songIndex = (
         <div className={`song-index` + " " + source}>
             <div className="song-index-headings">
@@ -73,13 +96,17 @@ const SongIndex = ({
         </div>
     )
 
+    const depthLevel = 0;
     return <>
         {songs.length > 0 ? songIndex : emptyPlaylist};
-        {songCardDropdownState.isOpen && <SongCardDropdown 
+        {songCardDropdownState.isOpen && <SongCardDropdownContainer 
                 source={source} 
                 songId={selectedSongId} 
                 history={history}
+                updateSongCardDropdownState={updateSongCardDropdownState}
                 songCardDropdownState={songCardDropdownState}
+                items={songCardDropdownItems}
+                depthLevel={depthLevel}
             />
         }
     </>

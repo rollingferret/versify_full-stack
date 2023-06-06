@@ -48,16 +48,15 @@ const SongCard = ({
             />
         </div>
 
-    const toggleSongCardDropdown = (event) => {
-        event.preventDefault();
-        if (songCardDropdownState.isOpen) {
-            updateSongCardDropdownState({ isOpen: false });
-        } else {
-            updateSongCardDropdownState({ isOpen: true });
-            updateSelectedSongId(id);
-            updatePlaylistedId(playlistedId);
-        }
+    const toggleSongCardDropdown = (e) => {
+        e.preventDefault();
+        const result = e.target.getBoundingClientRect();
+        console.log(result)
+        updateSongCardDropdownState({ isOpen: !songCardDropdownState.isOpen });
+        updateSelectedSongId(id);
+        updatePlaylistedId(playlistedId);
     }
+    
 
     return ( 
         <div className="song-card">
