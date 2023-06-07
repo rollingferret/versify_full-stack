@@ -2,7 +2,7 @@ import React from "react";
 import SongCardDropdownContainer from "./song_card_dropdown_container";
 
 
-const MenuItems = ({
+const SongCardSubmenu = ({
     submenus,
     submenuState,
     depthLevel,
@@ -10,8 +10,8 @@ const MenuItems = ({
 }) => {
 
     depthLevel += 1;
-    console.log("depthLevel in MenuItems", depthLevel)
-    console.log("submenus in MenuItems", submenus)
+    console.log("depthLevel in SongCardSubmenu", depthLevel)
+    console.log("submenus in SongCardSubmenu", submenus)
     const dropdownClass = depthLevel > 0 ? "dropdown-submenu" : "";
 
     return (
@@ -35,4 +35,4 @@ const MenuItems = ({
 
 };
 
-export default MenuItems;
+export default SongCardSubmenu;

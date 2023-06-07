@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
-import MenuItems from "./song_card_dropdown_item1";
+import SongCardSubmenu from "./song_card_submenu";
 
 
 const SongCardDropdown = ({
@@ -47,7 +47,7 @@ const SongCardDropdown = ({
         <div className="song-card-dropdown" data-dropdown ref={ref}> 
             {items.map( (item, index) => (
                 item.submenu ? (
-                    // If a submenu exists, create button for submenu title and pass submenu to MenuItems
+                    // If a submenu exists, create button for submenu title and pass submenu to SongCardSubmenu
                     <> 
                         <button className="song-card-dropdown-item"
                             key={`${index}+${item.title}+"subm"`}
@@ -57,7 +57,7 @@ const SongCardDropdown = ({
                             {/* {depthLevel > 0 ? <span>&raquo;</span> : <span className="arrow" />} */}
                             <span>&raquo;</span>
                         </button>
-                        <MenuItems
+                        <SongCardSubmenu
                             key={`${index}+"subm"+${depthLevel}`}
                             submenus={item.submenu}
                             submenuState={submenuState}
