@@ -55,8 +55,9 @@ const SongIndex = ({
     };
     console.log("DROPDOWN ITEMS", songCardDropdownItems)
     console.log(songCardDropdownState)
+
     const songIndex = (
-        <div className={`song-index` + " " + source}>
+        <div className={`song-index`+" " +source}>
             <div className="song-index-headings">
                 <div className="song-index-heading-tracknum">
                     #
@@ -64,11 +65,19 @@ const SongIndex = ({
                 <div className="song-index-heading-title">
                     Title
                 </div>
+                {source === "playlist" ? (
+                    <div className="song-index-heading-album">
+                        Album
+                    </div>
+                    ) : null
+                }
                 <div className="song-index-heading-liked">
                     &#128153;
                 </div>
                 <div className="song-index-heading-duration">
                     &#9201;
+                </div>
+                <div className="song-index-heading-menu">
                 </div>
             </div>
             {songs.length > 0 ? 
