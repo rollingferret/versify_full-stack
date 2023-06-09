@@ -83,6 +83,14 @@
     margin-bottom: 15px;
 }
 
+a.artist-link{
+    color: rgb(165, 157, 146);
+}
+
+a.artist-link a:hover {
+    text-decoration: underline;
+}
+
 .card-subtitle a:hover {
     text-decoration: underline;
     cursor: pointer;
