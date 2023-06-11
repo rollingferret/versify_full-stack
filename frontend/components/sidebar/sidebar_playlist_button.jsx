@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SideBarPlaylistButton = (props) => {
+const SidebarPlaylistButton = (props) => {
     const { title,
         playlistId,
         history,
@@ -23,4 +23,4 @@ const SideBarPlaylistButton = (props) => {
     )
 }
 
-export default SideBarPlaylistButton;
+export default SidebarPlaylistButton;
