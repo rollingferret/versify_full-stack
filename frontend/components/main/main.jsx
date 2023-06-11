@@ -7,11 +7,9 @@ import CurrentViewContainer from "./current_view_container";
 const Main = ({history,
     params,
     path,
-    currentPlaylist,
     currentUser,
     errors,
-    fetchPlaylists,
-    displayPlaylist,
+    clearPlaylistErrors,
 }) => {
 
     return (
