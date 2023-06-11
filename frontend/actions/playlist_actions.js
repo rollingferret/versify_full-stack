@@ -50,10 +50,9 @@ export const displayPlaylist = (playlistId) => dispatch =>
 export const editPlaylist = (playlist, playlistId) => dispatch => {
     return (patchPlaylist(playlist, playlistId)
         .then( playlist => {
-            dispatch( receiveCurrentPlaylist(playlist) );
-            dispatch( fetchPlaylists() );
-        },
-        err => (dispatch( receivePlaylistErrors(err.responseJSON) ))))
+                dispatch( receiveCurrentPlaylist(playlist) );
+                dispatch( fetchPlaylists() );
+            }, err => (dispatch( receivePlaylistErrors(err.responseJSON) ))))
 };
 
 export const destroyPlaylist = (playlistId) => dispatch => (
