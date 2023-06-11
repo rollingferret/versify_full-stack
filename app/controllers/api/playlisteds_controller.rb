@@ -3,7 +3,7 @@ class Api::PlaylistedsController < ApplicationController
     def create
         @playlisted = Playlisted.new(playlisted_params)
         if @playlisted.save!
-            render :show
+            render :index
         else
             render json: @playlisted.errors.full_messages, status: 422
         end
@@ -13,7 +13,7 @@ class Api::PlaylistedsController < ApplicationController
         @playlisted = Playlisted.find(params[:id])
         if @playlisted && (@playlisted.playlist.user_id == current_user.id)
             if @playlisted.destroy!
-                render :show
+                render :index
             end
         else
             render json: @playlisted.errors.full_messages, status: 422
