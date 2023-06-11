@@ -6,7 +6,6 @@ const Home = ({
     params,
     history,
     path,
-    fetchArtists,
 }) => {
     // console.log('HOME PROPS', props)
 

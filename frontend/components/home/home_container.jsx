@@ -1,10 +1,5 @@
 import { connect } from "react-redux";
 
-import { fetchPlaylists,
-} from "../../actions/playlist_actions";
-import { fetchArtists,
-} from "../../actions/artist_actions";
-
 import Home from "./home";
 
 const mapStateToProps = (state, ownProps) => ({
