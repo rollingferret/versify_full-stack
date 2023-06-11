@@ -11,8 +11,7 @@ const SongCard = ({
     index,
     songCardDropdownState,
     updateSongCardDropdownState,
-    updateSelectedSongId,
-    updatePlaylistedId,
+    updateSelectedSong,
 }) => {
 
     const {
@@ -53,9 +52,9 @@ const SongCard = ({
         e.preventDefault();
         const result = e.target.getBoundingClientRect();
         console.log(result)
+        console.log("selectedSong", song)
         updateSongCardDropdownState({ isOpen: !songCardDropdownState.isOpen });
-        updateSelectedSongId(id);
-        updatePlaylistedId(playlistedId);
+        updateSelectedSong(song);
     }
     
 

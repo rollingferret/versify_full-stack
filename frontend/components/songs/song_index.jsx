@@ -12,24 +12,23 @@ const SongIndex = ({
     params,
 }) => {
     
+    // Set local states for SongCardDropdownState and selectedSong
     const [songCardDropdownState, setSongCardDropdownState] = useState({ isOpen: false });
-    const [selectedSongId, setSelectedSongId] = useState(null);
-    const [playlistedId, setPlaylistedId] = useState(null);
+    const [selectedSong, setSelectedSong] = useState(null);
     
+    // Updater functions for local states
     const updateSongCardDropdownState = (newState) => {
         setSongCardDropdownState(newState);
     };
-    const updateSelectedSongId = (newState) => {
-        setSelectedSongId(newState);
-    };
-    const updatePlaylistedId = (newState) => {
-        setPlaylistedId(newState);
+    const updateSelectedSong = (newState) => {
+        setSelectedSong(newState);
     };
     
     useEffect( () => {
+        setSongCardDropdownState({ isOpen: false }) // upon first mount
         return () => {
-            updateSelectedSongId(null);
-            updateSongCardDropdownState({ isOpen: false });
+            setSelectedSong(null);
+            setSongCardDropdownState({ isOpen: false });
         }
     }, [params]);
 
@@ -49,12 +48,10 @@ const SongIndex = ({
             {
                 title: "Add to playlist",
                 submenu: [playlists], 
-                // Enclose in array since dropdown uses recursive .map function
+                // Enclose array of playlists in an array since dropdown uses recursive .map function on items prop
             }
         ]
     };
-    console.log("DROPDOWN ITEMS", songCardDropdownItems)
-    console.log(songCardDropdownState)
 
     const songIndex = (
         <div className={`song-index`+" " +source}>
@@ -90,8 +87,7 @@ const SongIndex = ({
                         index={index}
                         songCardDropdownState={songCardDropdownState}
                         updateSongCardDropdownState={updateSongCardDropdownState}
-                        updateSelectedSongId={updateSelectedSongId}
-                        updatePlaylistedId={updatePlaylistedId}
+                        updateSelectedSong={updateSelectedSong}
                     />
                 }))
                 : null
@@ -110,10 +106,11 @@ const SongIndex = ({
         {songs.length > 0 ? songIndex : emptyPlaylist};
         {songCardDropdownState.isOpen && <SongCardDropdownContainer 
                 source={source} 
-                songId={selectedSongId} 
+                selectedSong={selectedSong} 
                 history={history}
-                updateSongCardDropdownState={updateSongCardDropdownState}
+                params={params}
                 songCardDropdownState={songCardDropdownState}
+                updateSongCardDropdownState={updateSongCardDropdownState}
                 items={songCardDropdownItems}
                 depthLevel={depthLevel}
             />
