@@ -5,6 +5,7 @@ import SongCardDropdownContainer from "./song_card_dropdown_container";
 const SongCardSubmenu = ({
     submenus,
     submenuState,
+    submenuRef,
     depthLevel,
     updateSongCardDropdownState,
 }) => {
@@ -14,12 +15,16 @@ const SongCardSubmenu = ({
     console.log("submenus in SongCardSubmenu", submenus)
     const dropdownClass = depthLevel > 0 ? "dropdown-submenu" : "";
 
+    const keepParentMenuOpen = (e) => {
+        e.stopPropagation();
+    };
+
     return (
         <ul className={`song-card-dropdown ${dropdownClass} ${submenuState.isOpen ? "show" : ""}`}
             data-dropdown
+            ref={submenuRef}
         >
             {submenus.map( (submenu, index) => {
-                const depthLevel = 0;
                 return <SongCardDropdownContainer 
                     key={`${index}+${depthLevel}+"subm"`}
                     items={submenu}

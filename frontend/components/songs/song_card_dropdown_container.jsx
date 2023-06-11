@@ -9,10 +9,11 @@ import SongCardDropdown from "./song_card_dropdown";
 
 const mapStateToProps = (state, ownProps) => ({
     source: ownProps.source,
-    songId: ownProps.songId,
+    selectedSong: ownProps.selectedSong,
     history: ownProps.history,
+    params: ownProps.params,
     updateSongCardDropdownState: ownProps.updateSongCardDropdownState,
-    items: ownProps.items, // already contains current playlists
+    items: ownProps.items, // already contains current playlists from SongIndex
     depthLevel: ownProps.depthLevel,
 })
 

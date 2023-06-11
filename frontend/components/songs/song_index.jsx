@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import SongCard from "./song_card";
 import SongCardDropdownContainer from "./song_card_dropdown_container";
 
