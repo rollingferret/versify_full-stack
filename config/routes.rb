@@ -14,6 +14,11 @@ end
   root 'static_pages#root'
 end
 
+
+#config/routes.rb
+get '*path', to: "static_pages#frontend_index"
+
+
 #                    Prefix Verb   URI Pattern                                  Controller#Action
 #               api_session DELETE /api/session(.:format)                       api/sessions#destroy {:format=>:json}
 #                           POST   /api/session(.:format)                       api/sessions#create {:format=>:json}
