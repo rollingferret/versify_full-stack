@@ -10,8 +10,6 @@ const SongCardSubmenu = ({
 }) => {
 
     depthLevel += 1;
-    console.log("depthLevel in SongCardSubmenu", depthLevel)
-    console.log("submenus in SongCardSubmenu", submenus)
     const dropdownClass = depthLevel > 0 ? "dropdown-submenu" : "";
 
     return (
@@ -19,7 +17,6 @@ const SongCardSubmenu = ({
             data-dropdown
         >
             {submenus.map( (submenu, index) => {
-                const depthLevel = 0;
                 return <SongCardDropdownContainer 
                     key={`${index}+${depthLevel}+"subm"`}
                     items={submenu}

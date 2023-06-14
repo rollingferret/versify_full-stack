@@ -84,11 +84,12 @@
 }
 
 a.artist-link{
-    color: rgb(165, 157, 146);
+    color: white;
 }
 
 a.artist-link a:hover {
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .card-subtitle a:hover {

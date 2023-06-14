@@ -101,10 +101,10 @@ const SongIndex = ({
         </div>
     )
 
-    const depthLevel = 0;
+    // const depthLevel = 0;
     return <>
-        {songs.length > 0 ? songIndex : emptyPlaylist};
-        {songCardDropdownState.isOpen && <SongCardDropdownContainer 
+        {songs.length > 0 ? songIndex : emptyPlaylist}
+        {/* {songCardDropdownState.isOpen && <SongCardDropdownContainer 
                 source={source} 
                 selectedSong={selectedSong} 
                 history={history}
@@ -114,7 +114,7 @@ const SongIndex = ({
                 items={songCardDropdownItems}
                 depthLevel={depthLevel}
             />
-        }
+        } */}
     </>
 }
 
