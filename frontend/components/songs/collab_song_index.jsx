@@ -6,7 +6,6 @@ const CollabSongIndex = ({
     currentArtist,
     history,
 }) => {
-    console.log("SONGS", songs)
     return <div className="album-index">
     <div className="album-index-header">
         <h2>

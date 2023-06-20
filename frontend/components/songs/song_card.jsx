@@ -51,8 +51,6 @@ const SongCard = ({
     const toggleSongCardDropdown = (e) => {
         e.preventDefault();
         const result = e.target.getBoundingClientRect();
-        console.log(result)
-        console.log("selectedSong", song)
         updateSongCardDropdownState({ isOpen: !songCardDropdownState.isOpen });
         updateSelectedSong(song);
     }

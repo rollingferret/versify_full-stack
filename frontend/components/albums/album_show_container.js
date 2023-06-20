@@ -3,9 +3,6 @@ import { clearCurrent,
 } from "../../actions/playlist_actions";
 import { displayAlbum,
 } from "../../actions/album_actions";
-import { openAlbumNavDropdown,
-    closeAlbumNavDropdown,
-} from "../../actions/ui_actions";
 
 import AlbumShow from "./album_show";
 

@@ -45,8 +45,6 @@ const SongCardDropdown = ({
         e.preventDefault();
         keepParentMenuOpen(e);
         const result = e.target.getBoundingClientRect();
-        console.log(result);
-        console.log(selectedSong);
         setSubmenuState({ isOpen: !submenuState.isOpen });
     };
 
@@ -67,8 +65,6 @@ const SongCardDropdown = ({
 
     }
 
-    console.log("depthLevel in SongCardDropdown", depthLevel)
-    console.log("ITEMS in dropdown", items)
     return (
         <div className="song-card-dropdown" data-dropdown ref={dropdownRef}> 
             {items.map( (item, index) => (
@@ -101,7 +97,6 @@ const SongCardDropdown = ({
 
                         >
                             {item.title}{' '}
-                            {console.log("BUTTON THANG", item.title, "- index", index, "- depth level", depthLevel)}
                         </button>
                     </>)
                 )
