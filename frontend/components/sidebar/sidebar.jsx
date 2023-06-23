@@ -8,9 +8,9 @@ import {MdOutlineAddBox,
 } from 'react-icons/md';
 
 import PlaylistIndexContainer from '../playlists/playlist_index_container';
-import SideBarNavButton from './side_bar_nav_button'
+import SidebarNavButton from './sidebar_nav_button'
 
-const SideBar = (props) => {
+const Sidebar = (props) => {
     // console.log('SIDEBAR PROPS', props);
 
     const { createPlaylist,
@@ -42,19 +42,19 @@ const SideBar = (props) => {
         }
 
         return createPlaylist(defaultNewPlaylist)
-        .then( () => fetchPlaylists(currentUser.id))
-        .then( (actionObj) => history.push(`/playlist/${actionObj.playlists[0].id}`) )
+            .then( () => fetchPlaylists(currentUser.id))
+            .then( (actionObj) => history.push(`/playlist/${actionObj.playlists[0].id}`) )
     }
 
     return (
         <section className='sidebar-container'>
             <nav className="sidebar">
-                <SideBarNavButton history={history} 
+                <SidebarNavButton history={history} 
                     text='Home' 
                     icon={<AiFillHome />} 
                     url='home' 
                 />
-                {/* <SideBarNavButton history={history} text='Search' icon={<FaSearch />} url='search' /> */}
+                {/* <SidebarNavButton history={history} text='Search' icon={<FaSearch />} url='search' /> */}
                 <button className="sidebar-nav"
                     name='playlist'
                     onClick={handleSubmitCreate}>
@@ -73,4 +73,4 @@ const SideBar = (props) => {
     )
 }
 
-export default SideBar;
+export default Sidebar;

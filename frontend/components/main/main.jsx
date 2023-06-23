@@ -1,17 +1,15 @@
 import React, { useEffect } from "react";
 
 import NavBarMainContainer from "../nav_bar/nav_bar_main_container";
-import SideBarContainer from "../side_bar/side_bar_container";
+import SidebarContainer from "../sidebar/sidebar_container";
 import CurrentViewContainer from "./current_view_container";
 
 const Main = ({history,
     params,
     path,
-    currentPlaylist,
     currentUser,
     errors,
-    fetchPlaylists,
-    displayPlaylist,
+    clearPlaylistErrors,
 }) => {
 
     return (
@@ -20,7 +18,7 @@ const Main = ({history,
                 <NavBarMainContainer history={history} />
             </nav>
             
-            <SideBarContainer history={history}
+            <SidebarContainer history={history}
                 path={path}
                 currentUser={currentUser}
                 errors={errors}

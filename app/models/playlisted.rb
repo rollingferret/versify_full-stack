@@ -1,5 +1,5 @@
 class Playlisted < ApplicationRecord
-    after_create :update_playlist
+    after_commit :update_playlist
     validates :playlist_id, :song_id, presence: true
 
     belongs_to :playlist,

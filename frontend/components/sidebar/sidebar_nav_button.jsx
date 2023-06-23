@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SideBarNavButton = (props) => {
+const SidebarNavButton = (props) => {
     // eg. Home button, Search button
     const { text,
         icon,
@@ -8,7 +8,7 @@ const SideBarNavButton = (props) => {
         history,
     } = props;
 
-    console.log('SideBarNAVButtonPROPS', props);
+    console.log('SidebarNAVButtonPROPS', props);
 
     const clickToNavigate = (e) => {
         e.preventDefault();
@@ -24,4 +24,4 @@ const SideBarNavButton = (props) => {
     )
 }
 
-export default SideBarNavButton;
+export default SidebarNavButton;

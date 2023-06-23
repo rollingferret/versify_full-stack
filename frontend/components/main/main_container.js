@@ -1,15 +1,8 @@
 import { connect } from "react-redux";
 
-import { clearPlaylistErrors,
-    fetchPlaylists,
-    displayPlaylist,
-} from "../../actions/playlist_actions";
-
 import Main from './main'
 
-const mapStateToProps = ( {session, entities:{ users }, entities:{ playlists}, entities:{ currentItem }, errors}, ownProps ) => ({
-    currentPlaylist: currentItem,
-    playlists: Object.values(playlists),
+const mapStateToProps = ( {session, entities:{ users }, errors}, ownProps ) => ({
     currentUser: users[session.id],
     errors: errors,
     // matchObj is a prop passed down by AuthRoute. matchObj = {params, path, url} as keys
@@ -19,8 +12,6 @@ const mapStateToProps = ( {session, entities:{ users }, entities:{ playlists}, e
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    fetchPlaylists: () => dispatch(fetchPlaylists()),
-    displayPlaylist: (playlistId) => dispatch(displayPlaylist(playlistId)),
     clearPlaylistErrors: () => dispatch(clearPlaylistErrors()),
 })
 

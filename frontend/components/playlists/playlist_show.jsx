@@ -8,6 +8,7 @@ const PlaylistShow = ({
     currentPlaylist,
     params,
     history,
+    playlists,
     playlistSongs,
     currentUser,
     displayPlaylist,
@@ -29,7 +30,7 @@ const PlaylistShow = ({
         return () => clearCurrent();
     }, [params]);
 
-    return (
+    const playlistShow = title ? (
         <div className="playlist-show">
             <div className="playlist-header">
                 <PlaylistHeader title={title} description={description}
@@ -44,12 +45,15 @@ const PlaylistShow = ({
             </div>
                 <SongIndex
                     source="playlist" 
+                    playlists={playlists}
                     songs={playlistSongs} 
                     history={history}
                     params={params}
                 />
         </div>
-    )
+        ) : null;
+
+    return title ? playlistShow : null;
 }
 
 export default PlaylistShow;

@@ -11,14 +11,14 @@ const SongCard = ({
     index,
     songCardDropdownState,
     updateSongCardDropdownState,
-    updateSelectedSongId,
-    updatePlaylistedId,
+    updateSelectedSong,
 }) => {
 
     const {
         id,
         title,
         albumId,
+        album,
         mins,
         secs,
         playlistedId,
@@ -48,16 +48,15 @@ const SongCard = ({
             />
         </div>
 
-    const toggleSongCardDropdown = (event) => {
-        event.preventDefault();
-        if (songCardDropdownState.isOpen) {
-            updateSongCardDropdownState({ isOpen: false });
-        } else {
-            updateSongCardDropdownState({ isOpen: true });
-            updateSelectedSongId(id);
-            updatePlaylistedId(playlistedId);
-        }
+    const toggleSongCardDropdown = (e) => {
+        e.preventDefault();
+        const result = e.target.getBoundingClientRect();
+        console.log(result)
+        console.log("selectedSong", song)
+        updateSongCardDropdownState({ isOpen: !songCardDropdownState.isOpen });
+        updateSelectedSong(song);
     }
+    
 
     return ( 
         <div className="song-card">
@@ -72,6 +71,12 @@ const SongCard = ({
                     {collabArtistNames} {songArtistName}
                 </div>
             </div>
+            {source === "playlist" ? (
+                <div className="song-card-album">
+                    {album}
+                </div>
+                ) : null
+            }
             <div className="song-card-liked">
                 &hearts;
             </div>

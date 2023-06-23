@@ -1,24 +1,30 @@
 import { postPlaylisted,
     deletePlaylisted
 } from "../util/playlisteds_util";
-import { fetchPlaylists,
-    displayPlaylist,
+import { displayPlaylist, fetchPlaylists,
 } from "./playlist_actions";
 
 
 // Action types
-export const RECEIVE_NEW_PLAYLSITED = "RECEIVE_NEW_PLAYLSITED";
-export const REMOVE_PLAYLSITED = "REMOVE_PLAYLSITED";
+export const RECEIVE_NEW_PLAYLISTED = "RECEIVE_NEW_PLAYLISTED";
+export const REMOVE_PLAYLISTED = "REMOVE_PLAYLISTED";
+
+// Thunk Actions
+
 
 // Thunk Action creators
-export const createNewPlaylisted = ( songId, playlistId ) => {
-    postPlaylisted( songId, playlistId )
-        .then( playlisted => fetchPlaylists(),
+export const createNewPlaylisted = ( songId, playlistId ) => dispatch => {
+    return postPlaylisted( songId, playlistId )
+        .then( (playlistId) => dispatch( displayPlaylist(playlistId) ),
             err => (console.log(err)) 
         )
 }
 
-export const removePlaylisted = ( playlistedId ) => {
-    deletePlaylisted(playlistedId)
-        .then ( (playlisted) => displayPlaylist(playlisted.playlistId) );
-}
+export const removePlaylisted = (playlistedId) => dispatch => {
+    return deletePlaylisted(playlistedId)
+        .then ( (respObj) => {
+                dispatch( displayPlaylist(respObj.playlistId) );
+                dispatch( fetchPlaylists() );
+            }, err => (dispatch( receivePlaylistErrors(err.responseJSON) )) 
+        )
+};

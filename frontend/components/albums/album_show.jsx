@@ -26,12 +26,19 @@ const AlbumShow = ({
     const albumShow = (
         <div className="album-show">
             <div className="album-header">
-                <AlbumHeader album={currentAlbum} history={history} />
+                <AlbumHeader
+                    album={currentAlbum}
+                    history={history} 
+                />
             </div>
             <div className="album-nav">
                 <AlbumNav />
             </div>
-            <SongIndex source="album" songs={tracks} history={history}/>
+            <SongIndex
+                source="album"
+                songs={tracks}
+                history={history}
+            />
         </div>
     )
     return currentAlbum.albumPhotoUrl ? albumShow : null
