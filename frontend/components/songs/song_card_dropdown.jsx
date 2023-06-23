@@ -14,7 +14,7 @@ const SongCardDropdown = ({
     removePlaylisted,
     createNewPlaylisted,
  }) => {
-
+    console.log("selectedSong", selectedSong);
     // Set local state for SongCardSubmenu
      const [submenuState, setSubmenuState] = useState({ isOpen: false });
      let dropdownRef = useRef();
@@ -81,7 +81,7 @@ const SongCardDropdown = ({
                         >
                             {item.title}{' '}
                             {/* {depthLevel > 0 ? <span>&raquo;</span> : <span className="arrow" />} */}
-                            <span>&raquo;</span>
+                            <span key={`${index}+"&raquo"`}>&raquo;</span>
                         </button>
                         <SongCardSubmenu
                             key={`${index}+"subm"+${depthLevel}+${item.title}`}
@@ -101,7 +101,7 @@ const SongCardDropdown = ({
 
                         >
                             {item.title}{' '}
-                            {console.log("BUTTON THANG", item.title, "- index", index, "- depth level", depthLevel)}
+                            {/* {console.log("BUTTON THANG", item.title, "- index", index, "- depth level", depthLevel)} */}
                         </button>
                     </>)
                 )

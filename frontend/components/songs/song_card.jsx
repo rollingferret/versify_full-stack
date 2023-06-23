@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 import {RxDotsHorizontal,
 } from 'react-icons/rx';
@@ -12,6 +12,8 @@ const SongCard = ({
     songCardDropdownState,
     updateSongCardDropdownState,
     updateSelectedSong,
+    dropdownMenuPointer,
+    updateDropdownMenuPointer,
 }) => {
 
     const {
@@ -48,15 +50,25 @@ const SongCard = ({
             />
         </div>
 
-    const toggleSongCardDropdown = (e) => {
-        e.preventDefault();
+    // Setting up SongCardDropdown functionality per SongCard
+    const placeSongCardDropdown = (e) => {
         const result = e.target.getBoundingClientRect();
         console.log(result)
-        console.log("selectedSong", song)
-        updateSongCardDropdownState({ isOpen: !songCardDropdownState.isOpen });
+    }
+
+    const toggleSongCardDropdown = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (!songCardDropdownState.isOpen) {
+            updateSongCardDropdownState( {isOpen: true} );
+        } else if (dropdownMenuPointer === index) {
+            updateSongCardDropdownState( !songCardDropdownState.isOpen );
+        } else if (songCardDropdownState.isOpen && dropdownMenuPointer !== index) {
+            placeSongCardDropdown(e);
+        };
+        updateDropdownMenuPointer(index);
         updateSelectedSong(song);
     }
-    
 
     return ( 
         <div className="song-card">
@@ -83,7 +95,9 @@ const SongCard = ({
             <div className="song-card-duration">
                 {mins}:{secs}
             </div>
-            <div className="song-card-menu-dots" onClick={toggleSongCardDropdown}>
+            <div className="song-card-menu-dots" 
+                onClick={toggleSongCardDropdown}
+            >
                 <RxDotsHorizontal />
             </div>
         </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import SongCard from "./song_card";
 import SongCardDropdownContainer from "./song_card_dropdown_container";
 
@@ -15,6 +15,7 @@ const SongIndex = ({
     // Set local states for SongCardDropdownState and selectedSong
     const [songCardDropdownState, setSongCardDropdownState] = useState({ isOpen: false });
     const [selectedSong, setSelectedSong] = useState(null);
+    const [dropdownMenuPointer, setDropdownMenuPointer] = useState(null);
     
     // Updater functions for local states
     const updateSongCardDropdownState = (newState) => {
@@ -22,6 +23,9 @@ const SongIndex = ({
     };
     const updateSelectedSong = (newState) => {
         setSelectedSong(newState);
+    };
+    const updateDropdownMenuPointer = (newState) => {
+        setDropdownMenuPointer(newState);
     };
     
     useEffect( () => {
@@ -41,14 +45,14 @@ const SongIndex = ({
             {
                 title: "Add to playlist",
                 submenu: [playlists],
+                // Enclose array of playlists in an array since dropdown uses recursive .map function on items prop
             },
         ]
     } else if (source === "album") {
         songCardDropdownItems = [
             {
                 title: "Add to playlist",
-                submenu: [playlists], 
-                // Enclose array of playlists in an array since dropdown uses recursive .map function on items prop
+                submenu: [playlists],
             }
         ]
     };
@@ -88,6 +92,8 @@ const SongIndex = ({
                         songCardDropdownState={songCardDropdownState}
                         updateSongCardDropdownState={updateSongCardDropdownState}
                         updateSelectedSong={updateSelectedSong}
+                        dropdownMenuPointer={dropdownMenuPointer}
+                        updateDropdownMenuPointer={updateDropdownMenuPointer}
                     />
                 }))
                 : null
@@ -101,10 +107,10 @@ const SongIndex = ({
         </div>
     )
 
-    // const depthLevel = 0;
+    const depthLevel = 0;
     return <>
         {songs.length > 0 ? songIndex : emptyPlaylist}
-        {/* {songCardDropdownState.isOpen && <SongCardDropdownContainer 
+        {songCardDropdownState.isOpen && <SongCardDropdownContainer 
                 source={source} 
                 selectedSong={selectedSong} 
                 history={history}
@@ -114,7 +120,7 @@ const SongIndex = ({
                 items={songCardDropdownItems}
                 depthLevel={depthLevel}
             />
-        } */}
+        }
     </>
 }
 

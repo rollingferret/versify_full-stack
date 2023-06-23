@@ -15,6 +15,8 @@ const mapStateToProps = (state, ownProps) => ({
     updateSongCardDropdownState: ownProps.updateSongCardDropdownState,
     items: ownProps.items, // already contains current playlists from SongIndex
     depthLevel: ownProps.depthLevel,
+    updateSelectedIndex1: ownProps.updateSelectedIndex1,
+    updateSelectedIndex2: ownProps.updateSelectedIndex2,
 })
 
 const mapDispatchToProps = (dispatch) => ({
