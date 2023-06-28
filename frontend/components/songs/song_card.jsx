@@ -35,7 +35,7 @@ const SongCard = ({
                 artist={artist} 
                 currentArtist={null} 
                 history={history}
-            />, 
+            />,&nbsp;
         </div>
     })
 
@@ -68,7 +68,7 @@ const SongCard = ({
                     {title}
                 </div>
                 <div className="song-card-artist">
-                    {collabArtistNames} {songArtistName}
+                    {collabArtistNames}{songArtistName}
                 </div>
             </div>
             {source === "playlist" ? (
