@@ -30,7 +30,7 @@ const PlaylistShow = ({
         return () => clearCurrent();
     }, [params]);
 
-    const playlistShow = title ? (
+    return (
         <div className="playlist-show">
             <div className="playlist-header">
                 <PlaylistHeader title={title} description={description}
@@ -51,9 +51,7 @@ const PlaylistShow = ({
                     params={params}
                 />
         </div>
-        ) : null;
-
-    return title ? playlistShow : null;
+    )
 }
 
 export default PlaylistShow;
