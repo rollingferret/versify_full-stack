@@ -1,6 +1,6 @@
 # <img width="49" alt="image" src="https://user-images.githubusercontent.com/102888592/187043189-5d690638-97ce-4580-a360-7c34b6282f56.png"> Versify
 
-## Versify [(Heroku)](https://versify-idm-402fcc1678c6.herokuapp.com/#/) is a clone of the Spotify web client but with a darker and starry undertone.
+## [Versify](https://versify-idm-402fcc1678c6.herokuapp.com/#/) is a clone of the Spotify web client but with a darker and starry undertone.
 ### Versify provides a very similar user experience to Spotify online, with a focus on Afropop and R&B genres.
 
 ![ezgif com-video-to-gif](https://github.com/imartinez921/versify_full-stack/assets/102888592/5d069a21-1f36-4b04-b3b4-3479d0d6455d)
