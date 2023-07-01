@@ -96,25 +96,38 @@ songs_data = [
     { title: "Time Flies (feat. Sauti Sol)", album_id: 9, tracknum: 11, duration: 224, audio_url: "https://versify-dev.s3.amazonaws.com/audio/time-flies.mp3", album_image_url: "https://versify-dev.s3.amazonaws.com/images/albums/twice-as-tall.jpeg"},
     { title: "Ginger (feat. Burna Boy)", album_id: 8, tracknum: 2, duration: 196, audio_url: "https://versify-dev.s3.amazonaws.com/audio/ginger.mp3", album_image_url: "https://versify-dev.s3.amazonaws.com/images/albums/made-in-lagos.jpeg"},
     { title: "calm & patient", album_id: 10, tracknum: 1, duration: 213, audio_url: "https://versify-dev.s3.amazonaws.com/audio/calm-and-patient.mp3", album_image_url: "https://versify-dev.s3.amazonaws.com/images/albums/calm-and-patient-art.jpeg"}
-  ]
-  
-  songs_data.each do |song_data|
+]
+
+songs_data.each do |song_data|
     Song.create(song_data)
-  end
+end
 
 
-  collabs = [
-    {song_id: 1, artist_id: 2},
-    {song_id: 2, artist_id: 3},
-    {song_id: 3, artist_id: 4},
-    {song_id: 3, artist_id: 5},
-    {song_id: 6, artist_id: 6},
-    {song_id: 7, artist_id: 8},
-    {song_id: 11, artist_id: 10},
-    {song_id: 12, artist_id: 3},
-    {song_id: 13, artist_id: 11},
-  ]
+collabs = [
+{song_id: 1, artist_id: 2},
+{song_id: 2, artist_id: 3},
+{song_id: 3, artist_id: 4},
+{song_id: 3, artist_id: 5},
+{song_id: 6, artist_id: 6},
+{song_id: 7, artist_id: 8},
+{song_id: 11, artist_id: 10},
+{song_id: 12, artist_id: 3},
+{song_id: 13, artist_id: 11},
+]
 
-    collabs.each do |collab|
-        Collab.create(collab)
+collabs.each do |collab|
+    Collab.create(collab)
+end
+
+
+
+# Seed Playlists
+totalSongIds = songs_data.length
+(1..3).each do |i| # Three playlists seeded to start
+    (1..11).each do
+        songId = rand(1..totalSongIds)
+        playlistId = i
+        Playlisted.create(song_id: songId, playlist_id: playlistId)
     end
+    i += 1
+end
