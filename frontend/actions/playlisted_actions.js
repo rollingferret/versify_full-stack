@@ -15,9 +15,10 @@ export const REMOVE_PLAYLISTED = "REMOVE_PLAYLISTED";
 // Thunk Action creators
 export const createNewPlaylisted = ( songId, playlistId ) => dispatch => {
     return postPlaylisted( songId, playlistId )
-        .then( (playlistId) => dispatch( displayPlaylist(playlistId) ),
-            err => (console.log(err)) 
-        )
+        .then( (respObj) => {
+            dispatch( fetchPlaylists() );
+        }, err => (console.log(err)
+        ))
 }
 
 export const removePlaylisted = (playlistedId) => dispatch => {
