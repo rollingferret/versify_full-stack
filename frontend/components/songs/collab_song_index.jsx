@@ -3,10 +3,10 @@ import CollabCard from "./collab_card";
 
 const CollabSongIndex = ({
     songs,
-    currentArtist,
     history,
+    currentArtist,
 }) => {
-    console.log("SONGS", songs)
+
     return <div className="album-index">
     <div className="album-index-header">
         <h2>
@@ -15,7 +15,12 @@ const CollabSongIndex = ({
     </div>
     <div className="album-index-grid">
         {songs.map( song => (
-            <CollabCard key={`${song.id}+${song.title}`} song={song} currentArtist={currentArtist} history={history}/>
+            <CollabCard
+                key={`${song.id}+${song.title}`}
+                song={song}
+                history={history}
+                currentArtist={currentArtist}
+            />
         ))}
     </div>
 </div>
