@@ -14,8 +14,6 @@ const mapStateToProps = (state, ownProps) => ({
     playlists: state.entities.playlists,
     source: ownProps.source,
     selectedSong: ownProps.selectedSong,
-    history: ownProps.history,
-    params: ownProps.params,
     updateSongCardDropdownState: ownProps.updateSongCardDropdownState,
     items: ownProps.items, // already contains current playlists from SongIndex
     depthLevel: ownProps.depthLevel,
