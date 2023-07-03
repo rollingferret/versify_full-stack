@@ -29,10 +29,10 @@ const CollabSongCard = ({
     }
 
     return (
-        <div className="card album-card"
-            onClick={handleClick}
-        >
-            <div className="album-card-art">
+        <div className="card album-card">
+            <div className="album-card-art"
+                onClick={handleClick}
+            >
                 <img src={albumImageUrl} alt="" />
             </div>
             <div className="card-title">
