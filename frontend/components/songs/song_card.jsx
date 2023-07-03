@@ -31,26 +31,32 @@ const SongCard = ({
 
     let tracknum = (source === "album") ? song.tracknum : index+1;
 
-    const collabArtistNames = collabArtists.map(artist => {
-        return <div className="artist-name" key={`${artist.name}+"collab"+${artist.id}`}>
-            <ArtistLinkContainer 
-                artist={artist} 
-                currentArtist={null} 
+    const collabArtistNames = collabArtists.map((artist) => (
+        <div className="artist-name"
+            key={`${artist.name}+"collab"+${artist.id}`}
+        >
+            <ArtistLinkContainer
+                artist={artist}
+                currentArtist={null}
                 history={history}
-            />,&nbsp;
+            />
+            ,&nbsp;
         </div>
-    })
+    ));
 
-    const songArtistName = <div className="artist-name" 
-        key={`${songArtist.name}+"track"+${songArtist.id}+${tracknum}`}>
-            <ArtistLinkContainer 
-                artist={songArtist} 
-                currentArtist={null} 
+    const songArtistName = (
+        <div className="artist-name"
+            key={`${songArtist.name}+"track"+${songArtist.id}+${tracknum}`}
+        >
+            <ArtistLinkContainer
+                artist={songArtist}
+                currentArtist={null}
                 history={history}
             />
         </div>
+    );
 
-    // Setting up SongCardDropdown functionality per SongCard
+    // Relocate SongCardDropdown depending on location of SongCard
     const placeSongCardDropdown = (e) => {
         const result = e.target.getBoundingClientRect();
         console.log(result)
@@ -61,9 +67,9 @@ const SongCard = ({
         e.stopPropagation();
         if (!songCardDropdownState.isOpen) {
             updateSongCardDropdownState( {isOpen: true} );
-        } else if (dropdownMenuPointer === index) {
+        } else if (dropdownMenuPointer === index) { // if user had clicked on the same SongCard, toggle dropdown
             updateSongCardDropdownState( !songCardDropdownState.isOpen );
-        } else if (songCardDropdownState.isOpen && dropdownMenuPointer !== index) {
+        } else if (songCardDropdownState.isOpen && dropdownMenuPointer !== index) { // if user had clicked on a different SongCard, relocate the dropdown
             placeSongCardDropdown(e);
         };
         updateDropdownMenuPointer(index);
