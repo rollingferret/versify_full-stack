@@ -52,6 +52,7 @@ const ArtistShow = (
                     <CollabSongIndex 
                         songs={collabSongs}
                         history={history}
+                        displayAlbum={displayAlbum}
                         currentArtist={currentArtist}
                     />
                     : null
