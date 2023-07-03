@@ -41,11 +41,20 @@ const ArtistShow = (
                 {/* <div className="song-index">
                 </div> */}
                 {albums.length > 0 ?
-                    <AlbumIndex albums={albums} history={history} displayAlbum={displayAlbum}/>
+                    <AlbumIndex
+                        albums={albums}
+                        history={history}
+                        displayAlbum={displayAlbum}
+                    />
                     : null
                 }
                 {collabSongs.length > 0 ?
-                    <CollabSongIndex songs={collabSongs} history={history} currentArtist={currentArtist}/>
+                    <CollabSongIndex 
+                        songs={collabSongs}
+                        history={history}
+                        displayAlbum={displayAlbum}
+                        currentArtist={currentArtist}
+                    />
                     : null
                 }
             </div>
