@@ -35,7 +35,9 @@ const CollabSongCard = ({
             >
                 <img src={albumImageUrl} alt="" />
             </div>
-            <div className="card-title">
+            <div className="card-title"
+                onClick={handleClick}
+            >
                 {title}
             </div>
             <div className="card-subtitle">
