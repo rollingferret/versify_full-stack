@@ -51,7 +51,11 @@ const SongCardDropdown = ({
     };
 
     return (
-        <div className="song-card-dropdown" data-dropdown ref={dropdownRef}>
+        <div id="song-card-dropdown" 
+            className="song-card-dropdown"
+            data-dropdown 
+            ref={dropdownRef}
+        >
             {items.map((item, index) =>
                 item.submenu ? (
                     // If a submenu exists, create button for submenu title and pass submenu to SongCardSubmenu
