@@ -86,7 +86,6 @@ const SongCardDropdown = ({
                         key={`${selectedSong.playlistedId}+${item.title}+${depthLevel}+"no-subm"`}
                         currentItem={currentItem}
                         playlists={playlists}
-                        source={source}
                         item={item}
                         index={index}
                         depthLevel={depthLevel}
