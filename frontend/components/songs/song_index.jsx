@@ -94,6 +94,14 @@ const SongIndex = ({
     const {clickLocation, setClickLocation} = useState({x: 0, y: 0});
     const {dropdownPosition, setDropdownPosition} = useState({x: 0, y: 0});
 
+    // Updater functions for local states
+    const updateClickLocation = (newState) => {
+        setClickLocation(newState);
+    };
+    const updateDropdownPosition = (newState) => {
+        setDropdownPosition(newState);
+    };
+
     const placeSongCardDropdown = (e) => {
         // const clickLocation = e.target.getBoundingClientRect();
         // const dropdownRect = document.getElementById('song-card-dropdown');
@@ -112,6 +120,8 @@ const SongIndex = ({
                 selectedSong={selectedSong}
                 songCardDropdownState={songCardDropdownState}
                 updateSongCardDropdownState={updateSongCardDropdownState}
+                updateClickLocation={updateClickLocation}
+                updateDropdownPosition={updateDropdownPosition}
                 items={songCardDropdownItems}
                 depthLevel={depthLevel}
             />

@@ -10,6 +10,8 @@ const SongCardDropdown = ({
     source,
     selectedSong,
     updateSongCardDropdownState,
+    updateClickLocation,
+    updateDropdownPosition,
     items,
     depthLevel,
     removePlaylisted,
@@ -47,7 +49,6 @@ const SongCardDropdown = ({
         y= result.y;
         console.log(result);
         setSubmenuState({ isOpen: !submenuState.isOpen });
-        console.log(x, y)
     };
 
     return (
