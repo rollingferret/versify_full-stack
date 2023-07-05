@@ -5,11 +5,12 @@ import SongCardDropdownContainer from "./song_card_dropdown_container";
 
 
 const SongIndex = ({
-    source,
     playlists,
     songs,
     history,
     params,
+    source,
+    songCardDropdownItems,
 }) => {
     
     // Set local states for SongCardDropdownState and selectedSong
@@ -90,19 +91,7 @@ const SongIndex = ({
     )
 
     // Set up SongCard dropdown menu options depending on source
-    let songCardDropdownItems;
-    if (source === "playlist") {
-        songCardDropdownItems = [
-            {
-                title: "Remove from this playlist"
-            }, 
-            {
-                title: "Add to playlist",
-                submenu: [playlists],
-                // Enclose array of playlists in an array since dropdown uses recursive .map function on items prop
-            },
-        ]
-    } else if (source === "album") {
+    if (source === "album") {
         songCardDropdownItems = [
             {
                 title: "Add to playlist",

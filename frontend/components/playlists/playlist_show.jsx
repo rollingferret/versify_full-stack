@@ -10,6 +10,8 @@ const PlaylistShow = ({
     history,
     playlists,
     playlistSongs,
+    source,
+    songCardDropdownItems,
     currentUser,
     displayPlaylist,
     clearCurrent,
@@ -44,11 +46,12 @@ const PlaylistShow = ({
                 /> 
             </div>
                 <SongIndex
-                    source="playlist" 
                     playlists={playlists}
                     songs={playlistSongs} 
                     history={history}
                     params={params}
+                    source={source}
+                    songCardDropdownItems={songCardDropdownItems}
                 />
         </div>
         ) : null;
