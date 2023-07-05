@@ -9,14 +9,23 @@ import { openAlbumNavDropdown,
 
 import AlbumShow from "./album_show";
 
-const mapStateToProps = (state, ownProps) => {
-
+const mapStateToProps = ({
+    entities: { currentItem, songs, playlists } // from state
+}, { params, history, currentUser // from ownProps
+}) => {
     return {
-    currentAlbum: state.entities.currentItem,
-    tracks: state.entities.songs,
-    params: ownProps.params,
-    history: ownProps.history,
-    currentUser: ownProps.currentUser,
+    currentAlbum: currentItem,
+    tracks: songs,
+    params: params,
+    history: history,
+    currentUser: currentUser,
+    source: "album",
+    songCardDropdownItems: [
+        {
+            title: "Add to playlist",
+            submenu: [playlists],
+        }
+    ],
 }}
 
 const mapDispatchToProps = dispatch => ({

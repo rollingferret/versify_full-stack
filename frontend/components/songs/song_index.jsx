@@ -90,16 +90,6 @@ const SongIndex = ({
         </div>
     )
 
-    // Set up SongCard dropdown menu options depending on source
-    if (source === "album") {
-        songCardDropdownItems = [
-            {
-                title: "Add to playlist",
-                submenu: [playlists],
-            }
-        ]
-    };
-
     // Relocate SongCardDropdown depending on location of SongCard
     const {clickLocation, setClickLocation} = useState({x: 0, y: 0});
     const {dropdownPosition, setDropdownPosition} = useState({x: 0, y: 0});
