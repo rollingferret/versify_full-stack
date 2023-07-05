@@ -15,6 +15,7 @@ const SongIndex = ({
     // Set local states for SongCardDropdownState and selectedSong
     const [songCardDropdownState, setSongCardDropdownState] = useState({ isOpen: false });
     const [selectedSong, setSelectedSong] = useState(null);
+    // Set local state to remember which SongCard was clicked
     const [dropdownMenuPointer, setDropdownMenuPointer] = useState(null);
     
     // Updater functions for local states
@@ -28,34 +29,14 @@ const SongIndex = ({
         setDropdownMenuPointer(newState);
     };
     
+    // Dropdowns must be closed and null selectedSong when SongIndex is first rendered
     useEffect( () => {
-        setSongCardDropdownState({ isOpen: false }) // upon first mount
+        setSongCardDropdownState({ isOpen: false })
         return () => {
             setSelectedSong(null);
             setSongCardDropdownState({ isOpen: false });
         }
     }, [params]);
-
-    let songCardDropdownItems;
-    if (source === "playlist") {
-        songCardDropdownItems = [
-            {
-                title: "Remove from this playlist"
-            }, 
-            {
-                title: "Add to playlist",
-                submenu: [playlists],
-                // Enclose array of playlists in an array since dropdown uses recursive .map function on items prop
-            },
-        ]
-    } else if (source === "album") {
-        songCardDropdownItems = [
-            {
-                title: "Add to playlist",
-                submenu: [playlists],
-            }
-        ]
-    };
 
     const songIndex = (
         <div className={`song-index`+" " +source}>
@@ -90,9 +71,10 @@ const SongIndex = ({
                         history={history}
                         index={index}
                         songCardDropdownState={songCardDropdownState}
+                        dropdownMenuPointer={dropdownMenuPointer}
+                        placeSongCardDropdown={placeSongCardDropdown}
                         updateSongCardDropdownState={updateSongCardDropdownState}
                         updateSelectedSong={updateSelectedSong}
-                        dropdownMenuPointer={dropdownMenuPointer}
                         updateDropdownMenuPointer={updateDropdownMenuPointer}
                     />
                 }))
@@ -106,6 +88,42 @@ const SongIndex = ({
             <h3>Add some songs to your playlist!</h3>
         </div>
     )
+
+    // Set up SongCard dropdown menu options depending on source
+    let songCardDropdownItems;
+    if (source === "playlist") {
+        songCardDropdownItems = [
+            {
+                title: "Remove from this playlist"
+            }, 
+            {
+                title: "Add to playlist",
+                submenu: [playlists],
+                // Enclose array of playlists in an array since dropdown uses recursive .map function on items prop
+            },
+        ]
+    } else if (source === "album") {
+        songCardDropdownItems = [
+            {
+                title: "Add to playlist",
+                submenu: [playlists],
+            }
+        ]
+    };
+
+    // Relocate SongCardDropdown depending on location of SongCard
+    const {clickLocation, setClickLocation} = useState({x: 0, y: 0});
+    const {dropdownPosition, setDropdownPosition} = useState({x: 0, y: 0});
+
+    const placeSongCardDropdown = (e) => {
+        // const clickLocation = e.target.getBoundingClientRect();
+        // const dropdownRect = document.getElementById('song-card-dropdown');
+        // setDropdownPosition({x: clickLocation.x, y: clickLocation.y});
+        // if (dropdownPosition.x > clickLocation.x){
+        //     setDropdownPosition({x: (dropdownPosition.x -= clickLocation.x), y: dropdownPosition.y});
+        // }
+        console.log("PLACED")
+    }
 
     const depthLevel = 0;
     return <>

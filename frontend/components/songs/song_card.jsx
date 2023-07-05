@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 import {RxDotsHorizontal,
 } from 'react-icons/rx';
@@ -9,10 +9,12 @@ const SongCard = ({
     song,
     history,
     index,
+    selectedSong,
     songCardDropdownState,
+    dropdownMenuPointer,
+    placeSongCardDropdown,
     updateSongCardDropdownState,
     updateSelectedSong,
-    dropdownMenuPointer,
     updateDropdownMenuPointer,
 }) => {
 
@@ -29,6 +31,7 @@ const SongCard = ({
         audioUrl,
     } = song;
 
+    // Set up song info for display
     let tracknum = (source === "album") ? song.tracknum : index+1;
 
     const collabArtistNames = collabArtists.map((artist) => (
@@ -56,15 +59,12 @@ const SongCard = ({
         </div>
     );
 
-    // Relocate SongCardDropdown depending on location of SongCard
-    const placeSongCardDropdown = (e) => {
-        const result = e.target.getBoundingClientRect();
-        console.log(result)
-    }
-
     const toggleSongCardDropdown = (e) => {
+        console.log("SONG", song)
         e.preventDefault();
         e.stopPropagation();
+        updateSelectedSong(song);
+        console.log("selectedSong",selectedSong)
         if (!songCardDropdownState.isOpen) {
             updateSongCardDropdownState( {isOpen: true} );
         } else if (dropdownMenuPointer === index) { // if user had clicked on the same SongCard, toggle dropdown
