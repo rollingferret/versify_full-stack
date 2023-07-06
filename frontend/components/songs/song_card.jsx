@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 import {RxDotsHorizontal,
 } from 'react-icons/rx';
@@ -10,8 +10,12 @@ const SongCard = ({
     history,
     index,
     songCardDropdownState,
+    dropdownMenuPointer,
+    placeSongCardDropdown,
     updateSongCardDropdownState,
     updateSelectedSong,
+    updateDropdownMenuPointer,
+    dropdownPosition,
 }) => {
 
     const {
@@ -27,36 +31,50 @@ const SongCard = ({
         audioUrl,
     } = song;
 
+    // Set up song info for display
     let tracknum = (source === "album") ? song.tracknum : index+1;
 
-    const collabArtistNames = collabArtists.map(artist => {
-        return <div className="artist-name" key={`${artist.name}+"collab"+${artist.id}`}>
-            <ArtistLinkContainer 
-                artist={artist} 
-                currentArtist={null} 
+    const collabArtistNames = collabArtists.map((artist) => (
+        <div className="artist-name"
+            key={`${artist.name}+"collab"+${artist.id}`}
+        >
+            <ArtistLinkContainer
+                artist={artist}
+                currentArtist={null}
                 history={history}
-            />,&nbsp;
+            />
+            ,&nbsp;
         </div>
-    })
+    ));
 
-    const songArtistName = <div className="artist-name" 
-        key={`${songArtist.name}+"track"+${songArtist.id}+${tracknum}`}>
-            <ArtistLinkContainer 
-                artist={songArtist} 
-                currentArtist={null} 
+    const songArtistName = (
+        <div className="artist-name"
+            key={`${songArtist.name}+"track"+${songArtist.id}+${tracknum}`}
+        >
+            <ArtistLinkContainer
+                artist={songArtist}
+                currentArtist={null}
                 history={history}
             />
         </div>
+    );
 
     const toggleSongCardDropdown = (e) => {
         e.preventDefault();
-        const result = e.target.getBoundingClientRect();
-        console.log(result)
-        console.log("selectedSong", song)
-        updateSongCardDropdownState({ isOpen: !songCardDropdownState.isOpen });
+        updateSelectedSong(song);
+        if (!songCardDropdownState.isOpen) {
+            placeSongCardDropdown(e);
+            updateSongCardDropdownState( {isOpen: true} );
+        } else if (dropdownMenuPointer === index) { // if user had clicked on the same SongCard, toggle dropdown
+            updateSongCardDropdownState( !songCardDropdownState.isOpen );
+        } else if (songCardDropdownState.isOpen && dropdownMenuPointer !== index) { // if user had clicked on a different SongCard, relocate the dropdown
+            updateSongCardDropdownState( {isOpen: false} );
+            placeSongCardDropdown(e);
+            updateSongCardDropdownState( {isOpen: true} );
+        };
+        updateDropdownMenuPointer(index);
         updateSelectedSong(song);
     }
-    
 
     return ( 
         <div className="song-card">
@@ -71,19 +89,18 @@ const SongCard = ({
                     {collabArtistNames}{songArtistName}
                 </div>
             </div>
-            {source === "playlist" ? (
-                <div className="song-card-album">
-                    {album}
-                </div>
-                ) : null
-            }
+            <div className="song-card-album">
+                {source === "playlist" ? `${album}` : null}
+            </div>
             <div className="song-card-liked">
                 &hearts;
             </div>
             <div className="song-card-duration">
                 {mins}:{secs}
             </div>
-            <div className="song-card-menu-dots" onClick={toggleSongCardDropdown}>
+            <div className="song-card-menu-dots" 
+                onClick={toggleSongCardDropdown}
+            >
                 <RxDotsHorizontal />
             </div>
         </div>

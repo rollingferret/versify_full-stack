@@ -30,12 +30,12 @@ export const fetchPlaylists = () => dispatch => (
 
 export const createPlaylist = (defaultPlaylist) => dispatch => 
 {   
-    // debugger
-    return (
-    postPlaylist(defaultPlaylist)
-        .then( defaultPlaylist => dispatch( receiveCurrentPlaylist(defaultPlaylist) ),
-        err => (dispatch( receivePlaylistErrors(err.responseJSON) )))
-)};
+    return postPlaylist(defaultPlaylist)
+        .then( (respObj) => {
+            dispatch( fetchPlaylists() );
+            return respObj.playlist.id;
+        }, err => (dispatch( receivePlaylistErrors(err.responseJSON) )))
+};
 
 export const displayPlaylist = (playlistId) => dispatch => 
 {   
@@ -51,7 +51,6 @@ export const editPlaylist = (playlist, playlistId) => dispatch => {
     return (patchPlaylist(playlist, playlistId)
         .then( playlist => {
                 dispatch( receiveCurrentPlaylist(playlist) );
-                dispatch( fetchPlaylists() );
             }, err => (dispatch( receivePlaylistErrors(err.responseJSON) ))))
 };
 

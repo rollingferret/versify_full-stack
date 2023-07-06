@@ -7,10 +7,12 @@ import SongIndex from "../songs/song_index";
 const PlaylistShow = ({ 
     currentPlaylist,
     params,
+    currentUser,
     history,
     playlists,
     playlistSongs,
-    currentUser,
+    source,
+    songCardDropdownItems,
     displayPlaylist,
     clearCurrent,
     ... props
@@ -44,11 +46,13 @@ const PlaylistShow = ({
                 /> 
             </div>
                 <SongIndex
-                    source="playlist" 
+                    currentUser={currentUser}
                     playlists={playlists}
                     songs={playlistSongs} 
                     history={history}
                     params={params}
+                    source={source}
+                    songCardDropdownItems={songCardDropdownItems}
                 />
         </div>
         ) : null;

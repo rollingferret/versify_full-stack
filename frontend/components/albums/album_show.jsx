@@ -7,11 +7,13 @@ import SongIndex from "../songs/song_index";
 const AlbumShow = ({
     currentAlbum,
     tracks,
-    displayAlbum,
-    clearCurrent,
     params,
     history,
     currentUser,
+    source,
+    songCardDropdownItems,
+    displayAlbum,
+    clearCurrent,
 }) => {
 
     useEffect( () => {
@@ -35,9 +37,11 @@ const AlbumShow = ({
                 <AlbumNav />
             </div>
             <SongIndex
-                source="album"
+                currentUser={currentUser}
                 songs={tracks}
                 history={history}
+                source={source}
+                songCardDropdownItems={songCardDropdownItems}
             />
         </div>
     )
