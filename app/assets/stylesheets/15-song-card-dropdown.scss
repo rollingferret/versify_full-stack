@@ -6,12 +6,12 @@
     height: auto;
     padding: 3px;
     background-color: #282828;
-    position: absolute;
+    position: fixed;
     color: white;
     border-radius: 4px;
     box-shadow: 0 16px 24px rgba(0, 0, 0, 0.3), 0 6px 8px rgba(0, 0, 0, 0.2);
-    left: 300px;
-    top: 300px;
+    // left: 300px; // for testing purposes only
+    // top: 300px;
 }
 
 button.song-card-dropdown-item { // copy of .playlist-dropdown-button
@@ -34,10 +34,8 @@ button.song-card-dropdown-item:hover {
 
 .dropdown-submenu {
     display: none;
-    position: absolute;
-    top: 500px;
-    left: 100px;
-    width: auto;
+    // // top: 500px; // for testing purposes only
+    // // left: 100px;
 }
 
 
