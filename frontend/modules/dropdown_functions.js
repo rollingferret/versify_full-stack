@@ -8,3 +8,12 @@ export const isInViewport = (ele) => {
 
     );
 }
+// Explain isInViewport line by line
+export const moveWithinViewport = (left, top, right, bottom) => {
+    let nextLeft, nextTop, nextRight, nextBottom;
+    if (top < 0) nextTop = Math.abs(top);
+    if (left < 0) nextLeft = Math.abs(left);
+    if (right > window.innerWidth) nextRight = window.innerWidth - right;
+    if (bottom > window.innerHeight) nextBottom = window.innerHeight - bottom;
+    return { nextLeft, nextTop, nextRight, nextBottom };
+}

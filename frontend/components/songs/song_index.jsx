@@ -46,13 +46,9 @@ const SongIndex = ({
     )
 
     // Relocate SongCardDropdown depending on location of SongCard
-    const [clickLocation, setClickLocation] = useState({x: 0, y: 0});
     const [dropdownPosition, setDropdownPosition] = useState({left: null, top: null});
 
     // Updater functions for local states
-    const updateClickLocation = (newState) => {
-        setClickLocation(newState);
-    };
     const updateDropdownPosition = (newState) => {
         setDropdownPosition(newState);
     };
@@ -61,10 +57,8 @@ const SongIndex = ({
     let y;
     const placeSongCardDropdown = (e) => {
         const clickedEleBounds = e.target.getBoundingClientRect();
-        x = clickedEleBounds.right; // Place dropdown at bottom-left of SongCard
+        x = clickedEleBounds.left; // Place dropdown at bottom-left of SongCard
         y = clickedEleBounds.top;
-        console.log(clickedEleBounds)
-        console.log("PLACED", x,", ", y)
         setDropdownPosition({left: x, top: y});
     }
 

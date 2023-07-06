@@ -18,7 +18,6 @@ const SongCardDropdown = ({
     createNewPlaylisted,
     displayPlaylist,
 }) => {
-    console.log("RENDERED");
 
     // Set local state for SongCardSubmenu
     let dropdownRef = useRef();
@@ -45,13 +44,21 @@ const SongCardDropdown = ({
 
     // Relocate dropdown when SongCard changes
     useEffect(() => {
-        console.log("SHIFTED");
     }, [dropdownPosition]);
 
     const toggleSubmenuAndPlaceDropdown = (e) => {
         e.preventDefault();
         setSubmenuState({ isOpen: !submenuState.isOpen });
     };
+
+    let depthStyling;
+    if (depthLevel > 0) {
+        depthStyling = {
+            maxHeight: '250px',
+            overflowY: 'scroll',
+            width: '250px',
+        }
+    }
 
     return (
         <div 
@@ -60,9 +67,9 @@ const SongCardDropdown = ({
             data-dropdown
             ref={dropdownRef}
             style={{
-                position: 'fixed',
-                left: `calc(${dropdownPosition.left}px - 175px)`,
+                left: `${dropdownPosition.left}px`,
                 top: `${dropdownPosition.top}px`,
+                ...depthStyling
             }}
         >
             {items.map((item, index) =>
@@ -94,13 +101,12 @@ const SongCardDropdown = ({
                     </>
                 ) : (
                     <SongCardDropdownItem // Else, create just a button
-                        key={`${selectedSong.playlistedId}+${item.title}+${depthLevel}+"no-subm"`}
+                        key={`${selectedSong.playlistedId}+${item.id}+${depthLevel}+"no-subm"`}
                         currentItem={currentItem}
                         playlists={playlists}
+                        index={index}
                         selectedSong={selectedSong}
-                        updateSongCardDropdownState={
-                            updateSongCardDropdownState
-                        }
+                        updateSongCardDropdownState={updateSongCardDropdownState}
                         item={item}
                         depthLevel={depthLevel}
                         dropdownPosition={dropdownPosition}
