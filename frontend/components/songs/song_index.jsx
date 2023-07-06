@@ -5,6 +5,7 @@ import SongCardDropdownContainer from "./song_card_dropdown_container";
 
 
 const SongIndex = ({
+    currentUser,
     playlists,
     songs,
     history,
@@ -112,6 +113,7 @@ const SongIndex = ({
     return <>
         {songs.length > 0 ? songIndex : emptyPlaylist}
         {songCardDropdownState.isOpen && <SongCardDropdownContainer 
+                currentUser={currentUser}
                 source={source} 
                 selectedSong={selectedSong}
                 songCardDropdownState={songCardDropdownState}

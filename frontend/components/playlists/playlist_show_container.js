@@ -17,9 +17,10 @@ const mapStateToProps = ({
     ui, entities: { currentItem, playlists, songs} // from state
     }, { params, history, currentUser, // from ownProps
 }) => {
-    return ({
+    return {
         currentPlaylist: currentItem,
         params: params,
+        currentUser: currentUser,
         history: history,
         playlists: playlists,
         playlistSongs: songs,
@@ -27,18 +28,24 @@ const mapStateToProps = ({
         playlistNavDropdownState: ui.playlistNavDropdown,
         playlistEditModalState: ui.playlistEditModal,
         source: "playlist",
-        songCardDropdownItems: 
-            [
-                {
-                    title: "Remove from this playlist"
-                }, 
-                {
-                    title: "Add to playlist",
-                    submenu: [playlists],
+        songCardDropdownItems: [
+            {
+                title: "Remove from this playlist",
+            },
+            {
+                title: "Add to playlist",
+                submenu: [
+                    [
+                        { 
+                            title: "Create new playlist"
+                        },
+                        ...playlists,
                     // Enclose array of playlists in an array since dropdown uses recursive .map function on items prop
-                },
-            ],
-    })
+                    ]
+                ],
+            },
+        ],
+    };
 }
 
 const mapDispatchToProps = (dispatch) => ({

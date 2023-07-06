@@ -3,20 +3,32 @@ import React from "react";
 const SongCardDropdownItem = ({
     currentItem,
     playlists,
-    item,
+    currentUser,
     index,
-    depthLevel,
     selectedSong,
+    updateSongCardDropdownState,
+    item,
+    depthLevel,
     removePlaylisted,
     createNewPlaylisted,
-    updateSongCardDropdownState,
+    createPlaylist,
     displayPlaylist,
 }) => {
-
+    
     const runSongAction = (e) => {
         if (e.target.innerText === "Remove from this playlist") {
             updateSongCardDropdownState({ isOpen: false });
             return removePlaylisted(selectedSong.playlistedId);
+
+        } else if (e.target.innerText === "Create new playlist") {
+            updateSongCardDropdownState({ isOpen: false });
+            const newPlaylist = {
+                title: `${selectedSong.title}`,
+                description: 'Please add a description',
+                user_id: currentUser.id,
+            };
+            createPlaylist(newPlaylist)
+                // .then(createNewPlaylisted)
         } else if (depthLevel === 1) {
             updateSongCardDropdownState({ isOpen: false });
             let playlist = playlists[index];

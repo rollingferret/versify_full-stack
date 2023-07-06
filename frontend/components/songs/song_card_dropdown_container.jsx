@@ -5,7 +5,8 @@ import { isInViewport } from "../../modules/dropdown_functions";
 import { removePlaylisted,
     createNewPlaylisted,
 } from "../../actions/playlisted_actions";
-import { displayPlaylist,
+import { createPlaylist,
+    displayPlaylist,
 } from "../../actions/playlist_actions";
 
 import SongCardDropdown from "./song_card_dropdown";
@@ -19,6 +20,7 @@ const mapStateToProps = (state, ownProps) => {
     return ({
         currentItem: state.entities.currentItem,
         playlists: state.entities.playlists,
+        currentUser: ownProps.currentUser,
         source: ownProps.source,
         selectedSong: ownProps.selectedSong,
         updateSongCardDropdownState: ownProps.updateSongCardDropdownState,
@@ -32,6 +34,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => ({
     removePlaylisted: (playlistedId) => dispatch( removePlaylisted(playlistedId) ),
     createNewPlaylisted: ( songId, playlistId) => dispatch( createNewPlaylisted(songId, playlistId) ),
+    createPlaylist: (playlist) => dispatch( createPlaylist(playlist) ),
     displayPlaylist: (playlistId) => dispatch( displayPlaylist(playlistId) ),
 })
 

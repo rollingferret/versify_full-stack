@@ -7,6 +7,7 @@ import SongCardDropdownItem from "./song_card_dropdown_item";
 const SongCardDropdown = ({
     currentItem,
     playlists,
+    currentUser,
     source,
     selectedSong,
     updateSongCardDropdownState,
@@ -16,6 +17,7 @@ const SongCardDropdown = ({
     dropdownPosition,
     removePlaylisted,
     createNewPlaylisted,
+    createPlaylist,
     displayPlaylist,
 }) => {
 
@@ -59,7 +61,7 @@ const SongCardDropdown = ({
             width: '250px',
         }
     }
-
+    debugger;
     return (
         <div 
             // id="song-card-dropdown"
@@ -89,14 +91,13 @@ const SongCardDropdown = ({
                         <SongCardSubmenu
                             key={`${selectedSong.playlistedId}+${depthLevel}+${item.title}+"subm"`}
                             source={source}
+                            currentUser={currentUser}
                             selectedSong={selectedSong}
                             submenus={item.submenu}
                             submenuState={submenuState}
                             depthLevel={depthLevel}
                             dropdownPosition={dropdownPosition}
-                            updateSongCardDropdownState={
-                                updateSongCardDropdownState
-                            }
+                            updateSongCardDropdownState={updateSongCardDropdownState}
                         />
                     </>
                 ) : (
@@ -104,7 +105,8 @@ const SongCardDropdown = ({
                         key={`${selectedSong.playlistedId}+${item.id}+${depthLevel}+"no-subm"`}
                         currentItem={currentItem}
                         playlists={playlists}
-                        index={index}
+                        currentUser={currentUser}
+                        index={index+1} // +1 to account for create new playlist button
                         selectedSong={selectedSong}
                         updateSongCardDropdownState={updateSongCardDropdownState}
                         item={item}
@@ -112,6 +114,7 @@ const SongCardDropdown = ({
                         dropdownPosition={dropdownPosition}
                         removePlaylisted={removePlaylisted}
                         createNewPlaylisted={createNewPlaylisted}
+                        createPlaylist={createPlaylist}
                         displayPlaylist={displayPlaylist}
                     />
                 )
