@@ -72,12 +72,9 @@ const SongIndex = ({
                 <div className="song-index-heading-title">
                     Title
                 </div>
-                {source === "playlist" ? (
-                    <div className="song-index-heading-album">
-                        Album
-                    </div>
-                    ) : null
-                }
+                <div className="song-index-heading-album">
+                {source === "playlist" ? "Album" : null}
+                </div>
                 <div className="song-index-heading-liked">
                     &#128153;
                 </div>

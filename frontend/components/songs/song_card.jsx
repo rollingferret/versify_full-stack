@@ -89,12 +89,9 @@ const SongCard = ({
                     {collabArtistNames}{songArtistName}
                 </div>
             </div>
-            {source === "playlist" ? (
-                <div className="song-card-album">
-                    {album}
-                </div>
-                ) : null
-            }
+            <div className="song-card-album">
+                {source === "playlist" ? `${album}` : null}
+            </div>
             <div className="song-card-liked">
                 &hearts;
             </div>
