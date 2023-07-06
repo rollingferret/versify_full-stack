@@ -28,7 +28,7 @@ const SongCardDropdownItem = ({
                 user_id: currentUser.id,
             };
             createPlaylist(newPlaylist)
-                // .then(createNewPlaylisted)
+                .then( playlistId => createNewPlaylisted(selectedSong.id, playlistId));
         } else if (depthLevel === 1) {
             updateSongCardDropdownState({ isOpen: false });
             let playlist = playlists[index];

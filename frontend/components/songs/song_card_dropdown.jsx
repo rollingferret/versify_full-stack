@@ -61,7 +61,7 @@ const SongCardDropdown = ({
             width: '250px',
         }
     }
-    debugger;
+
     return (
         <div 
             // id="song-card-dropdown"
@@ -106,7 +106,7 @@ const SongCardDropdown = ({
                         currentItem={currentItem}
                         playlists={playlists}
                         currentUser={currentUser}
-                        index={index+1} // +1 to account for create new playlist button
+                        index={index}
                         selectedSong={selectedSong}
                         updateSongCardDropdownState={updateSongCardDropdownState}
                         item={item}
