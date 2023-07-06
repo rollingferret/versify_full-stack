@@ -37,10 +37,11 @@ const AlbumShow = ({
                 <AlbumNav />
             </div>
             <SongIndex
-                source={source}
-                songCardDropdownItems={songCardDropdownItems}
+                currentUser={currentUser}
                 songs={tracks}
                 history={history}
+                source={source}
+                songCardDropdownItems={songCardDropdownItems}
             />
         </div>
     )

@@ -32,7 +32,6 @@ export const createPlaylist = (defaultPlaylist) => dispatch =>
 {   
     return postPlaylist(defaultPlaylist)
         .then( (respObj) => {
-            dispatch( displayPlaylist(respObj.playlist.id) );
             dispatch( fetchPlaylists() );
             return respObj.playlist.id;
         }, err => (dispatch( receivePlaylistErrors(err.responseJSON) )))

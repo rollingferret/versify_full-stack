@@ -4,6 +4,7 @@ const SongCardDropdownItem = ({
     currentItem,
     playlists,
     currentUser,
+    history,
     index,
     selectedSong,
     updateSongCardDropdownState,
@@ -28,14 +29,14 @@ const SongCardDropdownItem = ({
                 user_id: currentUser.id,
             };
             createPlaylist(newPlaylist)
-                .then( playlistId => createNewPlaylisted(selectedSong.id, playlistId));
+                .then( (playlistId) => createNewPlaylisted(selectedSong.id, playlistId))
+                .then( (playlistId) => history.push(`/playlist/${playlistId}`));
         } else if (depthLevel === 1) {
             updateSongCardDropdownState({ isOpen: false });
             let playlist = playlists[index];
             createNewPlaylisted(selectedSong.id, playlist.id)
-                .then( () => {
-                    if (playlist.id === currentItem.id) displayPlaylist(playlist.id);
-            });
+                .then( (playlistId) => history.push(`/playlist/${playlistId}`)
+            );
         }
         // } else if (e.target.innerText === "Add to queue") {
         //     updateSubmenuState({ isOpen: false });

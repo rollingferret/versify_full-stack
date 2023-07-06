@@ -4,6 +4,7 @@ import SongCardDropdownContainer from "./song_card_dropdown_container";
 
 const SongCardSubmenu = ({
     source,
+    history,
     currentUser,
     selectedSong,
     submenus,
@@ -24,6 +25,7 @@ const SongCardSubmenu = ({
                 return <SongCardDropdownContainer 
                     key={`${index}+${depthLevel}+"subm"`}
                     source={source}
+                    history={history}
                     currentUser={currentUser}
                     selectedSong={selectedSong}
                     items={submenu}

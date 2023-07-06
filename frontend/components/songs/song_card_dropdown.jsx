@@ -9,6 +9,7 @@ const SongCardDropdown = ({
     playlists,
     currentUser,
     source,
+    history,
     selectedSong,
     updateSongCardDropdownState,
     updateDropdownPosition,
@@ -91,6 +92,7 @@ const SongCardDropdown = ({
                         <SongCardSubmenu
                             key={`${selectedSong.playlistedId}+${depthLevel}+${item.title}+"subm"`}
                             source={source}
+                            history={history}
                             currentUser={currentUser}
                             selectedSong={selectedSong}
                             submenus={item.submenu}
@@ -105,6 +107,7 @@ const SongCardDropdown = ({
                         key={`${selectedSong.playlistedId}+${item.id}+${depthLevel}+"no-subm"`}
                         currentItem={currentItem}
                         playlists={playlists}
+                        history={history}
                         currentUser={currentUser}
                         index={index}
                         selectedSong={selectedSong}
