@@ -9,13 +9,13 @@ const SongCard = ({
     song,
     history,
     index,
-    selectedSong,
     songCardDropdownState,
     dropdownMenuPointer,
     placeSongCardDropdown,
     updateSongCardDropdownState,
     updateSelectedSong,
     updateDropdownMenuPointer,
+    dropdownPosition,
 }) => {
 
     const {
@@ -60,17 +60,20 @@ const SongCard = ({
     );
 
     const toggleSongCardDropdown = (e) => {
-        console.log("SONG", song)
         e.preventDefault();
-        e.stopPropagation();
         updateSelectedSong(song);
-        console.log("selectedSong",selectedSong)
         if (!songCardDropdownState.isOpen) {
+            console.log(dropdownMenuPointer, " VS ", index)
+            placeSongCardDropdown(e);
             updateSongCardDropdownState( {isOpen: true} );
         } else if (dropdownMenuPointer === index) { // if user had clicked on the same SongCard, toggle dropdown
+            console.log(dropdownMenuPointer, " VS ", index)
             updateSongCardDropdownState( !songCardDropdownState.isOpen );
         } else if (songCardDropdownState.isOpen && dropdownMenuPointer !== index) { // if user had clicked on a different SongCard, relocate the dropdown
+            console.log(dropdownMenuPointer, " VS ", index)
+            updateSongCardDropdownState( {isOpen: false} );
             placeSongCardDropdown(e);
+            updateSongCardDropdownState( {isOpen: true} );
         };
         updateDropdownMenuPointer(index);
         updateSelectedSong(song);

@@ -39,6 +39,35 @@ const SongIndex = ({
         }
     }, [params]);
 
+    const emptyPlaylist = (
+        <div className="song-index song-index-empty">
+            <h3>Add some songs to your playlist!</h3>
+        </div>
+    )
+
+    // Relocate SongCardDropdown depending on location of SongCard
+    const [clickLocation, setClickLocation] = useState({x: 0, y: 0});
+    const [dropdownPosition, setDropdownPosition] = useState({left: null, top: null});
+
+    // Updater functions for local states
+    const updateClickLocation = (newState) => {
+        setClickLocation(newState);
+    };
+    const updateDropdownPosition = (newState) => {
+        setDropdownPosition(newState);
+    };
+
+    let x;
+    let y;
+    const placeSongCardDropdown = (e) => {
+        const clickedEleBounds = e.target.getBoundingClientRect();
+        x = clickedEleBounds.right; // Place dropdown at bottom-left of SongCard
+        y = clickedEleBounds.top;
+        console.log(clickedEleBounds)
+        console.log("PLACED", x,", ", y)
+        setDropdownPosition({left: x, top: y});
+    }
+
     const songIndex = (
         <div className={`song-index`+" " +source}>
             <div className="song-index-headings">
@@ -72,45 +101,18 @@ const SongIndex = ({
                         history={history}
                         index={index}
                         songCardDropdownState={songCardDropdownState}
-                        dropdownMenuPointer={dropdownMenuPointer}
                         placeSongCardDropdown={placeSongCardDropdown}
                         updateSongCardDropdownState={updateSongCardDropdownState}
                         updateSelectedSong={updateSelectedSong}
                         updateDropdownMenuPointer={updateDropdownMenuPointer}
+                        dropdownPosition={dropdownPosition}
+                        dropdownMenuPointer={dropdownMenuPointer}
                     />
                 }))
                 : null
             }
         </div>    
     )
-
-    const emptyPlaylist = (
-        <div className="song-index song-index-empty">
-            <h3>Add some songs to your playlist!</h3>
-        </div>
-    )
-
-    // Relocate SongCardDropdown depending on location of SongCard
-    const {clickLocation, setClickLocation} = useState({x: 0, y: 0});
-    const {dropdownPosition, setDropdownPosition} = useState({x: 0, y: 0});
-
-    // Updater functions for local states
-    const updateClickLocation = (newState) => {
-        setClickLocation(newState);
-    };
-    const updateDropdownPosition = (newState) => {
-        setDropdownPosition(newState);
-    };
-
-    const placeSongCardDropdown = (e) => {
-        // const clickLocation = e.target.getBoundingClientRect();
-        // const dropdownRect = document.getElementById('song-card-dropdown');
-        // setDropdownPosition({x: clickLocation.x, y: clickLocation.y});
-        // if (dropdownPosition.x > clickLocation.x){
-        //     setDropdownPosition({x: (dropdownPosition.x -= clickLocation.x), y: dropdownPosition.y});
-        // }
-        console.log("PLACED")
-    }
 
     const depthLevel = 0;
     return <>
@@ -120,10 +122,11 @@ const SongIndex = ({
                 selectedSong={selectedSong}
                 songCardDropdownState={songCardDropdownState}
                 updateSongCardDropdownState={updateSongCardDropdownState}
-                updateClickLocation={updateClickLocation}
                 updateDropdownPosition={updateDropdownPosition}
                 items={songCardDropdownItems}
                 depthLevel={depthLevel}
+                dropdownPosition={dropdownPosition}
+                dropdownMenuPointer={dropdownMenuPointer}
             />
         }
     </>

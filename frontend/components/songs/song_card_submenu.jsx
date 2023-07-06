@@ -3,12 +3,10 @@ import SongCardDropdownContainer from "./song_card_dropdown_container";
 
 
 const SongCardSubmenu = ({
-    source,
-    selectedSong,
-    submenus,
-    submenuState,
     depthLevel,
-    updateSongCardDropdownState,
+    submenuState,
+    submenus,
+    ...props
 }) => {
 
     depthLevel += 1;
@@ -21,11 +19,10 @@ const SongCardSubmenu = ({
             {submenus.map( (submenu, index) => {
                 return <SongCardDropdownContainer 
                     key={`${index}+${depthLevel}+"subm"`}
-                    source={source}
-                    selectedSong={selectedSong}
                     items={submenu}
                     depthLevel={depthLevel}
-                    updateSongCardDropdownState={updateSongCardDropdownState}
+                    submenuState={submenuState}
+                    {...props}
                 />
             })}
         </ul>

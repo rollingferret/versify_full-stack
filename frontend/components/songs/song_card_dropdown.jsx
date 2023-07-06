@@ -10,14 +10,15 @@ const SongCardDropdown = ({
     source,
     selectedSong,
     updateSongCardDropdownState,
-    updateClickLocation,
     updateDropdownPosition,
     items,
     depthLevel,
+    dropdownPosition,
     removePlaylisted,
     createNewPlaylisted,
     displayPlaylist,
- }) => {
+}) => {
+    console.log("RENDERED");
 
     // Set local state for SongCardSubmenu
     let dropdownRef = useRef();
@@ -26,7 +27,9 @@ const SongCardDropdown = ({
     // Add event listeners when menu is open; remove when menu is closed
     useEffect(() => {
         const handler = (event) => {
-            if (submenuState.isOpen && dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+            if (
+                submenuState.isOpen && dropdownRef.current && !dropdownRef.current.contains(event.target)
+            ) {
                 updateSongCardDropdownState({ isOpen: false });
                 setSubmenuState({ isOpen: false });
             }
@@ -39,23 +42,28 @@ const SongCardDropdown = ({
             document.removeEventListener("touchstart", handler);
         };
     }, [submenuState]);
-    
-    let x;
-    let y;
-    const toggleSubmenu = (e) => {
+
+    // Relocate dropdown when SongCard changes
+    useEffect(() => {
+        console.log("SHIFTED");
+    }, [dropdownPosition]);
+
+    const toggleSubmenuAndPlaceDropdown = (e) => {
         e.preventDefault();
-        const result = e.target.getBoundingClientRect();
-        x= result.x;
-        y= result.y;
-        console.log(result);
         setSubmenuState({ isOpen: !submenuState.isOpen });
     };
 
     return (
-        <div id="song-card-dropdown" 
-            className="song-card-dropdown"
-            data-dropdown 
+        <div 
+            // id="song-card-dropdown"
+            className="song-card-dropdown dropdown-item"
+            data-dropdown
             ref={dropdownRef}
+            style={{
+                position: 'fixed',
+                left: `calc(${dropdownPosition.left}px - 175px)`,
+                top: `${dropdownPosition.top}px`,
+            }}
         >
             {items.map((item, index) =>
                 item.submenu ? (
@@ -64,12 +72,10 @@ const SongCardDropdown = ({
                         <button
                             className="song-card-dropdown-item"
                             key={`${selectedSong.playlistedId}+${depthLevel}+${item.title}+"btn"`}
-                            onClick={toggleSubmenu}
+                            onClick={toggleSubmenuAndPlaceDropdown}
                         >
                             {item.title}{" "}
-                            <span
-                                key={`${selectedSong.playlistedId}`}
-                            >
+                            <span key={`${selectedSong.playlistedId}`}>
                                 &raquo;
                             </span>
                         </button>
@@ -80,26 +86,32 @@ const SongCardDropdown = ({
                             submenus={item.submenu}
                             submenuState={submenuState}
                             depthLevel={depthLevel}
-                            updateSongCardDropdownState={updateSongCardDropdownState}
+                            dropdownPosition={dropdownPosition}
+                            updateSongCardDropdownState={
+                                updateSongCardDropdownState
+                            }
                         />
                     </>
-                ) : (<SongCardDropdownItem // Else, create just a button
+                ) : (
+                    <SongCardDropdownItem // Else, create just a button
                         key={`${selectedSong.playlistedId}+${item.title}+${depthLevel}+"no-subm"`}
                         currentItem={currentItem}
                         playlists={playlists}
-                        item={item}
-                        index={index}
-                        depthLevel={depthLevel}
                         selectedSong={selectedSong}
+                        updateSongCardDropdownState={
+                            updateSongCardDropdownState
+                        }
+                        item={item}
+                        depthLevel={depthLevel}
+                        dropdownPosition={dropdownPosition}
                         removePlaylisted={removePlaylisted}
                         createNewPlaylisted={createNewPlaylisted}
-                        updateSongCardDropdownState={updateSongCardDropdownState}
                         displayPlaylist={displayPlaylist}
                     />
                 )
             )}
         </div>
     );
-}
+};
 
 export default SongCardDropdown;
