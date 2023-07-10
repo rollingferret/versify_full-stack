@@ -8,7 +8,6 @@ const SongCardDropdown = ({
     currentItem,
     playlists,
     currentUser,
-    source,
     history,
     selectedSong,
     updateSongCardDropdownState,
@@ -91,7 +90,6 @@ const SongCardDropdown = ({
                         </button>
                         <SongCardSubmenu
                             key={`${selectedSong.playlistedId}+${depthLevel}+${item.title}+"subm"`}
-                            source={source}
                             history={history}
                             currentUser={currentUser}
                             selectedSong={selectedSong}

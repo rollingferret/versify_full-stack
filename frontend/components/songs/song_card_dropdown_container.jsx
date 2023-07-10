@@ -21,7 +21,6 @@ const mapStateToProps = (state, ownProps) => {
         currentItem: state.entities.currentItem,
         playlists: state.entities.playlists,
         currentUser: ownProps.currentUser,
-        source: ownProps.source,
         history: ownProps.history,
         selectedSong: ownProps.selectedSong,
         updateSongCardDropdownState: ownProps.updateSongCardDropdownState,
