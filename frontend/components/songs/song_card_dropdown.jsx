@@ -44,10 +44,6 @@ const SongCardDropdown = ({
         };
     }, [submenuState]);
 
-    // Relocate dropdown when SongCard changes
-    useEffect(() => {
-    }, [dropdownPosition]);
-
     const toggleSubmenuAndPlaceDropdown = (e) => {
         e.preventDefault();
         setSubmenuState({ isOpen: !submenuState.isOpen });
@@ -64,7 +60,6 @@ const SongCardDropdown = ({
 
     return (
         <div 
-            // id="song-card-dropdown"
             className="song-card-dropdown dropdown-item"
             data-dropdown
             ref={dropdownRef}
