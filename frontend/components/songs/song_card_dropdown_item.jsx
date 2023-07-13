@@ -34,8 +34,7 @@ const SongCardDropdownItem = ({
             updateSongCardDropdownState({ isOpen: false });
             let playlist = playlists[index];
             createNewPlaylisted(selectedSong.id, playlist.id)
-                .then(
-                (playlistId) => history.push(`/playlist/${playlistId}`)
+                .then((playlistId) => history.push(`/playlist/${playlistId}`)
             );
         }
         // } else if (e.target.innerText === "Add to queue") {
