@@ -7,7 +7,7 @@ import SongIndex from "../songs/song_index";
 const AlbumShow = ({
     currentAlbum,
     tracks,
-    params,
+    urlParams,
     history,
     currentUser,
     source,
@@ -17,13 +17,13 @@ const AlbumShow = ({
 }) => {
 
     useEffect( () => {
-        displayAlbum(params.id);
+        displayAlbum(urlParams.id);
         
         const rendered = document.getElementById("album-show");
         rendered ? rendered.scrollTo(0, 0) : null;
 
         return () => clearCurrent();
-    }, [params]); // Will run whenever params.id changes, otherwise ArtistShow doesn't re-render
+    }, [urlParams]); // Will run whenever urlParams.id changes, otherwise ArtistShow doesn't re-render
 
     const albumShow = (
         <div className="album-show">

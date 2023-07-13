@@ -19,7 +19,7 @@ const mapStateToProps = ({
 }) => {
     return {
         currentPlaylist: currentItem,
-        params: params,
+        urlParams: params,
         currentUser: currentUser,
         history: history,
         playlists: playlists,
