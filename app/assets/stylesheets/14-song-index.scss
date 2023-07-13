@@ -37,6 +37,10 @@
     margin: 5px 0px;
 }
 
+.song-card:hover {
+    background-color: rgba(255, 255, 255, .15);
+}
+
 .song-index-heading-tracknum, .song-card-tracknum {
     width: 25px;
 }
