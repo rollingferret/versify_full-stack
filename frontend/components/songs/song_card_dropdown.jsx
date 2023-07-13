@@ -3,16 +3,13 @@ import React, { useState, useEffect, useRef } from "react";
 import SongCardSubmenu from "./song_card_submenu";
 import SongCardDropdownItem from "./song_card_dropdown_item";
 
-
 const SongCardDropdown = ({
     currentItem,
     playlists,
     currentUser,
-    source,
     history,
     selectedSong,
     updateSongCardDropdownState,
-    updateDropdownPosition,
     items,
     depthLevel,
     dropdownPosition,
@@ -21,7 +18,6 @@ const SongCardDropdown = ({
     createPlaylist,
     displayPlaylist,
 }) => {
-
     // Set local state for SongCardSubmenu
     let dropdownRef = useRef();
     const [submenuState, setSubmenuState] = useState({ isOpen: false });
@@ -30,7 +26,9 @@ const SongCardDropdown = ({
     useEffect(() => {
         const handler = (event) => {
             if (
-                submenuState.isOpen && dropdownRef.current && !dropdownRef.current.contains(event.target)
+                submenuState.isOpen &&
+                dropdownRef.current &&
+                !dropdownRef.current.contains(event.target)
             ) {
                 updateSongCardDropdownState({ isOpen: false });
                 setSubmenuState({ isOpen: false });
@@ -45,10 +43,6 @@ const SongCardDropdown = ({
         };
     }, [submenuState]);
 
-    // Relocate dropdown when SongCard changes
-    useEffect(() => {
-    }, [dropdownPosition]);
-
     const toggleSubmenuAndPlaceDropdown = (e) => {
         e.preventDefault();
         setSubmenuState({ isOpen: !submenuState.isOpen });
@@ -57,22 +51,21 @@ const SongCardDropdown = ({
     let depthStyling;
     if (depthLevel > 0) {
         depthStyling = {
-            maxHeight: '250px',
-            overflowY: 'scroll',
-            width: '250px',
-        }
+            maxHeight: "250px",
+            overflowY: "scroll",
+            width: "250px",
+        };
     }
 
     return (
-        <div 
-            // id="song-card-dropdown"
+        <div
             className="song-card-dropdown dropdown-item"
             data-dropdown
             ref={dropdownRef}
             style={{
                 left: `${dropdownPosition.left}px`,
                 top: `${dropdownPosition.top}px`,
-                ...depthStyling
+                ...depthStyling,
             }}
         >
             {items.map((item, index) =>
@@ -91,7 +84,6 @@ const SongCardDropdown = ({
                         </button>
                         <SongCardSubmenu
                             key={`${selectedSong.playlistedId}+${depthLevel}+${item.title}+"subm"`}
-                            source={source}
                             history={history}
                             currentUser={currentUser}
                             selectedSong={selectedSong}
@@ -99,7 +91,9 @@ const SongCardDropdown = ({
                             submenuState={submenuState}
                             depthLevel={depthLevel}
                             dropdownPosition={dropdownPosition}
-                            updateSongCardDropdownState={updateSongCardDropdownState}
+                            updateSongCardDropdownState={
+                                updateSongCardDropdownState
+                            }
                         />
                     </>
                 ) : (
@@ -109,9 +103,11 @@ const SongCardDropdown = ({
                         playlists={playlists}
                         history={history}
                         currentUser={currentUser}
-                        index={index-1} // Since the first item is "Create new playlist"
+                        index={index - 1} // Since the first item is "Create new playlist"
                         selectedSong={selectedSong}
-                        updateSongCardDropdownState={updateSongCardDropdownState}
+                        updateSongCardDropdownState={
+                            updateSongCardDropdownState
+                        }
                         item={item}
                         depthLevel={depthLevel}
                         dropdownPosition={dropdownPosition}
