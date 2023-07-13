@@ -33,7 +33,8 @@ const SongCardDropdownItem = ({
         } else if (depthLevel === 1) {
             updateSongCardDropdownState({ isOpen: false });
             let playlist = playlists[index];
-            createNewPlaylisted(selectedSong.id, playlist.id).then(
+            createNewPlaylisted(selectedSong.id, playlist.id)
+                .then(
                 (playlistId) => history.push(`/playlist/${playlistId}`)
             );
         }
