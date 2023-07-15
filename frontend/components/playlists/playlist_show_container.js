@@ -44,7 +44,7 @@ const mapStateToProps = (
                             title: "Create new playlist",
                         },
                         ...playlists,
-                        // Enclose array of playlists in an array since 
+                        // Enclose array of playlists in an array since
                         // dropdown uses recursive .map function on items prop
                     ],
                 ],
