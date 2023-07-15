@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
-import { displayPlaylist,
+import {
+    displayPlaylist,
     editPlaylist,
     destroyPlaylist,
 } from "../../actions/playlist_actions";
@@ -7,20 +8,20 @@ import { displayPlaylist,
 import CurrentView from "./current_view";
 
 const mapStateToProps = (state, ownProps) => {
-    return ({
+    return {
         currentUser: ownProps.currentUser,
         params: ownProps.params, // matchObj = {params, path, url} as keys
         path: ownProps.path,
         history: ownProps.history,
-    })
-}
+    };
+};
 
 const mapDispatchToProps = (dispatch) => {
-    return ({
+    return {
         displayPlaylist: () => dispatch(displayPlaylist()),
         editPlaylist: () => dispatch(editPlaylist()),
         destroyPlaylist: () => dispatch(destroyPlaylist()),
-    })
-}
+    };
+};
 
-export default connect (mapStateToProps, mapDispatchToProps)(CurrentView);
+export default connect(mapStateToProps, mapDispatchToProps)(CurrentView);
