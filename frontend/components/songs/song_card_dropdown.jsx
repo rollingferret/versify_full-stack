@@ -1,14 +1,15 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, forwardRef } from "react";
 
 import SongCardSubmenu from "./song_card_submenu";
 import SongCardDropdownItem from "./song_card_dropdown_item";
 
-const SongCardDropdown = ({
+const SongCardDropdown = forwardRef(({
     currentItem,
     playlists,
     currentUser,
     history,
     selectedSong,
+    songCardDropdownState,
     updateSongCardDropdownState,
     items,
     depthLevel,
@@ -17,31 +18,31 @@ const SongCardDropdown = ({
     createNewPlaylisted,
     createPlaylist,
     displayPlaylist,
-}) => {
+}, ref) => {
     // Set local state for SongCardSubmenu
-    let dropdownRef = useRef();
+
     const [submenuState, setSubmenuState] = useState({ isOpen: false });
 
     // Add event listeners when menu is open; remove when menu is closed
     useEffect(() => {
-        const handler = (event) => {
+        const whenMenuIsOpen = (event) => {
             if (
-                submenuState.isOpen &&
-                dropdownRef.current &&
-                !dropdownRef.current.contains(event.target)
+                songCardDropdownState.isOpen &&
+                ref?.current &&
+                !ref?.current?.contains(event.target)
             ) {
                 updateSongCardDropdownState({ isOpen: false });
                 setSubmenuState({ isOpen: false });
             }
         };
-        document.addEventListener("mousedown", handler);
-        document.addEventListener("touchstart", handler);
+        document.addEventListener("mousedown", whenMenuIsOpen);
+        document.addEventListener("touchstart", whenMenuIsOpen);
         return () => {
             // Cleanup the event listener when component unmounts
-            document.removeEventListener("mousedown", handler);
-            document.removeEventListener("touchstart", handler);
+            document.removeEventListener("mousedown", whenMenuIsOpen);
+            document.removeEventListener("touchstart", whenMenuIsOpen);
         };
-    }, [submenuState]);
+    }, [songCardDropdownState]);
 
     const toggleSubmenuAndPlaceDropdown = (e) => {
         e.preventDefault();
@@ -61,7 +62,7 @@ const SongCardDropdown = ({
         <div
             className="song-card-dropdown dropdown-item"
             data-dropdown
-            ref={dropdownRef}
+            ref={ref}
             style={{
                 left: `${dropdownPosition.left}px`,
                 top: `${dropdownPosition.top}px`,
@@ -87,6 +88,7 @@ const SongCardDropdown = ({
                             history={history}
                             currentUser={currentUser}
                             selectedSong={selectedSong}
+                            songCardDropdownState={songCardDropdownState}
                             submenus={item.submenu}
                             submenuState={submenuState}
                             depthLevel={depthLevel}
@@ -120,6 +122,6 @@ const SongCardDropdown = ({
             )}
         </div>
     );
-};
+})
 
 export default SongCardDropdown;

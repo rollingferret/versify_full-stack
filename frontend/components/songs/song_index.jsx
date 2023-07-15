@@ -104,7 +104,8 @@ const SongIndex = ({
             }
         </div>    
     )
-
+    
+    let dropdownRef = useRef();
     const depthLevel = 0;
     return <>
         {songs.length > 0 ? songIndex : emptyPlaylist}
@@ -112,6 +113,7 @@ const SongIndex = ({
                 currentUser={currentUser}
                 history={history}
                 selectedSong={selectedSong}
+                ref={dropdownRef}
                 songCardDropdownState={songCardDropdownState}
                 updateSongCardDropdownState={updateSongCardDropdownState}
                 updateDropdownPosition={updateDropdownPosition}
