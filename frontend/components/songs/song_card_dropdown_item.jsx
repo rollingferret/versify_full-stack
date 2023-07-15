@@ -5,7 +5,7 @@ const SongCardDropdownItem = ({
     playlists,
     currentUser,
     history,
-    index,
+    selectedIndex,
     selectedSong,
     updateSongCardDropdownState,
     item,
@@ -13,6 +13,7 @@ const SongCardDropdownItem = ({
     removePlaylisted,
     createNewPlaylisted,
     createPlaylist,
+    displayPlaylist,
 }) => {
     const runSongAction = (e) => {
         if (e.target.innerText === "Remove from this playlist") {
@@ -32,9 +33,13 @@ const SongCardDropdownItem = ({
                 .then((playlistId) => history.push(`/playlist/${playlistId}`));
         } else if (depthLevel === 1) {
             updateSongCardDropdownState({ isOpen: false });
-            let playlist = playlists[index];
-            createNewPlaylisted(selectedSong.id, playlist.id)
-                .then((playlistId) => history.push(`/playlist/${playlistId}`)
+            let selectedPlaylist = playlists[selectedIndex];
+            createNewPlaylisted(selectedSong.id, selectedPlaylist.id).then(
+                (selectedPlaylistId) => {
+                    if (currentItem.id === selectedPlaylistId) {
+                        displayPlaylist(selectedPlaylistId);
+                    }
+                }
             );
         }
         // } else if (e.target.innerText === "Add to queue") {
