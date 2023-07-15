@@ -38,16 +38,15 @@ const SongIndex = ({
         return () => {
             setSelectedSong(null);
             setSongCardDropdownState({ isOpen: false });
-        }
+        };
     }, [params]);
-    
+
     if (currentViewRef && currentViewRef.current) {
         if (songCardDropdownState.isOpen) {
             // Prevent PlaylistShow from scrolling when dropdown is open
-                currentViewRef.current.style.overflowY = "hidden";
-            }
-        else {
-                currentViewRef.current.style.overflowY = "auto";
+            currentViewRef.current.style.overflowY = "hidden";
+        } else {
+            currentViewRef.current.style.overflowY = "auto";
         }
     }
 
@@ -88,45 +87,53 @@ const SongIndex = ({
                 <div className="song-index-heading-duration">&#9201;</div>
                 <div className="song-index-heading-menu"></div>
             </div>
-            {songs.length > 0 ? 
-                (songs.map( (song, index) => {
-                    return <SongCard
-                        key={`${source} + ${song.id} + ${index}`} 
-                        source={source}
-                        song={song}
-                        history={history}
-                        index={index}
-                        songCardDropdownState={songCardDropdownState}
-                        placeSongCardDropdown={placeSongCardDropdown}
-                        updateSongCardDropdownState={updateSongCardDropdownState}
-                        updateSelectedSong={updateSelectedSong}
-                        updateDropdownMenuPointer={updateDropdownMenuPointer}
-                        dropdownPosition={dropdownPosition}
-                        dropdownMenuPointer={dropdownMenuPointer}
-                    />
-                }))
-                : null
-            }
-        </div>    
-    )
+            {songs.length > 0
+                ? songs.map((song, index) => {
+                      return (
+                          <SongCard
+                              key={`${source} + ${song.id} + ${index}`}
+                              source={source}
+                              song={song}
+                              history={history}
+                              index={index}
+                              songCardDropdownState={songCardDropdownState}
+                              placeSongCardDropdown={placeSongCardDropdown}
+                              updateSongCardDropdownState={
+                                  updateSongCardDropdownState
+                              }
+                              updateSelectedSong={updateSelectedSong}
+                              updateDropdownMenuPointer={
+                                  updateDropdownMenuPointer
+                              }
+                              dropdownPosition={dropdownPosition}
+                              dropdownMenuPointer={dropdownMenuPointer}
+                          />
+                      );
+                  })
+                : null}
+        </div>
+    );
 
     const depthLevel = 0;
-    return <>
-        {songs.length > 0 ? songIndex : emptyPlaylist}
-        {songCardDropdownState.isOpen && <SongCardDropdownContainer 
-                currentUser={currentUser}
-                history={history}
-                selectedSong={selectedSong}
-                songCardDropdownState={songCardDropdownState}
-                updateSongCardDropdownState={updateSongCardDropdownState}
-                updateDropdownPosition={updateDropdownPosition}
-                items={songCardDropdownItems}
-                depthLevel={depthLevel}
-                dropdownPosition={dropdownPosition}
-                dropdownMenuPointer={dropdownMenuPointer}
-            />
-        }
-    </>
-}
+    return (
+        <>
+            {songs.length > 0 ? songIndex : emptyPlaylist}
+            {songCardDropdownState.isOpen && (
+                <SongCardDropdownContainer
+                    currentUser={currentUser}
+                    history={history}
+                    selectedSong={selectedSong}
+                    songCardDropdownState={songCardDropdownState}
+                    updateSongCardDropdownState={updateSongCardDropdownState}
+                    updateDropdownPosition={updateDropdownPosition}
+                    items={songCardDropdownItems}
+                    depthLevel={depthLevel}
+                    dropdownPosition={dropdownPosition}
+                    dropdownMenuPointer={dropdownMenuPointer}
+                />
+            )}
+        </>
+    );
+};
 
 export default SongIndex;
