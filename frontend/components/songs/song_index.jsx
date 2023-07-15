@@ -11,6 +11,7 @@ const SongIndex = ({
     params,
     source,
     songCardDropdownItems,
+    currentViewRef,
 }) => {
     // Set local states for SongCardDropdownState and selectedSong
     const [songCardDropdownState, setSongCardDropdownState] = useState({
@@ -39,6 +40,16 @@ const SongIndex = ({
             setSongCardDropdownState({ isOpen: false });
         }
     }, [params]);
+    
+    if (currentViewRef && currentViewRef.current) {
+        if (songCardDropdownState.isOpen) {
+            // Prevent PlaylistShow from scrolling when dropdown is open
+                currentViewRef.current.style.overflowY = "hidden";
+            }
+        else {
+                currentViewRef.current.style.overflowY = "auto";
+        }
+    }
 
     const emptyPlaylist = (
         <div className="song-index song-index-empty">

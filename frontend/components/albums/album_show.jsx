@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 
 import AlbumHeader from "./album_header";
 import AlbumNav from "./album_nav";
@@ -25,8 +25,10 @@ const AlbumShow = ({
         return () => clearCurrent();
     }, [urlParams]); // Will run whenever urlParams.id changes, otherwise ArtistShow doesn't re-render
 
+    const albumShowRef = useRef();
+
     const albumShow = (
-        <div className="album-show">
+        <div className="album-show" ref={albumShowRef}>
             <div className="album-header">
                 <AlbumHeader
                     album={currentAlbum}
@@ -42,6 +44,7 @@ const AlbumShow = ({
                 history={history}
                 source={source}
                 songCardDropdownItems={songCardDropdownItems}
+                currentViewRef={albumShowRef}
             />
         </div>
     )

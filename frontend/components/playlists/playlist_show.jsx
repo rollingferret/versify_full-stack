@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import PlaylistHeader from "./playlist_header";
 import PlaylistNav from "./playlist_nav";
 import SongIndex from "../songs/song_index";
@@ -27,8 +27,10 @@ const PlaylistShow = ({
         return () => clearCurrent();
     }, [urlParams]);
 
+    const playlistShowRef = useRef();
+
     const playlistShow = title ? (
-        <div className="playlist-show">
+        <div className="playlist-show" ref={playlistShowRef}>
             <div className="playlist-header">
                 <PlaylistHeader
                     title={title}
@@ -51,6 +53,7 @@ const PlaylistShow = ({
                 urlParams={urlParams}
                 source={source}
                 songCardDropdownItems={songCardDropdownItems}
+                currentViewRef={playlistShowRef}
             />
         </div>
     ) : null;
