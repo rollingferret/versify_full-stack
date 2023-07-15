@@ -33,7 +33,7 @@ const Sidebar = (props) => {
     const handleSubmitCreate = (e) => {
         e.preventDefault();
 
-        const number = playlists.length;
+        const number = playlists.length + 1;
 
         const defaultNewPlaylist = { 
             title: `Untitled Playlist #${number}`,
