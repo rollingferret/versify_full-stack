@@ -20,11 +20,13 @@ const mapStateToProps = (state, ownProps) => {
     if (ownProps.depthLevel === 1) nextLeft -= 100; //submenu div is wider
     const nextTop = top - 50; // Offset height for staggered display
     return {
+        ref: ownProps.ref,
         currentItem: state.entities.currentItem,
         playlists: state.entities.playlists,
         currentUser: ownProps.currentUser,
         history: ownProps.history,
         selectedSong: ownProps.selectedSong,
+        songCardDropdownState: ownProps.songCardDropdownState,
         updateSongCardDropdownState: ownProps.updateSongCardDropdownState,
         updateDropdownPosition: ownProps.updateDropdownPosition,
         items: ownProps.items, // already contains current playlists from SongIndex
@@ -43,4 +45,4 @@ const mapDispatchToProps = (dispatch) => ({
     displayPlaylist: (playlistId) => dispatch(displayPlaylist(playlistId)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SongCardDropdown);
+export default connect(mapStateToProps, mapDispatchToProps, null,{forwardRef: true})(SongCardDropdown);
