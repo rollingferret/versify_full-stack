@@ -6,8 +6,6 @@ import ArtistShowContainer from "../artists/artist_show_container";
 import AlbumShowContainer from "../albums/album_show_container.js";
 
 const CurrentView = (props) => {
-    console.log("CURRENTitem PROPS", props);
-
     const currentViewType = () => {
         const { path, params, currentUser, history } = props;
 
