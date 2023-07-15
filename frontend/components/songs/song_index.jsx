@@ -114,6 +114,7 @@ const SongIndex = ({
         </div>
     );
 
+    const dropdownRef = useRef();
     const depthLevel = 0;
     return (
         <>
@@ -123,6 +124,7 @@ const SongIndex = ({
                     currentUser={currentUser}
                     history={history}
                     selectedSong={selectedSong}
+                    ref={dropdownRef}
                     songCardDropdownState={songCardDropdownState}
                     updateSongCardDropdownState={updateSongCardDropdownState}
                     updateDropdownPosition={updateDropdownPosition}
