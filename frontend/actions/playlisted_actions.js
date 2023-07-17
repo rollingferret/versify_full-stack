@@ -12,6 +12,7 @@ export const createNewPlaylisted = (songId, playlistId) => (dispatch) => {
     return postPlaylisted(songId, playlistId).then(
         (respObj) => {
             dispatch(fetchPlaylists());
+            dispatch(displayPlaylist(respObj.playlistId));
             return respObj.playlistId;
         },
         (err) => console.log(err)
