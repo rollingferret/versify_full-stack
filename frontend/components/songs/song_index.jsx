@@ -121,10 +121,10 @@ const SongIndex = ({
             {songs.length > 0 ? songIndex : emptyPlaylist}
             {songCardDropdownState.isOpen && (
                 <SongCardDropdownContainer
+                    ref={dropdownRef}
                     currentUser={currentUser}
                     history={history}
                     selectedSong={selectedSong}
-                    ref={dropdownRef}
                     songCardDropdownState={songCardDropdownState}
                     updateSongCardDropdownState={updateSongCardDropdownState}
                     updateDropdownPosition={updateDropdownPosition}
