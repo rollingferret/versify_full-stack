@@ -45,6 +45,7 @@ export const displayPlaylist = (playlistId) => (dispatch) => {
 export const editPlaylist = (playlist, playlistId) => (dispatch) => {
     return patchPlaylist(playlist, playlistId).then(
         (playlist) => {
+            dispatch(fetchPlaylists());
             dispatch(receiveCurrentPlaylist(playlist));
         },
         (err) => dispatch(receivePlaylistErrors(err.responseJSON))
