@@ -13,6 +13,7 @@ const SongCardDropdownItem = ({
     removePlaylisted,
     createNewPlaylisted,
     createPlaylist,
+    displayPlaylist,
 }) => {
     const runSongAction = (e) => {
         if (e.target.innerText === "Remove from this playlist") {
@@ -35,7 +36,11 @@ const SongCardDropdownItem = ({
             let selectedPlaylist = playlists[selectedIndex];
             createNewPlaylisted(selectedSong.id, selectedPlaylist.id).then(
                 (selectedPlaylistId) => {
-                    if (currentItem.id === selectedPlaylistId) {
+                    debugger;
+                    // If we are currently viewing a playlist (not an album), 
+                    // and we are adding the song to that current playlist, 
+                    // then re-fetch playlist
+                    if (currentItem.artistId == undefined && currentItem.id === selectedPlaylistId) {
                         displayPlaylist(selectedPlaylistId);
                     }
                 }
