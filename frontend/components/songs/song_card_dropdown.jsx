@@ -76,10 +76,9 @@ const SongCardDropdown = forwardRef(
                 {items.map((item, index) =>
                     item.submenu ? (
                         // If a submenu exists, create button for submenu title and pass submenu to SongCardSubmenu
-                        <>
+                        <React.Fragment key={`${selectedSong.playlistedId}+${depthLevel}+${item.title}+"w-submenu"`}>
                             <button
                                 className="song-card-dropdown-item"
-                                key={`${selectedSong.playlistedId}+${depthLevel}+${item.title}+"btn"`}
                                 onClick={toggleSubmenuAndPlaceDropdown}
                             >
                                 {item.title}{" "}
@@ -88,7 +87,6 @@ const SongCardDropdown = forwardRef(
                                 </span>
                             </button>
                             <SongCardSubmenu
-                                key={`${selectedSong.playlistedId}+${depthLevel}+${item.title}+"subm"`}
                                 history={history}
                                 currentUser={currentUser}
                                 selectedSong={selectedSong}
@@ -101,7 +99,7 @@ const SongCardDropdown = forwardRef(
                                     updateSongCardDropdownState
                                 }
                             />
-                        </>
+                        </React.Fragment>
                     ) : (
                         <SongCardDropdownItem // Else, create just a button
                             key={`${selectedSong.playlistedId}+${item.id}+${depthLevel}+"no-subm"`}
