@@ -14,8 +14,6 @@ const PlaylistEditForm = ({ currentPlaylist, editPlaylist }) => {
     const [newTitle, setNewTitle] = useState(oldTitle);
     const [newDescription, setNewDescription] = useState(oldDescription);
 
-    console.log('User ID', userId)
-
     // Submit button onClick action
     const handleSubmit = (e) => {
         e.preventDefault();

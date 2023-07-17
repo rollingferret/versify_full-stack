@@ -36,7 +36,6 @@ const SongCardDropdownItem = ({
             let selectedPlaylist = playlists[selectedIndex];
             createNewPlaylisted(selectedSong.id, selectedPlaylist.id).then(
                 (selectedPlaylistId) => {
-                    debugger;
                     // If we are currently viewing a playlist (not an album), 
                     // and we are adding the song to that current playlist, 
                     // then re-fetch playlist

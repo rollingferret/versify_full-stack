@@ -1,27 +1,22 @@
-import React from 'react';
+import React from "react";
 
 const SidebarNavButton = (props) => {
     // eg. Home button, Search button
-    const { text,
-        icon,
-        url,
-        history,
-    } = props;
+    const { text, icon, url, history } = props;
 
-    console.log('SidebarNAVButtonPROPS', props);
+    console.log("SidebarNAVButtonPROPS", props);
 
     const clickToNavigate = (e) => {
         e.preventDefault();
-        history.push(`/${url}`)
-    }
+        history.push(`/${url}`);
+    };
 
     return (
-        <button className="sidebar-nav"
-            onClick={clickToNavigate}>
-            <div className="icon" > {icon} </div>
-            <div className="text-playlist" > {text} </div>
+        <button className="sidebar-nav" onClick={clickToNavigate}>
+            <div className="icon"> {icon} </div>
+            <div className="text-playlist"> {text} </div>
         </button>
-    )
-}
+    );
+};
 
 export default SidebarNavButton;

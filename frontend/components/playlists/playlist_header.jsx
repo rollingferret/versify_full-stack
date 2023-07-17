@@ -2,7 +2,6 @@ import React from "react";
 
 
 const PlaylistHeader = ({ title, description, currentUser }) => {
-    // console.log(currentUser)
     return (
         <>
             <div className="playlist-art">
