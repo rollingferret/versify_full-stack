@@ -11,7 +11,6 @@ import PlaylistIndexContainer from '../playlists/playlist_index_container';
 import SidebarNavButton from './sidebar_nav_button'
 
 const Sidebar = (props) => {
-    // console.log('SIDEBAR PROPS', props);
 
     const { createPlaylist,
         fetchPlaylists,
