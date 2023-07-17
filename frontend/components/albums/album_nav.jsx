@@ -1,12 +1,9 @@
 import React from "react";
 
-import {RxDotsHorizontal,
-} from 'react-icons/rx';
-import {GrPlayFill,
-} from 'react-icons/gr';
+import { RxDotsHorizontal } from "react-icons/rx";
+import { GrPlayFill } from "react-icons/gr";
 
 const AlbumNav = ({ props }) => {
-
     // const toggleAlbumNavDropdown = (event) => {
     //     event.preventDefault();
     //     playlistNavDropdownState.isOpen ? closePlaylistNavDropdown() : openPlaylistNavDropdown();
@@ -21,8 +18,7 @@ const AlbumNav = ({ props }) => {
                 <RxDotsHorizontal />
             </div>
         </>
-    )
-
-}
+    );
+};
 
 export default AlbumNav;

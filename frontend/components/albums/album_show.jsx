@@ -15,10 +15,9 @@ const AlbumShow = ({
     displayAlbum,
     clearCurrent,
 }) => {
-
-    useEffect( () => {
+    useEffect(() => {
         displayAlbum(urlParams.id);
-        
+
         const rendered = document.getElementById("album-show");
         rendered ? rendered.scrollTo(0, 0) : null;
 
@@ -30,10 +29,7 @@ const AlbumShow = ({
     const albumShow = (
         <div className="album-show" ref={albumShowRef}>
             <div className="album-header">
-                <AlbumHeader
-                    album={currentAlbum}
-                    history={history} 
-                />
+                <AlbumHeader album={currentAlbum} history={history} />
             </div>
             <div className="album-nav">
                 <AlbumNav />
@@ -47,8 +43,8 @@ const AlbumShow = ({
                 currentViewRef={albumShowRef}
             />
         </div>
-    )
-    return currentAlbum.albumPhotoUrl ? albumShow : null
-}
+    );
+    return currentAlbum.albumPhotoUrl ? albumShow : null;
+};
 
 export default AlbumShow;

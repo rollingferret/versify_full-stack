@@ -1,32 +1,29 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from "react";
 
-import {AiFillHome,
-} from 'react-icons/ai';
-import {FaSearch,
-} from 'react-icons/fa';
-import {MdOutlineAddBox,
-} from 'react-icons/md';
+import { AiFillHome } from "react-icons/ai";
+import { FaSearch } from "react-icons/fa";
+import { MdOutlineAddBox } from "react-icons/md";
 
-import PlaylistIndexContainer from '../playlists/playlist_index_container';
-import SidebarNavButton from './sidebar_nav_button'
+import PlaylistIndexContainer from "../playlists/playlist_index_container";
+import SidebarNavButton from "./sidebar_nav_button";
 
 const Sidebar = (props) => {
-
-    const { createPlaylist,
+    const {
+        createPlaylist,
         fetchPlaylists,
         playlists,
         path,
         history,
         currentUser,
         errors,
-    } = props
+    } = props;
 
-    // const playlistIndexRender = useMemo( () => <PlaylistIndexContainer 
+    // const playlistIndexRender = useMemo( () => <PlaylistIndexContainer
     //     currentUser={currentUser} history={history}
     //     />, [playlists]
     // )
 
-    // const handleDropdown = useMemo( () => <playlistNavDropdown 
+    // const handleDropdown = useMemo( () => <playlistNavDropdown
     // playlistNavDropdown={playlistNavDropdown} />, [playlistNavDropdown] )
 
     const handleSubmitCreate = (e) => {
@@ -34,31 +31,38 @@ const Sidebar = (props) => {
 
         const number = playlists.length + 1;
 
-        const defaultNewPlaylist = { 
+        const defaultNewPlaylist = {
             title: `Untitled Playlist #${number}`,
-            description: 'Please add a description',
+            description: "Please add a description",
             user_id: currentUser.id,
-        }
+        };
 
         return createPlaylist(defaultNewPlaylist)
-            .then( () => fetchPlaylists(currentUser.id))
-            .then( (actionObj) => history.push(`/playlist/${actionObj.playlists[0].id}`) )
-    }
+            .then(() => fetchPlaylists(currentUser.id))
+            .then((actionObj) =>
+                history.push(`/playlist/${actionObj.playlists[0].id}`)
+            );
+    };
 
     return (
-        <section className='sidebar-container'>
+        <section className="sidebar-container">
             <nav className="sidebar">
-                <SidebarNavButton history={history} 
-                    text='Home' 
-                    icon={<AiFillHome />} 
-                    url='home' 
+                <SidebarNavButton
+                    history={history}
+                    text="Home"
+                    icon={<AiFillHome />}
+                    url="home"
                 />
                 {/* <SidebarNavButton history={history} text='Search' icon={<FaSearch />} url='search' /> */}
-                <button className="sidebar-nav"
-                    name='playlist'
-                    onClick={handleSubmitCreate}>
-                        <div className="icon" ><MdOutlineAddBox /></div>
-                        <div className="text-button" >Create Playlist</div>
+                <button
+                    className="sidebar-nav"
+                    name="playlist"
+                    onClick={handleSubmitCreate}
+                >
+                    <div className="icon">
+                        <MdOutlineAddBox />
+                    </div>
+                    <div className="text-button">Create Playlist</div>
                 </button>
             </nav>
 
@@ -69,7 +73,7 @@ const Sidebar = (props) => {
                 {/* Only re-render Playlist#Index of the playlists slice of state changes */}
                 {/* pass currentUser through as props to keep on refresh */}
         </section>
-    )
-}
+    );
+};
 
 export default Sidebar;

@@ -36,6 +36,7 @@ const PlaylistNavDropdown = ({
         switch (event.target.innerText){
             case "Edit details":
                 openPlaylistEditModal();
+                return console.log('OPEN EDIT MODAL');
             case "Delete":
                 destroyPlaylist(currentPlaylist.id)
                     .then(fetchPlaylists())
