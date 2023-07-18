@@ -26,11 +26,9 @@ const SongCardDropdownItem = ({
                 description: "Please add a description",
                 user_id: currentUser.id, // Database/schema uses snake_case
             };
-            createPlaylist(newPlaylist)
-                .then((playlistId) =>
-                    createNewPlaylisted(selectedSong.id, playlistId)
-                )
-                .then((playlistId) => history.push(`/playlist/${playlistId}`));
+            createPlaylist(newPlaylist).then((playlistId) =>
+                createNewPlaylisted(selectedSong.id, playlistId)
+            );
         } else if (depthLevel === 1) {
             updateSongCardDropdownState({ isOpen: false });
             let selectedPlaylist = playlists[selectedIndex];
@@ -39,7 +37,7 @@ const SongCardDropdownItem = ({
                     // If we are currently viewing a playlist (not an album), 
                     // and we are adding the song to that current playlist, 
                     // then re-fetch playlist
-                    if (currentItem.artistId == undefined && currentItem.id === selectedPlaylistId) {
+                    if (currentItem.id === selectedPlaylistId) {
                         displayPlaylist(selectedPlaylistId);
                     }
                 }
