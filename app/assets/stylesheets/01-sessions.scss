@@ -11,6 +11,32 @@ a {
     text-decoration: none;
 }
 
+.mobile-overlay, .mobile-message {
+    display: none;
+}
+/* Styles for mobile */
+@media (max-width: 767px) {
+    .mobile-overlay {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .6);
+        z-index: 9999;
+    }
+
+    .mobile-message {
+        font-size: 60pt;
+        font-weight: 700;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        margin: 15%;
+        background-color: transparent;
+        color: white;
+    }
+} 
+
 div .session {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: white;
