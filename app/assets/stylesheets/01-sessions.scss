@@ -11,7 +11,7 @@ a {
     text-decoration: none;
 }
 
-.mobile-overlay, .mobile-message {
+.mobile-overlay {
     display: none;
 }
 /* Styles for mobile */
@@ -27,11 +27,12 @@ a {
         z-index: 9999;
     }
 
-    .mobile-message {
+    .mobile-overlay p {
         font-size: 60pt;
         font-weight: 700;
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         margin: 15%;
+        margin-top: 30%;
         background-color: transparent;
         color: white;
     }

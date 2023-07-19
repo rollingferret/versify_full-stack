@@ -4,12 +4,9 @@ const MobileWarning = () => {
 
     return (
         <div className="mobile-overlay">
-            <div className="mobile-message">
-                Currently this app is for desktop use only. 
-                <br/><br/>
-                We sincerely apologize for any
-                inconvenience.
-            </div>
+            <p>Currently this app is for desktop use only.</p>
+            <br/>
+            <p>We sincerely apologize for any inconvenience. </p>
         </div>
     );
 };
