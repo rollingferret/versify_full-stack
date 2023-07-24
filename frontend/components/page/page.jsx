@@ -16,9 +16,7 @@ const Page = ({
     return (
         <div className="page_container">
             <div className="page-body">
-                <nav className="nav-container-main">
-                    <NavBarMainContainer history={history} />
-                </nav>
+                <NavBarMainContainer history={history} />
                 <SidebarContainer
                     history={history}
                     path={path}

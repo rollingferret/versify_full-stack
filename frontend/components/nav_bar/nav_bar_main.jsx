@@ -44,7 +44,7 @@ class NavBarMain extends React.Component {
         );
 
         return (
-            <>
+            <nav className="nav-container-main">
                 <div className="site-logo-main">
                     <Logo history={history} />
                 </div>
@@ -63,7 +63,7 @@ class NavBarMain extends React.Component {
 
                     {this.state.menuOpen ? dropMenu : null}
                 </nav>
-            </>
+            </nav>
         );
     }
 }
