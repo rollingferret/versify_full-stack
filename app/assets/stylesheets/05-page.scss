@@ -26,10 +26,10 @@
 
 .current-container {
     background-color: transparent;
-    flex: 0.2;
-    position: absolute;
-    top: 85px;
-    left: 285px;
+    flex: 1 0 auto;
+    width: 10px;
+    height: 100%;
     overflow-y: hidden;
     overflow-x: hidden;
+    border-radius: 15px;
 }
