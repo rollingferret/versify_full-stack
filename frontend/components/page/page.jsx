@@ -32,9 +32,12 @@ const Page = ({
                     />
                 </div>
             </div>
-            <div className="footer-container">
-                <Footer />
-            </div>
+                <Footer
+                    currentUser={currentUser}
+                    params={params}
+                    path={path}
+                    history={history}
+                />
         </div>
     );
 };
