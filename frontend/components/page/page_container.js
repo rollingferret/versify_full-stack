@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import Main from "./main";
+import Page from "./page";
 
 const mapStateToProps = (
     { session, entities: { users }, errors },
@@ -18,4 +18,4 @@ const mapDispatchToProps = (dispatch) => ({
     clearPlaylistErrors: () => dispatch(clearPlaylistErrors()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default connect(mapStateToProps, mapDispatchToProps)(Page);
