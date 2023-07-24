@@ -83,16 +83,17 @@
 }
 
 .nav-container-main {
+    flex: 0 0 auto;
+    height: 75px;
+    width: 100%;
     font-weight: 700;
     font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+    display: flex;
     text-align: center;
     flex-direction: row;
     justify-content: flex-end;
-    margin-right: 0px;
-    height: 66px;
-    width: 100vw;
-    background-color: transparent;
     align-items: center;
+    background-color: transparent;
 }
 
 .nav-links {
