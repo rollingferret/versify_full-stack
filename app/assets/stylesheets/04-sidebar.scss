@@ -17,7 +17,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: black;
+    background-color: #121212;
 }
 
 nav.sidebar {
@@ -27,7 +27,7 @@ nav.sidebar {
     align-items: center;
     justify-content: space-around;
     height: auto;
-    background-color: black;
+    background-color: #121212;
 }
 
 .sidebar .icon {
@@ -67,7 +67,7 @@ button.sidebar-nav:first-child {
     margin-top: 12px;
     border: none;
     padding: 15px 10px 5px 10px;
-    background-color: black;
+    background-color: #121212;
 }
 
 button.sidebar-nav {
@@ -79,7 +79,7 @@ button.sidebar-nav {
     width: 100%;
     border: none;
     padding: 0px 10px 5px 10px;
-    background-color: black;
+    background-color: #121212;
 }
 
 .sidebar-nav .text-button {
@@ -106,7 +106,7 @@ button.sidebar {
     color: #b3b3b3;
     height: 16px;
     width: 100%;
-    background-color: black;
+    background-color: #121212;
     margin-top: 8px;
     margin-bottom: 8px;
     padding: 0px 25px 5px 25px;
