@@ -15,7 +15,7 @@
 
 .page-body{ 
     flex: 1 0 auto;
-    width: 100vw;
+    width: 99%;
     height: 10px;
     display: flex;
     flex-direction: row;
@@ -27,9 +27,10 @@
 .current-container {
     background-color: transparent;
     flex: 1 0 auto;
-    width: 10px;
-    height: 100%;
+    width: 50%;
+    height: 98%;
     overflow-y: hidden;
     overflow-x: hidden;
+    border: thick solid yellow;
     border-radius: 15px;
 }
