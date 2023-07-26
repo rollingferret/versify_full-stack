@@ -33,4 +33,9 @@
     overflow-x: hidden;
     border: thick solid yellow;
     border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
