@@ -26,13 +26,8 @@ const ArtistIndex = ({
         : null;
 
     const artistIndex = artists ? (
-        <>
-            <div className="artist-index-header">
-                <h1>All Artists</h1>
-            </div>
-            <div className="artist-index-grid">{artistMap}</div>
-        </>
-    ) : null;
+		<div className="artist-index-grid">{artistMap}</div>
+	) : null;
 
     return artistMap ? <div className="home-body">{artistIndex}</div> : null;
 };
