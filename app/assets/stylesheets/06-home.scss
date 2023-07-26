@@ -6,8 +6,8 @@
     overflow-y: auto;
     display: flex;
     padding: 30px;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
+    border: thick solid red;
 }
 
 .home-header {
