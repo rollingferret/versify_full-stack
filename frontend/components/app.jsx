@@ -7,7 +7,6 @@ import SplashContainer from "./splash/splash_container";
 import SignupFormContainer from "./session/signup_form_container";
 import LoginFormContainer from "./session/login_form_container";
 import PageContainer from "./page/page_container";
-// import EditPlaylistContainer from './playlists/edit_playlist_container'
 
 const App = () => (
 	<div>
