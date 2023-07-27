@@ -3,8 +3,8 @@
     height: 99%;
     width: 100%;
     grid-template-columns: repeat(9, 216px);
-    grid-auto-rows: minmax(294px, 294px);
-    grid-gap: 20px;
+    grid-auto-rows: minmax(300px, 300px);
+    grid-gap: 30px;
     justify-content: center;
 }
 
@@ -21,7 +21,7 @@
     border-radius: 8px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
 }
 
 .card:hover{
@@ -49,4 +49,18 @@
     font-size: 14px;
     margin-top: 15px;
     text-align: left;
+}
+
+
+
+@media (min-width: 1440px) {
+    .artist-index-grid {
+        display: grid;
+        height: 99%;
+        width: 100%;
+        grid-template-columns: repeat(9, 216px);
+        grid-auto-rows: minmax(300px, 300px);
+        grid-gap: 30px;
+        justify-content: center;
+    }
 }
