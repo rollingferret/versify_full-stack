@@ -17,8 +17,11 @@
 
 .card {
     background-color: #181818;
-    padding: 15px;
+    padding: 30px;
     border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .card:hover{
@@ -31,6 +34,7 @@
     width: 184px;
     margin-bottom: 20px;
     border-radius: 50%;
+    align-self: center;
 }
 
 .card-title {
