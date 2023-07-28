@@ -1,11 +1,12 @@
 .artist-index-grid {
     display: grid;
-    height: 99%;
+    height: 100%;
     width: 100%;
-    grid-template-columns: repeat(3, 216px);
-    grid-auto-rows: minmax(294px, 294px);
-    grid-gap: 20px;
-    justify-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(205px, 205px));
+    grid-auto-rows: minmax(300px, 300px);
+    grid-column-gap: 15px;
+    grid-row-gap: 20px;
+    justify-content: space-between;
 }
 
 .artist-index-header {
