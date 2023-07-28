@@ -1,13 +1,12 @@
 .home {
     background-color: rgba(0, 0, 0, 0.6);
     height: 100%;
-    width: 100%;
+    width: auto;
     overflow-x: hidden;
     overflow-y: auto;
     display: flex;
     padding: 30px;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
 }
 
 .home-header {
@@ -15,4 +14,9 @@
     font-size: 2.5rem;
     font-weight: 900;
     margin-bottom: 50px;
+}
+
+.home-body {
+    display: flex;
+    justify-content: center;
 }

@@ -14,7 +14,7 @@ const Page = ({
 	clearPlaylistErrors,
 }) => {
 	return (
-		<div className="page_container">
+		<div className="page-container">
 			<NavBarMainContainer history={history} />
 			<div className="page-body">
 				<SidebarContainer
