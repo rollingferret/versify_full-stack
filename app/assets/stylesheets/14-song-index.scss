@@ -30,11 +30,13 @@
 }
 
 .song-card {
-    height: 56px;
+    height: auto;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: .9rem;
     line-height: 23px;
     margin: 5px 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .song-card:hover {
@@ -46,6 +48,8 @@
 }
 
 .song-index-heading-title, .song-card-title-artist-block {
+    flex: 1 1 auto;
+    width: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -69,6 +73,7 @@
 }
 
 .song-index-heading-album, .song-card-album {
+    flex: 1 1 auto;
     width: 400px;
 }
 
