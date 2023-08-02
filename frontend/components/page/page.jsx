@@ -33,7 +33,6 @@ const Page = ({
 				</div>
 			</div>
 			<Footer
-				currentUser={currentUser}
 				params={params}
 				path={path}
 				history={history}
