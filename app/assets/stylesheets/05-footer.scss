@@ -1,7 +1,68 @@
 .footer-container {
     flex: 0 0 auto;
     width: 100%;
-    height: 70px;
-    padding: 8px;
+    height: 80px;
+    padding: 10px;
     background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.now-playing-box {
+    align-self: flex-start;
+    flex: 1 0 auto;
+    width: 150px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.now-playing-art {
+    flex: 0 0 auto;
+    width: 56px;
+    height: 56px;
+    background-color: white;
+}
+
+.now-playing-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.now-playing-title {
+    flex: 0 1 auto;
+    width: 200px;
+}
+
+.now-playing-buttons{
+    flex: 0 1 auto;
+    width: 25px;
+}
+
+.playing-controls {
+    flex: 1 0 auto;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+
+.playing-controls svg {
+    font-size: 36px;
+}
+
+svg.footer__white-icon > path {
+    stroke: white;
+}
+
+svg.footer__grey-icon > path {
+    stroke: #b3b2b2;
+}
+
+.footer-right {
+    flex: 1 0 auto;
+    width: 150px;
+
 }
