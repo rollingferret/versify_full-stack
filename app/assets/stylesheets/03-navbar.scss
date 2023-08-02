@@ -38,13 +38,11 @@
     display: flex;
     align-items: center;
     font-size: 49px;
-    width: calc(285px - 25px - 130px);
-    height: 66px;
+    width: 285px;
+    height: inherit;
     position: absolute;
     left: 0px;
     padding-left: 25px;
-    padding-right: 130px;
-    padding-top: 10px;
     background-color: #121212;
 }
 

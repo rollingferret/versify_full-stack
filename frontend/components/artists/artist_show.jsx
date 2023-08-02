@@ -30,36 +30,41 @@ const ArtistShow = (
     }, [params]); // Will run whenever params.id changes, otherwise ArtistShow doesn't re-render
 
     const artistShow = (
-        <div className="artist-show-background" style={{ backgroundImage: `url(${currentArtist.photoUrl})`, backgroundSize: '50%' }}>
+		<>
+			<div
+				className="artist-show-background"
+				style={{
+					backgroundImage: `url(${currentArtist.photoUrl})`,
+					backgroundSize: "50%",
+                    height: "100%",
+				}}
+			>
             <div className="artist-show" id="artist-show">
                 <div className="artist-header">
                     <ArtistHeader currentArtist={currentArtist} />
                 </div>
-                <div className="artist-nav">
-
-                </div>
+                <div className="artist-nav"></div>
                 {/* <div className="song-index">
-                </div> */}
-                {albums.length > 0 ?
+            </div> */}
+                {albums.length > 0 ? (
                     <AlbumIndex
                         albums={albums}
                         history={history}
                         displayAlbum={displayAlbum}
                     />
-                    : null
-                }
-                {collabSongs.length > 0 ?
-                    <CollabSongIndex 
+                ) : null}
+                {collabSongs.length > 0 ? (
+                    <CollabSongIndex
                         songs={collabSongs}
                         history={history}
                         displayAlbum={displayAlbum}
                         currentArtist={currentArtist}
                     />
-                    : null
-                }
+                ) : null}
             </div>
-        </div>
-    )
+			</div>
+		</>
+	);
 
     return currentArtist.photoUrl ? artistShow : null
 }
