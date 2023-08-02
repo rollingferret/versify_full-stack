@@ -44,8 +44,6 @@ const ArtistShow = (
                     <ArtistHeader currentArtist={currentArtist} />
                 </div>
                 <div className="artist-nav"></div>
-                {/* <div className="song-index">
-            </div> */}
                 {albums.length > 0 ? (
                     <AlbumIndex
                         albums={albums}
