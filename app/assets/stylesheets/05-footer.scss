@@ -22,6 +22,7 @@
     width: 56px;
     height: 56px;
     background-color: white;
+    margin-right: 10px;
 }
 
 .now-playing-info {
@@ -43,26 +44,38 @@
 
 .playing-controls {
     flex: 1 0 auto;
-    width: 250px;
+    max-width: 250px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
     padding: 5px;
 }
 
 .playing-controls svg {
-    font-size: 36px;
+    font-size: 50px;
+}
+
+.playing-controls svg:hover {
+    color: #1db954;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    transform: scale(1.2) !important;
 }
 
 svg.footer__white-icon > path {
-    stroke: white;
+    fill: white;
 }
 
 svg.footer__grey-icon > path {
-    stroke: #b3b2b2;
+    fill: #b3b2b2;;
 }
 
 .footer-right {
     flex: 1 0 auto;
     width: 150px;
 
+}
+
+svg.repeat-shuffle-icon {
+    font-size: 20px;
 }

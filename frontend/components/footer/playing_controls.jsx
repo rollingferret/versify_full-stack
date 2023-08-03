@@ -6,11 +6,11 @@ import { BsRepeat, BsRepeat1 } from "react-icons/bs";
 const PlayingControls = (props) => {
 	return (
 		<div className="playing-controls">
-			<BiShuffle className="footer__grey-icon" />
+			<BiShuffle className="footer__grey-icon repeat-shuffle-icon" />
 			<BiSkipPrevious className="footer__grey-icon" />
 			<GrCirclePlay className="footer__white-icon" />
-			<BiSkipNext />
-			<BsRepeat className="footer__grey-icon" />
+			<BiSkipNext className="footer__grey-icon" />
+			<BsRepeat className="footer__grey-icon repeat-shuffle-icon" />
 		</div>
 	);
 };
