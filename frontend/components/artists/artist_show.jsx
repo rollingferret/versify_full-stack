@@ -40,27 +40,27 @@ const ArtistShow = ({
 						<ArtistHeader currentArtist={currentArtist} />
 					</div>
 					<div className="artist-nav"></div>
-					{albums.length > 0 ? (
+					{albums.length > 0 && (
 						<AlbumIndex
 							albums={albums}
 							history={history}
 							displayAlbum={displayAlbum}
 						/>
-					) : null}
-					{collabSongs.length > 0 ? (
+					)}
+					{collabSongs.length > 0 && (
 						<CollabSongIndex
 							songs={collabSongs}
 							history={history}
 							displayAlbum={displayAlbum}
 							currentArtist={currentArtist}
 						/>
-					) : null}
+					)}
 				</div>
 			</div>
 		</>
 	);
 
-	return currentArtist.photoUrl ? artistShow : null;
+	return currentArtist.photoUrl && artistShow;
 };
 
 export default ArtistShow;
