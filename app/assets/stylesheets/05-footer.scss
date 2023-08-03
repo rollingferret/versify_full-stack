@@ -56,9 +56,8 @@
 }
 
 .playing-controls svg:hover {
-    color: #1db954;
     cursor: pointer;
-    transition: transform 0.2s ease-in-out;
+    transition: 0.2s ease;
     transform: scale(1.2) !important;
 }
 
