@@ -32,9 +32,7 @@ const ArtistShow = ({
 			<div
 				className="artist-show-background"
 				style={{
-					backgroundImage: `url(${currentArtist.photoUrl})`,
-					backgroundSize: "50%",
-					height: "100%",
+					backgroundImage: `url(${currentArtist.photoUrl})`
 				}}
 			>
 				<div className="artist-show" id="artist-show">
