@@ -28,7 +28,7 @@ const Player = ({ tracks }) => {
 	return (
 		<div className="player-container">
 			<NowPlayingInfo />
-			<PlayingControls />
+			<PlayingControls isPlaying={isPlaying}/>
 			<div className="player-right"></div>
 		</div>
 	);
