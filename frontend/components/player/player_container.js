@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import Footer from "./footer";
+import Player from "./footer";
 
 const mapStateToProps = (
 	{ session, entities: { users }, errors },
@@ -17,4 +17,4 @@ const mapDispatchToProps = (dispatch) => ({
 	clearPlaylistErrors: () => dispatch(clearPlaylistErrors()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Footer);
+export default connect(mapStateToProps, mapDispatchToProps)(Player);
