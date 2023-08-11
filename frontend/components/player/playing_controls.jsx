@@ -3,15 +3,12 @@ import { GrCirclePlay } from "react-icons/gr";
 import { BiSkipPrevious, BiSkipNext, BiShuffle } from "react-icons/bi";
 import { BsRepeat, BsRepeat1, BsPauseCircle } from "react-icons/bs";
 
-const PlayingControls = ({ isPlaying, togglePlay }) => {
-	// Player functions
-	const toPrevTrack = () => {
-		console.log("TODO go to prev");
-	};
-
-	const toNextTrack = () => {
-		console.log("TODO go to next");
-	};
+const PlayingControls = ({
+	isPlaying,
+	togglePlay,
+	toPrevTrack,
+	toNextTrack,
+}) => {
 
 	return (
 		<div className="playing-controls">
