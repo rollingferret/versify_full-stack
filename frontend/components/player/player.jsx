@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import NowPlayingBox from "./now_playing_box";
+import NowPlayingInfo from "./now_playing_info";
 import PlayingControls from "./playing_controls";
 
 
@@ -24,7 +24,7 @@ const Player = ( {tracks} ) => {
 
 	return (
 		<div className="player-container">
-			<NowPlayingBox />
+			<NowPlayingInfo />
 			<PlayingControls />
 			<div className="player-right"></div>
 		</div>
