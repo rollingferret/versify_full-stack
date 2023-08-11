@@ -15,6 +15,7 @@ const entitiesReducer = combineReducers({
     albums: albumIndexReducer,
     songs: songIndexReducer,
     currentItem: currentItemReducer,
+    nowPlaying: nowPlayingReducer,
 })
 
 

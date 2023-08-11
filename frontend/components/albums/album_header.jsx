@@ -26,7 +26,7 @@ const AlbumHeader = ({ album,
       <img src={albumPhotoUrl} />
     </div>
     <div className="album-header-text">
-      <h2>Album</h2>
+      <h2>ALBUM</h2>
       <div className="album-title">
         {title}
       </div>

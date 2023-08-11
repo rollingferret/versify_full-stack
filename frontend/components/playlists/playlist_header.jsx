@@ -8,7 +8,7 @@ const PlaylistHeader = ({ title, description, currentUser }) => {
             </div>
             <div className="playlist-header-text">
                 <div id="type">
-                    <h2>Playlist</h2>
+                    <h2>PLAYLIST</h2>
                 </div>
                 <div id="title">
                     {title}
