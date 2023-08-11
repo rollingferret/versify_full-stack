@@ -16,15 +16,6 @@ const Player = ({ tracks }) => {
 	const intervalRef = useRef();
 	const isReady = useRef(false);
 
-	// Player functions
-	const toPrevTrack = () => {
-		console.log("TODO go to prev");
-	};
-
-	const toNextTrack = () => {
-		console.log("TODO go to next");
-	};
-
 	return (
 		<div className="player-container">
 			<NowPlayingInfo />
