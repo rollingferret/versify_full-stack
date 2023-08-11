@@ -12,7 +12,7 @@
     display: flex;
     align-items: center;
     font-size: 45px;
-    width: 120px;
+    width: auto;
     height: 80px;
     position: absolute;
     left: 0px;
@@ -70,12 +70,9 @@
 .nav-container-splash {
     font-weight: 700;
     font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
-    text-align: center;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    margin-right: 0px;
-    margin-left: 270px;
     padding-right: 75px;
     height: 80px;
     background-color: #121212;
@@ -111,6 +108,7 @@
     justify-content: space-around;
     background-color: #121212;
     width: 340px;
+    flex: 0 0 auto;
 }
 
 .logged-out-links {
