@@ -11,6 +11,9 @@ const Player = ({ tracks }) => {
 	const { trackProgress, setTrackProgress } = useState(0);
 	const { isPlaying, setIsPlaying } = useState(false);
 
+	// Updater functions
+	const togglePlay = () => setIsPlaying(!isPlaying);
+
 	// Set refs
 	const audioRef = useRef(new Audio(audioUrl));
 	const intervalRef = useRef();
@@ -18,8 +21,11 @@ const Player = ({ tracks }) => {
 
 	return (
 		<div className="player-container">
-			<NowPlayingInfo />
-			<PlayingControls isPlaying={isPlaying}/>
+			<NowPlayingInfo track={tracks[trackIndex]} />
+			<PlayingControls
+				isPlaying={isPlaying}
+				togglePlay={togglePlay}
+			/>
 			<div className="player-right"></div>
 		</div>
 	);
