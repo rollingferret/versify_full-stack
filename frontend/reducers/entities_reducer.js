@@ -6,6 +6,7 @@ import artistIndexReducer from './artist_index_reducer';
 import albumIndexReducer from './album_index_reducer';
 import songIndexReducer from './song_index_reducer';
 import currentItemReducer from './current_item_reducer';
+import nowPlayingReducer from './now_playing_reducer';
 
 
 const entitiesReducer = combineReducers({
