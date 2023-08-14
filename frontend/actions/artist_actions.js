@@ -20,7 +20,7 @@ const receiveCurrentArtist = (artistObj) => {
         type: RECEIVE_CURRENT_ARTIST, // multiple data types because fetched with associations
         artist: artistObj.artist,
         albums: artistObj.albums,
-        songs: artistObj.collab_songs,
+        songs: [...artistObj.tracks, ...artistObj.collab_songs],
     }
 }
 
