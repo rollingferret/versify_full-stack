@@ -40,14 +40,14 @@ const ArtistShow = ({
 						<ArtistHeader currentArtist={currentArtist} />
 					</div>
 					<div className="artist-nav"></div>
-					{albums.length > 0 && (
+					{albums?.length > 0 && (
 						<AlbumIndex
 							albums={albums}
 							history={history}
 							displayAlbum={displayAlbum}
 						/>
 					)}
-					{collabSongs.length > 0 && (
+					{collabSongs?.length > 0 && (
 						<CollabSongIndex
 							songs={collabSongs}
 							history={history}
