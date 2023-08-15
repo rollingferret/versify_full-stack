@@ -10,8 +10,8 @@ json.albums do
 end
 
 json.tracks do
-    @artist.albums.each do |album|
-        json.array! album.tracks.each do |song|
+    json.array! @artist.albums.each do |album|
+        album.tracks.each do |song|
             json.partial!("api/songs/song", song: song)
         end
     end

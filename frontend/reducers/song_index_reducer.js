@@ -13,7 +13,10 @@ const songIndexReducer = (songsState = {}, action) => {
         case RECEIVE_CURRENT_PLAYLIST:
             return action.songs;
         case RECEIVE_CURRENT_ARTIST:
-            return action.songs;
+            return {
+				allSongs: action.allSongs,
+				collabSongs: action.collabSongs,
+			};
         case RECEIVE_CURRENT_ALBUM:
             return action.songs;
         default:
