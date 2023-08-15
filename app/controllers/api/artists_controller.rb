@@ -6,7 +6,7 @@ class Api::ArtistsController < ApplicationController
     end
 
     def show
-        @artist = Artist.includes(:albums, :collab_songs, albums: [:tracks]).order("albums.year DESC").find(params[:id])
+        @artist = Artist.includes(collab_songs: [:song_artist, {album: :album_artist}, :collab_artists], albums: [:album_artist, {tracks: :song_artist}]).order("albums.year DESC").find(params[:id])
         if @artist
             render :show
         else
