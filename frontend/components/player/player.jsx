@@ -2,14 +2,18 @@ import React, { useEffect, useRef, useState } from "react";
 import NowPlayingInfo from "./now_playing_info";
 import PlayingControls from "./playing_controls";
 
-const Player = ({ tracks }) => {
-	const { title, albumId, audioUrl, albumImageUrl, songArtist } =
-		tracks[trackIndex];
-	
+const Player = ({
+	params,
+	path,
+	history,
+	tracks,
+	isPlaying,
+	isShuffling,
+	reduxPlay,
+}) => {
 	// Set local states
-	const { trackIndex, setTrackIndex } = useState(0);
-	const { isPlaying, setIsPlaying } = useState(false);
-	const { trackProgress, setTrackProgress } = useState(0);
+	const [trackIndex, setTrackIndex] = useState(0);
+	const [trackProgress, setTrackProgress] = useState(0);
 
 	const intervalRef = useRef();
 
@@ -25,14 +29,18 @@ const Player = ({ tracks }) => {
 
 	// Set up behavior when changing tracks
 	const isReady = useRef(false); // Avoids auto-play
+	let title, albumId, audioUrl, albumImageUrl, songArtist;
 	useEffect(() => {
 		audioRef.current.pause();
 		audioRef.current.source = new Audio(audioUrl);
 		setTrackProgress(audioRef.current.currentTime);
 
 		if (isReady.current) {
+			let { title, albumId, audioUrl, albumImageUrl, songArtist } =
+				tracks[trackIndex];
 			audioRef.current.play();
-			setIsPlaying(true);
+			reduxPlay();
+
 			startTimer();
 		} else {
 			// Set the isReady ref as true for the next render
@@ -41,7 +49,6 @@ const Player = ({ tracks }) => {
 	}, [trackIndex]);
 
 	// Create PlayingControls functions
-	const togglePlay = () => setIsPlaying(!isPlaying);
 	const toPrevTrack = () => {
 		if (trackIndex - 1 < 0) {
 			setTrackIndex(tracks.length - 1);
@@ -66,8 +73,9 @@ const Player = ({ tracks }) => {
 		<div className="player-container">
 			<NowPlayingInfo track={tracks[trackIndex]} />
 			<PlayingControls
+				trackProgress={trackProgress}
 				isPlaying={isPlaying}
-				togglePlay={togglePlay}
+				togglePlay={reduxPlay}
 				toPrevTrack={toPrevTrack}
 				toNextTrack={toNextTrack}
 				shufflePlay={shufflePlay}
