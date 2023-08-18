@@ -2,7 +2,7 @@ import React from "react";
 
 const NowPlayingInfo = (track) => {
 	const { title, albumId, audioUrl, albumImageUrl, songArtist } =
-		tracks[trackIndex];
+		track;
 	return (
 		<div className="now-playing-info">
 			<div
