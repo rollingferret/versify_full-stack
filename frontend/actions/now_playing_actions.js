@@ -17,6 +17,6 @@ const playPlaylist = () => ({
     type: PLAY_PLAYLIST,
 })
 
-export const playToggle = () => dispatch => (
+export const reduxPlay = () => dispatch => (
     dispatch(togglePlay())
 );
