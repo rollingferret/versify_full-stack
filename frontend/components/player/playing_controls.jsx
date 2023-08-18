@@ -4,8 +4,8 @@ import { BiSkipPrevious, BiSkipNext, BiShuffle } from "react-icons/bi";
 import { BsRepeat, BsRepeat1, BsPauseCircle } from "react-icons/bs";
 
 const PlayingControls = ({
-	isPlaying,
-	togglePlay,
+	trackProgress,
+	reduxPlay,
 	toPrevTrack,
 	toNextTrack,
 	shufflePlay,
@@ -22,17 +22,17 @@ const PlayingControls = ({
 				aria-label="Previous"
 				onClick={toPrevTrack}
 			/>
-			{isPlaying ? (
-				<GrCirclePlay
-					className="player__white-icon"
-					aria-label="Play"
-					onClick={togglePlay}
-				/>
-			) : (
+			{trackProgress !== 0 ? (
 				<BsPauseCircle
 					className="player__white-icon"
 					aria-label="Pause"
-					onClick={togglePlay}
+					onClick={reduxPlay}
+				/>
+			) : (
+				<GrCirclePlay
+					className="player__white-icon"
+					aria-label="Play"
+					onClick={reduxPlay}
 				/>
 			)}
 			<BiSkipNext
