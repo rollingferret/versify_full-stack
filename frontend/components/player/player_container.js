@@ -1,22 +1,18 @@
 import { connect } from "react-redux";
 import Player from "./player";
 
-import { reduxPlay,
-} from "../../actions/now_playing_actions";
+import { reduxPlay } from "../../actions/now_playing_actions";
 
-const mapStateToProps = (
-	// { session, entities: { users, nowPlaying }, errors },
-	state,
-	ownProps
-) => {
+const mapStateToProps = (state, ownProps) => {
 	return {
 		currentUser: state.entities.users[state.session.id],
 		errors: state.entities.errors,
 		params: ownProps.params,
 		path: ownProps.path,
 		history: ownProps.history,
-		tracks: state.entities.nowPlaying.queue,
-	};};
+		tracks: ownProps.tracks,
+	};
+};
 
 const mapDispatchToProps = (dispatch) => ({
 	clearPlaylistErrors: () => dispatch(clearPlaylistErrors()),
