@@ -5,7 +5,7 @@ import { BsRepeat, BsRepeat1, BsPauseCircle } from "react-icons/bs";
 
 const PlayingControls = ({
 	trackProgress,
-	reduxPlay,
+	togglePlay,
 	toPrevTrack,
 	toNextTrack,
 	shufflePlay,
@@ -26,13 +26,13 @@ const PlayingControls = ({
 				<BsPauseCircle
 					className="player__white-icon"
 					aria-label="Pause"
-					onClick={reduxPlay}
+					onClick={togglePlay}
 				/>
 			) : (
 				<GrCirclePlay
 					className="player__white-icon"
 					aria-label="Play"
-					onClick={reduxPlay}
+					onClick={togglePlay}
 				/>
 			)}
 			<BiSkipNext
