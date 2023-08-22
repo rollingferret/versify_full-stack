@@ -12,6 +12,7 @@ const Page = ({
 	currentUser,
 	errors,
 	clearPlaylistErrors,
+	tracks,
 }) => {
 	return (
 		<div className="page-container">
@@ -32,11 +33,14 @@ const Page = ({
 					/>
 				</div>
 			</div>
-			<PlayerContainer
-				params={params}
-				path={path}
-				history={history}
-			/>
+			{tracks?.length>0 ? (
+				<PlayerContainer
+					params={params}
+					path={path}
+					history={history}
+					tracks={tracks}
+				/>
+			):null}
 		</div>
 	);
 };
