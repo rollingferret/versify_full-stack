@@ -8,17 +8,18 @@ const Player = ({
 	history,
 	tracks,
 	isPlaying,
-	isShuffling,
 	reduxPlay,
 }) => {
 	// Set local states
 	const [trackIndex, setTrackIndex] = useState(0);
 	const [trackProgress, setTrackProgress] = useState(0);
 
-	const intervalRef = useRef();
+	let currentTrack = tracks[trackIndex];
+	let audioRef = currentTrack 
+		? useRef(new Audio(currentTrack.audioUrl)) // creates a new HTMLAudioElement
+		: useRef(null);
+	// // Set up play/pause behavior;
 
-	// Set up play/pause behavior
-	const audioRef = useRef(new Audio(audioUrl)); // creates a new HTMLAudioElement
 	useEffect(() => {
 		if (isPlaying) {
 			audioRef.current.play();
@@ -29,19 +30,14 @@ const Player = ({
 
 	// Set up behavior when changing tracks
 	const isReady = useRef(false); // Avoids auto-play
-	let title, albumId, audioUrl, albumImageUrl, songArtist;
 	useEffect(() => {
 		audioRef.current.pause();
-		audioRef.current.source = new Audio(audioUrl);
+		audioRef.current.source = new Audio(currentTrack.audioUrl);
 		setTrackProgress(audioRef.current.currentTime);
 
 		if (isReady.current) {
-			let { title, albumId, audioUrl, albumImageUrl, songArtist } =
-				tracks[trackIndex];
 			audioRef.current.play();
 			reduxPlay();
-
-			startTimer();
 		} else {
 			// Set the isReady ref as true for the next render
 			isReady.current = true;
@@ -74,7 +70,6 @@ const Player = ({
 			<NowPlayingInfo track={tracks[trackIndex]} />
 			<PlayingControls
 				trackProgress={trackProgress}
-				isPlaying={isPlaying}
 				togglePlay={reduxPlay}
 				toPrevTrack={toPrevTrack}
 				toNextTrack={toNextTrack}
