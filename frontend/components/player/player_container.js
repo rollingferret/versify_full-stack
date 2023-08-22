@@ -11,6 +11,7 @@ const mapStateToProps = (state, ownProps) => {
 		path: ownProps.path,
 		history: ownProps.history,
 		tracks: ownProps.tracks,
+		isPlaying: state.entities.nowPlaying.isPlaying,
 	};
 };
 
