@@ -7,7 +7,7 @@ import { RECEIVE_CURRENT_ALBUM,
 } from "../actions/album_actions";
 
 
-const songIndexReducer = (songsState = {}, action) => {
+const songIndexReducer = (songsState = [], action) => {
     Object.freeze(songsState);
     switch (action.type) {
         case RECEIVE_CURRENT_PLAYLIST:
