@@ -2,16 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import NowPlayingInfo from "./now_playing_info";
 import PlayingControls from "./playing_controls";
 
-let audioElement = new Audio()
+let audioElement = new Audio();
 
-const Player = ({
-	params,
-	path,
-	history,
-	tracks,
-	isPlaying,
-	reduxPlay,
-}) => {
+const Player = ({ tracks, isPlaying, reduxPlay }) => {
 	// Set local states
 	const [trackIndex, setTrackIndex] = useState(0);
 	const [trackProgress, setTrackProgress] = useState(0); // progress bar
@@ -21,12 +14,12 @@ const Player = ({
 	let currentTrack = tracks[trackIndex];
 	let audioRef = useRef(new Audio()); // creates empty HTMLAudioElement
 	let audioSrc;
-	
+
 	useEffect(() => {
 		audioSrc = currentTrack ? currentTrack.audioUrl : "";
-		console.log(audioRef.current.currentTime);;
+		console.log(audioRef.current.currentTime);
 		audioRef.current.src = audioSrc;
-	}, [currentTrack])
+	}, [currentTrack]);
 
 	// Set up play/pause behavior;
 	useEffect(() => {
@@ -39,7 +32,7 @@ const Player = ({
 
 	// Set up behavior when changing tracks
 	const isReady = useRef(false); // Avoids auto-play
-	useEffect(() => {;
+	useEffect(() => {
 		if (isPlaying) {
 			audioRef.current.pause();
 		}
