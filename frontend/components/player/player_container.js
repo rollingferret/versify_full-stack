@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps) => {
 		params: ownProps.params,
 		path: ownProps.path,
 		history: ownProps.history,
-		tracks: ownProps.tracks,
+		tracks: state.entities.nowPlaying.queue,
 		isPlaying: state.entities.nowPlaying.isPlaying,
 	};
 };

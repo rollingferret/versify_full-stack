@@ -33,14 +33,11 @@ const Page = ({
 					/>
 				</div>
 			</div>
-			{tracks?.length>0 ? (
-				<PlayerContainer
-					params={params}
-					path={path}
-					history={history}
-					tracks={tracks}
-				/>
-			):null}
+			<PlayerContainer
+				params={params}
+				path={path}
+				history={history}
+			/>
 		</div>
 	);
 };
