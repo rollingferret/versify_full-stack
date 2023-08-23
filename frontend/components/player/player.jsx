@@ -20,8 +20,13 @@ const Player = ({
 	// Set current track
 	let currentTrack = tracks[trackIndex];
 	let audioRef = useRef(new Audio()); // creates empty HTMLAudioElement
-	let audioSrc = currentTrack ? currentTrack.audioUrl : "";
-	audioRef.current.src = audioSrc;
+	let audioSrc;
+	
+	useEffect(() => {
+		audioSrc = currentTrack ? currentTrack.audioUrl : "";
+		console.log(audioRef.current.currentTime);;
+		audioRef.current.src = audioSrc;
+	}, [currentTrack])
 
 	// Set up play/pause behavior;
 	useEffect(() => {
