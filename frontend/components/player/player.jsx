@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import NowPlayingInfo from "./now_playing_info";
 import PlayingControls from "./playing_controls";
 
+let audioElement = new Audio()
+
 const Player = ({
 	params,
 	path,
@@ -17,9 +19,9 @@ const Player = ({
 
 	// Set current track
 	let currentTrack = tracks[trackIndex];
-	let audioRef = currentTrack
-		? useRef(new Audio(currentTrack.audioUrl)) // creates HTMLAudioElement
-		: useRef(new Audio()); // arg is optional
+	let audioRef = useRef(new Audio()); // creates empty HTMLAudioElement
+	let audioSrc = currentTrack ? currentTrack.audioUrl : "";
+	audioRef.current.src = audioSrc;
 
 	// Set up play/pause behavior;
 	useEffect(() => {
@@ -34,9 +36,7 @@ const Player = ({
 	const isReady = useRef(false); // Avoids auto-play
 	useEffect(() => {
 		audioRef.current.pause();
-		audioRef.current.source = currentTrack
-			? new Audio(currentTrack.audioUrl)
-			: new Audio();
+		audioRef.current.src = audioSrc
 		setTrackProgress(audioRef.current.currentTime);
 
 		if (isReady.current) {
