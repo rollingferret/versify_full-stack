@@ -52,6 +52,7 @@ const Player = ({ tracks, isPlaying, reduxPlay }) => {
 
 	// Create PlayingControls functions
 	const toPrevTrack = () => {
+		if (isPlaying) audioRef.current.pause();
 		if (trackIndex - 1 < 0) {
 			setTrackIndex(tracks.length - 1);
 		} else {
