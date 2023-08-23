@@ -39,14 +39,18 @@ const Player = ({
 
 	// Set up behavior when changing tracks
 	const isReady = useRef(false); // Avoids auto-play
-	useEffect(() => {
-		audioRef.current.pause();
-		audioRef.current.src = audioSrc
+	useEffect(() => {;
+		if (isPlaying) {
+			audioRef.current.pause();
+		}
+		audioRef.current.src = audioSrc;
 		setTrackProgress(audioRef.current.currentTime);
+		if (isPlaying) {
+			audioRef.current.play();
+		}
 
 		if (isReady.current) {
 			audioRef.current.play();
-			reduxPlay();
 		} else {
 			// Set the isReady ref as true for post-initial renders
 			isReady.current = true;
@@ -62,6 +66,7 @@ const Player = ({
 		}
 	};
 	const toNextTrack = () => {
+		if (isPlaying) audioRef.current.pause();
 		if (trackIndex < tracks.length - 1) {
 			setTrackIndex(trackIndex + 1);
 		} else {
