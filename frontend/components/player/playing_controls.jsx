@@ -8,14 +8,14 @@ const PlayingControls = ({
 	togglePlay,
 	toPrevTrack,
 	toNextTrack,
-	shufflePlay,
+	toggleShuffle,
 }) => {
 	return (
 		<div className="playing-controls">
 			<BiShuffle
 				className="player__grey-icon repeat-shuffle-icon"
 				aria-label="Shuffle"
-				onClick={shufflePlay}
+				onClick={toggleShuffle}
 			/>
 			<BiSkipPrevious
 				className="player__grey-icon"

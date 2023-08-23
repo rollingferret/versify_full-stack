@@ -12,13 +12,14 @@ const Player = ({
 }) => {
 	// Set local states
 	const [trackIndex, setTrackIndex] = useState(0);
-	const [trackProgress, setTrackProgress] = useState(0);
+	const [trackProgress, setTrackProgress] = useState(0); // progress bar
+	const [isShuffling, setIsShuffling] = useState(false);
 
 	// Set current track
 	let currentTrack = tracks[trackIndex];
 	let audioRef = currentTrack
-		? useRef(new Audio(currentTrack.audioUrl)) // creates a new HTMLAudioElement
-		: useRef(new Audio());
+		? useRef(new Audio(currentTrack.audioUrl)) // creates HTMLAudioElement
+		: useRef(new Audio()); // arg is optional
 
 	// Set up play/pause behavior;
 	useEffect(() => {
@@ -34,7 +35,7 @@ const Player = ({
 	useEffect(() => {
 		audioRef.current.pause();
 		audioRef.current.source = currentTrack
-			? new Audio(currentTrack.audioUrl) // creates a new HTMLAudioElement
+			? new Audio(currentTrack.audioUrl)
 			: new Audio();
 		setTrackProgress(audioRef.current.currentTime);
 
@@ -42,7 +43,7 @@ const Player = ({
 			audioRef.current.play();
 			reduxPlay();
 		} else {
-			// Set the isReady ref as true for the next render
+			// Set the isReady ref as true for post-initial renders
 			isReady.current = true;
 		}
 	}, [trackIndex]);
@@ -62,8 +63,10 @@ const Player = ({
 			setTrackIndex(0);
 		}
 	};
-	const shufflePlay = () => {
+	const toggleShuffle = () => {
+		if (isShuffling) return setIsShuffling(false);
 		if (tracks.length > 1) {
+			setIsShuffling(setIsShuffling(true));
 			setTrackIndex(Math.floor(Math.random() * tracks.length));
 		}
 	};
@@ -76,7 +79,7 @@ const Player = ({
 				togglePlay={reduxPlay}
 				toPrevTrack={toPrevTrack}
 				toNextTrack={toNextTrack}
-				shufflePlay={shufflePlay}
+				toggleShuffle={toggleShuffle}
 			/>
 			<div className="player-right"></div>
 		</div>
