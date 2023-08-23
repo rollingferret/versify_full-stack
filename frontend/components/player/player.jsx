@@ -14,12 +14,13 @@ const Player = ({
 	const [trackIndex, setTrackIndex] = useState(0);
 	const [trackProgress, setTrackProgress] = useState(0);
 
+	// Set current track
 	let currentTrack = tracks[trackIndex];
-	let audioRef = currentTrack 
+	let audioRef = currentTrack
 		? useRef(new Audio(currentTrack.audioUrl)) // creates a new HTMLAudioElement
-		: useRef(null);
-	// // Set up play/pause behavior;
+		: useRef(new Audio());
 
+	// Set up play/pause behavior;
 	useEffect(() => {
 		if (isPlaying) {
 			audioRef.current.play();
@@ -32,7 +33,9 @@ const Player = ({
 	const isReady = useRef(false); // Avoids auto-play
 	useEffect(() => {
 		audioRef.current.pause();
-		audioRef.current.source = new Audio(currentTrack.audioUrl);
+		audioRef.current.source = currentTrack
+			? new Audio(currentTrack.audioUrl) // creates a new HTMLAudioElement
+			: new Audio();
 		setTrackProgress(audioRef.current.currentTime);
 
 		if (isReady.current) {
