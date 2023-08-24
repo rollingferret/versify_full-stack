@@ -2,8 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import NowPlayingInfo from "./now_playing_info";
 import PlayingControls from "./playing_controls";
 
-let audioElement = new Audio();
-
 const Player = ({ tracks, isPlaying, reduxPlay }) => {
 	// Set local states
 	const [trackIndex, setTrackIndex] = useState(0);
@@ -21,7 +19,6 @@ const Player = ({ tracks, isPlaying, reduxPlay }) => {
 
 	useEffect(() => {
 		audioSrc = currentTrack ? currentTrack.audioUrl : "";
-		console.log(audioRef.current.currentTime);
 		audioRef.current.src = audioSrc;
 	}, [currentTrack]);
 
