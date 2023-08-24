@@ -9,7 +9,7 @@
     align-items: center;
 }
 
-.now-playing-info {
+.now-playing {
     align-self: flex-start;
     flex: 1 0 auto;
     width: 150px;
@@ -34,8 +34,10 @@
 .now-playing-info {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 5px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 12px;
 }
 
 .now-playing-title {
