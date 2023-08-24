@@ -77,7 +77,9 @@ const Player = ({ tracks, isPlaying, reduxPlay }) => {
 
 	return (
 		<div className="player-container">
-			<NowPlayingInfo track={tracks[trackIndex]} />
+			<NowPlayingInfo
+				track={currentTrack}
+			/>
 			<PlayingControls
 				trackProgress={trackProgress}
 				togglePlay={reduxPlay}
