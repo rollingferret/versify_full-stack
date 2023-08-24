@@ -10,8 +10,12 @@ const Player = ({ tracks, isPlaying, reduxPlay }) => {
 	const [trackProgress, setTrackProgress] = useState(0); // progress bar
 	const [isShuffling, setIsShuffling] = useState(false);
 
+	const updateTrackProgress = (time) => {
+		return setTrackProgress(time);
+	};
+
 	// Set current track
-	let currentTrack = tracks[trackIndex];
+	let currentTrack = tracks ? tracks[trackIndex] : null;
 	let audioRef = useRef(new Audio()); // creates empty HTMLAudioElement
 	let audioSrc;
 
@@ -78,10 +82,14 @@ const Player = ({ tracks, isPlaying, reduxPlay }) => {
 	return (
 		<div className="player-container">
 			<NowPlayingInfo
+				audioRef={audioRef}
 				track={currentTrack}
+				trackProgress={trackProgress}
+				isPlaying={isPlaying}
+				updateTrackProgress={updateTrackProgress}
 			/>
 			<PlayingControls
-				trackProgress={trackProgress}
+				isPlaying={isPlaying}
 				togglePlay={reduxPlay}
 				toPrevTrack={toPrevTrack}
 				toNextTrack={toNextTrack}
