@@ -2,14 +2,17 @@ import React from "react";
 import { GrCirclePlay } from "react-icons/gr";
 import { BiSkipPrevious, BiSkipNext, BiShuffle } from "react-icons/bi";
 import { BsRepeat, BsRepeat1, BsPauseCircle } from "react-icons/bs";
+import { useEffect } from "react";
 
 const PlayingControls = ({
+	isPlaying,
 	trackProgress,
 	togglePlay,
 	toPrevTrack,
 	toNextTrack,
 	toggleShuffle,
 }) => {
+	useEffect(() => {}, [isPlaying]);
 	return (
 		<div className="playing-controls">
 			<BiShuffle
@@ -22,7 +25,7 @@ const PlayingControls = ({
 				aria-label="Previous"
 				onClick={toPrevTrack}
 			/>
-			{trackProgress !== 0 ? (
+			{isPlaying ? (
 				<BsPauseCircle
 					className="player__white-icon"
 					aria-label="Pause"
