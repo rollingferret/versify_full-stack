@@ -28,7 +28,7 @@ const NowPlayingInfo = ({
 						className="now-playing-art"
 						alt={`track artwork for ${title} by ${songArtist.name}`}
 					>
-						{albumImageUrl ? <img src={albumImageUrl} /> : null}
+						{albumImageUrl && <img src={albumImageUrl} />}
 					</div>
 					<div className="now-playing-info">
 						<div className="now-playing-title">{title}</div>

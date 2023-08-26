@@ -12,7 +12,6 @@ const PlayingControls = ({
 	toNextTrack,
 	toggleShuffle,
 }) => {
-	useEffect(() => {}, [isPlaying]);
 	return (
 		<div className="playing-controls">
 			<BiShuffle
