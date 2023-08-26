@@ -68,13 +68,13 @@ const Player = ({ tracks, isPlaying, reduxPlay }) => {
 			setTrackIndex(0);
 		}
 	};
-	const toggleShuffle = () => {
-		if (isShuffling) return setIsShuffling(false);
-		if (tracks.length > 1) {
-			setIsShuffling(setIsShuffling(true));
-			setTrackIndex(Math.floor(Math.random() * tracks.length));
-		}
-	};
+	// const toggleShuffle = () => { // TODO: Re-work this logic
+	// 	if (isShuffling) return setIsShuffling(false);
+	// 	if (tracks.length > 1) {
+	// 		setIsShuffling(true);
+	// 		setTrackIndex(Math.floor(Math.random() * tracks.length));
+	// 	}
+	// };
 
 	return (
 		<div className="player-container">
