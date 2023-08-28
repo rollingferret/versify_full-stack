@@ -7,6 +7,8 @@ const mapStateToProps = (state, ownProps) => {
 	return {
 		currentUser: state.entities.users[state.session.id],
 		errors: state.entities.errors,
+		// matchObj is a prop passed down by AuthRoute
+		// matchObj = {params, path, url} as keys
 		params: ownProps.params,
 		path: ownProps.path,
 		history: ownProps.history,
