@@ -30,11 +30,12 @@ const Player = ({ tracks, isPlaying, reduxPlay }) => {
 			audioRef.current.pause();
 		}
 	}, [isPlaying]);
-
-	// Set up behavior when changing tracks
-	const isReady = useRef(false); // Avoids auto-play
+	
+	// Prevent auto-play
+	// and set up behavior when changing tracks
+	const afterFirstRender = useRef(false);
 	useEffect(() => {
-		if (isPlaying) {
+		if (isPlaying && afterFirstRender.current) {
 			audioRef.current.pause();
 		}
 		audioRef.current.src = audioSrc;
@@ -42,13 +43,7 @@ const Player = ({ tracks, isPlaying, reduxPlay }) => {
 		if (isPlaying) {
 			audioRef.current.play();
 		}
-
-		if (isReady.current) {
-			audioRef.current.play();
-		} else {
-			// Set the isReady ref as true for post-initial renders
-			isReady.current = true;
-		}
+		if (!afterFirstRender) afterFirstRender.current = true;
 	}, [trackIndex]);
 
 	// Create PlayingControls functions
@@ -68,13 +63,14 @@ const Player = ({ tracks, isPlaying, reduxPlay }) => {
 			setTrackIndex(0);
 		}
 	};
-	// const toggleShuffle = () => { // TODO: Re-work this logic
-	// 	if (isShuffling) return setIsShuffling(false);
-	// 	if (tracks.length > 1) {
-	// 		setIsShuffling(true);
-	// 		setTrackIndex(Math.floor(Math.random() * tracks.length));
-	// 	}
-	// };
+	const toggleShuffle = () => {
+		// TODO: Re-work this logic
+		if (isShuffling) return setIsShuffling(false);
+		if (tracks.length > 1) {
+			setIsShuffling(true);
+			setTrackIndex(Math.floor(Math.random() * tracks.length));
+		}
+	};
 
 	return (
 		<div className="player-container">
