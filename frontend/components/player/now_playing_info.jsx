@@ -11,12 +11,11 @@ const NowPlayingInfo = ({
 		track = {
 			title: "",
 			albumId: "",
-			audioUrl: "",
 			albumImageUrl: "",
 			songArtist: "",
 		};
 	}
-	const { title, albumId, audioUrl, albumImageUrl, songArtist } = track;
+	const { title, albumId, albumImageUrl, songArtist } = track;
 	useEffect(() => {
 		updateTrackProgress(audioRef.current.currentTime);
 	}, [isPlaying]);
