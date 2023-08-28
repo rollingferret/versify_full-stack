@@ -5,6 +5,7 @@ const NowPlayingInfo = ({
 	track,
 	trackProgress,
 	isPlaying,
+	afterFirstPlay,
 	updateTrackProgress,
 }) => {
 	if (!track) {
@@ -21,7 +22,7 @@ const NowPlayingInfo = ({
 	}, [isPlaying]);
 	return (
 		<div className="now-playing">
-			{trackProgress > 0 || (isPlaying && trackProgress === 0) ? (
+			{trackProgress > 0 || (afterFirstPlay && trackProgress === 0) ? (
 				<>
 					<div
 						className="now-playing-art"

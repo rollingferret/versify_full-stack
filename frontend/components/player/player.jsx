@@ -7,6 +7,7 @@ const Player = ({ tracks, isPlaying, reduxPlay }) => {
 	const [trackIndex, setTrackIndex] = useState(0);
 	const [trackProgress, setTrackProgress] = useState(0); // progress bar
 	const [isShuffling, setIsShuffling] = useState(false);
+	const [afterFirstPlay, setAfterFirstPlay] = useState(false);
 
 	const updateTrackProgress = (time) => {
 		return setTrackProgress(time);
@@ -25,6 +26,7 @@ const Player = ({ tracks, isPlaying, reduxPlay }) => {
 	// Set up play/pause behavior;
 	useEffect(() => {
 		if (isPlaying) {
+			setAfterFirstPlay(true);
 			audioRef.current.play();
 		} else {
 			audioRef.current.pause();
@@ -79,6 +81,7 @@ const Player = ({ tracks, isPlaying, reduxPlay }) => {
 				track={currentTrack}
 				trackProgress={trackProgress}
 				isPlaying={isPlaying}
+				afterFirstPlay={afterFirstPlay}
 				updateTrackProgress={updateTrackProgress}
 			/>
 			<PlayingControls
