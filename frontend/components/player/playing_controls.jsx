@@ -42,7 +42,7 @@ const PlayingControls = ({
 				aria-label="Next"
 				onClick={toNextTrack}
 			/>
-			<BsRepeat
+			<BsRepeat // TODO: implement repeat functionality
 				className="player__grey-icon repeat-shuffle-icon"
 				aria-label="Repeat"
 			/>
