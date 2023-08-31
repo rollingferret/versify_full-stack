@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ArtistPageDropdown from "./artist_page_dropdown";
 
 import { RxDotsHorizontal } from "react-icons/rx";
@@ -9,8 +9,13 @@ const ArtistPageMenuBar = ({
 	history,
 	fetchPlaylists,
 	editPlaylist,
-	artistPageDropdownState = { isOpen: true }, // local state placeholder
 }) => {
+	const [artistPageDropdownState, setArtistPageDropdownState] = useState({
+		isOpen: false,
+	});
+	const toggleArtistPageDropdown = () => {
+		setArtistPageDropdownState({ isOpen: !artistPageDropdownState.isOpen });
+	};
 
 	return (
 		<>
@@ -19,8 +24,7 @@ const ArtistPageMenuBar = ({
 				{/* TODO: Show pause button when Redux isPlaying=true */}
 			</div>
 			<div id="playlist-dropdown-dots">
-				<RxDotsHorizontal />
-                {/* TODO: Add onClick to toggle dropdown local state */}
+				<RxDotsHorizontal onClick={toggleArtistPageDropdown} />
 			</div>
 			{artistPageDropdownState.isOpen && (
 				<ArtistPageDropdown
