@@ -19,11 +19,11 @@ const ArtistPageMenuBar = ({
 
 	return (
 		<>
-			<div id="playlist-play-button">
+			<div id="artist-play-button">
 				<GrPlayFill />
 				{/* TODO: Show pause button when Redux isPlaying=true */}
 			</div>
-			<div id="playlist-dropdown-dots">
+			<div id="artist-dropdown-dots">
 				<RxDotsHorizontal onClick={toggleArtistPageDropdown} />
 			</div>
 			{artistPageDropdownState.isOpen && (

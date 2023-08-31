@@ -20,7 +20,7 @@ const ArtistPageDropdown = ({
 
 	return (
 		<>
-			<div className="dropdown-item playlist-dropdown">
+			<div className="dropdown-item artist-dropdown">
 				<button className="playlist-dropdown-button">
 					Sample option
 				</button>
