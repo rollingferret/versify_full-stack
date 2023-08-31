@@ -5,14 +5,10 @@ import configureStore from './store/store';
 
 // TESTING START
 
-import {
-  postPlaylisted,
-  deletePlaylisted,
-  indexPlaylisted,
-} from './util/playlisteds_util';
-import { createNewPlaylisted,
-  removePlaylisted,
-} from "./actions/playlisted_actions";
+import { playToggle,
+} from "./actions/now_playing_actions";
+import { postPlaylisted,
+} from "./util/playlisteds_util";
 
 // const play = {title:'thisone',
 // description: 'anew',
@@ -41,11 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //TESTING
   window.store = store;
+  window.playToggle = playToggle;
   window.postPlaylisted = postPlaylisted;
-  window.deletePlaylisted = deletePlaylisted;
-  window.indexPlaylisted = indexPlaylisted;
-  window.createNewPlaylisted = createNewPlaylisted;
-  window.removePlaylisted = removePlaylisted;
 
 
   //TESTING

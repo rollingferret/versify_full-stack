@@ -9,6 +9,14 @@ json.albums do
     end
 end
 
+json.tracks do
+    json.array! @artist.albums.each do |album|
+        album.tracks.each do |song|
+            json.partial!("api/songs/song", song: song)
+        end
+    end
+end
+
 json.collab_songs do
     json.array! @artist.collab_songs.each do |song|
         json.partial!("api/songs/song", song: song)

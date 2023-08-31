@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import NavBarMainContainer from "../nav_bar/nav_bar_main_container";
 import SidebarContainer from "../sidebar/sidebar_container";
 import CurrentViewContainer from "./current_view_container";
-import Footer from "../footer/footer";
+import PlayerContainer from "../player/player_container";
 
 const Page = ({
 	history,
@@ -12,6 +12,7 @@ const Page = ({
 	currentUser,
 	errors,
 	clearPlaylistErrors,
+	tracks,
 }) => {
 	return (
 		<div className="page-container">
@@ -32,7 +33,7 @@ const Page = ({
 					/>
 				</div>
 			</div>
-			<Footer
+			<PlayerContainer
 				params={params}
 				path={path}
 				history={history}
