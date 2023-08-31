@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 
 import ArtistHeader from "./artist_header";
 import AlbumIndex from "../albums/album_index";
+import ArtistPageMenuBar from "./artist_page_menu_bar";
 import CollabSongIndex from "../songs/collab_song_index";
 
 const ArtistShow = ({
@@ -32,14 +33,16 @@ const ArtistShow = ({
 			<div
 				className="artist-show-background"
 				style={{
-					backgroundImage: `url(${currentArtist.photoUrl})`
+					backgroundImage: `url(${currentArtist.photoUrl})`,
 				}}
 			>
 				<div className="artist-show" id="artist-show">
 					<div className="artist-header">
 						<ArtistHeader currentArtist={currentArtist} />
 					</div>
-					<div className="artist-nav"></div>
+					<div className="artist-nav">
+						<ArtistPageMenuBar />
+					</div>
 					{albums?.length > 0 && (
 						<AlbumIndex
 							albums={albums}
