@@ -75,7 +75,7 @@
     gap: 25px;
 }
 
-#playlist-play-button {
+#playlist-play-button, #artist-play-button {
     display: flex;
     background: #34d760;
     height: 56px;
@@ -85,20 +85,21 @@
     justify-content: center;
 }
 
-#playlist-play-button svg {
+#playlist-play-button svg, #artist-play-button svg {
     margin-left: 4px;
     font-size: 17pt;
 }
 
-#playlist-dropdown-dots {
+#playlist-dropdown-dots, #artist-dropdown-dots {
     font-size: 30px;
     color: rgba(247, 245, 242, 0.5);
 }
 
 .playlist-dropdown {
-    left: 143px;
-    top: 280px;
+    left: 440px;
+    top: 365px;
     align-items: flex-start;
+    min-width: 140px;
 }
 
 .playlist-dropdown-button {
@@ -107,7 +108,7 @@
     font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
     cursor: pointer;
     color: white;
-    padding: 11px 11px 11px 11px;
+    padding: 11px;
     background: transparent;
     border: none;
     text-align: left;

@@ -46,6 +46,7 @@
     max-height: 105pt;
 }
 
+// ArtistPageMenuBar
 .artist-nav {
     flex: 0 0 auto;
     display: flex;
@@ -55,7 +56,43 @@
     padding: 0px 0px 0px 30px;
     gap: 25px;
 }
+// PlaylistNav
+.playlist-nav, .album-nav {
+    display: flex;
+    background: #23201be6;
+    width: auto;
+    align-items: center;
+    padding: 25px 35px;
+    gap: 25px;
+}
 
+.artist-dropdown {
+    left: 145px;
+    top: 365px;
+    align-items: flex-start;
+    min-width: 140px;
+}
+
+.playlist-dropdown-button {
+    width: 100%;
+    font-size: 10.5pt;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+    cursor: pointer;
+    color: white;
+    padding: 11px;
+    background: transparent;
+    border: none;
+    text-align: left;
+}
+
+button.playlist-dropdown-button:hover {
+    background: #3e3e3e;
+    transition: .2s;
+}
+
+
+
+// AlbumIndex
 .album-index {
     flex: 1 0 auto;
     background: black;
