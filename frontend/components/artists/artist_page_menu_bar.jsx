@@ -9,6 +9,7 @@ const ArtistPageMenuBar = ({
 	history,
 	fetchPlaylists,
 	editPlaylist,
+	artistShowRef,
 }) => {
 	const [artistPageDropdownState, setArtistPageDropdownState] = useState({
 		isOpen: false,
@@ -33,6 +34,8 @@ const ArtistPageMenuBar = ({
 					fetchPlaylists={fetchPlaylists}
 					editPlaylist={editPlaylist}
 					artistPageDropdownState={artistPageDropdownState}
+					artistShowRef={artistShowRef}
+					toggleArtistPageDropdown={toggleArtistPageDropdown}
 				/>
 			)}
 		</>

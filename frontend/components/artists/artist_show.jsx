@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 
 import ArtistHeader from "./artist_header";
 import AlbumIndex from "../albums/album_index";
@@ -28,6 +28,8 @@ const ArtistShow = ({
 		};
 	}, [params]); // Will run whenever params.id changes, otherwise ArtistShow doesn't re-render
 
+	const artistShowRef = useRef();
+
 	const artistShow = (
 		<>
 			<div
@@ -36,12 +38,13 @@ const ArtistShow = ({
 					backgroundImage: `url(${currentArtist.photoUrl})`,
 				}}
 			>
-				<div className="artist-show" id="artist-show">
+				<div className="artist-show" ref={artistShowRef}>
 					<div className="artist-header">
 						<ArtistHeader currentArtist={currentArtist} />
 					</div>
 					<div className="artist-nav">
-						<ArtistPageMenuBar />
+						<ArtistPageMenuBar
+							artistShowRef={artistShowRef}/>
 					</div>
 					{albums?.length > 0 && (
 						<AlbumIndex
