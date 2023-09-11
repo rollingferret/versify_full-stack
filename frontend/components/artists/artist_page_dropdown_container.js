@@ -8,6 +8,7 @@ const mapStateToProps = (state, ownProps) => {
 		history: ownProps.history,
 		artistPageDropdownState: ownProps.artistPageDropdownState,
 		artistShowRef: ownProps.artistShowRef,
+        ref: ownProps.ref,
 		toggleArtistPageDropdown: ownProps.toggleArtistPageDropdown,
 		playlists: state.entities.playlists,
 		allSongs: state.entities.songs.allSongs,
@@ -34,4 +35,4 @@ const mapDispatchToProps = (dispatch) => ({
 	fetchPlaylists: () => dispatch(fetchPlaylists()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ArtistPageDropdown);
+export default connect(mapStateToProps, mapDispatchToProps, null, {forwardRef: true})(ArtistPageDropdown);

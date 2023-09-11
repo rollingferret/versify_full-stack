@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useRef, useState } from "react";
 import ArtistPageDropdownContainer from "./artist_page_dropdown_container";
 
 import { RxDotsHorizontal } from "react-icons/rx";
 import { GrPlayFill } from "react-icons/gr";
+import { useEffect } from "react";
 
 const ArtistPageMenuBar = ({
 	currentArtist,
 	fetchPlaylists,
 	editPlaylist,
 	artistShowRef,
+	ref,
 	history,
 }) => {
 	const [artistPageDropdownState, setArtistPageDropdownState] = useState({
@@ -17,6 +19,9 @@ const ArtistPageMenuBar = ({
 	const toggleArtistPageDropdown = () => {
 		setArtistPageDropdownState({ isOpen: !artistPageDropdownState.isOpen });
 	};
+
+	// Create dropdown ref in parent component in order to wrap Redux container
+	const dropdownRef = useRef();
 
 	return (
 		<>
@@ -33,6 +38,7 @@ const ArtistPageMenuBar = ({
 					history={history}
 					artistPageDropdownState={artistPageDropdownState}
 					artistShowRef={artistShowRef}
+					ref={dropdownRef}
 					toggleArtistPageDropdown={toggleArtistPageDropdown}
 				/>
 			)}
