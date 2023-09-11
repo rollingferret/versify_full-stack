@@ -8,25 +8,29 @@ const mapStateToProps = (state, ownProps) => {
 		history: ownProps.history,
 		artistPageDropdownState: ownProps.artistPageDropdownState,
 		artistShowRef: ownProps.artistShowRef,
-        ref: ownProps.ref,
+		ref: ownProps.ref,
 		toggleArtistPageDropdown: ownProps.toggleArtistPageDropdown,
 		playlists: state.entities.playlists,
 		allSongs: state.entities.songs.allSongs,
 		items: [
 			// TODO: Implement adding artist songs to playlist
-				// {title: "Add to playlist",
-				// submenu: [
-				// 	[
-				// 		{
-				// 			title: "Create new playlist",
-				// 		},
-				// 		...playlists,
-				// 		// Enclose array of playlists in an array since
-				// 		// dropdown uses recursive .map function on items prop
-				// 	],
-				// ],
+			// {title: "Add to playlist",
+			// submenu: [
+			// 	[
+			// 		{
+			// 			title: "Create new playlist",
+			// 		},
+			// 		...playlists,
+			// 		// Enclose array of playlists in an array since
+			// 		// dropdown uses recursive .map function on items prop
+			// 	],
+			// ],
 			// },
-			{ title: "Add to queue" },
+			{
+				title: "Add to queue",
+				id: `${crypto.randomUUID()}`,
+				// No access to any other unique props in ArtistPageDropdown items.map
+			},
 		],
 	};
 };

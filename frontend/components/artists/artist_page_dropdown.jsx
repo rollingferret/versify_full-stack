@@ -66,7 +66,7 @@ const ArtistPageDropdown = forwardRef(
 								/* TODO: Implement submenu logic */
 							}
 						) : (
-							<ArtistPageDropdownItem item={item} />
+							<ArtistPageDropdownItem key={`${item.id} + ${index}`} item={item} />
 						)
 					)}
 				</div>
