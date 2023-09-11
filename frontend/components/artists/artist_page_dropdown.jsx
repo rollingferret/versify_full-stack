@@ -1,12 +1,10 @@
 import React, { useEffect, forwardRef } from "react";
 
 import ArtistPageDropdownItem from "./artist_page_dropdown_item";
-import SongCardSubmenu from "../songs/song_card_submenu";
 
 const ArtistPageDropdown = forwardRef(
 	(
-		{
-			currentArtist,
+		{ // unused props will be for submenu refactoring
 			history,
 			artistPageDropdownState,
 			artistShowRef,
