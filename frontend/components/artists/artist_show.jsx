@@ -10,9 +10,9 @@ const ArtistShow = ({
 	albums,
 	collabSongs,
 	params,
+	path,
 	currentUser,
 	history,
-	path,
 	displayArtist,
 	displayAlbum,
 	clearCurrent,
@@ -44,7 +44,11 @@ const ArtistShow = ({
 					</div>
 					<div className="artist-nav">
 						<ArtistPageMenuBar
-							artistShowRef={artistShowRef}/>
+							currentArtist={currentArtist}
+							playlists={playlists}
+							artistShowRef={artistShowRef}
+							history={history}
+						/>
 					</div>
 					{albums?.length > 0 && (
 						<AlbumIndex
@@ -57,6 +61,7 @@ const ArtistShow = ({
 						<CollabSongIndex
 							songs={collabSongs}
 							history={history}
+							
 							displayAlbum={displayAlbum}
 							currentArtist={currentArtist}
 						/>

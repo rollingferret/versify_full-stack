@@ -6,7 +6,6 @@ import { GrPlayFill } from "react-icons/gr";
 
 const ArtistPageMenuBar = ({
 	currentArtist,
-	history,
 	fetchPlaylists,
 	editPlaylist,
 	artistShowRef,
