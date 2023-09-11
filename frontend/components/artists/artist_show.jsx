@@ -45,7 +45,6 @@ const ArtistShow = ({
 					<div className="artist-nav">
 						<ArtistPageMenuBar
 							currentArtist={currentArtist}
-							playlists={playlists}
 							artistShowRef={artistShowRef}
 							history={history}
 						/>

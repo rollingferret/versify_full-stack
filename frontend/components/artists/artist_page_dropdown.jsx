@@ -6,21 +6,20 @@ import SongCardSubmenu from "../songs/song_card_submenu";
 const ArtistPageDropdown = ({
 	currentArtist,
 	history,
-	fetchPlaylists,
-	editPlaylist,
 	artistPageDropdownState,
 	artistShowRef,
-	artistPageDropdownItems,
 	toggleArtistPageDropdown,
+	playlists,
+	allSongs,
+	items,
+	fetchPlaylists,
 }) => {
-	const dropdownRef = useRef();
-
 	useEffect(() => {
 		const whenMenuIsOpen = (event) => {
 			if (
 				artistPageDropdownState.isOpen &&
-				dropdownRef?.current &&
-				!dropdownRef?.current?.contains(event.target)
+				artistShowRef?.current &&
+				!artistShowRef?.current?.contains(event.target)
 			) {
 				toggleArtistPageDropdown();
 			}
@@ -58,17 +57,9 @@ const ArtistPageDropdown = ({
 	return (
 		<>
 			<div className="dropdown-item artist-dropdown">
-				{artistPageDropdownItems.map((item, index) =>
+				{items.map((item, index) =>
 					item.submenu ? (
-						<>
-							<button>
-								{item.title}{" "}
-								<span key={`${item.title}+${(currentArtist.id*index)}`}>
-									&raquo;
-								</span>
-							</button>
-							<SongCardSubmenu submenus={item.submenu} />
-						</>
+						{/* TODO: Implement submenu logic */}
 					) : (
 						<ArtistPageDropdownItem item={item} />
 					)
