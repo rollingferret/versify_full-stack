@@ -1,5 +1,8 @@
 import React, { useEffect, useRef } from "react";
 
+import ArtistPageDropdownItem from "./artist_page_dropdown_item";
+import SongCardSubmenu from "../songs/song_card_submenu";
+
 const ArtistPageDropdown = ({
 	currentArtist,
 	history,
@@ -7,6 +10,7 @@ const ArtistPageDropdown = ({
 	editPlaylist,
 	artistPageDropdownState,
 	artistShowRef,
+	artistPageDropdownItems,
 	toggleArtistPageDropdown,
 }) => {
 	const dropdownRef = useRef();
@@ -53,10 +57,22 @@ const ArtistPageDropdown = ({
 
 	return (
 		<>
-			<div className="dropdown-item artist-dropdown" ref={dropdownRef}>
-				<button className="playlist-dropdown-button">
-					Sample option
-				</button>
+			<div className="dropdown-item artist-dropdown">
+				{artistPageDropdownItems.map((item, index) =>
+					item.submenu ? (
+						<>
+							<button>
+								{item.title}{" "}
+								<span key={`${item.title}+${(currentArtist.id*index)}`}>
+									&raquo;
+								</span>
+							</button>
+							<SongCardSubmenu submenus={item.submenu} />
+						</>
+					) : (
+						<ArtistPageDropdownItem item={item} />
+					)
+				)}
 			</div>
 		</>
 	);

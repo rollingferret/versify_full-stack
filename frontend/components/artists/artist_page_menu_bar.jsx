@@ -10,6 +10,7 @@ const ArtistPageMenuBar = ({
 	fetchPlaylists,
 	editPlaylist,
 	artistShowRef,
+	history,
 }) => {
 	const [artistPageDropdownState, setArtistPageDropdownState] = useState({
 		isOpen: false,
@@ -17,6 +18,22 @@ const ArtistPageMenuBar = ({
 	const toggleArtistPageDropdown = () => {
 		setArtistPageDropdownState({ isOpen: !artistPageDropdownState.isOpen });
 	};
+
+	const artistPageDropdownItems = [
+		{
+			title: "Add to playlist",
+			submenu: [
+				[
+					{
+						title: "Create new playlist",
+					},
+					...playlists,
+					// Enclose array of playlists in an array since
+					// dropdown uses recursive .map function on items prop
+				],
+			],
+		},
+	];
 
 	return (
 		<>
@@ -35,6 +52,7 @@ const ArtistPageMenuBar = ({
 					editPlaylist={editPlaylist}
 					artistPageDropdownState={artistPageDropdownState}
 					artistShowRef={artistShowRef}
+					artistPageDropdownItems={artistPageDropdownItems}
 					toggleArtistPageDropdown={toggleArtistPageDropdown}
 				/>
 			)}
