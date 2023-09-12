@@ -18,6 +18,15 @@ const ArtistPageMenuBar = ({
 	// Create dropdown ref in parent component in order to wrap Redux container
 	const dropdownRef = useRef();
 
+	if (artistShowRef && artistShowRef.current) {
+		if (artistPageDropdownState.isOpen) {
+			// Prevent ArtistShow from scrolling when dropdown is open
+			artistShowRef.current.style.overflowY = "hidden";
+		} else {
+			artistShowRef.current.style.overflowY = "auto";
+		}
+	}
+
 	return (
 		<>
 			<div id="artist-play-button">

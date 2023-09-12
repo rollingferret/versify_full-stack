@@ -35,15 +35,6 @@ const ArtistPageDropdown = forwardRef(
 			};
 		}, [artistPageDropdownState]);
 
-		if (artistShowRef && artistShowRef.current) {
-			if (artistPageDropdownState.isOpen) {
-				// Prevent ArtistShow from scrolling when dropdown is open
-				artistShowRef.current.style.overflowY = "hidden";
-			} else {
-				artistShowRef.current.style.overflowY = "auto";
-			}
-		}
-
 		const keepDropdownOpen = (event) => {
 			event.stopPropagation();
 			// prevents re-rendering of parent and keeps menu open
