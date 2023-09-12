@@ -8,6 +8,7 @@ import CollabSongIndex from "../songs/collab_song_index";
 const ArtistShow = ({
 	currentArtist,
 	albums,
+	allSongs,
 	collabSongs,
 	params,
 	path,
@@ -15,6 +16,8 @@ const ArtistShow = ({
 	history,
 	displayArtist,
 	displayAlbum,
+	reduxPlay,
+	toQueueAlbum,
 	clearCurrent,
 }) => {
 	useEffect(() => {
@@ -45,6 +48,9 @@ const ArtistShow = ({
 					<div className="artist-nav">
 						<ArtistPageMenuBar
 							artistShowRef={artistShowRef}
+							allSongs={allSongs}
+							reduxPlay={reduxPlay}
+							toQueueAlbum={toQueueAlbum}
 							history={history}
 						/>
 					</div>
@@ -59,7 +65,6 @@ const ArtistShow = ({
 						<CollabSongIndex
 							songs={collabSongs}
 							history={history}
-							
 							displayAlbum={displayAlbum}
 							currentArtist={currentArtist}
 						/>

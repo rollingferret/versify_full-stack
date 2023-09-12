@@ -6,6 +6,9 @@ import { GrPlayFill } from "react-icons/gr";
 
 const ArtistPageMenuBar = ({
 	artistShowRef,
+	allSongs,
+	reduxPlay,
+	toQueueAlbum,
 	history,
 }) => {
 	const [artistPageDropdownState, setArtistPageDropdownState] = useState({
@@ -27,10 +30,16 @@ const ArtistPageMenuBar = ({
 		}
 	}
 
+	const handleButtonClick = (e) => {
+		e.preventDefault();
+		toQueueAlbum(allSongs);
+		reduxPlay();
+	}
+
 	return (
 		<>
 			<div id="artist-play-button">
-				<GrPlayFill />
+				<GrPlayFill onClick={handleButtonClick} />
 				{/* TODO: Show pause button when Redux isPlaying=true */}
 			</div>
 			<div id="artist-dropdown-dots">

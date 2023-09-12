@@ -3,6 +3,9 @@ import { displayArtist,
 } from "../../actions/artist_actions";
 import { displayAlbum,
 } from "../../actions/album_actions";
+import { reduxPlay,
+    toQueueAlbum,
+} from "../../actions/now_playing_actions";
 
 import { clearCurrent,
 } from "../../actions/playlist_actions";
@@ -13,6 +16,7 @@ const mapStateToProps = (state, ownProps) => {
     return ({
         currentArtist: state.entities.currentItem,
         albums: state.entities.albums,
+        allSongs: state.entities.songs.allSongs,
         collabSongs: state.entities.songs.collabSongs,
         params: ownProps.params,
         path: ownProps.path,
@@ -23,6 +27,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => ({
     displayArtist: (artistId) => dispatch( displayArtist(artistId) ),
     displayAlbum: (albumId) => dispatch( displayAlbum(albumId) ),
+    reduxPlay: () => dispatch( reduxPlay() ),
+    toQueueAlbum: (songsArray) => dispatch( toQueueAlbum(songsArray) ),
     clearCurrent: () => dispatch( clearCurrent() ),
 })
 
