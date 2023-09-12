@@ -17,7 +17,7 @@ const ArtistShow = ({
 	displayArtist,
 	displayAlbum,
 	reduxPlay,
-	toQueueAlbum,
+	toQueueArtist,
 	clearCurrent,
 }) => {
 	useEffect(() => {
@@ -50,7 +50,7 @@ const ArtistShow = ({
 							artistShowRef={artistShowRef}
 							allSongs={allSongs}
 							reduxPlay={reduxPlay}
-							toQueueAlbum={toQueueAlbum}
+							toQueueArtist={toQueueArtist}
 							history={history}
 						/>
 					</div>

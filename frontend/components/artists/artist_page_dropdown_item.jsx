@@ -1,9 +1,9 @@
 import React from "react";
 
-const ArtistPageDropdownItem = ({ item, allSongs, toQueueAlbum }) => {
+const ArtistPageDropdownItem = ({ item, allSongs, toQueueArtist }) => {
 	const runAlbumAction = (e) => {
 		if (e.target.innerText === "Add to queue") {
-            toQueueAlbum(allSongs);
+            toQueueArtist(allSongs);
 		}
 	};
 	return <button 

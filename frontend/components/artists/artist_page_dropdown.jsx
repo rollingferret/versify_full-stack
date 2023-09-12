@@ -12,7 +12,7 @@ const ArtistPageDropdown = forwardRef(
 			artistShowRef,
 			toggleArtistPageDropdown,
 			items,
-			toQueueAlbum,
+			toQueueArtist,
 		},
 		ref
 	) => {
@@ -60,7 +60,7 @@ const ArtistPageDropdown = forwardRef(
 								key={`${item.id} + ${index}`}
 								item={item}
 								allSongs={allSongs}
-								toQueueAlbum={toQueueAlbum}
+								toQueueArtist={toQueueArtist}
 							/>
 						)
 					)}

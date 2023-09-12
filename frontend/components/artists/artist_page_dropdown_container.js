@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { toQueueAlbum } from "../../actions/now_playing_actions";
+import { toQueueArtist } from "../../actions/now_playing_actions";
 
 import ArtistPageDropdown from "./artist_page_dropdown";
 
@@ -37,7 +37,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-	toQueueAlbum: (songsArray) => dispatch(toQueueAlbum(songsArray)),
+	toQueueArtist: (songsArray) => dispatch(toQueueArtist(songsArray)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps, null, {forwardRef: true})(ArtistPageDropdown);

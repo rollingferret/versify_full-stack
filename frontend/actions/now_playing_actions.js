@@ -11,7 +11,7 @@ const queueSong = () => ({
     type: QUEUE_SONG,
 })
 
-const queueAlbum = (songsArray) => ({
+const queueArtist = (songsArray) => ({
     type: QUEUE_ALBUM,
     songs: songsArray,
 })
@@ -24,6 +24,6 @@ export const reduxPlay = () => dispatch => (
     dispatch(togglePlay())
 );
 
-export const toQueueAlbum = (songsArray) => dispatch => {
-    return dispatch(queueAlbum(songsArray));
+export const toQueueArtist = (songsArray) => dispatch => {
+    return dispatch(queueArtist(songsArray));
 }

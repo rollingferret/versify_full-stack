@@ -8,7 +8,7 @@ const ArtistPageMenuBar = ({
 	artistShowRef,
 	allSongs,
 	reduxPlay,
-	toQueueAlbum,
+	toQueueArtist,
 	history,
 }) => {
 	const [artistPageDropdownState, setArtistPageDropdownState] = useState({
@@ -32,7 +32,7 @@ const ArtistPageMenuBar = ({
 
 	const handleButtonClick = (e) => {
 		e.preventDefault();
-		toQueueAlbum(allSongs);
+		toQueueArtist(allSongs);
 		reduxPlay();
 	}
 

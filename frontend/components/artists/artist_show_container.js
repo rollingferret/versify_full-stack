@@ -4,7 +4,7 @@ import { displayArtist,
 import { displayAlbum,
 } from "../../actions/album_actions";
 import { reduxPlay,
-    toQueueAlbum,
+    toQueueArtist,
 } from "../../actions/now_playing_actions";
 
 import { clearCurrent,
@@ -28,7 +28,7 @@ const mapDispatchToProps = (dispatch) => ({
     displayArtist: (artistId) => dispatch( displayArtist(artistId) ),
     displayAlbum: (albumId) => dispatch( displayAlbum(albumId) ),
     reduxPlay: () => dispatch( reduxPlay() ),
-    toQueueAlbum: (songsArray) => dispatch( toQueueAlbum(songsArray) ),
+    toQueueArtist: (songsArray) => dispatch( toQueueArtist(songsArray) ),
     clearCurrent: () => dispatch( clearCurrent() ),
 })
 
