@@ -1,12 +1,16 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import ArtistPageDropdownContainer from "./artist_page_dropdown_container";
 
 import { RxDotsHorizontal } from "react-icons/rx";
-import { GrPlayFill } from "react-icons/gr";
+import {
+	MdOutlinePlayCircleFilled,
+	MdOutlinePauseCircleFilled,
+} from "react-icons/md";
 
 const ArtistPageMenuBar = ({
 	artistShowRef,
 	allSongs,
+	isPlaying,
 	reduxPlay,
 	toQueueArtist,
 	history,
@@ -21,9 +25,9 @@ const ArtistPageMenuBar = ({
 	// Create dropdown ref in parent component in order to wrap Redux container
 	const dropdownRef = useRef();
 
+	// Prevent ArtistShow from scrolling when dropdown is open
 	if (artistShowRef && artistShowRef.current) {
 		if (artistPageDropdownState.isOpen) {
-			// Prevent ArtistShow from scrolling when dropdown is open
 			artistShowRef.current.style.overflowY = "hidden";
 		} else {
 			artistShowRef.current.style.overflowY = "auto";
@@ -34,13 +38,16 @@ const ArtistPageMenuBar = ({
 		e.preventDefault();
 		toQueueArtist(allSongs);
 		reduxPlay();
-	}
+	};
 
 	return (
 		<>
-			<div id="artist-play-button">
-				<GrPlayFill onClick={handleButtonClick} />
-				{/* TODO: Show pause button when Redux isPlaying=true */}
+			<div id="artist-play-button" onClick={handleButtonClick}>
+				{isPlaying ? (
+					<MdOutlinePauseCircleFilled />
+				) : (
+					<MdOutlinePlayCircleFilled />
+				)}
 			</div>
 			<div id="artist-dropdown-dots">
 				<RxDotsHorizontal onClick={toggleArtistPageDropdown} />

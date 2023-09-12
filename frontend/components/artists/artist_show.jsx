@@ -10,6 +10,7 @@ const ArtistShow = ({
 	albums,
 	allSongs,
 	collabSongs,
+	isPlaying,
 	params,
 	path,
 	currentUser,
@@ -49,6 +50,7 @@ const ArtistShow = ({
 						<ArtistPageMenuBar
 							artistShowRef={artistShowRef}
 							allSongs={allSongs}
+							isPlaying={isPlaying}
 							reduxPlay={reduxPlay}
 							toQueueArtist={toQueueArtist}
 							history={history}
