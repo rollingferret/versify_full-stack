@@ -1,19 +1,29 @@
 export const TOGGLE_PLAY = 'TOGGLE_PLAY'
-export const PLAY_ALBUM = 'PLAY_ALBUM'
-export const PLAY_PLAYLIST = 'PLAY_PLAYLIST'
+export const QUEUE_SONG = 'QUEUE_SONG'
+export const QUEUE_ALBUM = 'QUEUE_ALBUM'
+export const QUEUE_PLAYLIST = 'QUEUE_PLAYLIST'
 
 const togglePlay = () => ({
     type: TOGGLE_PLAY,
 })
 
-const playAlbum = () => ({
-    type: PLAY_ALBUM,
+const queueSong = () => ({
+    type: QUEUE_SONG,
 })
 
-const playPlaylist = () => ({
-    type: PLAY_PLAYLIST,
+const queueAlbum = (songsArray) => ({
+    type: QUEUE_ALBUM,
+    songs: songsArray,
+})
+
+const queuePlaylist = () => ({
+    type: QUEUE_PLAYLIST,
 })
 
 export const reduxPlay = () => dispatch => (
     dispatch(togglePlay())
 );
+
+export const albumQueue = (songsArray) => dispatch => {
+    return dispatch(queueAlbum(songsArray));
+}
