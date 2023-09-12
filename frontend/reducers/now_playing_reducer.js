@@ -13,10 +13,7 @@ const nowPlayingReducer = (
 				newPlayState.isPlaying = !newPlayState.isPlaying;
 			return newPlayState;
 		case QUEUE_ALBUM: // payload is an array of song objects
-			action.songs.forEach((song) => {
-				newPlayState.queue.push(song);
-				console.log("newPlayState.queue", newPlayState.queue)
-			});
+			newPlayState.queue.push(...action.songs);
 		default:
 			return playState;
 	}

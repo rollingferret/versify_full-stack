@@ -32,7 +32,7 @@ const Player = ({ tracks, isPlaying, reduxPlay }) => {
 			audioRef.current.pause();
 		}
 	}, [isPlaying]);
-	
+
 	// Set up behavior when changing tracks
 	const afterFirstRender = useRef(false); // prevent auto-play
 	useEffect(() => {

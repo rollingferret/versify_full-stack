@@ -1,17 +1,18 @@
 import { connect } from "react-redux";
+import { toQueueAlbum } from "../../actions/now_playing_actions";
 
 import ArtistPageDropdown from "./artist_page_dropdown";
 
 const mapStateToProps = (state, ownProps) => {
 	return {
+		playlists: state.entities.playlists,
+		allSongs: state.entities.songs.allSongs,
 		currentArtist: ownProps.currentArtist,
 		history: ownProps.history,
 		artistPageDropdownState: ownProps.artistPageDropdownState,
 		artistShowRef: ownProps.artistShowRef,
 		ref: ownProps.ref,
 		toggleArtistPageDropdown: ownProps.toggleArtistPageDropdown,
-		playlists: state.entities.playlists,
-		allSongs: state.entities.songs.allSongs,
 		items: [
 			// TODO: Implement adding artist songs to playlist
 			// {title: "Add to playlist",
@@ -36,7 +37,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-	fetchPlaylists: () => dispatch(fetchPlaylists()),
+	toQueueAlbum: (songsArray) => dispatch(toQueueAlbum(songsArray)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps, null, {forwardRef: true})(ArtistPageDropdown);

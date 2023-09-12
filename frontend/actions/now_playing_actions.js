@@ -24,6 +24,6 @@ export const reduxPlay = () => dispatch => (
     dispatch(togglePlay())
 );
 
-export const albumQueue = (songsArray) => dispatch => {
+export const toQueueAlbum = (songsArray) => dispatch => {
     return dispatch(queueAlbum(songsArray));
 }
