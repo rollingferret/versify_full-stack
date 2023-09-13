@@ -22,12 +22,27 @@ const Player = ({ tracks, isPlaying, reduxPlay }) => {
 		audioRef.current.src = audioSrc;
 	}, [currentTrack]);
 
+	// Safely play audio only when it is loaded
+
+	const isReady = () => {
+		if (audioRef.current.readyState >= 2) {
+			audioRef.current.play();
+		}
+	};
+	const isReadyListener = () => {
+		audioRef.current.addEventListener("loadeddata", isReady);
+	};
+
 	// Set up play/pause behavior;
 	useEffect(() => {
 		if (isPlaying) {
+			isReadyListener();
 			audioRef.current.play();
 		} else {
 			audioRef.current.pause();
+		}
+		return () => {
+			audioRef.current.removeEventListener("loadeddata", isReady);
 		}
 	}, [isPlaying]);
 
