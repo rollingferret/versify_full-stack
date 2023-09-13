@@ -15,6 +15,7 @@ const ArtistPageMenuBar = ({
 	reduxPlay,
 	toQueueArtist,
 	toPlayArtist,
+	toPushPlay,
 	history,
 	urlParams,
 }) => {
@@ -39,13 +40,19 @@ const ArtistPageMenuBar = ({
 		sourceType: "artist",
 		extractedUrlParams: urlParams.id,
 	}; // provides linkback to view currently playing
-	// TODO: Implement queue view)
+	// TODO: Implement queue view
 
 	const handleButtonClick = (e) => {
 		e.preventDefault();
-		reduxPlay();
-		toPlayArtist(queueObj)
-		reduxPlay();
+		if (
+			queueObj.sourceType === queueSource.sourceType &&
+			queueObj.extractedUrlParams === queueSource.extractedUrlParams
+		) {
+			reduxPlay();
+		} else {
+			toPlayArtist(queueObj);
+			toPushPlay();
+		}
 	};
 
 	const handleAddToQueue = (e) => {

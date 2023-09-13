@@ -21,6 +21,7 @@ const ArtistShow = ({
 	reduxPlay,
 	toQueueArtist,
 	toPlayArtist,
+	toPushPlay,
 	clearCurrent,
 }) => {
 	useEffect(() => {
@@ -57,6 +58,7 @@ const ArtistShow = ({
 							reduxPlay={reduxPlay}
 							toQueueArtist={toQueueArtist}
 							toPlayArtist={toPlayArtist}
+							toPushPlay={toPushPlay}
 							history={history}
 							urlParams={urlParams}
 						/>

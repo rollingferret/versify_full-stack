@@ -1,4 +1,4 @@
-import { QUEUE_ARTIST, PLAY_ARTIST } from "../actions/now_playing_actions";
+import { QUEUE_ARTIST, PLAY_ARTIST, PUSH_PLAY } from "../actions/now_playing_actions";
 import { TOGGLE_PLAY } from "../actions/now_playing_actions";
 
 const nowPlayingReducer = (
@@ -15,6 +15,9 @@ const nowPlayingReducer = (
 		case TOGGLE_PLAY:
 			if (newPlayState.queue?.length > 0)
 				newPlayState.isPlaying = !newPlayState.isPlaying;
+			return newPlayState;
+		case PUSH_PLAY:
+			if (newPlayState.queue?.length > 0) newPlayState.isPlaying = true;
 			return newPlayState;
 		case QUEUE_ARTIST:
 			newPlayState.queue.push(...action.allSongs);

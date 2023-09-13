@@ -1,9 +1,14 @@
 export const TOGGLE_PLAY = "TOGGLE_PLAY";
+export const PUSH_PLAY = "PUSH_PLAY";
 export const QUEUE_ARTIST = "QUEUE_ARTIST";
 export const PLAY_ARTIST = "PLAY_ARTIST";
 
 const togglePlay = () => ({
 	type: TOGGLE_PLAY,
+});
+
+const pushPlay = () => ({
+	type: PUSH_PLAY,
 });
 
 const queueArtist = (queueObj) => ({
@@ -31,3 +36,5 @@ export const toQueueArtist = (queueObj) => (dispatch) => {
 export const toPlayArtist = (queueObj) => (dispatch) => {
 	return dispatch(playArtist(queueObj));
 };
+
+export const toPushPlay = () => (dispatch) => dispatch(pushPlay())
