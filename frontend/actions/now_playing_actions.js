@@ -1,6 +1,6 @@
 export const TOGGLE_PLAY = 'TOGGLE_PLAY'
 export const QUEUE_SONG = 'QUEUE_SONG'
-export const QUEUE_ALBUM = 'QUEUE_ALBUM'
+export const QUEUE_ARTIST = 'QUEUE_ARTIST'
 export const QUEUE_PLAYLIST = 'QUEUE_PLAYLIST'
 
 const togglePlay = () => ({
@@ -12,7 +12,7 @@ const queueSong = () => ({
 })
 
 const queueArtist = (songsArray) => ({
-    type: QUEUE_ALBUM,
+    type: QUEUE_ARTIST,
     songs: songsArray,
 })
 

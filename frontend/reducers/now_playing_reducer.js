@@ -1,4 +1,4 @@
-import { QUEUE_ALBUM } from "../actions/now_playing_actions";
+import { QUEUE_ARTIST } from "../actions/now_playing_actions";
 import { TOGGLE_PLAY } from "../actions/now_playing_actions";
 
 const nowPlayingReducer = (
@@ -12,7 +12,7 @@ const nowPlayingReducer = (
 			if (newPlayState.queue?.length > 0)
 				newPlayState.isPlaying = !newPlayState.isPlaying;
 			return newPlayState;
-		case QUEUE_ALBUM: // payload is an array of song objects
+		case QUEUE_ARTIST: // payload is an array of song objects
 			newPlayState.queue.push(...action.songs);
 		default:
 			return playState;
