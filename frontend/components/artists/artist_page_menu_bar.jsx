@@ -15,6 +15,7 @@ const ArtistPageMenuBar = ({
 	reduxPlay,
 	toQueueArtist,
 	history,
+	urlParams,
 }) => {
 	const [artistPageDropdownState, setArtistPageDropdownState] = useState({
 		isOpen: false,
@@ -22,9 +23,6 @@ const ArtistPageMenuBar = ({
 	const toggleArtistPageDropdown = () => {
 		setArtistPageDropdownState({ isOpen: !artistPageDropdownState.isOpen });
 	};
-
-	// Create dropdown ref in parent component in order to wrap Redux container
-	const dropdownRef = useRef();
 
 	// Prevent ArtistShow from scrolling when dropdown is open
 	if (artistShowRef && artistShowRef.current) {
@@ -35,16 +33,27 @@ const ArtistPageMenuBar = ({
 		}
 	}
 
+	const queueObj = {
+		allSongs,
+		sourceType: "artist",
+		extractedUrlParams: urlParams.id,
+	}; // extract id
+	console.log(queueObj)
+	console.log(queueSource)
 	const handleButtonClick = (e) => {
 		e.preventDefault();
-		toQueueArtist(allSongs);
+		toQueueArtist(queueObj);
 		reduxPlay();
 	};
 
+	// Create dropdown ref in parent component in order to wrap Redux container
+	const dropdownRef = useRef();
 	return (
 		<>
 			<div id="artist-play-button" onClick={handleButtonClick}>
-				{isPlaying ? (
+				{isPlaying &&
+				(queueObj.sourceType === queueSource.sourceType &&
+				queueObj.extractedUrlParams === queueSource.extractedUrlParams) ? (
 					<MdOutlinePauseCircleFilled />
 				) : (
 					<MdOutlinePlayCircleFilled />

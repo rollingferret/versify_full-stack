@@ -37,7 +37,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-	toQueueArtist: (songsArray) => dispatch(toQueueArtist(songsArray)),
+	toQueueArtist: (queueObj) => dispatch(toQueueArtist(queueObj)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps, null, {forwardRef: true})(ArtistPageDropdown);

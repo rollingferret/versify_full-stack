@@ -5,7 +5,7 @@ const nowPlayingReducer = (
 	playState = {
 		isPlaying: false,
 		queue: [],
-		queueSource: { type: null, id: null },
+		queueSource: { sourceType: null, extractedUrlParams: null },
 	},
 	action
 ) => {
@@ -16,10 +16,14 @@ const nowPlayingReducer = (
 			if (newPlayState.queue?.length > 0)
 				newPlayState.isPlaying = !newPlayState.isPlaying;
 			return newPlayState;
-		case QUEUE_ARTIST: // payload is an array of song objects
-			newPlayState.queue.push(...action.songs);
+		case QUEUE_ARTIST:
+			newPlayState.queue.push(...action.allSongs);
 			// mutate the object so the player does not stop playing to re-render
-			newPlayState.queueSource = { type: artist, id: action.urlParams };
+			newPlayState.queueSource = {
+				sourceType: action.sourceType,
+				extractedUrlParams: action.extractedUrlParams,
+			};
+			return newPlayState;
 		default:
 			return playState;
 	}

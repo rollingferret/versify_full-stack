@@ -12,7 +12,7 @@ const ArtistShow = ({
 	collabSongs,
 	isPlaying,
 	queueSource,
-	params,
+	urlParams,
 	path,
 	currentUser,
 	history,
@@ -23,7 +23,7 @@ const ArtistShow = ({
 	clearCurrent,
 }) => {
 	useEffect(() => {
-		displayArtist(params.id);
+		displayArtist(urlParams.id);
 
 		const rendered = document.getElementById("artist-show");
 		rendered ? rendered.scrollTo(0, 0) : null;
@@ -31,7 +31,7 @@ const ArtistShow = ({
 		return () => {
 			clearCurrent();
 		};
-	}, [params]); // Will run whenever params.id changes, otherwise ArtistShow doesn't re-render
+	}, [urlParams]); // Will run whenever urlParams.id changes, otherwise ArtistShow doesn't re-render
 
 	const artistShowRef = useRef();
 
@@ -56,6 +56,7 @@ const ArtistShow = ({
 							reduxPlay={reduxPlay}
 							toQueueArtist={toQueueArtist}
 							history={history}
+							urlParams={urlParams}
 						/>
 					</div>
 					{albums?.length > 0 && (

@@ -19,8 +19,8 @@ const mapStateToProps = (state, ownProps) => {
         allSongs: state.entities.songs.allSongs,
         collabSongs: state.entities.songs.collabSongs,
         isPlaying: state.entities.nowPlaying.isPlaying,
-        queueSource: state.entities.nowPlaying.queueSource, // = {type:, id:}
-        params: ownProps.params,
+        queueSource: state.entities.nowPlaying.queueSource, // = {sourceType:, urlParams:}
+        urlParams: ownProps.params,
         path: ownProps.path,
         currentUser: ownProps.currentUser,
         history: ownProps.history,
@@ -30,7 +30,7 @@ const mapDispatchToProps = (dispatch) => ({
     displayArtist: (artistId) => dispatch( displayArtist(artistId) ),
     displayAlbum: (albumId) => dispatch( displayAlbum(albumId) ),
     reduxPlay: () => dispatch( reduxPlay() ),
-    toQueueArtist: (songsArray) => dispatch( toQueueArtist(songsArray) ),
+    toQueueArtist: (queueObj) => dispatch( toQueueArtist(queueObj) ),
     clearCurrent: () => dispatch( clearCurrent() ),
 })
 
