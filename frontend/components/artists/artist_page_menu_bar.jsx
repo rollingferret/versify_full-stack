@@ -11,6 +11,7 @@ const ArtistPageMenuBar = ({
 	artistShowRef,
 	allSongs,
 	isPlaying,
+	queueSource,
 	reduxPlay,
 	toQueueArtist,
 	history,

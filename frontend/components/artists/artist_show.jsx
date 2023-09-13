@@ -11,6 +11,7 @@ const ArtistShow = ({
 	allSongs,
 	collabSongs,
 	isPlaying,
+	queueSource,
 	params,
 	path,
 	currentUser,
@@ -51,6 +52,7 @@ const ArtistShow = ({
 							artistShowRef={artistShowRef}
 							allSongs={allSongs}
 							isPlaying={isPlaying}
+							queueSource={queueSource}
 							reduxPlay={reduxPlay}
 							toQueueArtist={toQueueArtist}
 							history={history}
