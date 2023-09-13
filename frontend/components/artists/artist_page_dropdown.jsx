@@ -7,12 +7,11 @@ const ArtistPageDropdown = forwardRef(
 		{ // unused props will be for submenu refactoring
 			playlists,
 			allSongs,
+			handleAddToQueue,
 			history,
 			artistPageDropdownState,
-			artistShowRef,
 			toggleArtistPageDropdown,
 			items,
-			toQueueArtist,
 		},
 		ref
 	) => {
@@ -59,8 +58,7 @@ const ArtistPageDropdown = forwardRef(
 							<ArtistPageDropdownItem
 								key={`${item.id} + ${index}`}
 								item={item}
-								allSongs={allSongs}
-								toQueueArtist={toQueueArtist}
+								handleAddToQueue={handleAddToQueue}
 							/>
 						)
 					)}

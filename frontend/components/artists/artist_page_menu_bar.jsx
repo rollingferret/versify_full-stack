@@ -37,13 +37,13 @@ const ArtistPageMenuBar = ({
 		allSongs,
 		sourceType: "artist",
 		extractedUrlParams: urlParams.id,
-	}; // extract id
-	console.log(queueObj)
-	console.log(queueSource)
+	}; // provides linkback to view currently playing
+	// TODO: Implement queue view
+
 	const handleButtonClick = (e) => {
 		e.preventDefault();
 		toQueueArtist(queueObj);
-		reduxPlay();
+		setArtistPageDropdownState({ isOpen: false });
 	};
 
 	// Create dropdown ref in parent component in order to wrap Redux container
@@ -52,8 +52,9 @@ const ArtistPageMenuBar = ({
 		<>
 			<div id="artist-play-button" onClick={handleButtonClick}>
 				{isPlaying &&
-				(queueObj.sourceType === queueSource.sourceType &&
-				queueObj.extractedUrlParams === queueSource.extractedUrlParams) ? (
+				queueObj.sourceType === queueSource.sourceType &&
+				queueObj.extractedUrlParams ===
+					queueSource.extractedUrlParams ? (
 					<MdOutlinePauseCircleFilled />
 				) : (
 					<MdOutlinePlayCircleFilled />
@@ -64,9 +65,9 @@ const ArtistPageMenuBar = ({
 			</div>
 			{artistPageDropdownState.isOpen && (
 				<ArtistPageDropdownContainer
+					handleAddToQueue={handleButtonClick}
 					history={history}
 					artistPageDropdownState={artistPageDropdownState}
-					artistShowRef={artistShowRef}
 					ref={dropdownRef}
 					toggleArtistPageDropdown={toggleArtistPageDropdown}
 				/>

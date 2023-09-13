@@ -22,6 +22,5 @@ export const reduxPlay = () => dispatch => (
 );
 
 export const toQueueArtist = (queueObj) => dispatch => {
-    debugger
     return dispatch(queueArtist(queueObj));
 }

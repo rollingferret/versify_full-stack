@@ -23,6 +23,10 @@ const nowPlayingReducer = (
 				sourceType: action.sourceType,
 				extractedUrlParams: action.extractedUrlParams,
 			};
+			// TODO: Add code for queue to track multiple queueSources
+			// for each series of songs added
+			// TODO: Consider separate key to hold current track 
+			// to continue playback for when user clears the queue
 			return newPlayState;
 		default:
 			return playState;

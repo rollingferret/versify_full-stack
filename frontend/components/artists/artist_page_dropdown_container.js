@@ -7,10 +7,9 @@ const mapStateToProps = (state, ownProps) => {
 	return {
 		playlists: state.entities.playlists,
 		allSongs: state.entities.songs.allSongs,
-		currentArtist: ownProps.currentArtist,
+		handleAddToQueue: ownProps.handleAddToQueue,
 		history: ownProps.history,
 		artistPageDropdownState: ownProps.artistPageDropdownState,
-		artistShowRef: ownProps.artistShowRef,
 		ref: ownProps.ref,
 		toggleArtistPageDropdown: ownProps.toggleArtistPageDropdown,
 		items: [
