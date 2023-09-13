@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from "react";
-import ArtistPageDropdown from "./artist_page_dropdown";
+import React, { useRef, useState } from "react";
+import ArtistPageDropdownContainer from "./artist_page_dropdown_container";
 
 import { RxDotsHorizontal } from "react-icons/rx";
 import { GrPlayFill } from "react-icons/gr";
 
 const ArtistPageMenuBar = ({
-	currentArtist,
+	artistShowRef,
 	history,
-	fetchPlaylists,
-	editPlaylist,
 }) => {
 	const [artistPageDropdownState, setArtistPageDropdownState] = useState({
 		isOpen: false,
@@ -16,6 +14,18 @@ const ArtistPageMenuBar = ({
 	const toggleArtistPageDropdown = () => {
 		setArtistPageDropdownState({ isOpen: !artistPageDropdownState.isOpen });
 	};
+
+	// Create dropdown ref in parent component in order to wrap Redux container
+	const dropdownRef = useRef();
+
+	if (artistShowRef && artistShowRef.current) {
+		if (artistPageDropdownState.isOpen) {
+			// Prevent ArtistShow from scrolling when dropdown is open
+			artistShowRef.current.style.overflowY = "hidden";
+		} else {
+			artistShowRef.current.style.overflowY = "auto";
+		}
+	}
 
 	return (
 		<>
@@ -27,12 +37,12 @@ const ArtistPageMenuBar = ({
 				<RxDotsHorizontal onClick={toggleArtistPageDropdown} />
 			</div>
 			{artistPageDropdownState.isOpen && (
-				<ArtistPageDropdown
-					currentArtist={currentArtist}
+				<ArtistPageDropdownContainer
 					history={history}
-					fetchPlaylists={fetchPlaylists}
-					editPlaylist={editPlaylist}
 					artistPageDropdownState={artistPageDropdownState}
+					artistShowRef={artistShowRef}
+					ref={dropdownRef}
+					toggleArtistPageDropdown={toggleArtistPageDropdown}
 				/>
 			)}
 		</>
