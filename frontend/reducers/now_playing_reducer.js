@@ -1,4 +1,5 @@
-import { QUEUE_ARTIST } from "../actions/now_playing_actions";
+import { QUEUE_ARTIST,
+PLAY_ARTIST } from "../actions/now_playing_actions";
 import { TOGGLE_PLAY } from "../actions/now_playing_actions";
 
 const nowPlayingReducer = (
@@ -25,8 +26,17 @@ const nowPlayingReducer = (
 			};
 			// TODO: Add code for queue to track multiple queueSources
 			// for each series of songs added
-			// TODO: Consider separate key to hold current track 
+			// TODO: Consider separate key to hold current track
 			// to continue playback for when user clears the queue
+			return newPlayState;
+		case PLAY_ARTIST:
+			debugger
+			newPlayState.queue = action.allSongs;
+			// replace the entire queue
+			newPlayState.queueSource = {
+				sourceType: action.sourceType,
+				extractedUrlParams: action.extractedUrlParams,
+			};
 			return newPlayState;
 		default:
 			return playState;

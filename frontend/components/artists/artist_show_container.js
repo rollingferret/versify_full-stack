@@ -5,6 +5,7 @@ import { displayAlbum,
 } from "../../actions/album_actions";
 import { reduxPlay,
     toQueueArtist,
+    toPlayArtist,
 } from "../../actions/now_playing_actions";
 
 import { clearCurrent,
@@ -31,6 +32,7 @@ const mapDispatchToProps = (dispatch) => ({
     displayAlbum: (albumId) => dispatch( displayAlbum(albumId) ),
     reduxPlay: () => dispatch( reduxPlay() ),
     toQueueArtist: (queueObj) => dispatch( toQueueArtist(queueObj) ),
+    toPlayArtist: (queueObj) => dispatch( toPlayArtist(queueObj) ),
     clearCurrent: () => dispatch( clearCurrent() ),
 })
 
