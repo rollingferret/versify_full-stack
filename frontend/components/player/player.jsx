@@ -25,7 +25,7 @@ const Player = ({ tracks, isPlaying, reduxPlay }) => {
 	// Safely play audio only when it is loaded
 
 	const isReady = () => {
-		if (audioRef.current.readyState >= 2) {
+		if (audioRef.current.readyState === 4) {
 			audioRef.current.play();
 		}
 	};
