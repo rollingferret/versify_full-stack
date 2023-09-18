@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import NowPlayingInfo from "./now_playing_info";
 import PlayingControls from "./playing_controls";
 
-const Player = ({ tracks, isPlaying, reduxPlay }) => {
+const Player = ({ tracks, isPlaying, toTogglePlay }) => {
 	// Set local states
 	const [trackIndex, setTrackIndex] = useState(0);
 	const [trackProgress, setTrackProgress] = useState(0); // progress bar
@@ -98,7 +98,7 @@ const Player = ({ tracks, isPlaying, reduxPlay }) => {
 			/>
 			<PlayingControls
 				isPlaying={isPlaying}
-				togglePlay={reduxPlay}
+				togglePlay={toTogglePlay}
 				toPrevTrack={toPrevTrack}
 				toNextTrack={toNextTrack}
 				toggleShuffle={toggleShuffle}

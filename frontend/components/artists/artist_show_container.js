@@ -3,7 +3,7 @@ import { displayArtist,
 } from "../../actions/artist_actions";
 import { displayAlbum,
 } from "../../actions/album_actions";
-import { reduxPlay,
+import { toTogglePlay,
     toQueueArtist,
     toPlayArtist,
     toPushPlay,
@@ -31,7 +31,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => ({
     displayArtist: (artistId) => dispatch( displayArtist(artistId) ),
     displayAlbum: (albumId) => dispatch( displayAlbum(albumId) ),
-    reduxPlay: () => dispatch( reduxPlay() ),
+    toTogglePlay: () => dispatch( toTogglePlay() ),
     toQueueArtist: (queueObj) => dispatch( toQueueArtist(queueObj) ),
     toPlayArtist: (queueObj) => dispatch( toPlayArtist(queueObj) ),
     toPushPlay: () => dispatch( toPushPlay() ),

@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import Player from "./player";
 
-import { reduxPlay } from "../../actions/now_playing_actions";
+import { toTogglePlay } from "../../actions/now_playing_actions";
 
 const mapStateToProps = (state, ownProps) => {
 	return {
@@ -19,7 +19,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => ({
 	clearPlaylistErrors: () => dispatch(clearPlaylistErrors()),
-	reduxPlay: () => dispatch(reduxPlay()),
+	toTogglePlay: () => dispatch(toTogglePlay()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Player);

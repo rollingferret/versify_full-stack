@@ -12,7 +12,7 @@ const ArtistPageMenuBar = ({
 	allSongs,
 	isPlaying,
 	queueSource,
-	reduxPlay,
+	toTogglePlay,
 	toQueueArtist,
 	toPlayArtist,
 	toPushPlay,
@@ -48,7 +48,7 @@ const ArtistPageMenuBar = ({
 			queueObj.sourceType === queueSource.sourceType &&
 			queueObj.extractedUrlParams === queueSource.extractedUrlParams
 		) {
-			reduxPlay();
+			toTogglePlay();
 		} else {
 			toPlayArtist(queueObj);
 			toPushPlay();

@@ -27,7 +27,7 @@ const playArtist = (queueObj) => ({
 	extractedUrlParams: queueObj.extractedUrlParams,
 });
 
-export const reduxPlay = () => (dispatch) => dispatch(togglePlay());
+export const toTogglePlay = () => (dispatch) => dispatch(togglePlay());
 
 export const toQueueArtist = (queueObj) => (dispatch) => {
 	return dispatch(queueArtist(queueObj));
