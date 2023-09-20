@@ -1,12 +1,23 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import ArtistPageDropdownContainer from "./artist_page_dropdown_container";
 
 import { RxDotsHorizontal } from "react-icons/rx";
-import { GrPlayFill } from "react-icons/gr";
+import {
+	MdOutlinePlayCircleFilled,
+	MdOutlinePauseCircleFilled,
+} from "react-icons/md";
 
 const ArtistPageMenuBar = ({
 	artistShowRef,
+	allSongs,
+	isPlaying,
+	queueSource,
+	toTogglePlay,
+	toQueueArtist,
+	toPlayArtist,
+	toPushPlay,
 	history,
+	urlParams,
 }) => {
 	const [artistPageDropdownState, setArtistPageDropdownState] = useState({
 		isOpen: false,
@@ -15,32 +26,63 @@ const ArtistPageMenuBar = ({
 		setArtistPageDropdownState({ isOpen: !artistPageDropdownState.isOpen });
 	};
 
-	// Create dropdown ref in parent component in order to wrap Redux container
-	const dropdownRef = useRef();
-
+	// Prevent ArtistShow from scrolling when dropdown is open
 	if (artistShowRef && artistShowRef.current) {
 		if (artistPageDropdownState.isOpen) {
-			// Prevent ArtistShow from scrolling when dropdown is open
 			artistShowRef.current.style.overflowY = "hidden";
 		} else {
 			artistShowRef.current.style.overflowY = "auto";
 		}
 	}
 
+	const queueObj = {
+		allSongs,
+		sourceType: "artist",
+		extractedUrlParams: urlParams.id,
+	}; // provides linkback to view currently playing
+	// TODO: Implement queue view
+
+	const handleButtonClick = (e) => {
+		e.preventDefault();
+		if (
+			queueObj.sourceType === queueSource.sourceType &&
+			queueObj.extractedUrlParams === queueSource.extractedUrlParams
+		) {
+			toTogglePlay();
+		} else {
+			toPlayArtist(queueObj);
+			toPushPlay();
+		}
+	};
+
+	const handleAddToQueue = (e) => {
+		e.preventDefault();
+		toQueueArtist(queueObj);
+		setArtistPageDropdownState({ isOpen: false });
+	};
+
+	// Create dropdown ref in parent component in order to wrap Redux container
+	const dropdownRef = useRef();
 	return (
 		<>
-			<div id="artist-play-button">
-				<GrPlayFill />
-				{/* TODO: Show pause button when Redux isPlaying=true */}
+			<div id="artist-play-button" onClick={handleButtonClick}>
+				{isPlaying &&
+				queueObj.sourceType === queueSource.sourceType &&
+				queueObj.extractedUrlParams ===
+					queueSource.extractedUrlParams ? (
+					<MdOutlinePauseCircleFilled />
+				) : (
+					<MdOutlinePlayCircleFilled />
+				)}
 			</div>
 			<div id="artist-dropdown-dots">
 				<RxDotsHorizontal onClick={toggleArtistPageDropdown} />
 			</div>
 			{artistPageDropdownState.isOpen && (
 				<ArtistPageDropdownContainer
+					handleAddToQueue={handleAddToQueue}
 					history={history}
 					artistPageDropdownState={artistPageDropdownState}
-					artistShowRef={artistShowRef}
 					ref={dropdownRef}
 					toggleArtistPageDropdown={toggleArtistPageDropdown}
 				/>

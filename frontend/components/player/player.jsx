@@ -2,12 +2,11 @@ import React, { useEffect, useRef, useState } from "react";
 import NowPlayingInfo from "./now_playing_info";
 import PlayingControls from "./playing_controls";
 
-const Player = ({ tracks, isPlaying, reduxPlay }) => {
+const Player = ({ tracks, isPlaying, toTogglePlay }) => {
 	// Set local states
 	const [trackIndex, setTrackIndex] = useState(0);
 	const [trackProgress, setTrackProgress] = useState(0); // progress bar
 	const [isShuffling, setIsShuffling] = useState(false);
-	const [afterFirstPlay, setAfterFirstPlay] = useState(false);
 
 	const updateTrackProgress = (time) => {
 		return setTrackProgress(time);
@@ -23,16 +22,30 @@ const Player = ({ tracks, isPlaying, reduxPlay }) => {
 		audioRef.current.src = audioSrc;
 	}, [currentTrack]);
 
+	// Safely play audio only when it is loaded
+
+	const tryPlay = () => {
+		if (audioRef.current.readyState === 4) {
+			audioRef.current.play();
+		}
+	};
+	const tryPlayListener = () => {
+		audioRef.current.addEventListener("loadeddata", tryPlay);
+	};
+
 	// Set up play/pause behavior;
 	useEffect(() => {
 		if (isPlaying) {
-			setAfterFirstPlay(true);
+			tryPlayListener();
 			audioRef.current.play();
 		} else {
 			audioRef.current.pause();
 		}
+		return () => {
+			audioRef.current.removeEventListener("loadeddata", tryPlay);
+		}
 	}, [isPlaying]);
-	
+
 	// Set up behavior when changing tracks
 	const afterFirstRender = useRef(false); // prevent auto-play
 	useEffect(() => {
@@ -80,12 +93,12 @@ const Player = ({ tracks, isPlaying, reduxPlay }) => {
 				track={currentTrack}
 				trackProgress={trackProgress}
 				isPlaying={isPlaying}
-				afterFirstPlay={afterFirstPlay}
+				hasQueue={tracks.length > 0}
 				updateTrackProgress={updateTrackProgress}
 			/>
 			<PlayingControls
 				isPlaying={isPlaying}
-				togglePlay={reduxPlay}
+				togglePlay={toTogglePlay}
 				toPrevTrack={toPrevTrack}
 				toNextTrack={toNextTrack}
 				toggleShuffle={toggleShuffle}

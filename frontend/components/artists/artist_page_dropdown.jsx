@@ -5,14 +5,13 @@ import ArtistPageDropdownItem from "./artist_page_dropdown_item";
 const ArtistPageDropdown = forwardRef(
 	(
 		{ // unused props will be for submenu refactoring
-			history,
-			artistPageDropdownState,
-			artistShowRef,
-			toggleArtistPageDropdown,
 			playlists,
 			allSongs,
+			handleAddToQueue,
+			history,
+			artistPageDropdownState,
+			toggleArtistPageDropdown,
 			items,
-			fetchPlaylists,
 		},
 		ref
 	) => {
@@ -49,15 +48,18 @@ const ArtistPageDropdown = forwardRef(
 
 		return (
 			<>
-				<div className="dropdown-item artist-dropdown"
-				ref={ref}>
+				<div className="dropdown-item artist-dropdown" ref={ref}>
 					{items.map((item, index) =>
 						item.submenu ? (
 							{
 								/* TODO: Implement submenu logic */
 							}
 						) : (
-							<ArtistPageDropdownItem key={`${item.id} + ${index}`} item={item} />
+							<ArtistPageDropdownItem
+								key={`${item.id} + ${index}`}
+								item={item}
+								handleAddToQueue={handleAddToQueue}
+							/>
 						)
 					)}
 				</div>

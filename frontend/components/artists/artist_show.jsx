@@ -8,17 +8,24 @@ import CollabSongIndex from "../songs/collab_song_index";
 const ArtistShow = ({
 	currentArtist,
 	albums,
+	allSongs,
 	collabSongs,
-	params,
+	isPlaying,
+	queueSource,
+	urlParams,
 	path,
 	currentUser,
 	history,
 	displayArtist,
 	displayAlbum,
+	toTogglePlay,
+	toQueueArtist,
+	toPlayArtist,
+	toPushPlay,
 	clearCurrent,
 }) => {
 	useEffect(() => {
-		displayArtist(params.id);
+		displayArtist(urlParams.id);
 
 		const rendered = document.getElementById("artist-show");
 		rendered ? rendered.scrollTo(0, 0) : null;
@@ -26,7 +33,7 @@ const ArtistShow = ({
 		return () => {
 			clearCurrent();
 		};
-	}, [params]); // Will run whenever params.id changes, otherwise ArtistShow doesn't re-render
+	}, [urlParams]); // Will run whenever urlParams.id changes, otherwise ArtistShow doesn't re-render
 
 	const artistShowRef = useRef();
 
@@ -45,7 +52,15 @@ const ArtistShow = ({
 					<div className="artist-nav">
 						<ArtistPageMenuBar
 							artistShowRef={artistShowRef}
+							allSongs={allSongs}
+							isPlaying={isPlaying}
+							queueSource={queueSource}
+							toTogglePlay={toTogglePlay}
+							toQueueArtist={toQueueArtist}
+							toPlayArtist={toPlayArtist}
+							toPushPlay={toPushPlay}
 							history={history}
+							urlParams={urlParams}
 						/>
 					</div>
 					{albums?.length > 0 && (
@@ -59,7 +74,6 @@ const ArtistShow = ({
 						<CollabSongIndex
 							songs={collabSongs}
 							history={history}
-							
 							displayAlbum={displayAlbum}
 							currentArtist={currentArtist}
 						/>

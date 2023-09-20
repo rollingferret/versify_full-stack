@@ -58,10 +58,27 @@
 }
 
 .artist-dropdown {
-    left: 145px;
+    left: 169px;
     top: 386px;
     align-items: flex-start;
     min-width: 140px;
+}
+
+#artist-play-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#artist-play-button svg {
+    font-size: 60px;
+    color: #34d760;
+}
+
+#artist-play-button svg:hover {
+    cursor: pointer;
+    transition: 0.2s ease;
+    transform: scale(1.1) !important;
 }
 
 

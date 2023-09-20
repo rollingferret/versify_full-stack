@@ -1,5 +1,8 @@
 import React from "react";
-import { GrCirclePlay } from "react-icons/gr";
+import {
+	MdOutlinePlayCircleFilled,
+	MdOutlinePauseCircleFilled,
+} from "react-icons/md";
 import { BiSkipPrevious, BiSkipNext, BiShuffle } from "react-icons/bi";
 import { BsRepeat, BsRepeat1, BsPauseCircle } from "react-icons/bs";
 import { useEffect } from "react";
@@ -25,13 +28,13 @@ const PlayingControls = ({
 				onClick={toPrevTrack}
 			/>
 			{isPlaying ? (
-				<BsPauseCircle
+				<MdOutlinePauseCircleFilled
 					className="player__white-icon"
 					aria-label="Pause"
 					onClick={togglePlay}
 				/>
 			) : (
-				<GrCirclePlay
+				<MdOutlinePlayCircleFilled
 					className="player__white-icon"
 					aria-label="Play"
 					onClick={togglePlay}
