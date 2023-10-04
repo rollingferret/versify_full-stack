@@ -13,7 +13,7 @@ RUN gem update --system 3.0.6
 RUN gem install bundler -v 2.3.26
 
 # Install any needed packages specified in Gemfile
-RUN bundle install
+RUN bundle config --global default 2.3.26
 
 # Install Node.js and npm
 RUN apt-get update -qq && apt-get install -y nodejs npm
