@@ -7,6 +7,9 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 COPY . /app
 
+# Update RubyGems
+RUN gem update --system
+
 # Install Bundler version 2
 RUN gem install bundler:2
 
