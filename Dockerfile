@@ -10,11 +10,11 @@ COPY . /app
 # Update RubyGems
 RUN gem update --system 3.0.6
 
-# Install Bundler version 2
-RUN gem install bundler:2
+# Install Bundler version 1.16.6 and 2.0.0
+RUN gem install bundler -v '1.16.6' && gem install bundler -v '2.0.0'
 
-# Use Bundler version 2 for installation
-RUN /usr/local/bundle/bin/bundle _2.0.0_ install
+# Install any needed packages specified in Gemfile
+RUN bundle install
 
 # Install Node.js and npm
 RUN apt-get update -qq && apt-get install -y nodejs npm
