@@ -10,9 +10,7 @@ COPY . /app
 # Update RubyGems
 RUN gem update --system 3.0.6
 
-# Install Bundler version 1.16.6 and 2.0.0
-RUN gem install bundler
-RUN bundle update --bundler
+RUN gem install bundler -v 2.3.26
 
 # Install any needed packages specified in Gemfile
 RUN bundle install
