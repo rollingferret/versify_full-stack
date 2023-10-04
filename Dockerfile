@@ -14,7 +14,7 @@ RUN gem update --system 3.0.6
 RUN gem install bundler -v '1.16.6' && gem install bundler -v '2.0.0'
 
 # Install any needed packages specified in Gemfile
-RUN bundle install
+RUN bundle _2.0.0_ install
 
 # Install Node.js and npm
 RUN apt-get update -qq && apt-get install -y nodejs npm
