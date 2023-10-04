@@ -30,22 +30,30 @@
 }
 
 .song-card {
-    height: 56px;
+    height: auto;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: .9rem;
     line-height: 23px;
     margin: 5px 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.song-card:hover {
+    background-color: rgba(255, 255, 255, .15);
 }
 
 .song-index-heading-tracknum, .song-card-tracknum {
-    width: 15px;
+    width: 25px;
 }
 
 .song-index-heading-title, .song-card-title-artist-block {
+    flex: 1 1 auto;
+    width: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 700px;
+    width: 500px;
 }
 
 .song-card-artist {
@@ -64,6 +72,11 @@
     cursor: pointer;
 }
 
+.song-index-heading-album, .song-card-album {
+    flex: 1 1 auto;
+    width: 400px;
+}
+
 .song-index-heading-liked, .song-card-liked {
     text-align: center;
     width: 15px;
@@ -74,7 +87,8 @@
     width: 30px;
 }   
 
-.song-card-menu-dots {
+.song-index-heading-menu, .song-card-menu-dots {
     width: 35px;
     text-align: center;
+    margin-right: 25px;
 }

@@ -17,7 +17,6 @@ export const showPlaylist = (playlistId) =>
 );}
 
 export const patchPlaylist = (playlist, playlistId) => {
-    console.log('PLAYLIST REQUEST', playlist)
     return (
         $.ajax({
         method: 'PATCH',

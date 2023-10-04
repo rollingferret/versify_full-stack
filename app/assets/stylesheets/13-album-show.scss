@@ -2,17 +2,19 @@
 .album-show {
     background: transparent;
     width: 100%;
-    height: calc(100vh - 85px);
-    overflow-y: scroll;
+    height: 100%;
+    overflow-y: auto;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 // AlbumHeader
 .album-header {
-    background: #01182be0;
+    background: #211a36ed;
     display: flex;
-    width: calc(100% - 30px - 30px);
-    height: calc(260px - 30px - 30px);
+    width: auto;
+    height: auto;
     padding: 30px 30px 30px 30px;
     font-family: Trebuchet MS;
     color: white;

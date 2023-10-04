@@ -3,8 +3,9 @@ import ArtistLinkContainer from "../artists/artist_link_container";
 
 const CollabSongCard = ({
     song,
-    currentArtist,
     history,
+    displayAlbum,
+    currentArtist,
 }) => {
 
     const { id,
@@ -21,12 +22,22 @@ const CollabSongCard = ({
 
     const songArtistName = <ArtistLinkContainer artist={songArtist} currentArtist={currentArtist} history={history}/>
 
+    const handleClick = (e) => {
+        e.preventDefault();
+        displayAlbum(albumId);
+        return history.push(`/album/${albumId}`)
+    }
+
     return (
         <div className="card album-card">
-            <div className="album-card-art">
+            <div className="album-card-art"
+                onClick={handleClick}
+            >
                 <img src={albumImageUrl} alt="" />
             </div>
-            <div className="card-title">
+            <div className="card-title"
+                onClick={handleClick}
+            >
                 {title}
             </div>
             <div className="card-subtitle">

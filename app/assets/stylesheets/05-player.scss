@@ -1,0 +1,87 @@
+.player-container {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.now-playing {
+    align-self: flex-start;
+    flex: 1 0 auto;
+    width: 150px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.now-playing-art {
+    flex: 0 0 auto;
+    width: 56px;
+    height: 56px;
+    margin-right: 10px;
+}
+
+.now-playing-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.now-playing-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 5px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 12px;
+}
+
+.now-playing-title {
+    flex: 0 1 auto;
+    width: 200px;
+}
+
+.now-playing-buttons{
+    flex: 0 1 auto;
+    width: 25px;
+}
+
+.playing-controls {
+    flex: 1 0 auto;
+    max-width: 250px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+
+.playing-controls svg {
+    font-size: 50px;
+}
+
+.playing-controls svg:hover {
+    cursor: pointer;
+    transition: 0.2s ease;
+    transform: scale(1.2) !important;
+}
+
+svg.player__white-icon > path {
+    color: white;
+}
+
+svg.player__grey-icon > path {
+    color: #b3b2b2;
+}
+
+.player-right {
+    flex: 1 0 auto;
+    width: 150px;
+
+}
+
+svg.repeat-shuffle-icon {
+    font-size: 20px;
+}

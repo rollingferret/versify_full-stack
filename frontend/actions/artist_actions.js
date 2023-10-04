@@ -17,11 +17,12 @@ const receiveAllArtists = (artists) => {
 const receiveCurrentArtist = (artistObj) => {
     // debugger
     return {
-        type: RECEIVE_CURRENT_ARTIST, // multiple data types because fetched with associations
-        artist: artistObj.artist,
-        albums: artistObj.albums,
-        songs: artistObj.collab_songs,
-    }
+		type: RECEIVE_CURRENT_ARTIST, // multiple data types because fetched with associations
+		artist: artistObj.artist,
+		albums: artistObj.albums,
+		collabSongs: artistObj.collab_songs,
+		allSongs: [...artistObj.tracks, ...artistObj.collab_songs],
+	};
 }
 
 

@@ -1,17 +1,11 @@
 import { connect } from "react-redux";
 
-import { fetchPlaylists,
-} from "../../actions/playlist_actions";
-import { fetchArtists,
-} from "../../actions/artist_actions";
-
 import Home from "./home";
 
 const mapStateToProps = (state, ownProps) => ({
     params: ownProps.params,
     history: ownProps.history,
-})
+});
 
-const mapDispatchToProps = (dispatch) => ({
-})
+const mapDispatchToProps = (dispatch) => ({});
 export default connect(mapStateToProps, null)(Home);

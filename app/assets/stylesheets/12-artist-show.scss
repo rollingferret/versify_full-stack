@@ -1,23 +1,28 @@
+.artist-show-background {
+    background-size: auto;
+    height: inherit;
+}
+
 .artist-show {
     position: relative;
     z-index: 1;
     background: #0000008a;
     width: 100%;
-    height: calc(100vh - 76px);
+    height: inherit;
     overflow-x: hidden;
-    overflow-y: scroll;
-    padding: none;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .artist-header {
+    flex: 0 0 auto;
     background: transparent;
-    display: flex;
-    width: calc(100% - 30px - 30px);
-    height: calc(260px - 30px - 30px);
-    padding: 30px 30px 30px 30px;
+    width: 100%;
+    padding: 30px;
+    padding-top: 100px;
     font-family: Trebuchet MS;
     color: white;
-    align-items: center;
 }
 
 .artist-header-text {
@@ -41,24 +46,51 @@
     max-height: 105pt;
 }
 
+// ArtistPageMenuBar
 .artist-nav {
+    flex: 0 0 auto;
     display: flex;
     background: #1a1816e6;
-    width: calc(100% - 30px);
     height: 118px;
     align-items: center;
     padding: 0px 0px 0px 30px;
     gap: 25px;
 }
 
+.artist-dropdown {
+    left: 169px;
+    top: 386px;
+    align-items: flex-start;
+    min-width: 140px;
+}
+
+#artist-play-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#artist-play-button svg {
+    font-size: 60px;
+    color: #34d760;
+}
+
+#artist-play-button svg:hover {
+    cursor: pointer;
+    transition: 0.2s ease;
+    transform: scale(1.1) !important;
+}
+
+
+// AlbumIndex
 .album-index {
+    flex: 1 0 auto;
     background: black;
     padding: 15px;
 }
 
 .album-index-grid {
     display: grid;
-    background: #121212e0;
     width: 100%;
     height: calc(100% - 118px - 260px);
     color: white;
@@ -81,6 +113,15 @@
     font-size: 1.5rem;
     font-weight: 900;
     margin-bottom: 15px;
+}
+
+a.artist-link{
+    color: white;
+}
+
+a.artist-link a:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .card-subtitle a:hover {

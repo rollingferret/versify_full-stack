@@ -2,7 +2,7 @@ import { RECEIVE_ALL_PLAYLISTS,
 } from "../actions/playlist_actions";
 
 
-const playlistIndexReducer = (playlistsState = {}, action) => {
+const playlistIndexReducer = (playlistsState = [], action) => {
     Object.freeze(playlistsState); // playlistsState is an array
     switch (action.type) {
         case RECEIVE_ALL_PLAYLISTS:
