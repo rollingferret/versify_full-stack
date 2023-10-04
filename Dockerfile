@@ -11,7 +11,10 @@ COPY . /app
 RUN gem update --system 3.0.6
 
 # Install Bundler version 2
-RUN gem install bundler:2 && bundle _2.0.0_ install
+RUN gem install bundler:2
+
+# Unset BUNDLER_VERSION environment variable
+RUN unset BUNDLER_VERSION
 
 # Install any needed packages specified in Gemfile
 RUN bundle install
