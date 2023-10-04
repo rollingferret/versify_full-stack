@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # Update RubyGems
-RUN gem update --system
+RUN gem update --system 3.0.6
 
 # Install Bundler version 2
 RUN gem install bundler:2
